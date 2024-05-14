@@ -7,25 +7,38 @@
 
     <link rel="stylesheet" href="../style/log_in_style.css">
     <script src="../js/script.js" ></script>
+    <script src="../js/log_in_animation.js" ></script>
     <script src="../js/Templates.js" ></script>
 </head>
 <body onload="iconAnimation()">
     <img class="icon" src="../assets/img/join-icon-blue.png">
+
     <div class="log-in">
         <div class="headline">
             <h1>Log in</h1>
             <div class="line"></div>
         </div>
-        <input type="text" class="mail-icon" placeholder="Email" required>
-        <input type="text" placeholder="Password" required>
-        <div>
-            <button></button>
-            <span>Rememberr me</span>
+
+        <div class="log-in-section">
+            <div class="log-in-inputfield">
+                <input type="text" placeholder="Email" required>
+                <img class="mail-icon" src="../assets/img/mail.png">
+            </div>
+            <div class="log-in-inputfield">
+                <input type="text" placeholder="Password" required>
+                <img class="lock-icon" src="../assets/img/lock.png">
+            </div>
+            <div>
+                <button class="check-button"></button>
+                <span>Remember me</span>
+            </div>
         </div>
-        <div>
-            <button class="log-in-button">Log in</button>
+
+        <div class="log-in-button-section">
+            <button class="log-in-user-button">Log in</button>
             <button class="log-in-guest-button" >Guest Log in</button>
         </div>
+
     </div>
 </body>
 </html>

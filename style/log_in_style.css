@@ -38,6 +38,7 @@ body {
     flex-direction: column;
     width: 315px;
     height: 89px;
+    margin-bottom: 40px;
 }
 
 h1 {
@@ -53,21 +54,41 @@ h1 {
     background-color: #29abe2;
 }
 
-input {
+.log-in-inputfield {
     margin-bottom: 20px;
     width: 422px;
     height: 48px;
     border-radius: 10px;
     border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.mail-icon{
+    height: 24px;
+    width: 24px;
+    padding: 12px;
+}
+
+.lock-icon{
+    height: 24px;
+    width: 24px;
+    padding: 12px;
+}
+
+input {
+    width: 100%;
+    border: none;
+    outline: none;
 }
 
 input[type=text] {
     padding: 12px 20px;
-    margin: 8px 0;
     box-sizing: border-box;
 }
 
-.log-in-button{
+.log-in-user-button{
     background-color: #2A3647;
     color: white;
 }
@@ -75,4 +96,27 @@ input[type=text] {
 .log-in-guest-button{
     background-color: #FFFFFF;
     color: #000000;
+}
+
+.log-in-input-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+
+
+.check-button{
+    height: 24px;
+    width: 24px;
+}
+
+span{
+    text-align: center;
+}
+
+button {
+    height: 48px;
 }
