@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Raleway-Regular';
+    src: url('../fonts/Raleway/Raleway-Black.ttf') 
+}
+
+body {
+    margin: 0px;
+    background-color: #F6F7F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.icon{
+    position: absolute;
+    left: 77px;
+    top: 80px;
+    width: 100px;
+    height: 121px;
+}
+
+.log-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    width: 652px;
+    height: 493px;
+    border-radius: 30px;
+}
+
+.headline{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 315px;
+    height: 89px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 61px;
+    margin: 0px;
+    padding-bottom: 10px;
+}
+
+.line {
+    height: 2px;
+    width: 150px;
+    background-color: #29abe2;
+}
+
+input {
+    margin-bottom: 20px;
+    width: 422px;
+    height: 48px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.log-in-button{
+    background-color: #2A3647;
+    color: white;
+}
+
+.log-in-guest-button{
+    background-color: #FFFFFF;
+    color: #000000;
+}
