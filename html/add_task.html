@@ -9,10 +9,11 @@
     <script src="../js/script.js" ></script>
     <script src="../js/Templates.js" ></script>
 </head>
-<body>
-    <img class="icon" src="../assets/img/join-icon-white.png">
+<body onload="includeHTML()">
+    <!-- <img class="icon" src="../assets/img/join-icon-white.png"> -->
     <sidepanel class="sidepanel"></sidepanel>
-    <header></header>
+    <header w3-include-html="header.html"></header>
     <page></page>
+    <footer w3-include-html="footer.html"></footer>
 </body>
 </html>
