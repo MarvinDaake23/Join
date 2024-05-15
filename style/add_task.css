@@ -1,0 +1,117 @@
+.input{
+background-color: #F6F7F8;
+}
+
+.headlineContianer{
+    position: absolute;
+    height:112px;
+    top:80px;
+    /* position: relative; */
+}
+
+.headlineInnerContainer{
+    position: relative;
+    width:214px;
+    height:56px;
+    top:48px;
+    left:16px;
+    gap:20px;
+}
+
+.headlineInputContainer{
+    width:214px;
+    height:56px;
+    gap:1px;
+}
+.headline{
+    width: 214px;
+    height:56px;
+    font-weight: 700;
+    font-size: 47px;
+}
+
+.addTaskForm{
+    position: absolute;
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    height:930px;
+    top:224px;
+    left:16px;
+    gap:16px;
+}
+
+.taskTitleContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:83px;
+    gap:8px;
+}
+
+.taskTitleContainer span{
+    font-weight: 400;
+    font-size:16px;
+    line-height: 19.2px;
+}
+
+.taskTitleInputContainer{
+    width:90%;
+    height:56px;
+    gap:4px;
+}
+
+.taskTitleInputContainer input{
+    width:100%;
+    border-radius:10px;
+    padding: 10px 21px 10px 21px;
+    gap:10px;
+    border:1px solid #D1D1D1;
+
+}
+
+.taskTitleInputContainer input ::placeholder{
+    color:#D1D1D1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}
+
+.red{
+    color:#FF8190;
+    font-weight: bold;
+}
+
+.taskDescriptionContainer{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+    width:100%;
+}
+
+.taskDescriptionContainer{
+    height:104px;
+    width:90%;
+    gap:4px;
+}
+
+.taskDescriptionContainer span{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+}
+
+.taskDescriptionInputContainer input{
+    height:88px;
+    border-radius: 10px;
+    width:100%;
+    border:1px solid #D1D1D1;
+    padding: 18px 21px 18px 21px;
+}
+
+.taskDescriptionInputContainer input ::placeholder{
+    color:#D1D1D1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}

@@ -39,6 +39,7 @@ header{
     width: 232px;
 }
 
+
 .footerInput{
     display: flex;
     position: fixed;
@@ -52,9 +53,7 @@ header{
     /* padding: 0px 16px 0px 16px; */
 }
 
-footer{
-    bottom:0;
-}
+
 
 .menuOption{
     display: flex;

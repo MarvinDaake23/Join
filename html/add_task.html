@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
 
+    <link rel="stylesheet" href="../style/add_task.css">
     <link rel="stylesheet" href="../style/style.css">
     <script src="../js/script.js" ></script>
     <script src="../js/Templates.js" ></script>
@@ -13,7 +14,79 @@
     <!-- <img class="icon" src="../assets/img/join-icon-white.png"> -->
     <sidepanel class="sidepanel"></sidepanel>
     <header w3-include-html="header.html"></header>
-    <page></page>
+    <page class="input">
+
+        <div class="headlineContianer">
+            <div class="headlineInnerContainer">
+                <div class="headlineInputContainer">
+                    <div class="headline">
+                        Add Task
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="addTaskForm" action="">
+            <div class="taskTitleContainer">
+                <span>Title <span class="red">*</span></span>
+                <div class="taskTitleInputContainer">
+                    <input type="text" placeholder="Enter at title">
+                </div>
+            </div>
+
+            <div class="taskDescriptionContainer">
+                <span>Description</span>
+                <div class="taskDescriptionInputContainer">
+                    <input type="text" placeholder="Enter a Description">
+                </div>
+            </div>
+
+            <div>
+                <label for="person">Assigned to</label>
+                <select id="person" name="person">
+                    <option value="" disabled selected hidden>Select contacts to assign</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div>
+                <span>Due date</span>
+                <input type="datetime">
+            </div>
+
+            <div>
+                <span>Prio</span>
+                <div>
+                    <div>
+                        <span>Urgent</span>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <span>Medium</span>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <span>Low</span>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span>This field is required</span>
+                <button>Create Task</button>
+            </div>
+
+        </form>
+    </page>
     <footer w3-include-html="footer.html"></footer>
 </body>
 </html>
