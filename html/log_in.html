@@ -13,6 +13,11 @@
 <body onload="iconAnimation()">
     <img class="icon" src="../assets/img/join-icon-blue.png">
 
+    <div class="sign-up-section">
+        <span class="no-user">Not a Join user?</span>
+        <button class="sign-in-button hover">Sign up</button>
+    </div>
+
     <div class="log-in">
         <div class="headline">
             <h1>Log in</h1>
@@ -20,25 +25,34 @@
         </div>
 
         <div class="log-in-section">
-            <div class="log-in-inputfield">
+            <div class="inputfield">
                 <input type="text" placeholder="Email" required>
-                <img class="mail-icon" src="../assets/img/mail.png">
+                <div class="input-icons">
+                    <img class="mail-icon hover" src="../assets/img/mail.png">
+                </div>
             </div>
-            <div class="log-in-inputfield">
+            <div class="inputfield">
                 <input type="text" placeholder="Password" required>
-                <img class="lock-icon" src="../assets/img/lock.png">
+                <div class="input-icons">
+                    <img class="lock-icon hover" src="../assets/img/lock.png">
+                </div>
             </div>
-            <div>
-                <button class="check-button"></button>
+            <div class="remember-section">
+                <button class="check-button hover"></button>
                 <span>Remember me</span>
             </div>
         </div>
 
         <div class="log-in-button-section">
-            <button class="log-in-user-button">Log in</button>
-            <button class="log-in-guest-button" >Guest Log in</button>
+            <button class="log-in-user-button hover">Log in</button>
+            <button class="log-in-guest-button hover" >Guest Log in</button>
         </div>
-
     </div>
+
+    <div class="information-section">
+        <span class="hover">Privacy Policy</span>
+        <span class="hover">Legal notice</span>
+    </div>
+
 </body>
 </html>
