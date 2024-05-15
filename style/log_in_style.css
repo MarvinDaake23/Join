@@ -171,7 +171,7 @@ button {
     height: 48px;
 }
 
-.information-section {
+.informationSection {
     display: flex;
     justify-content: space-between;
     position: absolute;
