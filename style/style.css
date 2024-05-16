@@ -66,11 +66,6 @@ header{
     border-radius: 16px;
 }
 
-.addTask{
-    height:80px;
-    width:76px;
-}
-
 .addTaskImg{
     background-image: url(../assets/img/img/addTask.png);
 }
@@ -97,35 +92,19 @@ header{
     background-image: url(../assets/img/img/summaryHighlight.png);
 }
 
-.summary:hover{
-    border-radius: 16px;
-    background-color: #091931;
-}
-
 .board:hover .boardImg{
     background-image: url(../assets/img/img/boardHighlight.png);
-}
-
-.board:hover{
-    border-radius: 16px;
-    background-color: #091931;
 }
 
 .addTask:hover .addTaskImg{
     background-image: url(../assets/img/img/addTaskHighlight.png);
 }
 
-.addTask:hover{
-    border-radius: 16px;
-    background-color: #091931;
-}
-
 .contacts:hover .contactsImg{
     background-image: url(../assets/img/img/contactHighlight.png);
 }
 
-.contacts:hover{
+.menuOption:hover{
     border-radius: 16px;
     background-color: #091931;
 }
-
