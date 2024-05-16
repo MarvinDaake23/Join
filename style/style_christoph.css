@@ -1,0 +1,41 @@
+/* CHRISTOPH */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: "Inter";
+  font-size: 18px;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 80px;
+  padding: 20px 16px 20px 16px;
+  background-color: white;
+  height: 80px;
+  box-shadow: 0px 4px 4px 0px #0000001a;
+}
+
+header img {
+  max-height: 40px;
+}
+
+.singleContactContainer {
+  background-color: #f6f7f8;
+}
+
+.emailAdress {
+  color: #007cee;
+  font-weight: 400;
+  font-size: 16px;
+}
