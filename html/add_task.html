@@ -41,38 +41,41 @@
                 </div>
             </div>
 
-            <div>
+            <div class="assignedTo">
                 <label for="person">Assigned to</label>
-                <select id="person" name="person">
-                    <option value="" disabled selected hidden>Select contacts to assign</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                <select class="assignedToInput" id="person" name="person">
+                    <option class="placeholderClone" value="" disabled selected hidden>Select contacts to assign</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             </div>
 
-            <div>
+            <div class="dateCotainer">
                 <span>Due date</span>
-                <input type="datetime">
+                <input type="datetime" placeholder="dd/mm/yyyy">
             </div>
 
-            <div>
+            <div class="prioContainer">
                 <span>Prio</span>
-                <div>
-                    <div>
+                <div class="prioChoose">
+                    <div class="prioHigh">
                         <span>Urgent</span>
+                        <img  src="../assets/img/img/prioHigh.png" alt="">
                         <div>
 
                         </div>
                     </div>
-                    <div>
+                    <div class="prioHigh">
                         <span>Medium</span>
+                        <img  src="../assets/img/img/prioMedium.png" alt="">
                         <div>
 
                         </div>
                     </div>
-                    <div>
+                    <div class="prioHigh">
                         <span>Low</span>
+                        <img  src="../assets/img/img/prioLow.png" alt="">
                         <div>
 
                         </div>

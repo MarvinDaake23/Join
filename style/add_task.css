@@ -55,17 +55,11 @@ background-color: #F6F7F8;
     line-height: 19.2px;
 }
 
-.taskTitleInputContainer{
-    width:90%;
-    height:56px;
-    gap:4px;
-}
-
 .taskTitleInputContainer input{
     width:100%;
     border-radius:10px;
-    padding: 10px 21px 10px 21px;
-    gap:10px;
+    height:40px;
+    padding: 0;
     border:1px solid #D1D1D1;
 
 }
@@ -74,7 +68,6 @@ background-color: #F6F7F8;
     color:#D1D1D1;
     font-size: 16px;
     font-weight: 400;
-    line-height: 19.2px;
 }
 
 .red{
@@ -89,11 +82,6 @@ background-color: #F6F7F8;
     width:100%;
 }
 
-.taskDescriptionContainer{
-    height:104px;
-    width:90%;
-    gap:4px;
-}
 
 .taskDescriptionContainer span{
     font-weight: 400;
@@ -105,13 +93,82 @@ background-color: #F6F7F8;
     height:88px;
     border-radius: 10px;
     width:100%;
+    padding: 0;
     border:1px solid #D1D1D1;
-    padding: 18px 21px 18px 21px;
 }
 
 .taskDescriptionInputContainer input ::placeholder{
     color:#D1D1D1;
-    font-size: 16px;
+    font-size: 32px;
     font-weight: 400;
-    line-height: 19.2px;
+    display: flex;
+}
+
+.assignedTo{
+    gap:8px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.assignedToInput{
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    justify-content: space-between;
+    width:100%;
+    height:48px;
+    padding: 0;
+}
+
+select{
+    -webkit-appearance: none;
+}
+
+.placeholderClone{
+    background-image: url('../assets/img/img/arrow_drop_down.png');
+    background-size: cover;
+    background-position: right;
+}
+
+.assignedToInput option{
+    color: #D1D1D1;
+}
+
+.dateCotainer{
+    height:83px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dateCotainer input{
+    height:40px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    justify-content: space-between;
+}
+
+.prioContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.prioChoose{
+    display: flex;
+    gap:16px;
+}
+
+.prioHigh{
+    gap:8px;
+    border-radius: 10px;
+    height:40px;
+    width:120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.prioHigh img{
+    height:12px;
+    width:20px;
 }
