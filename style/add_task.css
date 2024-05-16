@@ -6,7 +6,6 @@ background-color: #F6F7F8;
     position: absolute;
     height:112px;
     top:80px;
-    /* position: relative; */
 }
 
 .headlineInnerContainer{
@@ -35,9 +34,9 @@ background-color: #F6F7F8;
     width:90%;
     display: flex;
     flex-direction: column;
-    height:930px;
     top:224px;
     left:16px;
+    height:760px;
     gap:16px;
 }
 
@@ -64,10 +63,11 @@ background-color: #F6F7F8;
 
 }
 
-.taskTitleInputContainer input ::placeholder{
+.taskTitleInputContainer input::placeholder{
     color:#D1D1D1;
     font-size: 16px;
     font-weight: 400;
+    padding-left: 16px;
 }
 
 .red{
@@ -97,11 +97,17 @@ background-color: #F6F7F8;
     border:1px solid #D1D1D1;
 }
 
-.taskDescriptionInputContainer input ::placeholder{
+.taskDescriptionInputContainer input::placeholder{
+    position: absolute;
     color:#D1D1D1;
-    font-size: 32px;
+    font-size: 16px;
     font-weight: 400;
     display: flex;
+    padding-left: 16px;
+    top:8px;
+    text-align: left;
+    vertical-align: top;
+    padding-top: 8px;
 }
 
 .assignedTo{
@@ -121,13 +127,16 @@ background-color: #F6F7F8;
 }
 
 select{
-    -webkit-appearance: none;
+    -webkit-appearance:none;
 }
 
 .placeholderClone{
+    position: absolute;
     background-image: url('../assets/img/img/arrow_drop_down.png');
     background-size: cover;
     background-position: right;
+    margin-left: 16px;
+    padding-left: 16px;
 }
 
 .assignedToInput option{
@@ -145,6 +154,13 @@ select{
     border-radius: 10px;
     border: 1px solid #D1D1D1;
     justify-content: space-between;
+}
+
+.dateCotainer input::placeholder{
+    color:#D1D1D1;
+    font-size: 16px;
+    font-weight: 400;
+    padding-left: 16px;
 }
 
 .prioContainer{
@@ -171,4 +187,19 @@ select{
 .prioHigh img{
     height:12px;
     width:20px;
+}
+
+.checkoutContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    align-items: center;
+}
+
+.addTaskButton{
+    background-color: #2A3647;
+    padding: 12px 32px;
+    color:white;
+    border-radius: 10px;
+    font-weight: 700;
 }
