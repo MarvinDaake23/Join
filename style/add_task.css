@@ -130,14 +130,45 @@ select{
     -webkit-appearance:none;
 }
 
-.placeholderClone{
+/* .placeholderClone{
     position: absolute;
     background-image: url('../assets/img/img/arrow_drop_down.png');
     background-size: cover;
     background-position: right;
     margin-left: 16px;
     padding-left: 16px;
+} */
+
+.custom-select{
+    background-color: white;
+    height:40px;
+    width:100%;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    display: flex;
+    justify-content: center;
 }
+
+li{
+    color:#D1D1D1;
+    margin-left: 16px;
+}
+
+.placeholderClone{
+    color:#D1D1D1;
+    margin-left: 16px;
+}
+
+.options{
+    display: none;
+}
+
+
+
+
+
+
+
 
 .assignedToInput option{
     color: #D1D1D1;
@@ -202,4 +233,5 @@ select{
     color:white;
     border-radius: 10px;
     font-weight: 700;
+    font-size: 21px;
 }
