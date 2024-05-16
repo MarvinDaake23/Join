@@ -32,19 +32,26 @@ header img {
 
 .singleContactContainer {
   background-color: #f6f7f8;
+  height: 80vh;
   padding: 48px 16px 0px 16px;
 }
 
 .singleContactContainer h2 {
   font-size: 47px;
   font-weight: 700;
-  margin: 0px;
+  margin: 0px 0px 8px 0px;
 }
 
 .singleContactContainer h3 {
   font-size: 20px;
   font-weight: 400;
-  margin: 0px;
+  margin: 0px 0px 8px 0px;
+}
+
+.singleContactContainer h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px 0px 8px 0px;
 }
 
 .contactsHeadline {
@@ -68,11 +75,24 @@ header img {
 .singleContact {
   display: flex;
   align-items: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  gap: 8px;
+}
+
+.singleContact img {
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  border: 3px solid #ffffff;
 }
 
 .singleContact span {
   font-size: 36px;
   font-weight: 700;
+}
+
+.contactInfos span {
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .emailAdress {
@@ -81,13 +101,23 @@ header img {
   font-size: 16px;
 }
 
+.moreButton {
+  position: fixed;
+  bottom: 100px;
+  right: 16px;
+}
+
+.infoItem {
+  margin-top: 21px;
+}
+
 footer {
   position: fixed;
   bottom: 0px;
   height: 80px;
   background-color: #2a3647;
   display: flex;
-  /*width: 100%;*/
+  width: 100%;
   padding: 0px 16px;
   justify-content: space-between;
   align-items: center;
