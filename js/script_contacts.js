@@ -41,6 +41,12 @@ let contacts = [
     email: "wolf@gmail.com",
     phoneNumber: "+49 2 2 2222 222 2",
   },
+  {
+    firstName: "Marcel",
+    lastName: "Bauer",
+    email: "bauer@gmail.com",
+    phoneNumber: "+49 2 2 2222 222 2",
+  },
 ];
 
 /* Background-Colors for profiles */
@@ -55,11 +61,18 @@ function renderContacts() {
 
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
-    container.innerHTML += `<div class="contactEntry">${element.firstName} ${element.lastName}</div>
-    <div class="initials">${element.firstName[0]}${element.lastName[0]}</div>
-    <div>${element.email}</div>
+    container.innerHTML += `
+    <div class="contactEntry">
+        <div class="innerContactEntry">
+            <div class="initials initSmall">
+                ${element.firstName[0]}${element.lastName[0]}
+            </div>
+            <div class="nameAndAdress">
+                <span>${element.firstName} ${element.lastName}</span>
+                <a href="mailto:${element.email}" class="emailAdress">${element.email}</a>
+            </div>
+        </div>
+    </div>
     `;
   }
 }
-
-
