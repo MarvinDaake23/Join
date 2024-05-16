@@ -1,9 +1,16 @@
 rememberBulian = true;
 
-
-function iconAnimation(){
-    
+function iconWhiteToBlue() {
+    let icon = document.getElementById('icon');
+    if(window.innerWidth < 750){
+        icon.src = '../assets/img/join-icon-white.png';
+        setTimeout(changeIcon, 800) 
+    }
 }
+
+function changeIcon() {
+    icon.src = '../assets/img/join-icon-blue.png';
+} 
 
 function signUp() {
     let logIn = document.getElementById('logIn');
@@ -56,7 +63,6 @@ function signUp() {
         <span class="hover">Legal notice</span>
     </div>
     `; 
-    document.getElementById('')
     document.getElementById('headline').style.marginTop = '0px';
 }
 
