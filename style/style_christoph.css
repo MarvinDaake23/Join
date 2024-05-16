@@ -114,6 +114,12 @@ header img {
   color: #007cee;
   font-weight: 400;
   font-size: 16px;
+  text-decoration: none;
+}
+
+.phoneNumber {
+  text-decoration: none;
+  color: black;
 }
 
 .moreButton {
@@ -124,6 +130,7 @@ header img {
 
 .infoItem {
   margin-top: 21px;
+  font-size: 16px;
 }
 
 footer {
