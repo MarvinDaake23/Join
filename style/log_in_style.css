@@ -20,6 +20,7 @@ body {
     height: 100%;
     animation: moveWhiteB 3s forwards;
     animation-delay: 0.5s;
+    z-index: 1;
 }
 
 @keyframes moveWhiteB {

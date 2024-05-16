@@ -4,13 +4,17 @@ function iconWhiteToBlue() {
     let icon = document.getElementById('icon');
     if(window.innerWidth < 750){
         icon.src = '../assets/img/join-icon-white.png';
-        setTimeout(changeIcon, 800) 
+        setTimeout(changeIcon, 700)
     }
+    setTimeout(zIndexChange, 1000)
 }
 
 function changeIcon() {
     icon.src = '../assets/img/join-icon-blue.png';
 } 
+function zIndexChange() {
+    document.getElementById('whiteB').style.zIndex ="-1";
+}
 
 function signUp() {
     let logIn = document.getElementById('logIn');
