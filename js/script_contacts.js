@@ -87,6 +87,8 @@ colors = ["#FF7A00", "#FFC700", "#9327FF", "#6E52FF", "#FC71FF", "#1FD7C1"];
  * function to render the contacts
  */
 function renderContacts() {
+  sortContacts();
+
   let container = document.getElementById("contactContainer");
   container.innerHTML = "";
 
@@ -95,7 +97,7 @@ function renderContacts() {
     container.innerHTML += `
     <div class="contactEntry" onclick="singleContactView(${index})">
         <div class="innerContactEntry">
-            <div class="initials initSmall">
+            <div class="initials initSmall" style="background-color:${element.profileColor}">
                 ${element.firstName[0]}${element.lastName[0]}
             </div>
             <div class="nameAndAdress">
@@ -106,6 +108,15 @@ function renderContacts() {
     </div>
     `;
   }
+}
+
+/* https://dev.to/slimpython/sort-array-of-json-object-by-key-value-easily-with-javascript-3hke */
+function sortContacts() {
+  contacts = contacts.sort((a, b) => {
+    if (a.firstName < b.firstName) {
+      return -1;
+    }
+  });
 }
 
 async function singleContactView(id) {
