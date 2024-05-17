@@ -1,66 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacts</title>
-
-    <link rel="stylesheet" href="../style/style_christoph.css" />
-
-    <script src="../js/script.js"></script>
-    <script src="../js/script_contacts.js"></script>
-    <script src="../js/Templates.js"></script>
-    
-    <link rel="icon" type="image/png" href="favicon.png" />
-    
-  </head>
-  <body>
-    <header>
-      <img src="../assets/img/contacts/header_logo.png" />
-      <img src="../assets/img/contacts/login_logo.png" />
-    </header>
-
-    <div class="singleContactContainer">
-      <div class="contactsHeadlineBox">
-        <div class="contactsHeadline">
-          <h2>Contacts</h2>
-          <a href=""
-            ><img src="../assets/img/contacts/arrow-left-line.png"
-          /></a>
-        </div>
-        <h3>Better with a team</h3>
-        <hr />
-      </div>
-
-      <div class="singleContact">
-        <span id="contactInitials" class="initials">AM</span>
-        <span id="contactName">Anton Mayer</span>
-      </div>
-
-      <div class="contactInfos">
-        <h3>Contact information</h3>
-        <div class="infoItem">
-          <h4>Email</h4>
-          <a class="emailAdress" href="mailto:antom@gmail.com"
-            >antom@gmail.com</a
-          >
-        </div>
-        <div class="infoItem">
-          <h4>Phone</h4>
-          <a class="phoneNumber" href="tel:+49 1111 111 11">+49 1111 111 11</a>
-        </div>
-      </div>
-
-      <a href="" class="moreButton"
-        ><img src="../assets/img/contacts/more1.png"
-      /></a>
+<div class="singleContactContainer">
+  <div class="contactsHeadlineBox">
+    <div class="contactsHeadline">
+      <h2>Contacts</h2>
+      <img onclick="backToContactList()" src="../assets/img/contacts/arrow-left-line.png" />
     </div>
+    <h3>Better with a team</h3>
+    <hr />
+  </div>
 
-    <footer>
-      <img src="../assets/img/contacts/footer/summary.png" />
-      <img src="../assets/img/contacts/footer/Boardicon.png" />
-      <img src="../assets/img/contacts/footer/addtask.png" />
-      <img src="../assets/img/contacts/footer/contacts.png" />
-    </footer>
-  </body>
-</html>
+  <div class="singleContact">
+    <span id="contactInitials" class="initials">AM</span>
+    <span id="contactName">Anton Mayer</span>
+  </div>
+
+  <div class="contactInfos">
+    <h3>Contact information</h3>
+    <div class="infoItem">
+      <h4>Email</h4>
+      <a id="contactEmail" class="emailAdress" href="mailto:antom@gmail.com">antom@gmail.com</a>
+    </div>
+    <div class="infoItem">
+      <h4>Phone</h4>
+      <a id="contactPhoneNumber" class="phoneNumber" href="tel:+49 1111 111 11">+49 1111 111 11</a>
+    </div>
+  </div>
+
+  <a href="" class="moreButton"
+    ><img src="../assets/img/contacts/more1.png"
+  /></a>
+</div>

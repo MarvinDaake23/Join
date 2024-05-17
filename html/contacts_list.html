@@ -14,19 +14,21 @@
     <link rel="icon" type="image/png" href="favicon.png" />
   </head>
 
-  <div w3-include-html="./contacts_single.html"></div>
-
   <body onload="renderContacts()">
     <header>
       <img src="../assets/img/contacts/header_logo.png" />
       <img src="../assets/img/contacts/login_logo.png" />
     </header>
 
-    <div id="contactContainer"></div>
+    <div id="contactSingleView" w3-include-html="./contacts_single.html"></div>
 
-    <a href="" class="moreButton"
-      ><img src="../assets/img/contacts/addcontact1.png"
-    /></a>
+    <div id="contactContainerOuter">
+      <div id="contactContainer"></div>
+
+      <a href="" class="moreButton"
+        ><img src="../assets/img/contacts/addcontact1.png"
+      /></a>
+    </div>
 
     <footer>
       <img src="../assets/img/contacts/footer/summary.png" />

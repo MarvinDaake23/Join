@@ -92,11 +92,30 @@ function renderContacts() {
 }
 
 async function singleContactView(id) {
+  document.getElementById("contactContainerOuter").style.display = "none";
   await includeHTML();
   renderSingleContact(id);
 }
 
-
 function renderSingleContact(id) {
-  document.getElementById('contactName').innerHTML = `${contacts[id].firstName} ${contacts[id].lastName}`;
+  document.getElementById(
+    "contactName"
+  ).innerHTML = `${contacts[id].firstName} ${contacts[id].lastName}`;
+
+  document.getElementById(
+    "contactInitials"
+  ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]}`;
+
+  document.getElementById("contactEmail").innerHTML = contacts[id].email;
+  document.getElementById("contactEmail").href = `mailto:${contacts[id].email}`;
+  document.getElementById("contactPhoneNumber").innerHTML =
+    contacts[id].phoneNumber;
+  document.getElementById(
+    "contactPhoneNumber"
+  ).href = `tel:${contacts[id].phoneNumber}`;
+}
+
+function backToContactList() {
+  document.getElementById("contactContainerOuter").style.display = "";
+  document.getElementById("contactSingleView").innerHTML = "";
 }
