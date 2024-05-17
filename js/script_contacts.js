@@ -1,3 +1,18 @@
+const BASE_URL =
+  "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
+
+let contacts = [];
+
+async function onLoadFunc() {
+  contacts = await loadData("contacts");
+  renderContacts();
+}
+
+async function loadData(path = "") {
+  let response = await fetch(BASE_URL + path + ".json");
+  return (responseToJson = await response.json());
+}
+
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
@@ -12,7 +27,8 @@ async function includeHTML() {
   }
 }
 
-let contacts = [
+/*
+let contacts2 = [
   {
     firstName: "Anton",
     lastName: "Mayer",
@@ -62,6 +78,7 @@ let contacts = [
     phoneNumber: "+49 2 2 2222 222 2",
   },
 ];
+*/
 
 /* Background-Colors for profiles */
 colors = ["#FF7A00", "#FFC700", "#9327FF", "#6E52FF", "#FC71FF", "#1FD7C1"];
