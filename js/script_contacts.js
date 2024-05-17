@@ -1,3 +1,17 @@
+async function includeHTML() {
+  let includeElements = document.querySelectorAll("[w3-include-html]");
+  for (let i = 0; i < includeElements.length; i++) {
+    const element = includeElements[i];
+    file = element.getAttribute("w3-include-html"); // "includes/header.html"
+    let resp = await fetch(file);
+    if (resp.ok) {
+      element.innerHTML = await resp.text();
+    } else {
+      element.innerHTML = "Page not found";
+    }
+  }
+}
+
 let contacts = [
   {
     firstName: "Anton",
@@ -62,7 +76,7 @@ function renderContacts() {
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
     container.innerHTML += `
-    <div class="contactEntry">
+    <div class="contactEntry" onclick="singleContactView(${index})">
         <div class="innerContactEntry">
             <div class="initials initSmall">
                 ${element.firstName[0]}${element.lastName[0]}
@@ -75,4 +89,14 @@ function renderContacts() {
     </div>
     `;
   }
+}
+
+async function singleContactView(id) {
+  await includeHTML();
+  renderSingleContact(id);
+}
+
+
+function renderSingleContact(id) {
+  document.getElementById('contactName').innerHTML = `${contacts[id].firstName} ${contacts[id].lastName}`;
 }

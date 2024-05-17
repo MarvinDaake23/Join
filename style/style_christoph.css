@@ -146,14 +146,12 @@ footer {
   align-items: center;
 }
 
-
 .innerContactEntry {
   display: flex;
   gap: 35px;
   padding: 8px 20px;
   align-items: center;
   font-size: 20px;
-
 }
 
 .nameAndAdress {
@@ -166,4 +164,13 @@ footer {
   width: 42px;
   height: 42px;
   font-size: 12px !important;
+}
+
+#contactContainer {
+  padding: 10px 40px;
+}
+
+.contactEntry {
+  margin-bottom: 16px;
+  cursor: pointer;
 }
