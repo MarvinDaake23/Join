@@ -174,3 +174,50 @@ footer {
   margin-bottom: 16px;
   cursor: pointer;
 }
+
+.lowerHalf {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+  gap: 15px;
+}
+
+.newContactPic {
+  background-color: #d1d1d1;
+  border-radius: 50px;
+  position: relative;
+  top: -30px;
+  left: 40%;
+}
+
+.upperHalf {
+  background-color: #2a3647;
+  padding: 66px 24px;
+  color: white;
+  border-radius: 20px 20px 0px 0px;
+  height: 150px;
+}
+
+.nameInput {
+  background: url("../assets/img/contacts/person_small.png") no-repeat right;
+  padding-right: 25px;
+  background-size: 20px;
+}
+
+.mailInput {
+  background: url("../assets/img/contacts/mail.png") no-repeat right;
+  padding-right: 25px;
+  background-size: 20px;
+}
+
+.phoneInput {
+  background: url("../assets/img/contacts/call.png") no-repeat right;
+  padding-right: 25px;
+  background-size: 20px;
+}
+
+.lowerHalf input {
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  padding: 5px 13px;
+}

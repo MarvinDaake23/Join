@@ -14,18 +14,28 @@
     <link rel="icon" type="image/png" href="favicon.png" />
   </head>
 
-  <body onload="renderContacts()">
+  <body>
     <header>
       <img src="../assets/img/contacts/header_logo.png" />
       <img src="../assets/img/contacts/login_logo.png" />
     </header>
 
-    <div id="contactSingleView" w3-include-html="./contacts_single.html"></div>
+    <div class="upperHalf">
+      <span>&times;</span>
+      <h1>Add contact</h1>
+      <h3>Tasks are better with a team!</h3>
+    </div>
 
-    <div id="contactContainerOuter">
-      <div id="contactContainer"></div>
+    <img class="newContactPic" src="../assets/img/contacts/person.png" />
 
-      <img onclick="addContact()" class="moreButton" src="../assets/img/contacts/addcontact1.png" />
+    <div class="lowerHalf">
+      <input type="text" class="nameInput" placeholder="Name" />
+      <input type="text" class="mailInput" placeholder="Email" />
+      <input type="text" class="phoneInput" placeholder="Phone" />
+ 
+<button>Create Contact</button>
+
+
     </div>
 
     <footer>

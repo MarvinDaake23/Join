@@ -119,3 +119,7 @@ function backToContactList() {
   document.getElementById("contactContainerOuter").style.display = "";
   document.getElementById("contactSingleView").innerHTML = "";
 }
+
+function addContact() {
+  // overlay sichtbar machen (modal)
+}
