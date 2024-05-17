@@ -68,7 +68,7 @@ body {
 
 .noUser {
     font-size: 20px;
-    padding-right: 30px;
+    padding-right: 15px;
 }
 
 .signInButton {
@@ -91,7 +91,7 @@ body {
 
 .backArrow{
     position: relative;
-    left: -140px;
+    left: -120px;
     top: 45px;
 }
 
@@ -102,7 +102,7 @@ body {
     flex-direction: column;
     width: 173px;
     height: 72px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     margin-top: 40px;
 }
 
@@ -120,14 +120,14 @@ h1 {
 }
 
 .logInSection {
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     margin-left: 15px;
     margin-right: 15px;
 }
 
 .inputfield {
     margin-bottom: 20px;
-    width: 364px;
+    width: 250px;
     height: 48px;
     border-radius: 10px;
     border-width: 1px;
@@ -162,6 +162,11 @@ input[type=text] {
     width: 20px;
 }
 
+.personIcon {
+    height: 16px;
+    width: 17px;
+}
+
 .lockIcon {
     height: 21px;
     width: 16px;
@@ -170,7 +175,7 @@ input[type=text] {
 .rememberSection {
     display: flex;
     align-items: center;
-    margin-left: 12px;
+    margin-left: 16px;
     margin-top: 30px;
 }
 
@@ -189,7 +194,7 @@ input[type=text] {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 322px;
+    width: 270px;
     margin-bottom: 50px;
 }
 
@@ -198,7 +203,7 @@ input[type=text] {
     align-items: center;
     flex-direction: column;
     width: 322px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 .logInUserButton {
@@ -228,11 +233,15 @@ input[type=text] {
 }
 
 .checkButton {
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     margin-right: 10px;
     background-color: transparent;
     border-radius: 3px;
+}
+
+.blueText {
+    color: #36b0e3;
 }
 
 span {
@@ -247,9 +256,54 @@ button {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    bottom: 60px;
-    width: 246px;
+    bottom: 50px;
+    width: 226px;
     color: #A8A8A8;
+}
+
+.signInSuccessful{
+    position: absolute;
+    background-color: #2A3647;
+    text-align: center;
+    color: white;
+    bottom: 0%;
+    left: 50%;
+    width: 326px;
+    height: 74px;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    line-height: 74px;
+    animation: moveSuccessful 0.7s forwards;
+}
+
+@keyframes moveSuccessful {
+    from {
+        bottom: 0%;
+        left: 50%;
+    }
+    to {
+        bottom: 22%;
+        left: 50%;
+        width: 326px;
+        height: 74px;
+    }
+  }
+
+@media(min-width: 420px){
+    .inputfield{
+        width: 364px;
+    }
+    .logInButtonSection{
+        width: 322px;
+    }
+    .noUser {
+        padding-right: 30px;
+    }
+    .backArrow{
+        position: relative;
+        left: -140px;
+        top: 45px;
+    }
 }
 
 @media (min-width: 750px) {
@@ -275,7 +329,6 @@ button {
 
     @keyframes moveImage {
         from {
-            transform: translate(-50%, -50%);
             width: 274px;
             height: 334px;
         }
@@ -295,15 +348,22 @@ button {
 
     .noUser {
         padding-right: 20px;
+       
     }
 
     .signInButton {
-        width: 91px;
+        width: 126px;
         height: 49px;
     }
 
     .log-in{
         width: auto;
+    }
+
+    .backArrow{
+        position: relative;
+        left: -265px;
+        top: 45px;
     }
 
     .headline {
@@ -322,7 +382,7 @@ button {
     }
 
     .logInSection {
-        margin-bottom: 35px;
+        margin-bottom: 20px;
         margin-left: 115px;
         margin-right: 115px;
     }
@@ -358,8 +418,4 @@ button {
         bottom: 75px;
         width: 256px;
     }
-}
-
-@media (max-width: 420px) {
-    
 }
