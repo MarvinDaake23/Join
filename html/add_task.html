@@ -41,13 +41,16 @@
                 </div>
             </div>
 
-            <div class="custom-select assignedTo">
-                <span class="placeholderClone">Select contacts to assign</span>
-                <ul class="options">
-                  <li value="1">1</li>
-                  <li value="2">2</li>
-                  <li value="3">3</li>
-                </ul>
+            <div class="assignedToContainer">
+                <span>Assigned to</span>
+                <div class="custom-select assignedTo">
+                    <span class="placeholderClone">Select contacts to assign</span>
+                    <ul class="options">
+                    <li value="1">1</li>
+                    <li value="2">2</li>
+                    <li value="3">3</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="dateCotainer">
@@ -58,32 +61,43 @@
             <div class="prioContainer">
                 <span>Prio</span>
                 <div class="prioChoose">
-                    <div class="prioHigh">
+                    <div class="prio high">
                         <span>Urgent</span>
-                        <img  src="../assets/img/img/prioHigh.png" alt="">
+                        <div class="highPrioImg"></div>
                         <div>
 
                         </div>
                     </div>
-                    <div class="prioHigh">
+                    <div class="prio med">
                         <span>Medium</span>
-                        <img  src="../assets/img/img/prioMedium.png" alt="">
+                        <div class="medPrioImg"></div>
                         <div>
 
                         </div>
                     </div>
-                    <div class="prioHigh">
+                    <div class="prio low">
                         <span>Low</span>
-                        <img  src="../assets/img/img/prioLow.png" alt="">
-                        <div>
-
-                        </div>
+                        <div class="lowPrioImg"></div>
                     </div>
                 </div>
             </div>
 
+            <div class="taskTitleContainer">
+                <span>Category <span class="red">*</span></span>
+                <div class="taskTitleInputContainer">
+                    <input type="text" placeholder="Enter at title">
+                </div>
+            </div>
+
+            <div class="taskTitleContainer">
+                <span>Subtask <span class="red">*</span></span>
+                <div class="taskTitleInputContainer">
+                    <input type="text" placeholder="Enter at title">
+                </div>
+            </div>
+
             <div class="checkoutContainer">
-                <span><span class="red">*</span>This field is required</span>
+                <span class="pad"><span class="red">*</span>This field is required</span>
                 <button class="addTaskButton">Create Task</button>
             </div>
 

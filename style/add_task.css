@@ -36,7 +36,7 @@ background-color: #F6F7F8;
     flex-direction: column;
     top:224px;
     left:16px;
-    height:760px;
+    height:860px;
     gap:16px;
 }
 
@@ -126,19 +126,6 @@ background-color: #F6F7F8;
     padding: 0;
 }
 
-select{
-    -webkit-appearance:none;
-}
-
-/* .placeholderClone{
-    position: absolute;
-    background-image: url('../assets/img/img/arrow_drop_down.png');
-    background-size: cover;
-    background-position: right;
-    margin-left: 16px;
-    padding-left: 16px;
-} */
-
 .custom-select{
     background-color: white;
     height:40px;
@@ -162,13 +149,6 @@ li{
 .options{
     display: none;
 }
-
-
-
-
-
-
-
 
 .assignedToInput option{
     color: #D1D1D1;
@@ -204,7 +184,7 @@ li{
     gap:16px;
 }
 
-.prioHigh{
+.prio{
     gap:8px;
     border-radius: 10px;
     height:40px;
@@ -215,16 +195,24 @@ li{
     background-color: white;
 }
 
-.prioHigh img{
-    height:12px;
-    width:20px;
+.pad{
+    padding-right: 24px;
 }
 
 .checkoutContainer{
+    position: fixed;
+    bottom: 80px;
     display: flex;
     justify-content: space-between;
     padding: 16px;
     align-items: center;
+    background-color: #F6F7F8;
+}
+
+.assignedToContainer{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
 }
 
 .addTaskButton{
@@ -234,4 +222,51 @@ li{
     border-radius: 10px;
     font-weight: 700;
     font-size: 21px;
+}
+
+.lowPrioImg{
+    background-image: url('../assets/img/img/priolow.png');
+    width: 20px;
+    height:14px;
+}
+
+.medPrioImg{
+    background-image: url('../assets/img/img/prioMedium.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height:14px;
+}
+
+.highPrioImg{
+    background-image: url('../assets/img/img/prioHigh.png');
+    width: 20px;
+    height:14px;
+}
+
+.high:hover .highPrioImg{
+    background-image: url('../assets/img/img/prioHighHighlight.png');
+}
+
+.high:hover{
+    color:white;
+    background-color: #FF3D00;
+}
+
+.low:hover .lowPrioImg{
+    background-image: url('../assets/img/img/prioLowHighlight.png');  
+}
+
+.low:hover{
+    color:white;
+    background-color: #7AE229;
+}
+
+.med:hover .medPrioImg{
+    background-image: url('../assets/img/img/prioMediumHighlight.png');
+}
+
+.med:hover{
+    background-color: #FFA800;
+    color:white;
 }
