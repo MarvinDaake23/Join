@@ -90,10 +90,21 @@ function renderContacts() {
   sortContacts();
 
   let container = document.getElementById("contactContainer");
+  let firstLetter = "";
   container.innerHTML = "";
 
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
+
+    if (firstLetter != element.firstName[0]) {
+      container.innerHTML += `
+                              <div>${element.firstName[0]}</div>
+                              <hr>
+                              `;
+      // updaten
+      firstLetter = element.firstName[0];
+    }
+
     container.innerHTML += `
     <div class="contactEntry" onclick="singleContactView(${index})">
         <div class="innerContactEntry">
@@ -121,8 +132,42 @@ function sortContacts() {
 
 async function singleContactView(id) {
   document.getElementById("contactContainerOuter").style.display = "none";
-  await includeHTML();
-  renderSingleContact(id);
+  //await includeHTML();
+  //renderSingleContact(id);
+  document.getElementById("contactSingleView").innerHTML = `
+  <div class="singleContactContainer">
+  <div class="contactsHeadlineBox">
+    <div class="contactsHeadline">
+      <h2>Contacts</h2>
+      <img onclick="backToContactList()" src="../assets/img/contacts/arrow-left-line.png" />
+    </div>
+    <h3>Better with a team</h3>
+    <hr />
+  </div>
+
+  <div class="singleContact">
+    <span style="background-color:${contacts[id].profileColor}" id="contactInitials" class="initials">${contacts[id].firstName[0]}${contacts[id].lastName[0]}</span>
+    <span id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</span>
+  </div>
+
+  <div class="contactInfos">
+    <h3>Contact information</h3>
+    <div class="infoItem">
+      <h4>Email</h4>
+      <a id="contactEmail" class="emailAdress" href="mailto:${contacts[id].email}">${contacts[id].email}</a>
+    </div>
+    <div class="infoItem">
+      <h4>Phone</h4>
+      <a id="contactPhoneNumber" class="phoneNumber" href="tel:${contacts[id].phoneNumber}">${contacts[id].phoneNumber}</a>
+    </div>
+  </div>
+
+  <a href="" class="moreButton"
+    ><img src="../assets/img/contacts/more1.png"
+  /></a>
+</div>
+
+  `;
 }
 
 function renderSingleContact(id) {
