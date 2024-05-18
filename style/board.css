@@ -1,0 +1,98 @@
+.fullInput{
+    left:16px;
+    position: absolute;
+    top:128px;
+    width:90%;
+}
+
+.headlineContainer{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 32px;
+}
+
+.headline{
+    width: 214px;
+    height:56px;
+    font-weight: 700;
+    font-size: 47px;
+}
+
+.addTaskButton{
+    height:40px;
+    width:40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    padding:3px;
+    background-color: #2A3647;
+}
+
+.searchInput{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: right 24px center;
+    width:100%;
+    background-size: 20px;
+    border:1px solid #D1D1D1;
+    border-radius: 10px;
+    height:40px;
+
+}
+
+.inputSearch{
+    position: relative;
+    width:100%;
+}
+
+.sperator{
+    display: flex;
+    justify-content: space-between;
+    width:40px;
+    position: absolute;
+    left:90%;
+    padding-top: 12px;
+    z-index: 1;
+}
+
+.search{
+    width:20px;
+    height:20px;
+}
+
+.sep{
+    width:2px;
+    height:20px;
+}
+
+.sperator img{
+    size:20px;
+    object-fit: cover;
+}
+
+.searchInput::placeholder{
+    color:#D1D1D1;
+    font-size: 16px;
+    font-weight: 400;
+    padding-left: 16px;
+}
+
+.progressInformationContainer{
+margin-top: 56px;
+}
+
+.emptyPlaceholder{
+    width:100%;
+    background-color: #E7E7E7;
+    border-radius: 10px;
+    height:48px;
+    border: 1px dotted #A8A8A8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A8A8A8;
+}

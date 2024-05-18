@@ -8,6 +8,10 @@ body {
     background-color: #F6F7F8;
 }
 
+.inputContainer{
+    background-color: #F6F7F8;
+}
+
 .icon{
     position: absolute;
     left: 65px;
