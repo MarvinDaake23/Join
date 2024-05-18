@@ -32,27 +32,30 @@
 
         <div class="lowerHalf">
           <img class="newContactPic" src="../assets/img/contacts/person.png" />
-          <form onsubmit="createContact(); return false;"">
+          <form onsubmit="createContact(); return false;">
             <input
               required
               id="nameInput"
               type="text"
               class="nameInput"
               placeholder="Name"
+              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
+              title="first and last name needed"
             />
             <input
               required
               id="emailInput"
-              type="text"
+              type="email"
               class="mailInput"
               placeholder="Email"
             />
             <input
               required
               id="phoneInput"
-              type="text"
+              type=""
               class="phoneInput"
               placeholder="Phone"
+              pattern="([0-9]+)"
             />
             <button>Create Contact</button>
           </form>

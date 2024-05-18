@@ -27,8 +27,6 @@ async function includeHTML() {
   }
 }
 
-
-
 /* Background-Colors for profiles */
 let backgroundProfileColors = [
   "#FF7A00",
@@ -77,13 +75,9 @@ function renderContacts() {
   }
 }
 
-/* https://dev.to/slimpython/sort-array-of-json-object-by-key-value-easily-with-javascript-3hke */
+/* https://www.geeksforgeeks.org/how-to-sort-json-object-arrays-based-on-a-key/ */
 function sortContacts() {
-  contacts = contacts.sort((a, b) => {
-    if (a.firstName < b.firstName) {
-      return -1;
-    }
-  });
+  contacts.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
 }
 
 async function singleContactView(id) {

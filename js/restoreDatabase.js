@@ -1,6 +1,6 @@
 /** falls man es "verkackt" hat */
 
-let contacts = [
+let contacts2 = [
   {
     firstName: "Anton",
     lastName: "Mayer",
@@ -59,4 +59,4 @@ let contacts = [
   },
 ];
 
-await putData("contacts", contacts);
+await putData("contacts", contacts2);
