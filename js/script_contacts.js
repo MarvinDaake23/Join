@@ -27,61 +27,17 @@ async function includeHTML() {
   }
 }
 
-/*
-let contacts2 = [
-  {
-    firstName: "Anton",
-    lastName: "Mayer",
-    email: "antom@gmail.com",
-    phoneNumber: "235325325",
-  },
-  {
-    firstName: "Anja",
-    lastName: "Schulz",
-    email: "anjaschulz@gmail.com",
-    phoneNumber: "235325325",
-  },
-  {
-    firstName: "Benedikt",
-    lastName: "Ziegler",
-    email: "ziegler@gmx.com",
-    phoneNumber: "235325325",
-  },
-  {
-    firstName: "David",
-    lastName: "Eisenberg",
-    email: "eisenberg@googlemail.com",
-    phoneNumber: "235325325",
-  },
-  {
-    firstName: "Eva",
-    lastName: "Fischer",
-    email: "fischer_eva@gmail.com",
-    phoneNumber: "235325325",
-  },
-  {
-    firstName: "Emanuel",
-    lastName: "Mauer",
-    email: "e.mauer@gmail.com",
-    phoneNumber: "235325325",
-  },
-  {
-    firstName: "Tatjana",
-    lastName: "Wolf",
-    email: "wolf@gmail.com",
-    phoneNumber: "+49 2 2 2222 222 2",
-  },
-  {
-    firstName: "Marcel",
-    lastName: "Bauer",
-    email: "bauer@gmail.com",
-    phoneNumber: "+49 2 2 2222 222 2",
-  },
-];
-*/
+
 
 /* Background-Colors for profiles */
-colors = ["#FF7A00", "#FFC700", "#9327FF", "#6E52FF", "#FC71FF", "#1FD7C1"];
+let backgroundProfileColors = [
+  "#FF7A00",
+  "#FFC700",
+  "#9327FF",
+  "#6E52FF",
+  "#FC71FF",
+  "#1FD7C1",
+];
 
 /**
  * function to render the contacts
@@ -195,4 +151,58 @@ function backToContactList() {
 
 function addContact() {
   // overlay sichtbar machen (modal)
+  // https://www.w3schools.com/howto/howto_css_modals.asp
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeAddContact() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+async function createContact() {
+  // daten auslesen
+
+  // namen in zwei
+  let nameInput = document.getElementById("nameInput").value;
+  const nameArray = nameInput.split(" ");
+  let new_firstName = nameArray[0];
+  let new_lastName = nameArray[1];
+
+  let new_email = document.getElementById("emailInput").value;
+  let new_phone = document.getElementById("phoneInput").value;
+  // random color from list
+  let new_profileColor =
+    backgroundProfileColors[
+      Math.floor(Math.random() * backgroundProfileColors.length)
+    ];
+
+  // Create JSON
+  let data = {
+    firstName: new_firstName,
+    lastName: new_lastName,
+    email: new_email,
+    phoneNumber: new_phone,
+    profileColor: new_profileColor,
+  };
+
+  //put an die letzte stelle
+  await putData(`contacts/${contacts.length}`, data);
+
+  // neu laden und rendern
+  onLoadFunc();
+
+  // schließen
+  closeAddContact();
+}
+
+async function putData(path = "", data = {}) {
+  let response = await fetch(BASE_URL + path + ".json", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  return response.json();
 }
