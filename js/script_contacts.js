@@ -112,9 +112,8 @@ async function singleContactView(id) {
     </div>
   </div>
 
-  <a href="" class="moreButton"
-    ><img src="../assets/img/contacts/more1.png"
-  /></a>
+  <img onclick="deleteContact(${id})" class="moreButton" src="../assets/img/contacts/more1.png"/>
+  
 </div>
 
   `;
@@ -199,4 +198,13 @@ async function putData(path = "", data = {}) {
   });
 
   return response.json();
+}
+
+async function deleteContact(id) {
+  contacts.splice(id,1);
+  // neu hochladen
+  await putData("contacts", contacts);
+  backToContactList();
+  renderContacts();
+
 }

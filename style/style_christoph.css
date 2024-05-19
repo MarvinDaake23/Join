@@ -125,6 +125,7 @@ header img {
 
 .moreButton {
   position: fixed;
+  cursor: pointer;
   bottom: 100px;
   right: 16px;
 }
