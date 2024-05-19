@@ -8,6 +8,7 @@ let cat;
 function init(){
     includeHTML();
     loadWrapper();
+    inputSelector();
 }
 
 async function includeHTML() {
@@ -85,4 +86,41 @@ function addTask(){
         };
     task.push(temTask);
     console.log(task);
+}
+
+function inputSelector(){
+    let subtaskInput = document.getElementById('subtaskInput');
+    subtaskInput.addEventListener('focus', function(){
+        inputFocus();
+    
+    });
+    subtaskInput.addEventListener('blur', function(){
+        inputBlur();
+    });
+}
+
+function inputFocus(){
+    let imgContainer = document.getElementById('imgContainerSubtask');
+    imgContainer.classList.remove('imgContainerBackground');
+
+    imgContainer.innerHTML = inputFocusInput();
+}
+
+function inputBlur(){
+    let imgContainer = document.getElementById('imgContainerSubtask');
+    imgContainer.classList.add('imgContainerBackground');
+    imgContainer.innerHTML =``;
+}
+
+
+
+
+function inputFocusInput(){
+    return/*html */`
+    <div class="subtaskSettingContainer">
+        <div class="imgContainerSubtaskCancle"></div>
+        <div class="seperator"></div>
+        <div class="imgContainerSubtaskSubmit"></div>
+    </div>
+    `;
 }
