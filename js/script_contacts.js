@@ -201,10 +201,9 @@ async function putData(path = "", data = {}) {
 }
 
 async function deleteContact(id) {
-  contacts.splice(id,1);
+  contacts.splice(id, 1);
   // neu hochladen
   await putData("contacts", contacts);
   backToContactList();
   renderContacts();
-
 }
