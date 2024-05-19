@@ -15,7 +15,7 @@ async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
         const element = includeElements[i];
-        file = element.getAttribute("w3-include-html"); // "includes/header.html"
+        file = element.getAttribute("w3-include-html");
         let resp = await fetch(file);
         if (resp.ok) {
             element.innerHTML = await resp.text();
@@ -94,15 +94,11 @@ function inputSelector(){
         inputFocus();
     
     });
-    subtaskInput.addEventListener('blur', function(){
-        inputBlur();
-    });
 }
 
 function inputFocus(){
     let imgContainer = document.getElementById('imgContainerSubtask');
     imgContainer.classList.remove('imgContainerBackground');
-
     imgContainer.innerHTML = inputFocusInput();
 }
 
@@ -113,12 +109,16 @@ function inputBlur(){
 }
 
 
-
+function inputClear(){
+    let subtaskInput = document.getElementById('subtaskInput');
+    subtaskInput.value = '';
+    inputBlur();
+}
 
 function inputFocusInput(){
     return/*html */`
     <div class="subtaskSettingContainer">
-        <div class="imgContainerSubtaskCancle"></div>
+        <div onclick="inputClear()" class="imgContainerSubtaskCancle"></div>
         <div class="seperator"></div>
         <div class="imgContainerSubtaskSubmit"></div>
     </div>
