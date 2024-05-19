@@ -21,9 +21,11 @@
     </header>
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
+    <div id="modalBackground">
+
+
+      <!-- Modal content 1 -->
+      <div id="modalAddContact">
         <div class="upperHalf">
           <span onclick="closeAddContact()">&times;</span>
           <h1>Add contact</h1>
@@ -58,6 +60,47 @@
               pattern="([0-9]+)"
             />
             <button>Create Contact</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal content 2 -->
+      <div id="modalEditContact">
+        <div class="upperHalf">
+          <span onclick="closeEditContact()">&times;</span>
+          <h1>Edit contact</h1>
+          <h3>Tasks are better with a team!</h3>
+        </div>
+
+        <div class="lowerHalf">
+          <img class="newContactPic" src="../assets/img/contacts/person.png" />
+          <form onsubmit="createContact(); return false;">
+            <input
+              required
+              id="editNameInput"
+              type="text"
+              class="nameInput"
+              placeholder="Name"
+              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
+              title="first and last name needed"
+            />
+            <input
+              required
+              id="editEmailInput"
+              type="email"
+              class="mailInput"
+              placeholder="Email"
+            />
+            <input
+              required
+              id="editPhoneInput"
+              type=""
+              class="phoneInput"
+              placeholder="Phone"
+              pattern="([0-9]+)"
+            />
+            <button>Delete</button>
+            <button>Save</button>
           </form>
         </div>
       </div>

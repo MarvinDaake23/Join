@@ -233,7 +233,7 @@ footer {
 }
 
 /* The Modal (background) */
-.modal {
+#modalBackground {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -251,32 +251,26 @@ footer {
 }
 
 /* Modal Content */
-.modal-content {
-  /*height: 90%;*/
+#modalAddContact {
+  display: none;
   margin: 80px 10px;
-  width: 100%;
   position: relative;
-  /*background-color: #fefefe;*/
   background-color: rgba(0, 0, 0, 0.4);
-  -webkit-animation-name: slideIn;
-  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+}
+
+/* Modal Content */
+#modalEditContact {
+  display: none;
+  margin: 80px 10px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.4);
   animation-name: slideIn;
   animation-duration: 0.5s;
 }
 
 /* Add Animation */
-
-@-webkit-keyframes slideIn {
-  from {
-    bottom: -500px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0;
-    opacity: 1;
-  }
-}
-
 @keyframes slideIn {
   from {
     bottom: -500px;
@@ -288,20 +282,36 @@ footer {
   }
 }
 
-@-webkit-keyframes fadeIn {
+#moreButton {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: #ffffff;
+  width: 116px;
+  height: 100px;
+  padding: 10px 0px 0px 20px;
+  gap: 10px;
+  border-radius: 20px 20px 0px 20px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  animation-name: slideInFromRight;
+  animation-duration: 0.5s;
+}
+
+@keyframes slideInFromRight {
   from {
+    right: -300px;
     opacity: 0;
   }
   to {
+    right: 20;
     opacity: 1;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#moreButton a {
+  cursor: pointer;
 }

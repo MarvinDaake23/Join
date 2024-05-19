@@ -89,7 +89,7 @@ async function singleContactView(id) {
   <div class="contactsHeadlineBox">
     <div class="contactsHeadline">
       <h2>Contacts</h2>
-      <img onclick="backToContactList()" src="../assets/img/contacts/arrow-left-line.png" />
+      <a><img onclick="backToContactList()" src="../assets/img/contacts/arrow-left-line.png" /></a>
     </div>
     <h3>Better with a team</h3>
     <hr />
@@ -112,8 +112,13 @@ async function singleContactView(id) {
     </div>
   </div>
 
-  <img onclick="deleteContact(${id})" class="moreButton" src="../assets/img/contacts/more1.png"/>
+  <img onclick="showMore()" class="moreButton" src="../assets/img/contacts/more1.png"/>
   
+  <div id="moreButton">
+    <a onclick="showEditContact(${id})"><img src="../assets/img/contacts/edit1.png" />Edit</a>
+    <a onclick="deleteContact(${id})"><img src="../assets/img/contacts/delete1.png" />Delete</a>
+  </div>
+
 </div>
 
   `;
@@ -145,11 +150,17 @@ function backToContactList() {
 function addContact() {
   // overlay sichtbar machen (modal)
   // https://www.w3schools.com/howto/howto_css_modals.asp
-  document.getElementById("myModal").style.display = "block";
+  document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalAddContact").style.display = "block";
 }
 
 function closeAddContact() {
-  document.getElementById("myModal").style.display = "none";
+  document.getElementById("modalBackground").style.display = "none";
+}
+
+function closeEditContact() {
+  document.getElementById("modalBackground").style.display = "none";
+  document.getElementById("moreButton").style.display = "none";
 }
 
 async function createContact() {
@@ -206,4 +217,19 @@ async function deleteContact(id) {
   await putData("contacts", contacts);
   backToContactList();
   renderContacts();
+}
+
+function showMore() {
+  document.getElementById("moreButton").style.display = "flex";
+}
+
+function showEditContact(id) {
+  document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalEditContact").style.display = "block";
+
+  document.getElementById(
+    "editNameInput"
+  ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
+  document.getElementById("editEmailInput").value = contacts[id].email;
+  document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
 }
