@@ -61,6 +61,7 @@ function singleContactView(id) {
 function backToContactList() {
   document.getElementById("contactContainerOuter").style.display = "";
   document.getElementById("contactSingleView").innerHTML = "";
+  renderContacts();
 }
 
 function showAddContact() {
@@ -153,4 +154,24 @@ function showEditContact(id) {
   ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
   document.getElementById("editInitials").style.backgroundColor =
     contacts[id].profileColor;
+
+  document
+    .getElementById("editContactForm")
+    .setAttribute("onsubmit", `editContact(${id}); return false;`);
+}
+
+async function editContact(id) {
+  //update array and put to db
+  let nameInput = document.getElementById("editNameInput").value;
+  const nameArray = nameInput.split(" ");
+  contacts[id].firstName = nameArray[0];
+  contacts[id].lastName = nameArray[1];
+  contacts[id].email = document.getElementById("editEmailInput").value;
+  contacts[id].phoneNumber = document.getElementById("editPhoneInput").value;
+
+  await putData("contacts", contacts);
+
+  closeEditContact();
+  document.getElementById("contactSingleView").innerHTML =
+    renderSingleContactHTML(id);
 }
