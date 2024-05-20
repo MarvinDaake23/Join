@@ -3,143 +3,59 @@ const BASE_URL =
 
 let contacts = [];
 
+/* Background colors for profile initials */
+let backgroundProfileColors = [
+  "#FF7A00", // Anton
+  "#FFC700", // TW edit
+  "#9327FF", // Anja
+  "#6E52FF", // Benedikt
+  "#FC71FF", // David
+  "#FFBB2B", // Eva F.
+  "#1FD7C1", // Emmanuel M
+  "#FF4646", // Tatjana Wolf
+  "#462F8A", // Marcel Bauer
+];
+
 async function onLoadFunc() {
   contacts = await loadData("contacts");
   renderContacts();
 }
 
-async function loadData(path = "") {
-  let response = await fetch(BASE_URL + path + ".json");
-  return (responseToJson = await response.json());
-}
-
-async function includeHTML() {
-  let includeElements = document.querySelectorAll("[w3-include-html]");
-  for (let i = 0; i < includeElements.length; i++) {
-    const element = includeElements[i];
-    file = element.getAttribute("w3-include-html"); // "includes/header.html"
-    let resp = await fetch(file);
-    if (resp.ok) {
-      element.innerHTML = await resp.text();
-    } else {
-      element.innerHTML = "Page not found";
-    }
-  }
-}
-
-/* Background-Colors for profiles */
-let backgroundProfileColors = [
-  "#FF7A00",
-  "#FFC700",
-  "#9327FF",
-  "#6E52FF",
-  "#FC71FF",
-  "#1FD7C1",
-];
-
 /**
- * function to render the contacts
+ * function to render the contacts into the contact container including seperators
  */
 function renderContacts() {
   sortContacts();
-
   let container = document.getElementById("contactContainer");
   let firstLetter = "";
   container.innerHTML = "";
 
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
-
     if (firstLetter != element.firstName[0]) {
-      container.innerHTML += `
-                              <div>${element.firstName[0]}</div>
-                              <hr>
-                              `;
-      // updaten
+      container.innerHTML += renderContactSeperatorHTML(element);
+      // update first letter
       firstLetter = element.firstName[0];
     }
-
-    container.innerHTML += `
-    <div class="contactEntry" onclick="singleContactView(${index})">
-        <div class="innerContactEntry">
-            <div class="initials initSmall" style="background-color:${element.profileColor}">
-                ${element.firstName[0]}${element.lastName[0]}
-            </div>
-            <div class="nameAndAdress">
-                <span>${element.firstName} ${element.lastName}</span>
-                <a href="mailto:${element.email}" class="emailAdress">${element.email}</a>
-            </div>
-        </div>
-    </div>
-    `;
+    container.innerHTML += renderSingleContactEntryHTML(element, index);
   }
 }
 
-/* https://www.geeksforgeeks.org/how-to-sort-json-object-arrays-based-on-a-key/ */
+/**
+ * function to sort the contacts alphabetically by first name
+ */
 function sortContacts() {
   contacts.sort((a, b) => (a.firstName > b.firstName ? 1 : -1));
 }
 
-async function singleContactView(id) {
+/**
+ * function to show the contact information of a single contact
+ */
+function singleContactView(id) {
   document.getElementById("contactContainerOuter").style.display = "none";
-  //await includeHTML();
-  //renderSingleContact(id);
-  document.getElementById("contactSingleView").innerHTML = `
-  <div class="singleContactContainer">
-  <div class="contactsHeadlineBox">
-    <div class="contactsHeadline">
-      <h2>Contacts</h2>
-      <a><img onclick="backToContactList()" src="../assets/img/contacts/arrow-left-line.png" /></a>
-    </div>
-    <h3>Better with a team</h3>
-    <hr />
-  </div>
 
-  <div class="singleContact">
-    <span style="background-color:${contacts[id].profileColor}" id="contactInitials" class="initials">${contacts[id].firstName[0]}${contacts[id].lastName[0]}</span>
-    <span id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</span>
-  </div>
-
-  <div class="contactInfos">
-    <h3>Contact information</h3>
-    <div class="infoItem">
-      <h4>Email</h4>
-      <a id="contactEmail" class="emailAdress" href="mailto:${contacts[id].email}">${contacts[id].email}</a>
-    </div>
-    <div class="infoItem">
-      <h4>Phone</h4>
-      <a id="contactPhoneNumber" class="phoneNumber" href="tel:${contacts[id].phoneNumber}">${contacts[id].phoneNumber}</a>
-    </div>
-  </div>
-
-  <img onclick="showMore()" class="moreButton" src="../assets/img/contacts/more1.png"/>
-  
-  <div id="moreButton">
-    <a onclick="showEditContact(${id})"><img src="../assets/img/contacts/edit1.png" />Edit</a>
-    <a onclick="deleteContact(${id})"><img src="../assets/img/contacts/delete1.png" />Delete</a>
-  </div>
-
-</div>
-
-  `;
-}
-
-function renderSingleContact(id) {
-  document.getElementById(
-    "contactName"
-  ).innerHTML = `${contacts[id].firstName} ${contacts[id].lastName}`;
-
-  document.getElementById(
-    "contactInitials"
-  ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]}`;
-
-  document.getElementById("contactEmail").innerHTML = contacts[id].email;
-  document.getElementById("contactEmail").href = `mailto:${contacts[id].email}`;
-  document.getElementById("contactPhoneNumber").innerHTML =
-    contacts[id].phoneNumber;
-  document.getElementById(
-    "contactPhoneNumber"
-  ).href = `tel:${contacts[id].phoneNumber}`;
+  document.getElementById("contactSingleView").innerHTML =
+    renderSingleContactHTML(id);
 }
 
 function backToContactList() {
@@ -147,31 +63,30 @@ function backToContactList() {
   document.getElementById("contactSingleView").innerHTML = "";
 }
 
-function addContact() {
-  // overlay sichtbar machen (modal)
-  // https://www.w3schools.com/howto/howto_css_modals.asp
+function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
   document.getElementById("modalAddContact").style.display = "block";
 }
 
 function closeAddContact() {
   document.getElementById("modalBackground").style.display = "none";
+  document.getElementById("modalAddContact").style.display = "none";
 }
 
 function closeEditContact() {
   document.getElementById("modalBackground").style.display = "none";
+  document.getElementById("modalEditContact").style.display = "none";
   document.getElementById("moreButton").style.display = "none";
 }
 
-async function createContact() {
-  // daten auslesen
-
-  // namen in zwei
+/**
+ * function collects data from input fields for a new contact
+ */
+function getDataForNewContact() {
   let nameInput = document.getElementById("nameInput").value;
   const nameArray = nameInput.split(" ");
   let new_firstName = nameArray[0];
   let new_lastName = nameArray[1];
-
   let new_email = document.getElementById("emailInput").value;
   let new_phone = document.getElementById("phoneInput").value;
   // random color from list
@@ -179,7 +94,6 @@ async function createContact() {
     backgroundProfileColors[
       Math.floor(Math.random() * backgroundProfileColors.length)
     ];
-
   // Create JSON
   let data = {
     firstName: new_firstName,
@@ -188,10 +102,22 @@ async function createContact() {
     phoneNumber: new_phone,
     profileColor: new_profileColor,
   };
+  return data;
+}
 
-  //put an die letzte stelle
+function resetAddContactForm() {
+  document.getElementById("nameInput").value = "";
+  document.getElementById("emailInput").value = "";
+  document.getElementById("phoneInput").value = "";
+}
+
+/**
+ * function creates a new contact in the database
+ */
+async function createContact() {
+  data = getDataForNewContact();
   await putData(`contacts/${contacts.length}`, data);
-
+  resetAddContactForm();
   // neu laden und rendern
   onLoadFunc();
 
@@ -199,18 +125,9 @@ async function createContact() {
   closeAddContact();
 }
 
-async function putData(path = "", data = {}) {
-  let response = await fetch(BASE_URL + path + ".json", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-
-  return response.json();
-}
-
+/**
+ * function deletes a contact and updates the remote database
+ */
 async function deleteContact(id) {
   contacts.splice(id, 1);
   // neu hochladen
@@ -226,10 +143,14 @@ function showMore() {
 function showEditContact(id) {
   document.getElementById("modalBackground").style.display = "block";
   document.getElementById("modalEditContact").style.display = "block";
-
   document.getElementById(
     "editNameInput"
   ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
   document.getElementById("editEmailInput").value = contacts[id].email;
   document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
+  document.getElementById(
+    "editInitials"
+  ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
+  document.getElementById("editInitials").style.backgroundColor =
+    contacts[id].profileColor;
 }

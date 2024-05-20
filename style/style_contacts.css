@@ -315,3 +315,19 @@ footer {
 #moreButton a {
   cursor: pointer;
 }
+
+#editInitials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  color: white;
+  border-radius: 180px;
+  font-size: 27px !important;
+  font-weight: 400 !important;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+  margin-top: -40px;
+}

@@ -1,4 +1,4 @@
-/** falls man es "verkackt" hat */
+/* little script to restore data in firebase */
 
 let contacts2 = [
   {

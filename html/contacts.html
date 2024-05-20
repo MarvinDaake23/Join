@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacts</title>
 
-    <link rel="stylesheet" href="../style/style_christoph.css" />
+    <link rel="stylesheet" href="../style/style_contacts.css" />
 
     <script src="../js/script.js"></script>
     <script src="../js/script_contacts.js"></script>
@@ -20,10 +20,8 @@
       <img src="../assets/img/contacts/headerfooter/login_logo.png" />
     </header>
 
-    <!-- The Modal -->
+    <!-- Modal Background -->
     <div id="modalBackground">
-
-
       <!-- Modal content 1 -->
       <div id="modalAddContact">
         <div class="upperHalf">
@@ -73,7 +71,8 @@
         </div>
 
         <div class="lowerHalf">
-          <img class="newContactPic" src="../assets/img/contacts/person.png" />
+          <div id="editInitials">
+        </div>
           <form onsubmit="createContact(); return false;">
             <input
               required
@@ -106,16 +105,14 @@
       </div>
     </div>
 
-    <!--
-    <div id="contactSingleView" w3-include-html="./contacts_single.html"></div>
-    -->
+    <!-- display:none -->
     <div id="contactSingleView"></div>
 
     <div id="contactContainerOuter">
       <div id="contactContainer"></div>
 
       <img
-        onclick="addContact()"
+        onclick="showAddContact()"
         class="moreButton"
         src="../assets/img/contacts/addcontact1.png"
       />
