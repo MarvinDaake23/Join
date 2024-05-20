@@ -41,7 +41,19 @@ header img {
   margin: 0px 0px 8px 0px;
 }
 
+.upperHalf h2 {
+  font-size: 47px;
+  font-weight: 700;
+  margin: 30px 0px 8px 0px;
+}
+
 .singleContactContainer h3 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0px 0px 8px 0px;
+}
+
+.upperHalf h3 {
   font-size: 20px;
   font-weight: 400;
   margin: 0px 0px 8px 0px;
@@ -173,6 +185,16 @@ footer {
   margin-bottom: 80px;
 }
 
+.upperHalf hr {
+  height: 3px;
+  width: 90px;
+  border-width: 0;
+  color: #29abe2;
+  background-color: #29abe2;
+  align-self: flex-start;
+  margin: 0;
+}
+
 #contactContainer hr {
   /*border: 2px solid #29abe2;
   width: 50%;
@@ -199,21 +221,26 @@ footer {
   padding: 0px 16px;
   border-radius: 0px 0px 20px 20px;
   gap: 15px;
-  height: 280px;
+  height: 350px;
 }
 
 .newContactPic {
   background-color: #d1d1d1;
-  border-radius: 50px;
-  margin-top: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  margin-top: -60px;
+  border: 3px solid #ffffff;
 }
 
 .upperHalf {
+  display: flex;
+  flex-direction: column;
   background-color: #2a3647;
-  padding: 66px 24px;
+  padding: 14px 24px;
   color: white;
   border-radius: 20px 20px 0px 0px;
-  height: 150px;
+  height: 250px;
 }
 
 .nameInput {
@@ -237,6 +264,7 @@ footer {
 .lowerHalf form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
 }
 
@@ -244,6 +272,7 @@ footer {
   border: 1px solid #d1d1d1;
   border-radius: 10px;
   padding: 5px 13px;
+  width: 364px;
 }
 
 /* The Modal (background) */
@@ -267,7 +296,6 @@ footer {
   display: none;
   margin: 80px 10px;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
   animation-name: slideIn;
   animation-duration: 0.5s;
 }
@@ -277,7 +305,6 @@ footer {
   display: none;
   margin: 80px 10px;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.4);
   animation-name: slideIn;
   animation-duration: 0.5s;
 }
@@ -350,4 +377,30 @@ footer {
   height: 58px;
   padding: 17px 36px 17px 36px;
   box-sizing: border-box;
+}
+
+#createContactButton {
+  background-color: #2a3647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 202px;
+  height: 51px;
+  padding: 18px 10px 18px 10px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+  border: none;
+}
+
+.upperHalf span {
+  text-align: right;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
 }
