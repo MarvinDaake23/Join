@@ -247,18 +247,21 @@ footer {
   background: url("../assets/img/contacts/person_small.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
+  background-origin: content-box;
 }
 
 .mailInput {
   background: url("../assets/img/contacts/mail.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
+  background-origin: content-box;
 }
 
 .phoneInput {
   background: url("../assets/img/contacts/call.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
+  background-origin: content-box;
 }
 
 .lowerHalf form {
@@ -327,9 +330,9 @@ footer {
   align-items: flex-start;
   justify-content: center;
   background: #ffffff;
-  width: 116px;
+  width: 100px;
   height: 100px;
-  padding: 10px 0px 0px 20px;
+  padding: 0px 0px 0px 15px;
   gap: 10px;
   border-radius: 20px 20px 0px 20px;
   box-shadow: 0px 4px 4px 0px #00000040;
@@ -338,6 +341,11 @@ footer {
   right: 20px;
   animation-name: slideInFromRight;
   animation-duration: 0.5s;
+}
+
+#moreButton a {
+  display: flex;
+  gap: 8px;
 }
 
 @keyframes slideInFromRight {
