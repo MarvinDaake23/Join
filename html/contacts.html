@@ -22,7 +22,7 @@
 
     <!-- Modal Background -->
     <div id="modalBackground">
-      <!-- Modal content 1 -->
+      <!-- Modal content v1: Add -->
       <div id="modalAddContact">
         <div class="upperHalf">
           <span onclick="closeAddContact()">&times;</span>
@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <!-- Modal content 2 -->
+      <!-- Modal content v2: Edit -->
       <div id="modalEditContact">
         <div class="upperHalf">
           <span onclick="closeEditContact()">&times;</span>
@@ -71,9 +71,8 @@
         </div>
 
         <div class="lowerHalf">
-          <div id="editInitials">
-        </div>
-          <form id="editContactForm" onsubmit="editContact(); return false;">
+          <div id="editInitials"></div>
+          <form id="editContactForm" onsubmit="editContact();return false;">
             <input
               required
               id="editNameInput"
@@ -98,9 +97,12 @@
               placeholder="Phone"
               pattern="([0-9]+)"
             />
-            <button>Delete</button>
-            <button>Save</button>
+            <button id="editContactSaveButton">Save</button>
           </form>
+
+          <button id="editContactDeleteButton" onclick="deleteContact()">
+            Delete
+          </button>
         </div>
       </div>
     </div>

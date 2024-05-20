@@ -157,7 +157,17 @@ function showEditContact(id) {
 
   document
     .getElementById("editContactForm")
-    .setAttribute("onsubmit", `editContact(${id}); return false;`);
+    .setAttribute(
+      "onsubmit",
+      `editContact(${id});closeEditContact();return false;`
+    );
+
+  document
+    .getElementById("editContactDeleteButton")
+    .setAttribute(
+      "onclick",
+      `deleteContact(${id});closeEditContact();return false;`
+    );
 }
 
 async function editContact(id) {
