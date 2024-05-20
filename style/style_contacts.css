@@ -136,15 +136,14 @@ header img {
 
 footer {
   position: fixed;
+  left: 0px;
   bottom: 0px;
   height: 80px;
   background-color: #2a3647;
   display: flex;
-  /*width: 100%;*/
-  width: 410px;
-  padding: 0px 16px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  width: 100%;
 }
 
 .innerContactEntry {
@@ -153,6 +152,8 @@ footer {
   padding: 8px 20px;
   align-items: center;
   font-size: 20px;
+  height: 78px;
+  box-sizing: border-box;
 }
 
 .nameAndAdress {
@@ -169,6 +170,20 @@ footer {
 
 #contactContainer {
   padding: 10px 40px;
+  margin-bottom: 80px;
+}
+
+#contactContainer hr {
+  /*border: 2px solid #29abe2;
+  width: 50%;
+  text-align: left;*/
+  height: 3px;
+  width: 90px;
+  border-width: 0;
+  color: #29abe2;
+  background-color: #29abe2;
+  align-self: flex-start;
+  margin: 0;
 }
 
 .contactEntry {
@@ -327,4 +342,12 @@ footer {
   border: 3px solid #ffffff;
   box-sizing: border-box;
   margin-top: -40px;
+}
+
+.seperatorLetter {
+  border-bottom: 1px solid #d1d1d1;
+  font-size: 20px;
+  height: 58px;
+  padding: 17px 36px 17px 36px;
+  box-sizing: border-box;
 }

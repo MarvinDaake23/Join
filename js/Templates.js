@@ -16,8 +16,8 @@ function renderSingleContactEntryHTML(element, index) {
 
 function renderContactSeperatorHTML(element) {
   return    `
-            <div>${element.firstName[0]}</div>
-            <hr>
+            <div class="seperatorLetter">${element.firstName[0]}</div>
+            <!-- <hr> -->
             `;
 }
 
