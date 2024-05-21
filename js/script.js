@@ -1,15 +1,17 @@
 let categorys = ['Technical Task','User Story'];
 let prios =['Low','Medium','Urgent'];
+let subtasks = [];
 let task = [];
-
 let prioValue;
 let cat;
+
 
 function init(){
     includeHTML();
     loadWrapper();
     inputSelector();
 }
+
 
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
@@ -25,10 +27,12 @@ async function includeHTML() {
     }
 }
 
+
 function prioChoose(i){
     console.log(i);
     prioValue = i;
 }
+
 
 function chooseCategory(i){
     let placeholder = document.getElementById('placeholder');
@@ -52,6 +56,32 @@ function loadWrapper(){
     }
 }
 
+
+function loadSubtaskList(){
+    let subtask = document.getElementById('subtaskInput').value;
+    let subtaskList = document.getElementById('subTasks');
+    subtasks.push(subtask);
+    subtaskList.innerHTML = ``;
+    for (let i = 0; i < subtasks.length; i++) {
+        subtaskList.innerHTML += subtaskListInput(subtasks[i]);
+        
+    }
+    inputClear();
+    console.log(subtasks);
+}
+
+
+function subtaskListInput(subtask){
+    return/* html*/`
+        <li>
+            <div id="subtask">
+                <div>${subtask}</div>
+            <div>
+        </li>
+    `;
+}
+
+
 function openWrapper(){
     if(document.getElementById('wrapperList').classList.contains('dNone')){
         document.getElementById('wrapperList').classList.remove('dNone');
@@ -65,6 +95,47 @@ function openWrapper(){
         document.getElementById('arrowDown').classList.remove('dNone');
         document.getElementById('wrapper').classList.remove('openBorader');
     }
+}
+
+
+function inputSelector(){
+    let subtaskInput = document.getElementById('subtaskInput');
+    subtaskInput.addEventListener('focus', function(){
+        inputFocus();
+    
+    });
+}
+
+
+function inputFocus(){
+    let imgContainer = document.getElementById('imgContainerSubtask');
+    imgContainer.classList.remove('imgContainerBackground');
+    imgContainer.innerHTML = inputFocusInput();
+}
+
+
+function inputBlur(){
+    let imgContainer = document.getElementById('imgContainerSubtask');
+    imgContainer.classList.add('imgContainerBackground');
+    imgContainer.innerHTML =``;
+}
+
+
+function inputClear(){
+    let subtaskInput = document.getElementById('subtaskInput');
+    subtaskInput.value = '';
+    inputBlur();
+}
+
+
+function inputFocusInput(){
+    return/*html */`
+    <div class="subtaskSettingContainer">
+        <div onclick="inputClear()" class="imgContainerSubtaskCancle"></div>
+        <div class="seperator"></div>
+        <div onclick="loadSubtaskList()" class="imgContainerSubtaskSubmit"></div>
+    </div>
+    `;
 }
 
 
@@ -82,45 +153,8 @@ function addTask(){
             'dueDate':date,
             'prio':prio,
             'category':category,
-            'subtask':'',
+            'subtask':subtasks,
         };
     task.push(temTask);
     console.log(task);
-}
-
-function inputSelector(){
-    let subtaskInput = document.getElementById('subtaskInput');
-    subtaskInput.addEventListener('focus', function(){
-        inputFocus();
-    
-    });
-}
-
-function inputFocus(){
-    let imgContainer = document.getElementById('imgContainerSubtask');
-    imgContainer.classList.remove('imgContainerBackground');
-    imgContainer.innerHTML = inputFocusInput();
-}
-
-function inputBlur(){
-    let imgContainer = document.getElementById('imgContainerSubtask');
-    imgContainer.classList.add('imgContainerBackground');
-    imgContainer.innerHTML =``;
-}
-
-
-function inputClear(){
-    let subtaskInput = document.getElementById('subtaskInput');
-    subtaskInput.value = '';
-    inputBlur();
-}
-
-function inputFocusInput(){
-    return/*html */`
-    <div class="subtaskSettingContainer">
-        <div onclick="inputClear()" class="imgContainerSubtaskCancle"></div>
-        <div class="seperator"></div>
-        <div class="imgContainerSubtaskSubmit"></div>
-    </div>
-    `;
 }

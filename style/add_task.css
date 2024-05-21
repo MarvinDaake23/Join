@@ -32,7 +32,7 @@
     flex-direction: column;
     top:224px;
     left:16px;
-    height:960px;
+    height:1060px;
     gap:16px;
 }
 
@@ -286,12 +286,13 @@ li{
     position: fixed;
     bottom: 80px;
     display: flex;
-    width:90%;
+    width:85%;
     justify-content: space-between;
     padding: 16px;
     gap:16px;
     align-items: center;
     background-color: #F6F7F8;
+    border:none;
 }
 
 .assignedToContainer{
@@ -307,6 +308,11 @@ li{
     border-radius: 10px;
     font-weight: 700;
     font-size: 21px;
+    cursor: pointer;
+}
+
+.addTaskButton:hover{
+    background-color: #29ABE2;
 }
 
 .lowPrioImg{
