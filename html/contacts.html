@@ -99,14 +99,17 @@
               placeholder="Phone"
               pattern="([0-9]+)"
             />
-
-            <button type="submit" id="editContactSaveButton">Save</button>
-            <button type="button" id="editContactDeleteButton" onclick="deleteContact()">
-              Delete
-            </button>
+            <div class="buttonPair">
+              <button
+                type="button"
+                id="editContactDeleteButton"
+                onclick="deleteContact()"
+              >
+                Delete
+              </button>
+              <button type="submit" id="editContactSaveButton">Save</button>
+            </div>
           </form>
-
-
         </div>
       </div>
     </div>

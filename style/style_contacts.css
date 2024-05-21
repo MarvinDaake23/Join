@@ -414,29 +414,32 @@ a {
 }
 
 #editContactSaveButton {
-  align-self: flex-end;
   width: 99px;
   height: 51px;
   font-size: 20px;
   font-weight: 700;
   color: white;
   border: none;
-  background-color: #2A3647;
+  background-color: #2a3647;
+  padding: 18px, 10px, 18px, 10px;
   border-radius: 18px;
-  margin-right: 90px;
+  cursor: pointer;
 }
 
 #editContactDeleteButton {
-  align-self: flex-start;
-  margin-left: 90px;
   width: 82px;
   height: 51px;
   background-color: white;
-  border:1px solid #2A3647;
-  color: #2A3647;
+  border: 1px solid #2a3647;
+  color: #2a3647;
   border-radius: 10px;
   padding: 18px, 10px, 18px, 10px;
   font-size: 20px;
   font-weight: 400;
-  margin-top: -65px;
+  cursor: pointer;
+}
+
+.buttonPair {
+  display: flex;
+  gap: 20px;
 }
