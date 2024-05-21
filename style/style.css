@@ -12,6 +12,8 @@ body {
     background-color: #F6F7F8;
 }
 
+/*test*/
+
 .icon {
   position: absolute;
   left: 65px;
@@ -24,6 +26,14 @@ body {
 header  {
     background-color: #ffffff;
     width: 100%;
+}
+
+.headerInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:96px;
+    padding:0px 10px 0px 10px;   
 }
 
 .sidepanel {
