@@ -1,18 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacts</title>
 
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="../js/script.js" ></script>
-    <script src="../js/Templates.js" ></script>
-</head>
-<body>
-    <img class="icon" src="../assets/img/join-icon-white.png">
-    <sidepanel class="sidepanel"></sidepanel>
-    <header></header>
-    <page></page>
-</body>
+    <link rel="stylesheet" href="../style/style_contacts.css" />
+
+    <script src="../js/script.js"></script>
+    <script src="../js/script_contacts.js"></script>
+    <script src="../js/Templates.js"></script>
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+
+  <body onload="onLoadFunc()">
+    <header>
+      <img src="../assets/img/contacts/headerfooter/header_logo.png" />
+      <img src="../assets/img/contacts/headerfooter/login_logo.png" />
+    </header>
+
+    <!-- Modal Background -->
+    <div id="modalBackground">
+      <!-- Modal content v1: Add -->
+      <div id="modalAddContact">
+        <div class="upperHalf">
+          <span onclick="closeAddContact()">&times;</span>
+          <h2>Add contact</h2>
+          <h3>Tasks are better with a team!</h3>
+          <hr />
+        </div>
+
+        <div class="lowerHalf">
+          <img class="newContactPic" src="../assets/img/contacts/person.png" />
+          <form onsubmit="createContact(); return false;">
+            <input
+              required
+              id="nameInput"
+              type="text"
+              class="nameInput"
+              placeholder="Name"
+              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
+              title="first and last name needed"
+            />
+            <input
+              required
+              id="emailInput"
+              type="email"
+              class="mailInput"
+              placeholder="Email"
+            />
+            <input
+              required
+              id="phoneInput"
+              type=""
+              class="phoneInput"
+              placeholder="Phone"
+              pattern="([0-9]+)"
+            />
+            <button id="createContactButton">Create contact</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal content v2: Edit -->
+      <div id="modalEditContact">
+        <div class="upperHalf">
+          <span onclick="closeEditContact()">&times;</span>
+          <h1>Edit contact</h1>
+          <h3>Tasks are better with a team!</h3>
+          <hr />
+        </div>
+
+        <div class="lowerHalf">
+          <div id="editInitials"></div>
+          <form id="editContactForm" onsubmit="editContact();return false;">
+            <input
+              required
+              id="editNameInput"
+              type="text"
+              class="nameInput"
+              placeholder="Name"
+              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
+              title="first and last name needed"
+            />
+            <input
+              required
+              id="editEmailInput"
+              type="email"
+              class="mailInput"
+              placeholder="Email"
+            />
+            <input
+              required
+              id="editPhoneInput"
+              type=""
+              class="phoneInput"
+              placeholder="Phone"
+              pattern="([0-9]+)"
+            />
+            <div class="buttonPair">
+              <button
+                type="button"
+                id="editContactDeleteButton"
+                onclick="deleteContact()"
+              >
+                Delete
+              </button>
+              <button type="submit" id="editContactSaveButton">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- display:none -->
+    <div id="contactSingleView"></div>
+
+    <div id="contactContainerOuter">
+      <div id="contactContainer"></div>
+
+      <img
+        onclick="showAddContact()"
+        class="moreButton"
+        src="../assets/img/contacts/addcontact1.png"
+      />
+    </div>
+
+    <footer>
+      <a><img src="../assets/img/contacts/headerfooter/summary.png" /></a>
+      <a><img src="../assets/img/contacts/headerfooter/Boardicon.png" /></a>
+      <a><img src="../assets/img/contacts/headerfooter/addtask.png" /></a>
+      <a><img src="../assets/img/contacts/headerfooter/contacts.png" /></a>
+    </footer>
+  </body>
 </html>

@@ -1,20 +1,24 @@
 @font-face {
-    font-family: 'Raleway-Regular';
-    src: url('../fonts/Raleway/Raleway-Black.ttf') 
+  font-family: "Raleway-Regular";
+  src: url("../fonts/Raleway/Raleway-Black.ttf");
 }
 
 body {
-    margin: 0px;
+  margin: 0px;
+  background-color: #f6f7f8;
+}
+
+.inputContainer{
     background-color: #F6F7F8;
 }
 
-.icon{
-    position: absolute;
-    left: 65px;
-    top: 64px;
-    width: 100px;
-    height: 121px;
-    z-index: 1;
+.icon {
+  position: absolute;
+  left: 65px;
+  top: 64px;
+  width: 100px;
+  height: 121px;
+  z-index: 1;
 }
 
 header  {
@@ -23,7 +27,7 @@ header  {
     width: 100%;
 }
 
-.sidePanel {
+.sidepanel {
     position: absolute;
     left: 0;
     background-color: #2A3647;
