@@ -41,8 +41,6 @@ function chooseCategory(i){
     cat = i;
 }
 
-/*load Wrapper
- */
 
 function loadWrapper(){
     let wrapperList = document.getElementById('wrapperList');
