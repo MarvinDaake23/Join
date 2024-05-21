@@ -21,7 +21,7 @@ function signUp() {
     logIn.innerHTML = ``; 
     logIn.innerHTML += /*HTML*/ `
 
-        <img onclick="backToLogIn()" class="backArrow" src="../assets/img/arrow-left-line.png">
+        <img onclick="backToLogIn()" class="backArrow hover" src="../assets/img/arrow-left-line.png">
         <div id="headline" class="headline">
             <h1>Sign up</h1>
             <div class="line"></div>
@@ -130,4 +130,3 @@ function signUpSuccessful(){
     `;
     setTimeout(backToLogIn, 1600);
 }
-
