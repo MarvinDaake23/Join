@@ -5,14 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
 
+    <link rel="stylesheet" href="../style/board.css">
     <link rel="stylesheet" href="../style/style.css">
     <script src="../js/script.js" ></script>
     <script src="../js/Templates.js" ></script>
 </head>
-<body>
-    <img class="icon" src="../assets/img/join-icon-white.png">
+<body onload="includeHTML()">
     <sidepanel class="sidepanel"></sidepanel>
-    <header></header>
-    <page></page>
+
+    <header w3-include-html="header.html"></header>
+
+    <page class="inputContainer fullInput">
+
+        <div class="headlineContainer">
+            <div class="headline">Board</div>
+            <div class="addTaskButton">+</div>
+        </div>
+
+        <div class="inputSearch">
+            <div class="sperator">
+                <div class="sep"></div>
+                <img class="search" src="../assets/img/img/search.png" alt="">
+            </div>
+            <input class="searchInput" type="text" placeholder="Find Task">
+        </div>
+
+        <div class="progressInformationContainer">
+            <div class="progressContainer">
+                <div>
+                    <span>To do</span>
+                    <div class="addButton">+</div>
+                </div>
+                <div class="emptyPlaceholder">No Task To Do</div>
+            </div>
+
+            <div class="progressContainer">
+                <div>
+                    <span>In progress</span>
+                </div>
+                <div class="emptyPlaceholder">No Task in progress</div>
+            </div>
+
+            <div class="progressContainer">
+                <div>
+                    <span>Aswait Feedback</span>
+                </div>
+                <div class="emptyPlaceholder">No Task for Feedback</div>
+            </div>
+
+            <div class="progressContainer">
+                <div>
+                    <span>Done</span>
+                </div>
+                <div class="emptyPlaceholder">No Task done</div>
+            </div>
+        </div>
+    </page>
+
+    <footer w3-include-html="footer.html"></footer>
 </body>
 </html>
