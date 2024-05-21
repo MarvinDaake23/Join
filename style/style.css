@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Raleway-Regular';
-    src: url('../fonts/Raleway/Raleway-Black.ttf') 
+  font-family: "Raleway-Regular";
+  src: url("../fonts/Raleway/Raleway-Black.ttf");
 }
 
 body {
@@ -12,20 +12,19 @@ body {
     background-color: #F6F7F8;
 }
 
-.icon{
-    position: absolute;
-    left: 65px;
-    top: 64px;
-    width: 100px;
-    height: 121px;
-    z-index: 1;
+.icon {
+  position: absolute;
+  left: 65px;
+  top: 64px;
+  width: 100px;
+  height: 121px;
+  z-index: 1;
 }
 
-
-
-header{
-    background-color: #ffffff;
-    width: 100%;
+header {
+  background-color: #ffffff;
+  height: 96px;
+  width: 100%;
 }
 
 .headerInput{
@@ -38,12 +37,14 @@ header{
 }
 
 .sidePanel {
-    position: absolute;
-    left: 0;
-    background-color: #2A3647;
-    height: 100vh;
-    width: 232px;
+  position: absolute;
+  left: 0;
+  background-color: #2a3647;
+  height: 100vh;
+  width: 232px;
 }
+
+
 
 
 .footerInput{
