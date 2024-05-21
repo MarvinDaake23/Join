@@ -1,4 +1,4 @@
-// database functions
+// database functions wichtig!!
 async function loadData(path = "") {
   let response = await fetch(BASE_URL + path + ".json");
   return (responseToJson = await response.json());
