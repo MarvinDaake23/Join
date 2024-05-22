@@ -1,18 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Summary</title>
 
-    <link rel="stylesheet" href="../style/style.css">
-    <script src="../js/script.js" ></script>
-    <script src="../js/Templates.js" ></script>
-</head>
-<body>
-    <img class="icon" src="../assets/img/join-icon-white.png">
-    <sidepanel class="sidePanel"></sidepanel>
-    <header></header>
+    <link rel="stylesheet" href="../style/style2.css" />
+    <link rel="stylesheet" href="../style/style_headerfooter.css" />
+
+    <script src="../js/script.js"></script>
+    <script src="../js/Templates.js"></script>
+  </head>
+  <body onload="includeHTML()">
+    <!-- <img class="icon" src="../assets/img/join-icon-white.png">
+    <sidepanel class="sidepanel"></sidepanel> -->
+    <header w3-include-html="header.html"></header>
     <page></page>
-</body>
+    <h1 class="join360HeadlineSummary">Join 360</h1>
+    <p class="secondHeadlineSummary">
+      <span class="underlineSecondHeadlineSummary">Key Metri</span>cs at a
+      Glance
+    </p>
+    <div class="summaryBoxContainer">
+      <div class="firstRowSummaryBoxes">
+        <div class="boxMediumSummary">
+          <div class="iconsSummary iconPencil"></div>
+          <div class="numberAndTextBoxSummary">
+            <span class="numbersSummary">1</span>
+            <p class="textSummary">To-Do</p>
+          </div>
+        </div>
+        <div class="boxMediumSummary">
+          <div class="iconsSummary iconCheck"></div>
+          <div class="numberAndTextBoxSummary">
+            <span class="numbersSummary">1</span>
+            <p class="textSummary">Done</p>
+          </div>
+        </div>
+      </div>
+      <div class="secondRowSummaryBoxes">
+        <div class="boxUrgent">
+          <div class="iconsSummary iconArrows"></div>
+          <div class="numberAndTextBoxSummary">
+            <span class="numbersSummary">1</span>
+            <p class="textSummary">Urgent</p>
+          </div>
+          <div class="greyLineUrgentBox"></div>
+          <div>
+            <p class="textSummaryUrgentDate">October 16, 2022</p>
+            <p class="textSummary">Upcoming Deadline</p>
+          </div>
+        </div>
+      </div>
+      <div class="thirdRowSummaryBoxes">
+        <div class="boxSmallSummary">
+          <div class="numberAndTextBoxSummary">
+            <span class="numbersSummary">5</span>
+            <p class="textSummary">
+              Tasks in<br />
+              Board
+            </p>
+          </div>
+        </div>
+        <div class="boxSmallSummary">
+          <div class="numberAndTextBoxSummary">
+            <span class="numbersSummary">2</span>
+            <p class="textSummary">
+              Tasks in<br />
+              Progress
+            </p>
+          </div>
+        </div>
+        <div class="boxSmallSummary">
+          <div class="numberAndTextBoxSummary">
+            <span class="numbersSummary">2</span>
+            <p class="textSummary">
+              Awaiting<br />
+              feedback
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer w3-include-html="footer.html"></footer>
+  </body>
 </html>

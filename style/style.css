@@ -4,12 +4,12 @@
 }
 
 body {
-    margin: 0px;
-    background-color: #F6F7F8;
+  margin: 0px;
+  background-color: #f6f7f8;
 }
 
-.inputContainer{
-    background-color: #F6F7F8;
+.inputContainer {
+  background-color: #f6f7f8;
 }
 
 .icon {
@@ -27,13 +27,38 @@ header {
   width: 100%;
 }
 
-.headerInput{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height:96px;
-    padding:0px 10px 0px 10px;
-    
+.sidepanel {
+  position: absolute;
+  left: 0;
+  background-color: #2a3647;
+  height: 100vh;
+  width: 232px;
+}
+
+.inputContainer {
+  background-color: #f6f7f8;
+}
+
+.icon {
+  position: absolute;
+  left: 65px;
+  top: 64px;
+  width: 100px;
+  height: 121px;
+  z-index: 1;
+}
+
+header {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.headerInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96px;
+  padding: 0px 10px 0px 10px;
 }
 
 .sidePanel {
@@ -44,72 +69,76 @@ header {
   width: 232px;
 }
 
-
-
-
-.footerInput{
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height:80px;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #2A3647;
-    color: white;
+.sidepanel {
+  position: absolute;
+  left: 0;
+  background-color: #2a3647;
+  height: 100vh;
+  width: 232px;
 }
 
-
-.menuOption{
-    display: flex;
-    height:76px;
-    width:76px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap:4px;
-    border-radius: 16px;
+.footerInput {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2a3647;
+  color: white;
 }
 
-.addTaskImg{
-    background-image: url(../assets/img/img/addTask.png);
+.menuOption {
+  display: flex;
+  height: 76px;
+  width: 76px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 16px;
 }
 
-.summaryImg{
-    background-image: url(../assets/img/img/summary.png);
+.addTaskImg {
+  background-image: url(../assets/img/img/addTask.png);
 }
 
-.boardImg{
-    background-image: url(../assets/img/img/board.png);
+.summaryImg {
+  background-image: url(../assets/img/img/summary.png);
 }
 
-.contactsImg{
-    background-image: url(../assets/img/img/contacts.png);
+.boardImg {
+  background-image: url(../assets/img/img/board.png);
 }
 
-.footerImgContainer{
-    height: 24px;
-    width: 24px;
-    background-repeat: no-repeat;
+.contactsImg {
+  background-image: url(../assets/img/img/contacts.png);
 }
 
-.summary:hover .summaryImg{
-    background-image: url(../assets/img/img/summaryHighlight.png);
+.footerImgContainer {
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
 }
 
-.board:hover .boardImg{
-    background-image: url(../assets/img/img/boardHighlight.png);
+.summary:hover .summaryImg {
+  background-image: url(../assets/img/img/summaryHighlight.png);
 }
 
-.addTask:hover .addTaskImg{
-    background-image: url(../assets/img/img/addTaskHighlight.png);
+.board:hover .boardImg {
+  background-image: url(../assets/img/img/boardHighlight.png);
 }
 
-.contacts:hover .contactsImg{
-    background-image: url(../assets/img/img/contactHighlight.png);
+.addTask:hover .addTaskImg {
+  background-image: url(../assets/img/img/addTaskHighlight.png);
 }
 
-.menuOption:hover{
-    border-radius: 16px;
-    background-color: #091931;
+.contacts:hover .contactsImg {
+  background-image: url(../assets/img/img/contactHighlight.png);
+}
+
+.menuOption:hover {
+  border-radius: 16px;
+  background-color: #091931;
 }

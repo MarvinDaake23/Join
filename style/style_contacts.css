@@ -13,6 +13,7 @@ body {
   font-style: normal;
 }
 
+/*
 header {
   display: flex;
   justify-content: space-between;
@@ -25,9 +26,11 @@ header {
   box-shadow: 0px 4px 4px 0px #0000001a;
 }
 
+
 header img {
   max-height: 40px;
 }
+*/
 
 .singleContactContainer {
   background-color: #f6f7f8;
