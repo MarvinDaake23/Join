@@ -4,15 +4,13 @@
 }
 
 body {
-  margin: 0px;
-  background-color: #f6f7f8;
+    margin: 0px;
+    background-color: #F6F7F8;
 }
 
 .inputContainer{
     background-color: #F6F7F8;
 }
-
-/*test*/
 
 .icon {
   position: absolute;
@@ -23,7 +21,37 @@ body {
   z-index: 1;
 }
 
-header  {
+header {
+  background-color: #ffffff;
+  height: 96px;
+  width: 100%;
+}
+
+.sidepanel {
+  position: absolute;
+  left: 0;
+  background-color: #2a3647;
+  height: 100vh;
+  width: 232px;
+}
+
+
+.inputContainer{
+    background-color: #F6F7F8;
+}
+
+.icon{
+    position: absolute;
+    left: 65px;
+    top: 64px;
+    width: 100px;
+    height: 121px;
+    z-index: 1;
+}
+
+
+
+header{
     background-color: #ffffff;
     width: 100%;
 }
@@ -36,6 +64,13 @@ header  {
     padding:0px 10px 0px 10px;   
 }
 
+.sidePanel {
+  position: absolute;
+  left: 0;
+  background-color: #2a3647;
+  height: 100vh;
+  width: 232px;
+  
 .sidepanel {
     position: absolute;
     left: 0;
@@ -43,6 +78,8 @@ header  {
     height: 100vh;
     width: 232px;
 }
+
+
 
 
 .footerInput{

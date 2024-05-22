@@ -1,17 +1,4 @@
-let categorys = ["Technical Task", "User Story"];
-let prios = ["Low", "Medium", "Urgent"];
-let subtasks = [];
-let task = [];
-let prioValue;
-let cat;
-
-function init() {
-  includeHTML();
-  loadWrapper();
-  inputSelector();
-}
-
-// database functions
+// database functions wichtig!!
 async function loadData(path = "") {
   let response = await fetch(BASE_URL + path + ".json");
   return (responseToJson = await response.json());
@@ -28,7 +15,6 @@ async function putData(path = "", data = {}) {
 
   return response.json();
 }
-
 
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
