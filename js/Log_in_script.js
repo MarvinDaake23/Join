@@ -1,3 +1,9 @@
+let users = [
+    {
+        'email':'marvin@t-online.de','password' : 'test123',
+    }
+]
+
 rememberBulian = true;
 
 function iconWhiteToBlue() {
@@ -11,7 +17,8 @@ function iconWhiteToBlue() {
 
 function changeIcon() {
     icon.src = '../assets/img/join-icon-blue.png';
-} 
+}
+
 function zIndexChange() {
     document.getElementById('whiteB').style.zIndex ="-1";
 }
@@ -35,13 +42,13 @@ function signUp() {
                 </div>
             </div>
             <div class="inputfield">
-                <input type="text" placeholder="Email" required>
+                <input id="email" type="text" placeholder="Email" required>
                 <div class="inputIcons">
                     <img class="mailIcon hover" src="../assets/img/mail.png">
                 </div>
             </div>
             <div class="inputfield">
-                <input type="text" placeholder="Password" required>
+                <input id="password" type="text" placeholder="Password" required>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
@@ -53,9 +60,10 @@ function signUp() {
                 </div>
             </div>
         </div>
+
         <div class="acceptPolicy">
             <img src="../assets/img/Property 1=Default.png" id="checkButton" class="checkButton hover" onclick="remember()"></button>
-            <span> I Accept the <span class="blueText">Privacy policy</span></span>
+            <span> I Accept the <a href="../html/privacy_policy.html" class="blueText">Privacy policy</a></span>
         </div>
         <div class="signInButtonSection">
             <button class="signInButton hover" onclick="signUpSuccessful()">Sign up</button>
@@ -125,8 +133,48 @@ function backToLogIn() {
 }
 
 function signUpSuccessful(){
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    users.push({email: email.value, password: password.value});
+
+    if(rememberBulian==false){
     document.getElementById('logIn').innerHTML += /*HTML*/`
         <div id="signInSuccessful" class="signInSuccessful">You Signed Up successful</div>
     `;
     setTimeout(backToLogIn, 1600);
+    }
+    else{
+        document.getElementById('logIn').innerHTML += /*HTML*/`
+        <div id="signInNoSuccessful" class="signInSuccessful">You Signed Up is not successful</div>
+        `;
+        setTimeout(removeNoSuccessfullSignUp, 2000);
+    }
+}
+
+function logIn(){
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let user = users.find(u => u.email == email.value && u.password == password.value);
+    
+    if(user){
+        console.log('user gefunden')
+        document.getElementById('logIn').innerHTML += /*HTML*/`
+        <div id="signInNoSuccessful" class="signInSuccessful">Sign in successful</div>
+        `;
+        setTimeout(openSummary, 2000);
+    }
+    else{
+        document.getElementById('logIn').innerHTML += /*HTML*/`
+        <div id="signInNoSuccessful" class="signInSuccessful">You must enter an email and password</div>
+        `;
+         setTimeout(removeNoSuccessfullSignUp, 2000);
+    }
+}
+
+function removeNoSuccessfullSignUp(){
+    document.getElementById('signInNoSuccessful').remove();
+}
+
+function openSummary(){
+    window.location = 'summary.html';
 }

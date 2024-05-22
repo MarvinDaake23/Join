@@ -242,6 +242,11 @@ input[type=text] {
 
 .blueText {
     color: #36b0e3;
+    text-decoration: none;
+}
+
+.blueText:hover {
+    text-decoration: underline;
 }
 
 span {
