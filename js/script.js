@@ -29,7 +29,6 @@ async function putData(path = "", data = {}) {
   return response.json();
 }
 
-
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {

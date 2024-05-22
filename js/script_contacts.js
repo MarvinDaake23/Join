@@ -2,6 +2,7 @@ const BASE_URL =
   "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
 
 let contacts = [];
+let users = [];
 
 /* Background colors for profile initials */
 let backgroundProfileColors = [

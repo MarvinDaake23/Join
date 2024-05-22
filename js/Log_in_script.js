@@ -1,10 +1,19 @@
-let users = [
-    {
-        'email':'marvin@t-online.de','password' : 'test123',
-    }
-]
-
 rememberBulian = true;
+
+const BASE_URL = "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
+
+let responsetoJsonUsers = [];
+
+function onloadfunction(){
+    iconWhiteToBlue();
+    loadUserData();
+}
+
+async function loadUserData() {
+    let response = await fetch(BASE_URL + "users.json")
+    responseAsJson = await response.json();
+    responsetoJsonUsers.push(responseAsJson);
+}
 
 function iconWhiteToBlue() {
     let icon = document.getElementById('icon');
@@ -36,7 +45,7 @@ function signUp() {
 
         <div class="logInSection">
             <div class="inputfield">
-                <input type="text" placeholder="Name" required>
+                <input id="user" type="text" placeholder="Name" required>
                 <div class="inputIcons">
                     <img class="personIcon hover" src="../assets/img/person.png">
                 </div>
@@ -132,30 +141,43 @@ function backToLogIn() {
     document.getElementById('signUpSection').style.display = "block";
 }
 
-function signUpSuccessful(){
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
-    users.push({email: email.value, password: password.value});
+async function signUpSuccessful(){
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    let user = document.getElementById('user').value;
+    
+    let response = await fetch(BASE_URL + "users.json", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            User:user,
+            email:email,
+            password:password
+        })
+      });
 
     if(rememberBulian==false){
     document.getElementById('logIn').innerHTML += /*HTML*/`
         <div id="signInSuccessful" class="signInSuccessful">You Signed Up successful</div>
     `;
+
     setTimeout(backToLogIn, 1600);
     }
     else{
         document.getElementById('logIn').innerHTML += /*HTML*/`
-        <div id="signInNoSuccessful" class="signInSuccessful">You Signed Up is not successful</div>
+        <div id="signInNoSuccessful" class="signInSuccessful">you must accept the Privacy policy</div>
         `;
         setTimeout(removeNoSuccessfullSignUp, 2000);
     }
 }
 
-function logIn(){
+function logIn() {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    let user = users.find(u => u.email == email.value && u.password == password.value);
-    
+    let user = responsetoJsonUsers.find(u => u.email == email.value && u.password == password.value);
+    console.log(user);
     if(user){
         console.log('user gefunden')
         document.getElementById('logIn').innerHTML += /*HTML*/`
@@ -163,7 +185,14 @@ function logIn(){
         `;
         setTimeout(openSummary, 2000);
     }
-    else{
+    if(user == undefined){
+        console.log('user nciht gefunden')
+        document.getElementById('logIn').innerHTML += /*HTML*/`
+        <div id="signInNoSuccessful" class="signInSuccessful">email or passowrd are false</div>
+        `;
+        setTimeout(openSummary, 2000);
+    }
+    else {
         document.getElementById('logIn').innerHTML += /*HTML*/`
         <div id="signInNoSuccessful" class="signInSuccessful">You must enter an email and password</div>
         `;
