@@ -6,6 +6,7 @@
     <title>Contacts</title>
 
     <link rel="stylesheet" href="../style/style_contacts.css" />
+    <link rel="stylesheet" href="../style/style_headerfooter.css" />
 
     <script src="../js/script.js"></script>
     <script src="../js/script_contacts.js"></script>
@@ -15,10 +16,8 @@
   </head>
 
   <body onload="onLoadFunc()">
-    <header>
-      <img src="../assets/img/contacts/headerfooter/header_logo.png" />
-      <img src="../assets/img/contacts/headerfooter/login_logo.png" />
-    </header>
+
+    <header w3-include-html="header.html"></header>
 
     <!-- Modal Background -->
     <div id="modalBackground">
@@ -127,7 +126,7 @@
       />
     </div>
 
-    <footer w3-include-html="footer2.html"></footer>
+    <footer w3-include-html="footer.html"></footer>
 
   </body>
 </html>
