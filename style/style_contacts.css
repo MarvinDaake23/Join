@@ -32,6 +32,10 @@ header img {
 }
 */
 
+#contactContainerOuter {
+  width: 456px;
+}
+
 .singleContactContainer {
   background-color: #f6f7f8;
   height: 80vh;
@@ -149,6 +153,7 @@ header img {
   font-size: 16px;
 }
 
+/*
 footer {
   position: fixed;
   left: 0px;
@@ -160,6 +165,7 @@ footer {
   align-items: center;
   width: 100%;
 }
+*/
 
 .innerContactEntry {
   display: flex;
