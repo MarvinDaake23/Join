@@ -169,6 +169,7 @@ async function signUpSuccessful(){
             "password":password,
         })
     });
+    loadUserData();
 
     setTimeout(backToLogIn, 1600);
     }
