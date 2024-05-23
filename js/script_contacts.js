@@ -53,7 +53,7 @@ function sortContacts() {
  * function to show the contact information of a single contact
  */
 function singleContactView(id) {
-  document.getElementById("contactContainerOuter").style.display = "none";
+  //document.getElementById("contactContainerOuter").style.display = "none";
 
   document.getElementById("contactSingleView").innerHTML =
     renderSingleContactHTML(id);
@@ -185,4 +185,42 @@ async function editContact(id) {
   closeEditContact();
   document.getElementById("contactSingleView").innerHTML =
     renderSingleContactHTML(id);
+}
+
+let currentId;
+function setActive(newId) {
+  // beim neuen setzen
+  document.getElementById(`singleContactEntry${newId}`).classList.add("active");
+  document
+    .getElementById(`singleContactEntry${newId}`)
+    .classList.remove("hover");
+  // onclick deaktivieren
+  document
+    .getElementById(`singleContactEntry${newId}`)
+    .setAttribute("onclick", ``);
+  // cursor ändern
+  document.getElementById(`singleContactEntry${newId}`).style.cursor =
+    "default";
+
+  // beim alten alles wieder rückgängig machen
+  if (!isNaN(currentId)) {
+    document
+      .getElementById(`singleContactEntry${currentId}`)
+      .classList.remove("active");
+    document
+      .getElementById(`singleContactEntry${currentId}`)
+      .classList.add("hover");
+    // onclick aktivieren
+    document
+      .getElementById(`singleContactEntry${currentId}`)
+      .setAttribute(
+        "onclick",
+        `setActive(${currentId});singleContactView(${currentId})`
+      );
+    // cursor ändern
+    document.getElementById(`singleContactEntry${currentId}`).style.cursor =
+      "pointer";
+  }
+  // speichern
+  currentId = newId;
 }

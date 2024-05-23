@@ -37,9 +37,13 @@ header img {
 }
 
 .singleContactContainer {
+  position: relative;
+  right: -20px;
   background-color: #f6f7f8;
   height: 80vh;
   padding: 48px 16px 0px 16px;
+  animation-name: slideInFromRightDesktop;
+  animation-duration: 0.5s;
 }
 
 .singleContactContainer h2 {
@@ -128,6 +132,7 @@ header img {
   border: 3px solid #ffffff;
   box-sizing: border-box;
 }
+
 
 .emailAdress {
   color: #007cee;
@@ -220,6 +225,7 @@ footer {
 .contactEntry {
   margin-bottom: 16px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .lowerHalf {
@@ -357,6 +363,18 @@ footer {
   gap: 8px;
 }
 
+@keyframes slideInFromRightDesktop {
+  from {
+    right: -2000px;
+    opacity: 0;
+  }
+  to {
+    right: 20;
+    opacity: 1;
+  }
+}
+
+
 @keyframes slideInFromRight {
   from {
     right: -300px;
@@ -452,3 +470,10 @@ a {
   display: flex;
   gap: 20px;
 }
+
+
+.active {
+  background-color: #2A3647 !important;
+  color: white;
+}
+

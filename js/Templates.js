@@ -1,6 +1,6 @@
 function renderSingleContactEntryHTML(element, index) {
   return `
-      <div class="contactEntry" onclick="singleContactView(${index})">
+      <div id="singleContactEntry${index}" class="hover contactEntry" onclick="setActive(${index});singleContactView(${index})">
           <div class="innerContactEntry">
               <div class="initials initSmall" style="background-color:${element.profileColor}">
                   ${element.firstName[0]}${element.lastName[0]}
@@ -15,7 +15,7 @@ function renderSingleContactEntryHTML(element, index) {
 }
 
 function renderContactSeperatorHTML(element) {
-  return    `
+  return `
             <div class="seperatorLetter">${element.firstName[0]}</div>
             <!-- <hr> -->
             `;
@@ -24,6 +24,8 @@ function renderContactSeperatorHTML(element) {
 function renderSingleContactHTML(id) {
   return `
         <div class="singleContactContainer">
+
+        <!--
             <div class="contactsHeadlineBox">
                 <div class="contactsHeadline">
                     <h2>Contacts</h2>
@@ -32,6 +34,7 @@ function renderSingleContactHTML(id) {
                 <h3>Better with a team</h3>
                 <hr />
             </div>
+        -->
 
             <div class="singleContact">
                 <span style="background-color:${contacts[id].profileColor}" id="contactInitials" class="initials">${contacts[id].firstName[0]}${contacts[id].lastName[0]}</span>
