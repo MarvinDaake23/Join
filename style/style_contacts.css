@@ -133,7 +133,6 @@ header img {
   box-sizing: border-box;
 }
 
-
 .emailAdress {
   color: #007cee;
   font-weight: 400;
@@ -374,7 +373,6 @@ footer {
   }
 }
 
-
 @keyframes slideInFromRight {
   from {
     right: -300px;
@@ -471,9 +469,7 @@ a {
   gap: 20px;
 }
 
-
 .active {
-  background-color: #2A3647 !important;
+  background-color: #2a3647 !important;
   color: white;
 }
-

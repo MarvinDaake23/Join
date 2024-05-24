@@ -79,7 +79,7 @@ list {
 
 content {
   grid-area: content;
-  background-color: #f4f4f4;
+  background-color: #f6f7f8;
 }
 
 content h1 {
@@ -107,6 +107,24 @@ content .headline {
 .hover:hover {
   background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
   border-radius: 10px;
+}
+
+.editdelete a {
+  display: flex;
+  align-items: center;
+  color: #2a3647;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.editdelete img {
+  border: unset;
+}
+
+.editdelete {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
 }
 
 mobile-footer,

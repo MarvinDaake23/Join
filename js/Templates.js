@@ -38,8 +38,14 @@ function renderSingleContactHTML(id) {
 
             <div class="singleContact">
                 <span style="background-color:${contacts[id].profileColor}" id="contactInitials" class="initials">${contacts[id].firstName[0]}${contacts[id].lastName[0]}</span>
-                <span id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</span>
-            </div>
+                <div>
+                    <span id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</span>
+                    <div class="editdelete">
+                        <a><img src="./assets/img/contacts/edit.svg">Edit</a>
+                        <a><img src="./assets/img/contacts/delete1.png">Delete</a>
+                    </div>
+                </div>
+            </div>                
 
             <div class="contactInfos">
                 <h3>Contact information</h3>
