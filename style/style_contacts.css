@@ -38,10 +38,10 @@ header img {
 
 .singleContactContainer {
   position: relative;
-  right: -20px;
+  right: 0px;
   background-color: #f6f7f8;
   height: 80vh;
-  padding: 48px 16px 0px 16px;
+  padding: 48px 0px 0px 46px;
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
 }

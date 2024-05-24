@@ -118,7 +118,8 @@ content .headline {
 }
 
 .editdelete img {
-  border: unset;
+  border: none;
+  box-shadow: none;
 }
 
 .editdelete {

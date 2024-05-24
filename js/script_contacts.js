@@ -53,10 +53,22 @@ function sortContacts() {
  * function to show the contact information of a single contact
  */
 function singleContactView(id) {
+  //x-scrollbar kurz  hiden
+  document.getElementById("body").style.overflowX = "hidden";
+
   //document.getElementById("contactContainerOuter").style.display = "none";
 
   document.getElementById("contactSingleView").innerHTML =
     renderSingleContactHTML(id);
+
+  //x-scrollbar nach gewisser Zeit wieder setzen
+  sleep(2500).then(() => {
+    document.getElementById("body").style.overflowX = "scroll";
+  });
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function backToContactList() {
