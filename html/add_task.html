@@ -7,8 +7,11 @@
 
     <link rel="stylesheet" href="../style/add_task.css">
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/style_contacts.css">
     <script src="../js/script.js" ></script>
     <script src="../js/Templates.js" ></script>
+    <script src="../js/script_contacts.js"> </script>
+    <script src="../js/addTask.js"> </script>
 </head>
 <body onload="init()">
     <header w3-include-html="header.html"></header>
@@ -41,7 +44,7 @@
 
             <div class="taskTitleContainer">
                 <span>Assigned to</span>
-                <div id="wrapperAt" class="wrapper" onclick="openContacts()">
+                <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
                     <span>Select contacts to assign</span>
                     <img id="arrowDownAt" src="../assets/img/img/arrow_down.png" alt="">
                     <img id="arrowUpAt" class="dNone" src="../assets/img/img/arrow_up.png" alt="">
@@ -81,7 +84,7 @@
 
             <div class="taskTitleContainer">
                 <span>Category</span>
-                <div id="wrapper" class="wrapper" onclick="openWrapper()">
+                <div id="wrapper" class="wrapper" onclick="openWrapper('')">
                     <span id="placeholder">Select task category</span>
                     <img id="arrowDown" src="../assets/img/img/arrow_down.png" alt="">
                     <img id="arrowUp" class="dNone" src="../assets/img/img/arrow_up.png" alt="">
@@ -98,7 +101,6 @@
                     </div>  
                 </div>
                 <ul class="subTaskContainer" id="subTasks">
-
                 </ul>
             </div>
 

@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
 
+    <link rel="stylesheet" href="../style/add_task.css">
     <link rel="stylesheet" href="../style/board.css">
     <link rel="stylesheet" href="../style/style.css">
-    <script src="../js/script.js" ></script>
-    <script src="../js/Templates.js" ></script>
+    <link rel="stylesheet" href="../style/style_contacts.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/Templates.js"></script>
+    <script src="../js/board.js"></script>
 </head>
-<body onload="includeHTML()">
-    <sidepanel class="sidepanel"></sidepanel>
+
+<body onload="boardInit()">
+    <!-- <sidepanel class="sidepanel"></sidepanel> -->
 
     <header w3-include-html="header.html"></header>
 
@@ -19,49 +24,70 @@
 
         <div class="headlineContainer">
             <div class="headline">Board</div>
-            <div class="addTaskButton">+</div>
+            <div class="addButtonBig addButton">+</div>
         </div>
 
-        <div class="inputSearch">
-            <div class="sperator">
-                <div class="sep"></div>
-                <img class="search" src="../assets/img/img/search.png" alt="">
+        <div class="taskTitleContainer">
+            <div class="taskTitleInputContainer">
+                <input id="subtaskInput" type="text" placeholder="Find Task">
+                <div id="imgContainerSubtask" class="imgContainer ">
+                    <div class="subtaskSettingContainer">
+                        <div class="seperator"></div>
+                        <div class="imgContainerSearch"></div>
+                    </div>
+                </div>
             </div>
-            <input class="searchInput" type="text" placeholder="Find Task">
         </div>
 
         <div class="progressInformationContainer">
             <div class="progressContainer">
                 <div>
                     <span>To do</span>
-                    <div class="addButton">+</div>
+                    <div class="addButtonSmall addButton"></div>
                 </div>
-                <div class="emptyPlaceholder">No Task To Do</div>
+                <div id="toDoContainer">
+                    <div class="emptyPlaceholder">No Task To Do</div>
+                </div>
             </div>
 
             <div class="progressContainer">
                 <div>
                     <span>In progress</span>
+                    <div class="addButtonSmall addButton"></div>
                 </div>
-                <div class="emptyPlaceholder">No Task in progress</div>
+                <div>
+                    <div class="emptyPlaceholder">No Task in progress</div>
+                </div>
             </div>
 
             <div class="progressContainer">
                 <div>
                     <span>Aswait Feedback</span>
+                    <div class="addButtonSmall addButton"></div>
                 </div>
-                <div class="emptyPlaceholder">No Task for Feedback</div>
+                <div>
+                    <div class="emptyPlaceholder">No Task for Feedback</div>
+                </div>
             </div>
 
             <div class="progressContainer">
                 <div>
                     <span>Done</span>
+                    <div class="addButtonSmall addButton"></div>
                 </div>
-                <div class="emptyPlaceholder">No Task done</div>
+                <div>
+                    <div class="emptyPlaceholder">No Task done</div>
+                </div>
             </div>
         </div>
+
+        <div class="boardBigContainer" id="boardBigContainer">
+            
+        </div>
+
     </page>
 
     <footer w3-include-html="footer.html"></footer>
 </body>
+
 </html>

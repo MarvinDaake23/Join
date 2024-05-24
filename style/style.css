@@ -12,7 +12,10 @@ body {
     background-color: #F6F7F8;
 }
 
-/*test*/
+a{
+    text-decoration: none;
+    color:white;
+}
 
 .icon {
   position: absolute;
