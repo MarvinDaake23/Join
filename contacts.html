@@ -4,150 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacts</title>
-
-    <link rel="stylesheet" href="../style/style_contacts.css" />
-    <link rel="stylesheet" href="../style/style_headerfooter.css" />
-
-    <script src="../js/script.js"></script>
-    <script src="../js/script_contacts.js"></script>
-    <script src="../js/Templates.js"></script>
+    <link rel="stylesheet" href="./style/style_contacts.css" />
+    <link rel="stylesheet" href="./style/style_contacts_grid.css" />
+    <script src="./js/script.js"></script>
+    <script src="./js/script_contacts.js"></script>
+    <script src="./js/Templates.js"></script>
 
     <link rel="icon" type="image/png" href="favicon.png" />
   </head>
-
   <body onload="onLoadFunc()">
-    <div class="sidebarAndRest">
-      <sidebar-desktop w3-include-html="sidebar.html"></sidebar-desktop>
+    <sidebar>
+      <img class="sidebarlogo" src="./assets/img/img/sidebar_logo.png" alt="" />
 
-      <div class="rest">
-        <header-desktop w3-include-html="header-desktop.html"></header-desktop>
+      <nav>
+        <a href="summary.html"
+          ><img src="./assets/img/sidebar/summaryicon.png" />Summary</a
+        >
+        <a href="board.html"
+          ><img src="./assets/img/sidebar/addtaskicon.png" />Add task</a
+        >
+        <a href="add_task.html"
+          ><img src="./assets/img/sidebar/boardicon.png" />Board</a
+        >
+        <a href="contacts_grid.html"
+          ><img src="./assets/img/sidebar/contactsicon.png" />Contacts</a
+        >
+      </nav>
 
-        <div class="underTheHeader">
-          <header-mobile w3-include-html="header.html"></header-mobile>
-
-          <!-- Modal Background -->
-          <div id="modalBackground">
-            <!-- Modal content v1: Add -->
-            <div id="modalAddContact">
-              <div class="upperHalf">
-                <span onclick="closeAddContact()">&times;</span>
-                <h2>Add contact</h2>
-                <h3>Tasks are better with a team!</h3>
-                <hr />
-              </div>
-
-              <div class="lowerHalf">
-                <img
-                  class="newContactPic"
-                  src="../assets/img/contacts/person.png"
-                />
-                <form onsubmit="createContact(); return false;">
-                  <input
-                    required
-                    id="nameInput"
-                    type="text"
-                    class="nameInput"
-                    placeholder="Name"
-                    pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
-                    title="first and last name needed"
-                  />
-                  <input
-                    required
-                    id="emailInput"
-                    type="email"
-                    class="mailInput"
-                    placeholder="Email"
-                  />
-                  <input
-                    required
-                    id="phoneInput"
-                    type=""
-                    class="phoneInput"
-                    placeholder="Phone"
-                    pattern="([0-9]+)"
-                  />
-                  <button id="createContactButton">Create contact</button>
-                </form>
-              </div>
-            </div>
-
-            <!-- Modal content v2: Edit -->
-            <div id="modalEditContact">
-              <div class="upperHalf">
-                <span onclick="closeEditContact()">&times;</span>
-                <h1>Edit contact</h1>
-                <h3>Tasks are better with a team!</h3>
-                <hr />
-              </div>
-
-              <div class="lowerHalf">
-                <div id="editInitials"></div>
-                <form
-                  id="editContactForm"
-                  onsubmit="editContact();return false;"
-                >
-                  <input
-                    required
-                    id="editNameInput"
-                    type="text"
-                    class="nameInput"
-                    placeholder="Name"
-                    pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
-                    title="first and last name needed"
-                  />
-                  <input
-                    required
-                    id="editEmailInput"
-                    type="email"
-                    class="mailInput"
-                    placeholder="Email"
-                  />
-                  <input
-                    required
-                    id="editPhoneInput"
-                    type=""
-                    class="phoneInput"
-                    placeholder="Phone"
-                    pattern="([0-9]+)"
-                  />
-                  <div class="buttonPair">
-                    <button
-                      type="button"
-                      id="editContactDeleteButton"
-                      onclick="deleteContact()"
-                    >
-                      Delete
-                    </button>
-                    <button type="submit" id="editContactSaveButton">
-                      Save
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <!-- display:none -->
-          <div id="contactSingleView"></div>
-
-          <div id="contactContainerOuter">
-            <div id="contactContainer"></div>
-
-            <img
-              onclick="showAddContact()"
-              class="moreButton"
-              src="../assets/img/contacts/addcontact1.png"
-            />
-          </div>
-
-          <div class="nextToContactList">
-            <h1>Contacts</h1>
-            <h2>Better with a team</h2>
-          </div>
-        </div>
+      <div class="sidebarLinks">
+        <a href="privacy_policy.html">Privacy Policy</a>
+        <a href="privacy_policy.html">Legal notice</a>
       </div>
-    </div>
+    </sidebar>
 
-    <footer-mobile w3-include-html="footer.html"></footer-mobile>
+    <mobile-header>
+      <a href="index.html"><img src="../assets/img/img/Capa 3.png" alt="" /></a>
+      <img src="../assets/img/img/Group 13.png" alt="" />
+    </mobile-header>
+
+    <header>
+      <span>Kanban Project Management Tool</span>
+      <div class="headerImages">
+        <img src="./assets/img/contacts/help.png" />
+        <img src="./assets/img/contacts/initials.png" />
+      </div>
+    </header>
+
+    <list>
+      <div id="contactContainerOuter">
+        <div id="contactContainer"></div>
+      </div>
+    </list>
+
+    <content>
+      <div class="headline">
+        <h1>Contacts</h1>
+        <h2>Better with a team</h2>
+      </div>
+
+      <div id="contactSingleView"></div>
+    </content>
+
+    <mobile-footer>
+      <a href="summary.html"
+        ><img src="../assets/img/contacts/headerfooter/summary.png"
+      /></a>
+      <a href="board.html"
+        ><img src="../assets/img/contacts/headerfooter/Boardicon.png"
+      /></a>
+      <a href="add_task.html"
+        ><img src="../assets/img/contacts/headerfooter/addtask.png"
+      /></a>
+      <a href="contacts.html"
+        ><img src="../assets/img/contacts/headerfooter/contacts.png"
+      /></a>
+    </mobile-footer>
   </body>
 </html>
