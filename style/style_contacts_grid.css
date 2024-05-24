@@ -13,16 +13,18 @@ body {
 sidebar {
   grid-area: sidebar;
   padding: 64px 0px 64px 0px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  left: 0;
   background-color: #2a3647;
   width: 232px;
+  height: 100vh;
 }
 
 nav {
-  margin-top: 100px;
+  justify-content: center;
+  padding-top: 100px;
   display: flex;
   gap: 15px;
   flex-direction: column;
@@ -41,11 +43,12 @@ nav a {
   color: #cdcdcd;
   font-size: 16px;
   font-weight: 400;
+  padding: 8px 63px;
 }
 
 .sidebarLinks {
-  margin-top: 100px;
   display: flex;
+padding-top: 250px;
   flex-direction: column;
   gap: 8px;
 }
@@ -117,9 +120,19 @@ content .headline {
   font-weight: 400;
 }
 
+.editdelete a:hover {
+  color: #29abe2;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .editdelete img {
   border: none;
   box-shadow: none;
+}
+
+.editdelete img:hover {
+  color: #29abe2;
 }
 
 .editdelete {
@@ -127,6 +140,12 @@ content .headline {
   flex-direction: row;
   gap: 13px;
 }
+
+nav a:hover {
+  background-color: #091931;
+  ;
+} 
+
 
 mobile-footer,
 mobile-header {

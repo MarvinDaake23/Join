@@ -1,6 +1,6 @@
 function renderSingleContactEntryHTML(element, index) {
   return `
-      <div id="singleContactEntry${index}" class="hover contactEntry" onclick="setActive(${index});singleContactView(${index})">
+        <div id="singleContactEntry${index}" class="hover contactEntry" onclick="setActive(${index});singleContactView(${index})">
           <div class="innerContactEntry">
               <div class="initials initSmall" style="background-color:${element.profileColor}">
                   ${element.firstName[0]}${element.lastName[0]}
@@ -41,8 +41,8 @@ function renderSingleContactHTML(id) {
                 <div>
                     <span id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</span>
                     <div class="editdelete">
-                        <a><img src="./assets/img/contacts/edit.svg">Edit</a>
-                        <a><img src="./assets/img/contacts/delete1.png">Delete</a>
+                        <a onclick="showEditContact(${id})"><img src="./assets/img/contacts/edit.svg">Edit</a>
+                        <a onclick="deleteContact(${id})"><img src="./assets/img/contacts/delete1.png">Delete</a>
                     </div>
                 </div>
             </div>                
