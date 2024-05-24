@@ -5,20 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Summary</title>
 
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../join/style.css" />
+    <link rel="stylesheet" href="../style/styleSummary.css" />
+    <link rel="stylesheet" href="../style/summaryResponsive.css" />
     <script src="../js/script.js"></script>
     <script src="../js/Templates.js"></script>
   </head>
   <body>
-    <!-- <img class="icon" src="../assets/img/join-icon-white.png">
-    <sidepanel class="sidepanel"></sidepanel> -->
     <header></header>
     <page></page>
-    <h1 class="join360HeadlineSummary">Join 360</h1>
-    <p class="secondHeadlineSummary">
+
+    <div class="join360HeadlineSummaryContainerMobile">
+        <h1 class="join360HeadlineSummary">Join 360</h1>
+        <p class="secondHeadlineSummary">
         <span class="underlineSecondHeadlineSummary">Key Metri</span>cs at a Glance
-    </p>
+        </p>
+    </div>
+
+    <div class="join360HeadlineSummaryContainerDesk">
+        <h1 class="join360HeadlineSummary">Join 360</h1>
+        <div class="blueLineUrgentBox"></div>
+        <p class="secondHeadlineSummaryDesk">
+        Key Metrics at a Glance
+        </p>
+    </div>
+
+
+
     <div class="summaryBoxContainer">
+        <div class="content">
       <div class="firstRowSummaryBoxes">
         <div class="boxMediumSummary">
           <div class="iconsSummary iconPencil"></div>
@@ -70,5 +85,9 @@
         </div>
       </div>
     </div>
-  </body>
+    <div class="welcomeScreenSummaryDeskVersion">
+        <h1 class="welcomeScreenSummaryDeskVersionHeadline">Good morning</h1>
+    </div>
+    </div>
+</body>
 </html>
