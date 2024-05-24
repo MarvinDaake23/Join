@@ -61,8 +61,8 @@ function singleContactView(id) {
   document.getElementById("contactSingleView").innerHTML =
     renderSingleContactHTML(id);
 
-  //x-scrollbar nach gewisser Zeit wieder setzen
-  sleep(2500).then(() => {
+  //x-scrollbar nach gewisser Zeit wieder aktivieren
+  sleep(500).then(() => {
     document.getElementById("body").style.overflowX = "scroll";
   });
 }
