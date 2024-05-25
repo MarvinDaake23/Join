@@ -58,7 +58,7 @@ nav a {
   color: #a8a8a8;
   font-size: 16px;
   font-weight: 400;
-  transition: transform .05s; /* Animation */
+  transition: transform 0.05s; /* Animation */
 }
 
 .sidebarLinks a:hover {
@@ -81,6 +81,12 @@ header {
   box-shadow: 0px 4px 4px 0px #0000001a;
   font-size: 20px;
   font-weight: 400;
+}
+
+header .headerImages {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 list {
@@ -119,6 +125,16 @@ content .headline {
   background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
   border-radius: 10px;
 }
+
+header #editHover:hover {
+  transform: scale(1.1);
+}
+
+header #headerInitials:hover {
+  background-color: rgba(12, 46, 98, 0.12)
+}
+
+
 
 .editdelete a {
   display: flex;

@@ -5,15 +5,21 @@ let contacts = [];
 
 /* Background colors for profile initials */
 let backgroundProfileColors = [
-  "#FF7A00", // Anton
-  "#FFC700", // TW edit
-  "#9327FF", // Anja
-  "#6E52FF", // Benedikt
-  "#FC71FF", // David
-  "#FFBB2B", // Eva F.
-  "#1FD7C1", // Emmanuel M
-  "#FF4646", // Tatjana Wolf
-  "#462F8A", // Marcel Bauer
+  "#0038FF",
+  "#00BEE8",
+  "#1FD7C1",
+  "#6E52FF",
+  "#9327FF",
+  "#C3FF2B",
+  "#FC71FF",
+  "#FF4646",
+  "#FF5EB3",
+  "#FF745E",
+  "#FF7A00",
+  "#FFA35E",
+  "#FFBB2B",
+  "#FFC701",
+  "#FFE62B",
 ];
 
 async function onLoadFunc() {
