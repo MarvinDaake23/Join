@@ -493,3 +493,17 @@ a {
   background-color: #2a3647 !important;
   color: white;
 }
+
+body.summary a.summary,
+body.addtask a.addtask,
+body.board a.board,
+body.contacts a.contacts,
+body.privacy a.privacy,
+body.legal a.legal {
+  background-color: #091931;
+  pointer-events: none; /*not clickable */
+}
+
+body.help a#helpIcon {
+  display: none;
+}

@@ -126,7 +126,7 @@ content .headline {
   border-radius: 10px;
 }
 
-header #editHover:hover {
+header #helpIcon:hover {
   transform: scale(1.1);
 }
 
