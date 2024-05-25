@@ -23,7 +23,7 @@ let backgroundProfileColors = [
 ];
 
 async function onLoadFunc() {
-  includeHTML();
+  await includeHTML();
   contacts = await loadData("contacts");
   renderContacts();
 }
@@ -46,6 +46,21 @@ function renderContacts() {
     }
     container.innerHTML += renderSingleContactEntryHTML(element, index);
   }
+}
+
+function showHeaderPopup() {
+  // disable onclick
+  document.getElementById("body").setAttribute("onclick", "");
+  document.getElementById("headerPopup").style.display = "flex";
+  sleep(0).then(() => {
+    document
+      .getElementById("body")
+      .setAttribute("onclick", "closeHeaderPopup()");
+  });
+}
+
+function closeHeaderPopup() {
+  document.getElementById("headerPopup").style.display = "none";
 }
 
 /**
