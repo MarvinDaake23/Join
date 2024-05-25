@@ -13,42 +13,11 @@
     <link rel="icon" type="image/png" href="favicon.png" />
   </head>
   <body id="body" onload="onLoadFunc()">
-    <sidebar>
-      <img class="sidebarlogo" src="./assets/img/headerfootersidebarnav/headerlogo.svg" alt="" />
+    <sidebar w3-include-html="sidebar.html"></sidebar>
 
-      <nav>
-        <a href="summary.html"
-          ><img src="./assets/img/headerfootersidebarnav/summary.svg" />Summary</a
-        >
-        <a href="add_task.html"
-          ><img src="./assets/img/headerfootersidebarnav/addtask.svg" />Add task</a
-        >
-        <a href="board.html"
-          ><img src="./assets/img/headerfootersidebarnav/board.svg" />Board</a
-        >
-        <a href="contacts.html"
-          ><img src="./assets/img/headerfootersidebarnav/contacts.svg" />Contacts</a
-        >
-      </nav>
+    <mobile-header w3-include-html="mobile-header.html"></mobile-header>
 
-      <div class="sidebarLinks">
-        <a href="privacy_policy.html">Privacy Policy</a>
-        <a href="privacy_policy.html">Legal notice</a>
-      </div>
-    </sidebar>
-
-    <mobile-header>
-      <a href="index.html"><img src="../assets/img/img/Capa 3.png" alt="" /></a>
-      <img src="../assets/img/img/Group 13.png" alt="" />
-    </mobile-header>
-
-    <header>
-      <span>Kanban Project Management Tool</span>
-      <div class="headerImages">
-        <a id="editHover" href="help.html"><img src="./assets/img/headerfootersidebarnav/help.svg" /></a>
-        <a><img id="headerInitials" src="./assets/img/headerfootersidebarnav/User profile initials.svg" /></a>
-      </div>
-    </header>
+    <header w3-include-html="header.html"></header>
 
     <list>
       <div id="contactContainerOuter">
@@ -65,19 +34,6 @@
       <div id="contactSingleView"></div>
     </content>
 
-    <mobile-footer>
-      <a href="summary.html"
-        ><img src="./assets/img/headerfootersidebarnav/summary.svg"
-      /></a>
-      <a href="board.html"
-        ><img src="./assets/img/headerfootersidebarnav/board.svg"
-      /></a>
-      <a href="add_task.html"
-        ><img src="./assets/img/headerfootersidebarnav/addtask.svg"
-      /></a>
-      <a href="contacts.html"
-        ><img src="./assets/img/headerfootersidebarnav/contacts.svg"
-      /></a>
-    </mobile-footer>
+    <mobile-footer w3-include-html="mobile-footer.html"></mobile-footer>
   </body>
 </html>

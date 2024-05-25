@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  display: grid;
+  grid-template-areas:
+    "sidebar  header"
+    "sidebar  content";
+  grid-template-columns: 232px auto;
+  justify-items: stretch;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+content {
+  overflow-y: scroll;
+}
+
+/* head CSS für den head bereich Help, Privacy Policy, Legal Notice und Home-Button*/
+
+.headAreaHelpPrivacyPolicyLegalNotice {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.containerTextHelpPrivacyPolicyLegalNotice {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.headlineHelpPrivacyPolicyLegalNotice {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.secondHeadlineHelpPrivacyPolicyLegalNotice {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.arrowLeftBlue {
+  height: 24px;
+  width: 24px;
+  padding-top: 30px;
+}
