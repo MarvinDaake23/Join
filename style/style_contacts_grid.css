@@ -48,7 +48,7 @@ nav a {
 
 .sidebarLinks {
   display: flex;
-padding-top: 250px;
+  padding-top: 250px;
   flex-direction: column;
   gap: 8px;
 }
@@ -58,6 +58,14 @@ padding-top: 250px;
   color: #a8a8a8;
   font-size: 16px;
   font-weight: 400;
+  transition: transform .05s; /* Animation */
+}
+
+.sidebarLinks a:hover {
+  color: #29abe2;
+  /*font-size: 16px;
+  font-weight: 700;*/
+  transform: scale(1.05);
 }
 
 header {
@@ -143,9 +151,7 @@ content .headline {
 
 nav a:hover {
   background-color: #091931;
-  ;
-} 
-
+}
 
 mobile-footer,
 mobile-header {
