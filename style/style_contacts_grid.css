@@ -48,7 +48,7 @@ nav a {
 
 .sidebarLinks {
   display: flex;
-  padding-top: 250px;
+  padding-top: 220px;
   flex-direction: column;
   gap: 8px;
 }
@@ -59,6 +59,7 @@ nav a {
   font-size: 16px;
   font-weight: 400;
   transition: transform 0.05s; /* Animation */
+  padding: 8px 63px;
 }
 
 .sidebarLinks a:hover {
@@ -131,10 +132,8 @@ header #helpIcon:hover {
 }
 
 header #headerInitials:hover {
-  background-color: rgba(12, 46, 98, 0.12)
+  background-color: rgba(12, 46, 98, 0.12);
 }
-
-
 
 .editdelete a {
   display: flex;
