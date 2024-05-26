@@ -3,63 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log-in</title>
-
-    <link rel="stylesheet" href="../style/log_in_style.css" />
-    <script src="../js/script.js"></script>
-    <script src="../js/Log_in_script.js"></script>
-    <script src="../js/Templates.js"></script>
+    <title>Join: Log-in</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="./style/log_in_style.css" />
+    <script src="./js/script.js"></script>
+    <script src="./js/Log_in_script.js"></script>
+    <script src="./js/Templates.js"></script>
   </head>
-
-  <body id="body" onload="iconWhiteToBlue()">
+  <body id="body" onload="onloadfunction()">
     <div id="whiteB" class="whiteBackground"></div>
-    <a href="summary.html"><img id="icon" class="icon" src="../assets/img/join-icon-blue.png" /></a>
+    <img id="icon" class="icon" src="../assets/img/join-icon-blue.png" />
     <div id="signUpSection" class="signUpSection">
       <span class="noUser">Not a Join user?</span>
       <button class="signInButton hover" onclick="signUp()">Sign up</button>
     </div>
 
-    <div id="logIn" class="logIn">
-      <div class="headline">
-        <h1>Log in</h1>
-        <div class="line"></div>
-      </div>
+    <div id="registerSection">
+      <form onsubmit="logIn(); return false;" id="logIn" class="logIn">
+        <div class="headline">
+          <h1>Log in</h1>
+          <div class="line"></div>
+        </div>
 
-      <div class="logInSection">
-        <div class="inputfield">
-          <input type="text" placeholder="Email" required />
-          <div class="inputIcons">
-            <img class="mailIcon hover" src="../assets/img/mail.png" />
+        <div class="logInSection">
+          <div class="inputfield">
+            <input id="email" type="text" placeholder="Email" required />
+            <div class="inputIcons">
+              <img class="mailIcon hover" src="../assets/img/mail.png" />
+            </div>
+          </div>
+          <div class="inputfield">
+            <input id="password" type="text" placeholder="Password" required />
+            <div class="inputIcons">
+              <img class="lockIcon hover" src="../assets/img/lock.png" />
+            </div>
+          </div>
+          <div class="rememberSection">
+            <img
+              src="../assets/img/Property 1=Default.png"
+              id="checkButton"
+              class="checkButton hover"
+              onclick="remember()"
+            />
+            <span>Remember me</span>
           </div>
         </div>
-        <div class="inputfield">
-          <input type="text" placeholder="Password" required />
-          <div class="inputIcons">
-            <img class="lockIcon hover" src="../assets/img/lock.png" />
-          </div>
-        </div>
-        <div class="rememberSection">
-          <img
-            src="../assets/img/Property 1=Default.png"
-            id="checkButton"
-            class="checkButton hover"
-            onclick="remember()"
-          />
-          <span>Remember me</span>
-        </div>
-      </div>
 
-      <div class="logInButtonSection">
-        <button class="logInUserButton hover">Log in</button>
-        <button class="logInGuestButton hover">Guest Log in</button>
-      </div>
+        <div class="logInButtonSection">
+          <button type="submit" class="logInUserButton hover">Log in</button>
+          <button
+            type="button"
+            onclick="guestLogIn()"
+            class="logInGuestButton hover"
+          >
+            Guest Log in
+          </button>
+        </div>
+      </form>
     </div>
 
     <div class="informationSection">
-      <a href="privacy_policy.html"
-        ><span class="hover">Privacy Policy</span></a
-      >
-      <a href="legalNotice.html"><span class="hover">Legal notice</span></a>
+      <span class="hover">Privacy Policy</span>
+      <span class="hover">Legal notice</span>
     </div>
   </body>
 </html>
