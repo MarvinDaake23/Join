@@ -105,20 +105,20 @@ header {
 }
 
 .iconPencil {
-  background-image: url(./assets/img/pencil.png);
+  background-image: url(/assets/img/pencil.png);
 }
 
 .boxMediumSummary:hover .iconPencil {
-  background-image: url(./assets/img/pencilDark.png);
+  background-image: url(/assets/img/pencilDark.png);
   background-repeat: no-repeat;
 }
 
 .iconCheck {
-  background-image: url(./assets/img/check.png);
+  background-image: url(/assets/img/check.png);
 }
 
 .boxMediumSummary:hover .iconCheck {
-  background-image: url(./assets/img/checkDark.png);
+  background-image: url(/assets/img/checkDark.png);
   background-repeat: no-repeat;
 }
 

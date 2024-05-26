@@ -95,25 +95,25 @@
   }
   
   .iconPencil {
-      background-image: url(../assets/img/iconPencil.png);
+      background-image: url(./assets/img/iconPencil.png);
   }
   
   .boxMediumSummary:hover .iconPencil{
-      background-image: url(../assets/img/pencilDark.png);
+      background-image: url(./assets/img/pencilDark.png);
       background-repeat: no-repeat;
   }
   
   .iconCheck{
-      background-image: url(../assets/img/iconCheck.png);
+      background-image: url(./assets/img/iconCheck.png);
   }
   
   .boxMediumSummary:hover .iconCheck{
-      background-image: url(../assets/img/checkDark.png);
+      background-image: url(./assets/img/checkDark.png);
       background-repeat: no-repeat;
   }
   
   .iconArrows{
-      background-image: url(../assets/img/iconArrows.png);
+      background-image: url(./assets/img/iconArrows.png);
   }
   
   .boxUrgent:hover .iconArrows {
