@@ -98,6 +98,7 @@ list {
 content {
   grid-area: content;
   background-color: #f6f7f8;
+  margin-top: 5px;
 }
 
 content h1 {
