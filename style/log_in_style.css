@@ -10,14 +10,54 @@ body {
     align-items: center;
     height: 100vh;
     font-family: 'Inter', sans-serif;
+ 
 }
+
+.whiteBackground{
+    position: absolute;
+    background: #2A3647;
+    width: 100%;
+    height: 100%;
+    animation: moveWhiteB 3s forwards;
+    animation-delay: 0.5s;
+    z-index: 1;
+}
+
+@keyframes moveWhiteB {
+    from {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+    to {
+        opacity: 0; 
+    }
+  }
 
 .icon {
     position: absolute;
-    left: 77px;
-    top: 80px;
+    width: 100px;
+    height: 121px;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%) ; 
+    animation: moveImage 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes moveImage {
+  from {
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 121px;
+  }
+  to {
+    left: 20%;
+    top: 12%;
     width: 64px;
     height: 78px;
+  }
 }
 
 .signUpSection {
@@ -28,7 +68,7 @@ body {
 
 .noUser {
     font-size: 20px;
-    padding-right: 30px;
+    padding-right: 15px;
 }
 
 .signInButton {
@@ -46,9 +86,13 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: #FFFFFF;
-    width: 396px; 
-    height: 515px; 
     border-radius: 30px;
+}
+
+.backArrow{
+    position: relative;
+    left: -120px;
+    top: 45px;
 }
 
 .headline {
@@ -56,9 +100,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 140px;
+    width: 173px;
     height: 72px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 h1 {
@@ -75,12 +120,14 @@ h1 {
 }
 
 .logInSection {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .inputfield {
     margin-bottom: 20px;
-    width: 364px;
+    width: 250px;
     height: 48px;
     border-radius: 10px;
     border-width: 1px;
@@ -115,6 +162,11 @@ input[type=text] {
     width: 20px;
 }
 
+.personIcon {
+    height: 16px;
+    width: 17px;
+}
+
 .lockIcon {
     height: 21px;
     width: 16px;
@@ -123,14 +175,35 @@ input[type=text] {
 .rememberSection {
     display: flex;
     align-items: center;
+    margin-left: 16px;
+    margin-top: 30px;
+}
+
+.acceptPolicy{
+    display: flex;
+    align-items: center;
     margin-left: 12px;
+    margin-bottom: 30px;
+}
+
+.bluefont{
+    color: #29abe2;
 }
 
 .logInButtonSection {
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 270px;
+    margin-bottom: 50px;
+}
+
+.signInButtonSection{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 322px;
+    margin-bottom: 25px;
 }
 
 .logInUserButton {
@@ -160,9 +233,20 @@ input[type=text] {
 }
 
 .checkButton {
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     margin-right: 10px;
+    background-color: transparent;
+    border-radius: 3px;
+}
+
+.blueText {
+    color: #36b0e3;
+    text-decoration: none;
+}
+
+.blueText:hover {
+    text-decoration: underline;
 }
 
 span {
@@ -177,15 +261,88 @@ button {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    bottom: 60px;
-    width: 246px;
+    bottom: 50px;
+    width: 226px;
     color: #A8A8A8;
 }
 
+.feedback{
+    position: absolute;
+    background-color: #2A3647;
+    text-align: center;
+    color: white;
+    bottom: 0%;
+    left: 50%;
+    width: 326px;
+    height: 74px;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    line-height: 74px;
+    animation: moveSuccessful 0.7s forwards;
+}
+
+@keyframes moveSuccessful {
+    from {
+        bottom: 0%;
+        left: 50%;
+    }
+    to {
+        bottom: 22%;
+        left: 50%;
+        width: 326px;
+        height: 74px;
+    }
+  }
+
+@media(min-width: 420px){
+    .inputfield{
+        width: 364px;
+    }
+    .logInButtonSection{
+        width: 322px;
+    }
+    .noUser {
+        padding-right: 30px;
+    }
+    .backArrow{
+        position: relative;
+        left: -140px;
+        top: 45px;
+    }
+}
+
 @media (min-width: 750px) {
+    .whiteBackground{
+        background: #ffffff;
+    }
+    
+    @keyframes moveWhiteB {
+        from {
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+        }
+        to {
+            opacity: 0; 
+        }
+      }
+
     .icon {
-        width: 100px;
-        height: 121px;
+        width: 274px;
+        height: 334px;
+    }
+
+    @keyframes moveImage {
+        from {
+            width: 274px;
+            height: 334px;
+        }
+        to {
+            left: 12%;
+            top: 12%;
+            width: 100px;
+            height: 120px;
+        }
     }
 
     .signUpSection {
@@ -196,16 +353,22 @@ button {
 
     .noUser {
         padding-right: 20px;
+       
     }
 
     .signInButton {
-        width: 91px;
+        width: 126px;
         height: 49px;
     }
 
-    .logIn {
-        width: 652px; 
-        height: 493px; 
+    .log-in{
+        width: auto;
+    }
+
+    .backArrow{
+        position: relative;
+        left: -265px;
+        top: 45px;
     }
 
     .headline {
@@ -224,7 +387,9 @@ button {
     }
 
     .logInSection {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
+        margin-left: 115px;
+        margin-right: 115px;
     }
 
     .inputfield {
@@ -232,6 +397,7 @@ button {
     }
 
     .rememberSection {
+        margin-top: 36px;
         margin-left: 50px;
     }
 
@@ -259,6 +425,4 @@ button {
     }
 }
 
-@media (max-width: 420px) {
-    
-}
+/*hallo/*

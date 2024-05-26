@@ -1,0 +1,244 @@
+@font-face {
+    font-family: "Raleway-Regular";
+    src: url("../fonts/Raleway/Raleway-Black.ttf");
+  }
+  
+  body {
+    margin: 0px;
+    background-color: #f6f7f8;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 65px;
+    top: 64px;
+    width: 100px;
+    height: 121px;
+    z-index: 1;
+  }
+  
+  header {
+    background-color: #ffffff;
+    height: 96px;
+    width: 100%;
+  }
+  
+  .sidepanel {
+    position: absolute;
+    left: 0;
+    background-color: #2a3647;
+    height: 100vh;
+    width: 232px;
+  }
+  
+  /* Summary */
+  
+  .summaryBoxContainer {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    height: 390px;
+  }
+  
+  .iconsSummary {
+    height: 40px;
+    width: 40px;
+    background-size: cover;
+  }
+  
+  
+  .numbersSummary {
+    font-size: 50px;
+    font-weight: 600;
+  }
+  
+  .textSummary {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  .textSummaryUrgentDate {
+    font-weight: 700px;
+    margin: 0;
+    font-size: 17px;
+  }
+  
+  .numberAndTextBoxSummary {
+    text-align: center;
+  }
+  
+  .join360HeadlineSummary {
+    font-size: 50px;
+    margin-bottom: 0;
+    font-size: 700;
+    padding-left: 20px;
+  }
+  
+  .secondHeadlineSummary {
+    margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 40px;
+    padding-left: 20px;
+  }
+  
+  .underlineSecondHeadlineSummary {
+    text-decoration: underline;
+    text-decoration-color: rgba(41, 171, 226, 1);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+    margin-top: 10px;
+    text-underline-offset: 20px;
+  }
+  
+  .iconPencil {
+      background-image: url(../assets/img/iconPencil.png);
+  }
+  
+  .boxMediumSummary:hover .iconPencil{
+      background-image: url(../assets/img/pencilDark.png);
+      background-repeat: no-repeat;
+  }
+  
+  .iconCheck{
+      background-image: url(../assets/img/iconCheck.png);
+  }
+  
+  .boxMediumSummary:hover .iconCheck{
+      background-image: url(../assets/img/checkDark.png);
+      background-repeat: no-repeat;
+  }
+  
+  .iconArrows{
+      background-image: url(../assets/img/iconArrows.png);
+  }
+  
+  .boxUrgent:hover .iconArrows {
+      height: 45px;
+      width: 45px;
+      background-repeat: no-repeat;
+  
+  }
+  
+  /* erste Reihe */
+  
+  .firstRowSummaryBoxes {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .boxMediumSummary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+    border-radius: 20px;
+    height: 110px;
+    width: 190px;
+    gap: 10px;
+    background-color: white;
+    transition: 0.3s ease;
+  }
+  
+  .boxMediumSummary:hover {
+      background-color: #2A3747;
+      color: white;
+      transform: scale(1.05);
+      z-index: 10; 
+  }
+  
+  /* zweite Reihe*/
+  
+  .secondRowSummaryBoxes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .boxUrgent {
+    width: 400px;
+    height: 110px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: 0.3s ease;
+  }
+  
+  .boxUrgent:hover {
+      background-color: #2A3747;
+      color: white;
+      transform: scale(1.05);
+      z-index: 10; 
+  }
+  
+  .greyLineUrgentBox {
+    height: 70px;
+    border: 1px solid rgba(209, 209, 209, 1);
+  }
+  
+  /* dritte Reihe */
+  
+  .thirdRowSummaryBoxes {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .boxSmallSummary {
+    height: 120px;
+    width: 120px;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    transition: 0.3s ease;
+  }
+  
+  .boxSmallSummary:hover {
+      background-color: #2A3747;
+      color: white;
+      transform: scale(1.05);
+      z-index: 10; 
+  }
+  
+  /* head CSS für den head bereich Help, Privacy Policy, Legal Notice und Home-Button*/
+  
+  .headAreaHelpPrivacyPolicyLegalNotice{
+      display: flex;
+      justify-content: space-between;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  
+  .containerTextHelpPrivacyPolicyLegalNotice{
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  
+  .headlineHelpPrivacyPolicyLegalNotice{
+      font-weight: 700;
+      font-size: 50px;
+  }
+  
+  .secondHeadlineHelpPrivacyPolicyLegalNotice{
+      font-weight: 700;
+      font-size: 30px;
+  }
+  
+  
+  .arrowLeftBlue{
+      height: 24px;
+      width: 24px;
+      padding-top: 30px;
+  }
