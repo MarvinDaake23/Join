@@ -242,6 +242,11 @@ input[type=text] {
 
 .blueText {
     color: #36b0e3;
+    text-decoration: none;
+}
+
+.blueText:hover {
+    text-decoration: underline;
 }
 
 span {
@@ -261,7 +266,7 @@ button {
     color: #A8A8A8;
 }
 
-.signInSuccessful{
+.feedback{
     position: absolute;
     background-color: #2A3647;
     text-align: center;
