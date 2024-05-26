@@ -1,5 +1,5 @@
 .headlineContianer {
-  position: absolute;
+  /*position: absolute;  christoph  */
   height: 112px;
   top: 80px;
 }
@@ -26,7 +26,7 @@
 }
 
 .addTaskForm {
-  position: absolute;
+  /*position: absolute;  christoph */
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -80,7 +80,7 @@
 }
 
 .imgContainer {
-  position: absolute;
+  /*position: absolute; christoph */
   top: 30px;
   right: -26px;
   width: 50px;
