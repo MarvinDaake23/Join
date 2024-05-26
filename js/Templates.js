@@ -103,7 +103,7 @@ function subtaskListInput(subtask) {
 
 function renderBoardTask(element,i) {
     return /* html*/`
-        <div class="boardCard" onclick="loadBoardBigContainer(${i})">
+        <div draggable="true" ondragstart="startDragging(${element['id']})" class="boardCard" onclick="loadBoardBigContainer(${i})">
             <div id="" class="boardType">${element['type']}</div>
             <div class="boardTitle">${element['title']}</div>
             <div class="boardDescription">${element['description']}</div>
@@ -181,3 +181,28 @@ function renderBoardBigContainerSubtasks(element){
         </li>
     `;
 }
+
+function renderBoardTaskPlaceholderTodo(){
+    return /*html */`
+        <div class="emptyPlaceholder">No Task To Do</div>
+    `;
+}
+
+function renderBoardTaskPlaceholderProgress(){
+    return /*html */`
+        <div class="emptyPlaceholder">No Task in progress</div>
+    `;  
+}
+
+function renderBoardTaskPlaceholderFeedback(){
+    return /*html */`
+        <div class="emptyPlaceholder">No Task for Feedback</div>
+    `;
+}
+
+function renderBoardTaskPlaceholderDone(){
+    return /*html */`
+        <div class="emptyPlaceholder">No Task done</div>
+    `;
+}
+

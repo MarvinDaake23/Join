@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,17 @@
     <link rel="stylesheet" href="../style/add_task.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/style_contacts.css">
-    <script src="../js/script.js" ></script>
-    <script src="../js/Templates.js" ></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/Templates.js"></script>
     <script src="../js/script_contacts.js"> </script>
     <script src="../js/addTask.js"> </script>
 </head>
-<body onload="init()">
-    <header w3-include-html="header.html"></header>
-    <page class="inputContainer">
 
+<body onload="init()">
+
+    <header w3-include-html="header.html"></header>
+
+    <page class="inputContainer">
         <div class="headlineContianer">
             <div class="headlineInnerContainer">
                 <div class="headlineInputContainer">
@@ -98,7 +101,7 @@
                 <div class="taskTitleInputContainer">
                     <input id="subtaskInput" type="text" placeholder="Add new subtask">
                     <div id="imgContainerSubtask" class="imgContainer imgContainerBackground">
-                    </div>  
+                    </div>
                 </div>
                 <ul class="subTaskContainer" id="subTasks">
                 </ul>
@@ -110,10 +113,11 @@
                     <img src="..//assets/img/img/checkWhite.png" alt="">
                 </button>
             </div>
-
-
         </form>
     </page>
+
     <footer w3-include-html="footer.html"></footer>
+
 </body>
+
 </html>

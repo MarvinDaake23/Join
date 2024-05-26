@@ -45,28 +45,25 @@
                     <span>To do</span>
                     <div class="addButtonSmall addButton"></div>
                 </div>
-                <div id="toDoContainer">
-                    <div class="emptyPlaceholder">No Task To Do</div>
+                <div id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)">                    
                 </div>
             </div>
 
-            <div class="progressContainer">
+            <div id="toDoContainer" class="progressContainer">
                 <div>
                     <span>In progress</span>
                     <div class="addButtonSmall addButton"></div>
                 </div>
-                <div>
-                    <div class="emptyPlaceholder">No Task in progress</div>
+                <div id="progress" ondrop="moveTo('progress')" ondragover="allowDrop(event)">                   
                 </div>
             </div>
 
             <div class="progressContainer">
                 <div>
-                    <span>Aswait Feedback</span>
+                    <span>Await Feedback</span>
                     <div class="addButtonSmall addButton"></div>
                 </div>
-                <div>
-                    <div class="emptyPlaceholder">No Task for Feedback</div>
+                <div id="feedback" ondrop="moveTo('feedback')" ondragover="allowDrop(event)">  
                 </div>
             </div>
 
@@ -75,8 +72,7 @@
                     <span>Done</span>
                     <div class="addButtonSmall addButton"></div>
                 </div>
-                <div>
-                    <div class="emptyPlaceholder">No Task done</div>
+                <div id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)">      
                 </div>
             </div>
         </div>

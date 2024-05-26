@@ -1,100 +1,223 @@
 let boardTasks = [
     {
         'id': 0,
-        'type':'User Story',
-        'title':'Join Projekt',
-        'description':'builde a Kanban baord',
-        'subtasks':[
+        'type': 'User Story',
+        'title': 'Join Projekt',
+        'description': 'builde a Kanban baord',
+        'subtasks': [
             {
-                'id':0,
-                'subtaskText':'header',
-                'complete':false,
+                'id': 0,
+                'subtaskText': 'header',
+                'complete': false,
             },
             {
-                'id':1,
-                'subtaskText':'footer',
-                'complete':false,
+                'id': 1,
+                'subtaskText': 'footer',
+                'complete': false,
             }
         ],
-        'finishedSubtasks':[],
-        'assignedTo':[
+        'finishedSubtasks': [],
+        'assignedTo': [
             {
-                'firstName':'Anton',
-                'lastName':'Mayer',
-                'profilColor':'#FF7A00',
+                'firstName': 'Anton',
+                'lastName': 'Mayer',
+                'profilColor': '#FF7A00',
             },
             {
-                'firstName':'Benedikt',
-                'lastName':'Ziegler',
-                'profilColor':'#9327FF',
+                'firstName': 'Benedikt',
+                'lastName': 'Ziegler',
+                'profilColor': '#9327FF',
             },
         ],
-        'category':'todo',
-        'priority':'Low',
-        'dueDate':'23-05-2024'
+        'category': 'todo',
+        'priority': 'Low',
+        'dueDate': '23-05-2024'
     },
-]
+];
 
-function boardInit(){
-    addToBoard();
+let currentDraggedElement;
+
+/**
+ * function to initialize the board page
+ */
+function boardInit() {
+    updateHTML();
     includeHTML();
 }
 
-function addToBoard(){
-    let toDo = document.getElementById('toDoContainer');
+/**
+ * function to render the large view of the task
+ */
+function loadBoardBigContainer(i) {
+    let bigContainer = document.getElementById('boardBigContainer');
+    bigContainer.innerHTML = renderBoardBigContainer(i);
+    loadBoardBigContainerLists(i);
+}
 
-    for (let i = 0; i < boardTasks.length; i++) {
-        const element = boardTasks[i];
+/**
+ * function to render the lists in the large view of the task
+ */
+function loadBoardBigContainerLists(i) {
+    loadBoardBigContainerContacts(i);
+    loadBoardBigContainerSubtasks(i);
+}
+
+/**
+ * function to render the priority of each task in the big large view
+ */
+function loadBoardBigContainerContacts(i) {
+    let assignedToContactsInput = document.getElementById('boardBigContainerAssignedToContactsInput');
+    for (let j = 0; j < boardTasks[i]['assignedTo'].length; j++) {
+        const element = boardTasks[i]['assignedTo'][j];
+        assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
+    }
+}
+
+/**
+ * function to render selected subtasks for the task
+ */
+function loadBoardBigContainerSubtasks(i) {
+    let Subtasks = document.getElementById('boardBigContainerSubtasks');
+    for (let j = 0; j < boardTasks[i]['subtasks'].length; j++) {
+        const element = boardTasks[i]['subtasks'][j];
         console.log(element);
-        toDo.innerHTML += renderBoardTask(element,i);
-        loadPrioBoardTask(i);
-        loadContactInBoardTask(i);
-        
-    } 
-    
-  }
+        Subtasks.innerHTML += renderBoardBigContainerSubtasks(element);
+    }
+}
 
-function loadContactInBoardTask(i){
+/*
+ *function to render all boarTasks
+ */
+function updateHTML() {
+    renderTodos();
+    renderProgress();
+    renderAwaitFeedback();
+    renderDone();
+
+}
+
+/**
+ * function for filtering and rendering all tasks with the category "To Do" 
+ */
+function renderTodos() {
+    let todo = boardTasks.filter(t => t['category'] == 'todo');
+    document.getElementById('todo').innerHTML = '';
+
+    for (let index = 0; index < todo.length; index++) {
+        const element = todo[index];
+        document.getElementById('todo').innerHTML += renderBoardTask(element, index);
+        loadPrioBoardTask(index);
+        loadContactInBoardTask(index);
+    }
+
+    if (todo.length == 0) {
+        document.getElementById('todo').innerHTML = renderBoardTaskPlaceholderTodo();
+    }
+
+}
+
+/**
+ * function for filtering and rendering all tasks with the category "In progess" 
+ */
+function renderProgress() {
+    let inProgress = boardTasks.filter(t => t['category'] == 'progress');
+    document.getElementById('progress').innerHTML = '';
+
+    for (let index = 0; index < inProgress.length; index++) {
+        const element = inProgress[index];
+        document.getElementById('progress').innerHTML += renderBoardTask(element, index);
+        loadPrioBoardTask(index);
+        loadContactInBoardTask(index);
+    }
+
+    if (inProgress.length == 0) {
+        document.getElementById('progress').innerHTML = renderBoardTaskPlaceholderProgress();
+    }
+}
+
+/**
+ * function for filtering and rendering all tasks with the category "Await Feedback" 
+ */
+function renderAwaitFeedback() {
+    let feedback = boardTasks.filter(t => t['category'] == 'feedback');
+    document.getElementById('feedback').innerHTML = '';
+
+    for (let index = 0; index < feedback.length; index++) {
+        const element = feedback[index];
+        document.getElementById('feedback').innerHTML += renderBoardTask(element, index);
+        loadPrioBoardTask(index);
+        loadContactInBoardTask(index);
+    }
+
+    if (feedback.length == 0) {
+        document.getElementById('feedback').innerHTML = renderBoardTaskPlaceholderFeedback();
+    }
+}
+
+/**
+ * function for filtering and rendering all tasks with the category "Done"
+ */
+function renderDone() {
+    let done = boardTasks.filter(t => t['category'] == 'done');
+    document.getElementById('done').innerHTML = '';
+
+    for (let index = 0; index < done.length; index++) {
+        const element = done[index];
+        document.getElementById('done').innerHTML += renderBoardTask(element, index);
+        loadPrioBoardTask(index);
+        loadContactInBoardTask(index);
+    }
+
+    if (done.length == 0) {
+        document.getElementById('done').innerHTML = renderBoardTaskPlaceholderDone();
+    }
+}
+
+/**
+ *  function to render the priority of each task in the small view
+ */
+function loadContactInBoardTask(i) {
     let contacts = document.getElementById('boardTaskContacts');
-    console.log(boardTasks[i]['assignedTo']);
     for (let j = 0; j < boardTasks[i]['assignedTo'].length; j++) {
         const element = boardTasks[i]['assignedTo'][j];
         contacts.innerHTML += renderBoardTaskContacts(element);
     }
 }
 
-function loadPrioBoardTask(i){
+/**
+ * function to render the priority of each task
+ */
+function loadPrioBoardTask(i) {
     let prio = document.getElementById('boardTaskPrio');
-    console.log(boardTasks[i]['priority']);
-    if(boardTasks[i]['priority']=='Low'){
+    if (boardTasks[i]['priority'] == 'Low') {
         prio.classList.add('lowPrioImg');
     }
-    if(boardTasks[i]['priority']=='Medium'){
+    if (boardTasks[i]['priority'] == 'Medium') {
         prio.classList.add('medPrioImg');
     }
-    if(boardTasks[i]['priority']=='Urgent'){
+    if (boardTasks[i]['priority'] == 'Urgent') {
         prio.classList.add('highPrioImg');
     }
 }
 
-function loadBoardBigContainer(i){
-    let bigContainer = document.getElementById('boardBigContainer');
-    bigContainer.innerHTML = renderBoardBigContainer(i);
-    loadBoardBigContainerLists(i);
+/*
+ * function to check which element is being moved
+ */
+function startDragging(id) {
+    currentDraggedElement = id;
 }
 
-function loadBoardBigContainerLists(i){
-    let assignedToContactsInput = document.getElementById('boardBigContainerAssignedToContactsInput');
-    let Subtasks =document.getElementById('boardBigContainerSubtasks');
+/** 
+ * function for placing the selected container into the container below
+*/
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
-    for (let j = 0; j < boardTasks[i]['assignedTo'].length; j++) {
-        const element = boardTasks[i]['assignedTo'][j];
-        assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
-    }
-
-    for (let j = 0; j < boardTasks[i]['subtasks'].length; j++) {
-        const element = boardTasks[i]['subtasks'][j];
-        console.log(element);
-        Subtasks.innerHTML += renderBoardBigContainerSubtasks(element);
-    }
+/**
+ * function to change the category so that the container is loaded correctly when reloaded 
+ */
+function moveTo(category) {
+    boardTasks[currentDraggedElement]['category'] = category;
+    updateHTML();
 }
