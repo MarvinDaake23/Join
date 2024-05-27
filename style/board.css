@@ -1,10 +1,3 @@
-.fullInput {
-  left: 16px;
-  /*position: absolute; edit christoph!*/
-  top: 128px;
-  /*width: 90%; edit christoph*/
-  /*height: 2000px;  edit chr*/
-}
 
 .headlineContainer {
   display: flex;
@@ -164,3 +157,31 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  background-color: #ff7a00;
+  color: white;
+  border-radius: 80px;
+  font-size: 27px !important;
+  font-weight: 400 !important;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.initSmall {
+  width: 42px;
+  height: 42px;
+  font-size: 12px !important;
+}
+
+sidebar {
+  display: none;
+}
+
+

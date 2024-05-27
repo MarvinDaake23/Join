@@ -9,6 +9,7 @@ mobile-header {
   display: none;
 }
 
+
 body {
   margin: 0;
   display: grid;
@@ -207,4 +208,62 @@ content .headline {
 .hover:hover {
   background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
   border-radius: 10px;
+}
+
+@media(max-width: 480px){
+  body {
+    grid-template-areas:
+    "mobile-header"
+    "content"
+    "mobile-footer";
+    grid-template-columns: auto;
+  }
+  header,sidebar{display: none;}
+
+  mobile-footer {
+    grid-area: footer;
+    display: flex;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    background-color: #2a3647;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  mobile-footer a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #cdcdcd;
+    font-weight: 400;
+    font-size: 14px;
+    height: 80px;
+    width: 76px;
+    border-radius: 16px;
+  }
+
+  mobile-footer a:hover {
+    background-color: #091931;
+  }
+
+  mobile-footer a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  mobile-header {
+    grid-area: mobile-header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 80px;
+    padding: 20px 16px;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+  }
 }
