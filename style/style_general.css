@@ -201,7 +201,6 @@ content .headline {
   display: flex;
   align-items: center;
   gap: 30px;
-  margin-top: 50px;
   margin-left: 30px;
 }
 
@@ -222,6 +221,10 @@ content .headline {
   header,
   sidebar {
     display: none;
+  }
+
+  content .headline {
+    margin-left: 5px;
   }
 
   mobile-footer {
