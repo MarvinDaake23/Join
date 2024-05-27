@@ -1,10 +1,19 @@
-
 .headlineContainer {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 32px;
+  margin-top: 30px;
+}
+
+.todoCheck{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .headline {
@@ -31,17 +40,29 @@
 }
 
 .addButtonSmall {
+  position: relative;
+  right: 0px;
   border: 2px solid #2a3647;
   height: 30px;
   width: 30px;
-  background-image: url("./assets/img/img/plusImg.png");
+  background-image: url("../assets/img/img/plusImg.png");
   background-repeat: no-repeat;
   background-position: center;
+  margin-right: 5px;
+}
+
+.addButtonSmall:hover {
+  cursor: pointer;
 }
 
 .progressInformationContainer {
   margin-top: 56px;
   margin-bottom: 140px;
+}
+
+.progressInformationContainer span {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .emptyPlaceholder {
