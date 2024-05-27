@@ -1,4 +1,15 @@
 /* CONTACTS PAGE */
+body {
+  grid-template-areas:
+    "sidebar  header header"
+    "sidebar  list   content";
+}
+
+list {
+  grid-area: list;
+  overflow-y: scroll;
+}
+
 #contactContainerOuter {
   width: 456px;
 }
@@ -462,20 +473,6 @@ a {
   color: white;
 }
 
-body.summary a.summary,
-body.addtask a.addtask,
-body.board a.board,
-body.contacts a.contacts,
-body.privacy a.privacy,
-body.legal a.legal {
-  background-color: #091931;
-  pointer-events: none; /*not clickable */
-}
-
-body.help a#helpIcon {
-  display: none;
-}
-
 .editdelete a {
   display: flex;
   align-items: center;
@@ -507,11 +504,6 @@ body.help a#helpIcon {
 
 nav a:hover {
   background-color: #091931;
-}
-
-mobile-footer,
-mobile-header {
-  display: none;
 }
 
 @media (max-width: 480px) {

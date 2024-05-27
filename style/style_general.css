@@ -4,13 +4,18 @@
   src: url("../assets/fonts/Inter-VariableFont.ttf") format("truetype");
 }
 
+mobile-footer,
+mobile-header {
+  display: none;
+}
+
 body {
   margin: 0;
   display: grid;
   grid-template-areas:
-    "sidebar  header header"
-    "sidebar  list   content";
-  grid-template-columns: 232px 456px auto;
+    "sidebar  header"
+    "sidebar  content";
+  grid-template-columns: 232px auto;
   justify-items: stretch;
   overflow-y: hidden;
   height: 100vh;
@@ -80,6 +85,20 @@ nav a {
   padding: 8px 63px;
 }
 
+body.summary a.summary,
+body.addtask a.addtask,
+body.board a.board,
+body.contacts a.contacts,
+body.privacy a.privacy,
+body.legal a.legal {
+  background-color: #091931;
+  pointer-events: none; /*not clickable */
+}
+
+body.help a#helpIcon {
+  display: none;
+}
+
 header {
   grid-area: header;
   padding-left: 100px;
@@ -135,11 +154,6 @@ header #headerInitials:hover {
 
 #headerPopup a:hover {
   background-color: #091931;
-}
-
-list {
-  grid-area: list;
-  overflow-y: scroll;
 }
 
 content {
