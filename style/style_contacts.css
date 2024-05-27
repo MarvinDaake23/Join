@@ -1,65 +1,4 @@
 /* CONTACTS PAGE */
-@font-face {
-  font-family: "Inter";
-  src: url("../assets/fonts/Inter-VariableFont.ttf") format("truetype");
-}
-
-body {
-  margin: 0;
-  font-family: "Inter";
-  font-size: 18px;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-#headerPopup {
-  position: fixed;
-  display: none;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  top: 80px;
-  right: 10px;
-  color: #f6f7f8;
-  width: 150px;
-  height: 158px;
-  border-radius: 20px 0px 20px 20px;
-  background-color: #2a3647;
-  box-shadow: 0px 0px 4px 0px #0000001a;
-}
-
-#headerPopup a {
-  text-decoration: none;
-  color: #cdcdcd;
-  font-weight: 400;
-  font-size: 16px;
-  padding: 8px 20px;
-}
-
-#headerPopup a:hover {
-  background-color: #091931;
-}
-
-/*
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  height: 80px;
-  padding: 20px 16px;
-  background-color: white;
-  height: 80px;
-  box-shadow: 0px 4px 4px 0px #0000001a;
-}
-
-
-header img {
-  max-height: 40px;
-}
-*/
-
 #contactContainerOuter {
   width: 456px;
 }
@@ -193,7 +132,8 @@ header img {
   color: black;
 }
 
-.moreButton {
+#moreButton {
+  display: none;
   position: fixed;
   cursor: pointer;
   bottom: 100px;
@@ -386,7 +326,7 @@ footer {
   }
 }
 
-#moreButton {
+#moreButtonPopup {
   display: none;
   flex-direction: column;
   align-items: flex-start;
@@ -405,7 +345,7 @@ footer {
   animation-duration: 0.5s;
 }
 
-#moreButton a {
+#moreButtonPopup a {
   display: flex;
   gap: 8px;
 }
@@ -432,7 +372,7 @@ footer {
   }
 }
 
-#moreButton a {
+#moreButtonPopup a {
   cursor: pointer;
 }
 
@@ -534,4 +474,110 @@ body.legal a.legal {
 
 body.help a#helpIcon {
   display: none;
+}
+
+.editdelete a {
+  display: flex;
+  align-items: center;
+  color: #2a3647;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.editdelete a:hover {
+  color: #29abe2;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.editdelete img {
+  border: none;
+  box-shadow: none;
+}
+
+.editdelete img:hover {
+  color: #29abe2;
+}
+
+.editdelete {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+}
+
+nav a:hover {
+  background-color: #091931;
+}
+
+mobile-footer,
+mobile-header {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  body {
+    grid-template-areas:
+      "mobile-header"
+      "list"
+      "mobile-footer";
+    grid-template-columns: auto;
+  }
+
+  header,
+  sidebar,
+  content {
+    display: none;
+  }
+
+  mobile-footer {
+    grid-area: footer;
+    display: flex;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    background-color: #2a3647;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  mobile-footer a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #cdcdcd;
+    font-weight: 400;
+    font-size: 14px;
+    height: 80px;
+    width: 76px;
+    border-radius: 16px;
+  }
+
+  mobile-footer a:hover {
+    background-color: #091931;
+  }
+
+  mobile-footer a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  mobile-header {
+    grid-area: mobile-header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 80px;
+    padding: 20px 16px;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+  }
+
+  body,
+  list {
+    overflow: visible;
+  }
 }

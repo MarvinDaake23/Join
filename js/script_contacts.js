@@ -172,7 +172,7 @@ async function deleteContact(id) {
 }
 
 function showMore() {
-  document.getElementById("moreButton").style.display = "flex";
+  document.getElementById("moreButtonPopup").style.display = "flex";
 }
 
 function showEditContact(id) {
