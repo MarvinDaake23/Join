@@ -53,20 +53,7 @@ function renderContacts() {
   }
 }
 
-function showHeaderPopup() {
-  // disable onclick
-  document.getElementById("body").setAttribute("onclick", "");
-  document.getElementById("headerPopup").style.display = "flex";
-  sleep(0).then(() => {
-    document
-      .getElementById("body")
-      .setAttribute("onclick", "closeHeaderPopup()");
-  });
-}
 
-function closeHeaderPopup() {
-  document.getElementById("headerPopup").style.display = "none";
-}
 
 /**
  * function to sort the contacts alphabetically by first name
@@ -93,9 +80,7 @@ function singleContactView(id) {
   });
 }
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+
 
 function backToContactList() {
   document.getElementById("contactContainerOuter").style.display = "";
