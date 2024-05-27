@@ -9,7 +9,6 @@ mobile-header {
   display: none;
 }
 
-
 body {
   margin: 0;
   display: grid;
@@ -179,6 +178,7 @@ header #headerInitials:hover {
 
 content {
   grid-area: content;
+  overflow-y: scroll;
   background-color: #f6f7f8;
   margin-top: 5px;
 }
@@ -210,15 +210,19 @@ content .headline {
   border-radius: 10px;
 }
 
-@media(max-width: 480px){
+@media (max-width: 480px) {
   body {
     grid-template-areas:
-    "mobile-header"
-    "content"
-    "mobile-footer";
+      "mobile-header"
+      "content"
+      "mobile-footer";
     grid-template-columns: auto;
   }
-  header,sidebar{display: none;}
+
+  header,
+  sidebar {
+    display: none;
+  }
 
   mobile-footer {
     grid-area: footer;
