@@ -13,7 +13,26 @@ list {
 }
 
 #contactContainerOuter {
-  width: 456px;
+  /*width: 456px;*/
+  display: flex;
+  justify-content: center;
+}
+
+#addContactButton {
+  width: 352px;
+  height: 56px;
+  margin-top: 12px;
+  padding: 12px 0px 12px 0px;
+  gap: 16px;
+  border-radius: 10px;
+  border: 1px solid #2a3647;
+  background-color: #2a3647;
+  color: white;
+  font-weight: 700;
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .singleContactContainer {

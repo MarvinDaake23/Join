@@ -35,7 +35,12 @@ function renderContacts() {
   sortContacts();
   let container = document.getElementById("contactContainer");
   let firstLetter = "";
+
   container.innerHTML = "";
+
+  // Button
+  container.innerHTML += `
+  <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/contacts/person_add.svg"></button>`;
 
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
