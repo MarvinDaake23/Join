@@ -1,0 +1,105 @@
+.editdelete a {
+  display: flex;
+  align-items: center;
+  color: #2a3647;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.editdelete a:hover {
+  color: #29abe2;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.editdelete img {
+  border: none;
+  box-shadow: none;
+}
+
+.editdelete img:hover {
+  color: #29abe2;
+}
+
+.editdelete {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+}
+
+nav a:hover {
+  background-color: #091931;
+}
+
+mobile-footer,
+mobile-header {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  body {
+    grid-template-areas:
+      "mobile-header"
+      "list"
+      "mobile-footer";
+    grid-template-columns: auto;
+  }
+
+  header,
+  sidebar,
+  content {
+    display: none;
+  }
+
+  mobile-footer {
+    grid-area: footer;
+    display: flex;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    background-color: #2a3647;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  mobile-footer a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #cdcdcd;
+    font-weight: 400;
+    font-size: 14px;
+    height: 80px;
+    width: 76px;
+    border-radius: 16px;
+  }
+
+  mobile-footer a:hover {
+    background-color: #091931;
+  }
+
+  mobile-footer a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  mobile-header {
+    grid-area: mobile-header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 80px;
+    padding: 20px 16px;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px #0000001a;
+  }
+
+  body,
+  list {
+    overflow: visible;
+  }
+}
