@@ -3,6 +3,8 @@ body {
   grid-template-areas:
     "sidebar  header header"
     "sidebar  list   content";
+
+  grid-template-columns: 232px 453px auto;
 }
 
 list {
@@ -110,8 +112,6 @@ list {
   border: 3px solid #ffffff;
   box-sizing: border-box;
 }
-
-
 
 .emailAdress {
   color: #007cee;
