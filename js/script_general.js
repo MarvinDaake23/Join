@@ -16,11 +16,35 @@ function showHeaderPopup() {
   });
 }
 
+
+/**
+ * function to show the popup when clicking on the header initials
+ */
+function showHeaderPopupMobile() {
+  // disable onclick function from body
+  document.getElementById("body").setAttribute("onclick", "");
+  // show popup
+  document.getElementById("headerPopupMobile").style.display = "flex";
+  // set onclick function after delay
+  sleep(0).then(() => {
+    document
+      .getElementById("body")
+      .setAttribute("onclick", "closeHeaderPopupMobile()");
+  });
+}
+
 /**
  * function to close the header popup when clicking anywhere else
  */
 function closeHeaderPopup() {
   document.getElementById("headerPopup").style.display = "none";
+}
+
+/**
+ * function to close the header popup when clicking anywhere else
+ */
+function closeHeaderPopupMobile() {
+  document.getElementById("headerPopupMobile").style.display = "none";
 }
 
 /**
