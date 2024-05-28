@@ -341,7 +341,7 @@ footer {
     opacity: 0;
   }
   to {
-    bottom: 0;
+    bottom: 0px;
     opacity: 1;
   }
 }
@@ -376,7 +376,7 @@ footer {
     opacity: 0;
   }
   to {
-    right: 20;
+    right: 20px;
     opacity: 1;
   }
 }
@@ -387,7 +387,7 @@ footer {
     opacity: 0;
   }
   to {
-    right: 20;
+    right: 20px;
     opacity: 1;
   }
 }
@@ -579,5 +579,9 @@ nav a:hover {
 
   #addContactButton {
     display: none;
+  }
+
+  #contactSingleViewMobile {
+    display: block;
   }
 }
