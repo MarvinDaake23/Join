@@ -1,8 +1,10 @@
-function init() {
+async function init() {
+  contacts = await loadData("contacts");
   includeHTML();
+  loadContactWrapper();
   loadWrapper();
   inputSelector();
-  loadContactWrapper();
+  
 }
 
 // database functions

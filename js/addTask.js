@@ -6,7 +6,7 @@ let prioValue;
 let cat;
 
 /**
- *  function to load the contact wrapper with all saved categorys
+ *  function to load the category wrapper with all saved categorys
  */
 function loadWrapper() {
   let wrapperList = document.getElementById("wrapperList");
@@ -30,7 +30,6 @@ function loadContactWrapper() {
 
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
-    console.log(element);
     contactWrapper.innerHTML += renderContactWrapper(element,i);
   }
 }
