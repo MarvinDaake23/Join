@@ -17,6 +17,7 @@
     <script src="./js/board.js"></script>
   </head>
   <body class="board" id="body" onload="includeHTML(); boardInit();">
+    <div onclick="removeboardBigContainer()" id="background" class="background d-none"></div>
     <sidebar class="sidebar" w3-include-html="sidebar.html"></sidebar>
 
     
@@ -92,7 +93,8 @@
         </div>
       </div>
 
-      <div class="boardBigContainer" id="boardBigContainer"></div>
+      <div class="boardBigContainer d-none" id="boardBigContainer"></div>
+
     </content>
 
     

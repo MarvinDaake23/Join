@@ -7,6 +7,18 @@
   margin-top: 30px;
 }
 
+.background{
+  position: absolute;
+  background: #aaaaaaa9;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.d-none{
+  display: none;
+}
+
 .todoCheck{
   display: flex;
   flex-direction: row;
@@ -201,8 +213,52 @@
   font-size: 12px !important;
 }
 
-sidebar {
-  display: none;
+.boardBigContainerHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.boardBigContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 2;
+  height: 600px;
+  width: 230px;
+  border-radius: 30px;
+  padding: 30px;
+}
+
+.boardBigContainerType{
+  background: #0038FF;
+  color: white;
+  font-size: 16px;
+  width: 100px;
+  border-radius: 8px;
+  padding: 4px 16px 4px 16px;
+}
+
+.boardBigContainerClose{
+  width: 14px;
+  height: 14px;
+  padding: 5px;
+}
+
+.boardBigContainerTitle{
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.boardBigContainerDescription{
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.boardBigContainerAssignedTo{
+  font-size: 16px;
 }
 
 @media (min-width: 750px) {

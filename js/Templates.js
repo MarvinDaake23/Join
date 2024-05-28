@@ -66,11 +66,11 @@ function renderBoardBigContainer(i) {
   return /*html */ `
             <div class="boardBigContainerHeader">
                 <div class="boardBigContainerType" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
-                <div class="boardBigContainerClose">X</div>
+                <img src="./assets/img/close.png" class="boardBigContainerClose">
             </div>
             <div class="boardBigContainerTitle" id="boardBigContainerTitle">${boardTasks[i]["title"]}</div>
             <div class="boardBigContainerDescription" id="boardBigContainerDescription">${boardTasks[i]["description"]}</div>
-            <ul>
+            <div>
                 <li class="boardBigContainerdate">
                     <span>Due date:</span>
                     <div class="boardBigContainerDateInput" id="boardBigContainerDateInput">${boardTasks[i]["dueDate"]}</div>
@@ -82,7 +82,7 @@ function renderBoardBigContainer(i) {
                         <div class="boardBigContainerPrioInputImg"></div>
                     </div>
                 </li>
-            </ul>
+            </div>
             <div class="boardBigContainerAssignedTo">
                 <span>Assigned To</span>
                 <ul id="boardBigContainerAssignedToContactsInput">

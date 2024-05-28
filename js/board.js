@@ -52,6 +52,13 @@ function loadBoardBigContainer(i) {
   let bigContainer = document.getElementById("boardBigContainer");
   bigContainer.innerHTML = renderBoardBigContainer(i);
   loadBoardBigContainerLists(i);
+  document.getElementById('background').classList.remove('d-none');
+  document.getElementById('boardBigContainer').classList.remove('d-none');
+}
+
+function removeboardBigContainer() {
+  document.getElementById('background').classList.add('d-none');
+  document.getElementById('boardBigContainer').classList.add('d-none');
 }
 
 /**
