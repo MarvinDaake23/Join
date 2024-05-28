@@ -69,6 +69,7 @@ function singleContactView(id) {
 
   // falls mobil
   if (window.innerWidth <= vwBreak) {
+    document.getElementById("contactContainerOuter").style.display = "none";
     document.getElementById("contactSingleViewMobile").innerHTML =
       renderSingleContactMobileHTML(id);
   }
