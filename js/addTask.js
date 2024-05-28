@@ -4,6 +4,7 @@ let subtasks = [];
 let task = [];
 let prioValue;
 let cat;
+let selectedTaskContacts = [];
 
 /**
  *  function to load the category wrapper with all saved categorys
@@ -35,7 +36,10 @@ function loadContactWrapper() {
 }
 
 function selectContacts(i) {
-  console.log(i);
+  let sContacts = document.getElementById('selectedContacts');
+  selectedTaskContacts.push(contacts[i]);
+  console.log(selectedTaskContacts);
+  
 }
 
 /**
