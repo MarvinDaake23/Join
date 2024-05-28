@@ -62,13 +62,13 @@ function renderSingleContactHTML(id) {
 
 function renderSingleContactMobileHTML(id) {
     return `
-            <div class="singleContactContainer">
+            <div class="singleContactContainerMobile">
     
         
                 <div class="contactsHeadlineBox">
                     <div class="contactsHeadline">
                         <h2>Contacts</h2>
-                        <a><img onclick="backToContactList()" src="../assets/img/contacts/arrow-left-line.png" /></a>
+                        <a><img onclick="backToContactList()" src="./assets/img/contacts/arrow-left-line.png" /></a>
                     </div>
                     <h3>Better with a team</h3>
                     <hr />

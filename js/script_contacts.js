@@ -85,7 +85,7 @@ function singleContactView(id) {
 
 function backToContactList() {
   document.getElementById("contactContainerOuter").style.display = "";
-  document.getElementById("contactSingleView").innerHTML = "";
+  document.getElementById("contactSingleViewMobile").innerHTML = "";
   renderContacts();
 }
 

@@ -53,6 +53,12 @@ content {
   animation-duration: 0.5s;
 }
 
+.singleContactContainerMobile {
+  background-color: #f6f7f8;
+  height: 80vh;
+  padding: 48px 16px 0px 16px;
+}
+
 .singleContactContainer h2 {
   font-size: 47px;
   font-weight: 700;
@@ -376,7 +382,7 @@ footer {
     opacity: 0;
   }
   to {
-    right: 20px;
+    /*right: 20px;*/
     opacity: 1;
   }
 }
@@ -582,6 +588,10 @@ nav a:hover {
   }
 
   #contactSingleViewMobile {
+    display: block;
+  }
+
+  #moreButton {
     display: block;
   }
 }
