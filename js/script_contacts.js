@@ -40,7 +40,7 @@ function renderContacts() {
 
   // Button
   container.innerHTML += `
-  <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/contacts/person_add.svg"></button>`;
+  <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
 
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];

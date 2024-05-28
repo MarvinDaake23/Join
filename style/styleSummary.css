@@ -73,7 +73,7 @@
 }
 
 .iconPencil {
-  background-image: url(/assets/img/pencil.png);
+  background-image: url(./assets/img/pencil.png);
 }
 
 .boxMediumSummary:hover .iconPencil {

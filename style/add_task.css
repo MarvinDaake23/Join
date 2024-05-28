@@ -85,7 +85,7 @@
 
 .imgContainerBackground{
     background-repeat: no-repeat;
-    background-image: url("../assets/img/img/add.png");
+    background-image: url("../assets/img/add.png");
     background-position: right 8px center;
 }
 
@@ -115,7 +115,7 @@
     width:20px;
     height:20px;
     background-repeat: no-repeat;
-    background-image: url("../assets/img/img/check.png");
+    background-image: url("../assets/img/check.png");
     background-position: center;
     cursor: pointer;
 }
@@ -125,7 +125,7 @@
     height:20px;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("../assets/img/img/close.png");
+    background-image: url("../assets/img/close.png");
     cursor: pointer;
 }
 
@@ -354,13 +354,13 @@
 }
 
 .lowPrioImg{
-    background-image: url('../assets/img/img/priolow.png');
+    background-image: url('../assets/imgpriolow.png');
     width: 20px;
     height:14px;
 }
 
 .medPrioImg{
-    background-image: url('../assets/img/img/prioMedium.png');
+    background-image: url('../assets/img/prioMedium.png');
     background-repeat: no-repeat;
     background-position: center;
     width: 20px;
@@ -368,7 +368,7 @@
 }
 
 .highPrioImg{
-    background-image: url('../assets/img/img/prioHigh.png');
+    background-image: url('../assets/img/prioHigh.png');
     width: 20px;
     height:14px;
 }
@@ -393,7 +393,7 @@
 }
 
 .highPrioImageChange{
-    background-image: url("../assets/img/img/prioHighHighlight.png");
+    background-image: url("../assets/img/prioHighHighlight.png");
 }
 
 .medPrioBackground{
@@ -402,7 +402,7 @@
 }
 
 .medPrioImageChange{
-    background-image: url("../assets/img/img/prioMediumHighlight.png");
+    background-image: url("../assets/img/prioMediumHighlight.png");
 }
 
 .lowPrioBackground{
@@ -411,12 +411,12 @@
 }
 
 .lowPrioImageChange{
-    background-image: url("../assets/img/img/prioLowHighlight.png");
+    background-image: url("../assets/img/prioLowHighlight.png");
 }
 
 #subtaskInput{
     background-repeat: no-repeat;
-    background-image: url(../assets/img/img/add.png);
+    background-image: url(../assets/img/add.png);
     background-position: right 8px center;
 }
 
