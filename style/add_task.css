@@ -435,3 +435,9 @@
     }
     
 }
+
+@media (min-width : 480px) {
+    .checkoutContainer{
+        display: none;
+    }    
+}
