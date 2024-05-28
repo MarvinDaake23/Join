@@ -38,12 +38,13 @@ function loadContactWrapper() {
 function selectContacts(i) {
   let sContacts = document.getElementById('selectedContacts');
   if(selectedTaskContacts.includes = contacts[i]){
-    selectedTaskContacts.splice();
+    let indexSelectedContact = selectedTaskContacts.indexOf(contacts[i]);
+    console.log(indexSelectedContact);
+    // selectedTaskContacts.splice();
   }
   else{
     selectedTaskContacts.push(contacts[i]);
   }
-  
 }
 
 /**
