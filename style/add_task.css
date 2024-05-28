@@ -414,3 +414,24 @@
     background-image: url("../assets/img/img/prioLowHighlight.png");
 }
 
+#subtaskInput{
+    background-repeat: no-repeat;
+    background-image: url(../assets/img/img/add.png);
+    background-position: right 8px center;
+}
+
+@media (max-width : 480px) {
+    .addTaskBigContainer {
+        flex-direction: column;
+    }
+    .grayLineAddTaskPage {
+        display: none;
+    }
+    .leftSideAddTaskPage{
+        width: 100%; 
+    }
+    .addTaskForm{
+        width: 100%;
+    }
+    
+}
