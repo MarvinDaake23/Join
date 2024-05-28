@@ -1,12 +1,23 @@
-// load user from local storage
+
+/**
+ * function to load the actual logged in user from local storage (saved in login.html)
+ */
 let userAsText = localStorage.getItem("user");
 let user = JSON.parse(userAsText);
 
+
+/**
+ * onload function of the summary.html: renders actual data into the html page
+ */
 function onLoadSummary() {
   document.getElementById("greeting").innerHTML = greetUser();
   document.getElementById("loggedInUserName").innerHTML = user.User;
 }
 
+/**
+ * function to get an adequate greeting for the actual time
+ * @returns a greeting (string)
+ */
 function greetUser() {
   // create a new Date object
   let now = new Date();
