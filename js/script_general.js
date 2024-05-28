@@ -1,5 +1,9 @@
 /* GENERAL FUNCTIONS */
 
+// breakpoint of viewport width
+let vwBreak = 480;
+
+
 /**
  * function to show the popup when clicking on the header initials
  */

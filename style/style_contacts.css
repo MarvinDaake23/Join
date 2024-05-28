@@ -12,6 +12,11 @@ list {
   overflow-y: scroll;
 }
 
+content {
+  overflow-y: hidden;
+}
+
+
 #contactContainerOuter {
   /*width: 456px;*/
   display: flex;

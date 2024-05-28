@@ -64,12 +64,13 @@ function sortContacts() {
  * function to show the contact information of a single contact
  */
 function singleContactView(id) {
-  //x-scrollbar kurz  hiden
+  //x-scrollbar kurz hiden
   document.getElementById("body").style.overflowX = "hidden";
 
   // falls mobil
-  if (window.innerWidth <= 480) {
-    document.getElementById("contactContainerOuter").style.display = "none";
+  if (window.innerWidth <= vwBreak) {
+    document.getElementById("contactContainerOuter").innerHTML =
+      renderSingleContactMobileHTML(id);
   }
 
   document.getElementById("contactSingleView").innerHTML =
@@ -212,7 +213,7 @@ async function editContact(id) {
 let currentId;
 function setActive(newId) {
   // muss nur in der Desktopansicht gemacht werden
-  if (window.innerWidth > 480) {
+  if (window.innerWidth > vwBreak) {
     // beim neuen setzen
     document
       .getElementById(`singleContactEntry${newId}`)
