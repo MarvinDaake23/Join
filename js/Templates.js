@@ -70,47 +70,47 @@ function renderBoardBigContainer(i) {
             </div>
             <div class="boardBigContainerTitle" id="boardBigContainerTitle">${boardTasks[i]["title"]}</div>
             <div class="boardBigContainerDescription" id="boardBigContainerDescription">${boardTasks[i]["description"]}</div>
-            <div>
-                <li class="boardBigContainerdate">
+            <div class="boardContainerStatus">
+                <div class="boardBigContainerdate">
                     <span>Due date:</span>
                     <div class="boardBigContainerDateInput" id="boardBigContainerDateInput">${boardTasks[i]["dueDate"]}</div>
-                </li>
-                <li class="boardBigContainerPrio">
+                </div>
+                <div class="boardBigContainerPrio">
                     <span>Priority:</span>
                     <div>
                         <div class="boardBigContainerPrioInput" id="boardBigContainerPrioInput">${boardTasks[i]["priority"]}</div>
                         <div class="boardBigContainerPrioInputImg"></div>
                     </div>
-                </li>
+            </div>
             </div>
             <div class="boardBigContainerAssignedTo">
-                <span>Assigned To</span>
-                <ul id="boardBigContainerAssignedToContactsInput">
-                </ul>
+                <span>Assigned To:</span>
+                <div id="boardBigContainerAssignedToContactsInput">
+            </div>
             </div>
             <div>
                 <span>Subtasks</span>
-                <ul class="boardBigContainerSubtasks" id="boardBigContainerSubtasks">
-                </ul>
+                <div class="boardBigContainerSubtasks" id="boardBigContainerSubtasks">
+            </div>
             </div>
     `;
 }
 
 function renderBoardBigContainerContacts(element) {
   return /*html */ `
-        <li>
+        <div class="boardContacts">
             <div style="background-color:${element["profilColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
             <div class="contactName">${element["firstName"]} ${element["lastName"]}</div>
-        </li>
+        </div>
     `;
 }
 
 function renderBoardBigContainerSubtasks(element) {
   return /* html*/ `
-        <li>
+        <div>
             <div class="checkboxImg"></div>
             <div class="boardBigContainerSubtasksSingleInput">${element["subtaskText"]}</div>
-        </li>
+</div>
     `;
 }
 

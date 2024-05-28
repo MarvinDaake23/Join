@@ -57,7 +57,7 @@
   border: 2px solid #2a3647;
   height: 30px;
   width: 30px;
-  background-image: url("../assets/img/img/plusImg.png");
+  background-image: url("../assets/img/plusImg.png");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 5px;
@@ -128,7 +128,7 @@
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
-  background-image: url("./assets/img/img/search.png");
+  background-image: url("../assets/img/search.png");
   background-position: center;
   cursor: pointer;
 }
@@ -217,6 +217,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .boardBigContainer{
@@ -247,19 +248,49 @@
   padding: 5px;
 }
 
-.boardBigContainerTitle{
-  font-size: 36px;
+.boardBigContainerTitle {
+  font-size: 28px;
   font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .boardBigContainerDescription{
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 16px;
 }
 
 .boardBigContainerAssignedTo{
   font-size: 16px;
+  padding-top: 12px;
 }
+
+.boardBigContainerdate{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.boardContacts{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.boardBigContainerPrio{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.boardContainerStatus{
+  padding-top: 15px;
+}
+
 
 @media (min-width: 750px) {
   .progressInformationContainer {
