@@ -16,6 +16,9 @@ content {
   overflow-y: hidden;
 }
 
+#contactSingleViewMobile {
+  display: none;
+}
 
 #contactContainerOuter {
   /*width: 456px;*/
@@ -577,5 +580,4 @@ nav a:hover {
   #addContactButton {
     display: none;
   }
-
 }
