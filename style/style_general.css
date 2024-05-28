@@ -17,7 +17,7 @@ body {
     "sidebar  content";
   grid-template-columns: 232px auto;
   justify-items: stretch;
-  overflow-y: hidden;
+  overflow-y: hidden; /*nicht scrollbar */
   height: 100vh;
   font-family: "Inter";
   font-size: 18px;
@@ -128,7 +128,8 @@ header #headerInitials:hover {
   background-color: rgba(12, 46, 98, 0.12);
 }
 
-#headerPopup {
+#headerPopup,
+#headerPopupMobile {
   position: fixed;
   display: none;
   flex-direction: column;
@@ -144,7 +145,8 @@ header #headerInitials:hover {
   box-shadow: 0px 0px 4px 0px #0000001a;
 }
 
-#headerPopup a {
+#headerPopup a,
+#headerPopupMobile a {
   text-decoration: none;
   color: #cdcdcd;
   font-weight: 400;
@@ -153,6 +155,11 @@ header #headerInitials:hover {
 }
 
 #headerPopup a:hover {
+  background-color: #091931;
+}
+
+#headerPopup a:hover,
+#headerPopupMobile a:hover {
   background-color: #091931;
 }
 
@@ -178,6 +185,7 @@ header #headerInitials:hover {
 
 content {
   grid-area: content;
+  padding-top: 80px;
   overflow-y: scroll;
   background-color: #f6f7f8;
   margin-top: 5px;
