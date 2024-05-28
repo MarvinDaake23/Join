@@ -35,17 +35,24 @@ function loadContactWrapper() {
   }
 }
 
+/**
+ * function to load all selected Contacts for new task
+ */
 function selectContacts(i) {
   let sContacts = document.getElementById('selectedContacts');
-  if(selectedTaskContacts.includes = contacts[i]){
-    let indexSelectedContact = selectedTaskContacts.indexOf(contacts[i]);
-    console.log(indexSelectedContact);
-    // selectedTaskContacts.splice();
+  if(selectedTaskContacts.indexOf(contacts[i]) == -1 ){
+    selectedTaskContacts.push(contacts[i]);
+    console.log(selectedTaskContacts);
   }
   else{
-    selectedTaskContacts.push(contacts[i]);
+    selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]),1)
+    console.log(selectedTaskContacts);
   }
 }
+
+
+
+
 
 /**
  * function to load all added subtasks
