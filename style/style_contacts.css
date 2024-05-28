@@ -158,6 +158,7 @@ content {
   color: black;
 }
 
+.moreButton,
 #moreButton {
   display: none;
   position: fixed;
@@ -170,20 +171,6 @@ content {
   margin-top: 21px;
   font-size: 16px;
 }
-
-/*
-footer {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  height: 80px;
-  background-color: #2a3647;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-}
-*/
 
 .innerContactEntry {
   display: flex;
@@ -593,5 +580,9 @@ nav a:hover {
 
   #moreButton {
     display: block;
+  }
+
+  .moreButton {
+    display: fixed;
   }
 }
