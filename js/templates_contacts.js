@@ -62,7 +62,7 @@ function renderSingleContactHTML(id) {
 
 function renderSingleContactMobileHTML(id) {
     return `
-            <div class="singleContactContainer">
+            <div class="singleContactContainerMobile">
     
         
                 <div class="contactsHeadlineBox">
