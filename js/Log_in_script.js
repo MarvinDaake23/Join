@@ -195,6 +195,8 @@ function logIn() {
         <div id="signInNoSuccessful" class="feedback">Sign in successful</div>
         `;
     // akt. user ins local storage speichern
+    let userAsText = JSON.stringify(user);
+    localStorage.setItem("user", userAsText);
 
     setTimeout(openSummary, 2000);
   } else {
