@@ -72,20 +72,20 @@ function loadSubtaskList() {
  
 function to open all Wrapper on "AddTask" side*/
 function openWrapper(i) {
-  let wrapperList = document.getElementById(wrapperList${i});
-  let wrapper = document.getElementById(wrapper${i});
+  let wrapperList = document.getElementById(`wrapperList${i}`);
+  let wrapper = document.getElementById(`wrapper${i}`);
 
-  if (wrapperList.classList.contains(dNone)) {
-      wrapperList.classList.remove(dNone);
-      document.getElementById(arrowUp${i}).classList.remove(dNone);
-      document.getElementById(arrowDown${i}).classList.add(dNone);
-      wrapper.classList.add(openBorader);
-      wrapperList.style.width = ${wrapper.offsetWidth}px; // Setze die Breite des geöffneten Containers auf die Breite des übergeordneten Containers
+  if (wrapperList.classList.contains(`dNone`)) {
+      wrapperList.classList.remove(`dNone`);
+      document.getElementById(`arrowUp${i}`).classList.remove(`dNone`);
+      document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
+      wrapper.classList.add(`openBorader`);
+      wrapperList.style.width = `${wrapper.offsetWidth}px`; // Setze die Breite des geöffneten Containers auf die Breite des übergeordneten Containers
   } else {
-      wrapperList.classList.add(dNone);
-      document.getElementById(arrowUp${i}).classList.add(dNone);
-      document.getElementById(arrowDown${i}).classList.remove(dNone);
-      wrapper.classList.remove(openBorader);
+      wrapperList.classList.add(`dNone`);
+      document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
+      document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
+      wrapper.classList.remove(`openBorader`);
   }
 }
 
