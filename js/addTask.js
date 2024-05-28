@@ -37,8 +37,12 @@ function loadContactWrapper() {
 
 function selectContacts(i) {
   let sContacts = document.getElementById('selectedContacts');
-  selectedTaskContacts.push(contacts[i]);
-  console.log(selectedTaskContacts);
+  if(selectedTaskContacts.includes = contacts[i]){
+    selectedTaskContacts.splice();
+  }
+  else{
+    selectedTaskContacts.push(contacts[i]);
+  }
   
 }
 
