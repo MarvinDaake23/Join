@@ -1,4 +1,3 @@
-
 /* Summary */
 
 .join360HeadlineSummaryContainerDesk {
@@ -211,4 +210,11 @@
   font-weight: 500;
   color: rgba(42, 54, 71, 1);
   margin: 0;
+}
+
+/* CHRISTOPH */
+#loggedInUserName {
+  color: #29abe2;
+  font-weight: 700;
+  font-size: 64px;
 }

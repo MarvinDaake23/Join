@@ -194,6 +194,8 @@ function logIn() {
     regsiter.innerHTML += /*HTML*/ `
         <div id="signInNoSuccessful" class="feedback">Sign in successful</div>
         `;
+    // akt. user ins local storage speichern
+
     setTimeout(openSummary, 2000);
   } else {
     regsiter.innerHTML += /*HTML*/ `
