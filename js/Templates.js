@@ -8,11 +8,11 @@ function inputFocusInput() {
       `;
 }
 
-function renderContactWrapper(element) {
+function renderContactWrapper(element,i) {
   return /*html */ `
             <li>
                 <label class="contactWrapperItem">
-                    <input type="checkbox">
+                    <input type="checkbox" onchange="selectContacts(${i})">
                     <div class="contactNameContainer">
                         <span>${element.firstName} ${element.lastName}</span>
                         <div class="initials initSmall" style="background-color:${element.profileColor}">

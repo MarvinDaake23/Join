@@ -31,8 +31,12 @@ function loadContactWrapper() {
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
     console.log(element);
-    contactWrapper.innerHTML += renderContactWrapper(element);
+    contactWrapper.innerHTML += renderContactWrapper(element,i);
   }
+}
+
+function selectContacts(i) {
+  console.log(i);
 }
 
 /**
@@ -137,14 +141,38 @@ function addTask() {
  * function to pass all data into an array
  */
 function addTaskIntoArray(title, desription, date, prio, category) {
-  let temTask = {
-    titel: title,
-    desription: desription,
-    assignedTo: "",
-    dueDate: date,
-    prio: prio,
-    category: category,
-    subtask: subtasks,
-  };
+  async function addTaskIntoArray(title, desription, date, prio, category) {
+    await fetch(BASE_URL + "tasks.json", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          id: 0,
+          type: 'User Story',
+          title: title,
+          description: desription,
+          subtasks: subtasks,
+          finishedSubtasks: [],
+          assignedTo: [
+              {
+                  firstName: 'Anton',
+                  lastName: 'Mayer',
+                  profilColor: '#FF7A00',
+              },
+              {
+                  firstName: 'Benedikt',
+                  lastName: 'Ziegler',
+                  profilColor: '#9327FF',
+              },
+          ],
+          category: category,
+          priority: prio,
+          dueDate: date,
+        })
+        });
+    
+    task.push(temTask);
+  }
   task.push(temTask);
 }
