@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "Raleway-Regular";
   src: url("../fonts/Raleway/Raleway-Black.ttf");
 }
@@ -99,19 +99,19 @@ header {
 }
 
 .addTaskImg {
-  background-image: url(./assets/img/img/addTask.png);
+  background-image: url(./assets/img/addTask.png);
 }
 
 .summaryImg {
-  background-image: url(./assets/img/img/summary.png);
+  background-image: url(./assets/img/summary.png);
 }
 
 .boardImg {
-  background-image: url(./assets/img/img/board.png);
+  background-image: url(./assets/img/board.png);
 }
 
 .contactsImg {
-  background-image: url(./assets/img/img/contacts.png);
+  background-image: url(./assets/img/contacts.png);
 }
 
 .footerImgContainer {
@@ -121,22 +121,22 @@ header {
 }
 
 .summary:hover .summaryImg {
-  background-image: url(./assets/img/img/summaryHighlight.png);
+  background-image: url(./assets/img/summaryHighlight.png);
 }
 
 .board:hover .boardImg {
-  background-image: url(./assets/img/img/boardHighlight.png);
+  background-image: url(./assets/img/boardHighlight.png);
 }
 
 .addTask:hover .addTaskImg {
-  background-image: url(./assets/img/img/addTaskHighlight.png);
+  background-image: url(./assets/img/addTaskHighlight.png);
 }
 
 .contacts:hover .contactsImg {
-  background-image: url(./assets/img/img/contactHighlight.png);
+  background-image: url(./assets/img/contactHighlight.png);
 }
 
 .menuOption:hover {
   border-radius: 16px;
   background-color: #091931;
-}
+} */
