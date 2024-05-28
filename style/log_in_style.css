@@ -148,6 +148,16 @@ input[type=text] {
     box-sizing: border-box;
 }
 
+input[type=password] {
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+input[type=eamil] {
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
 .inputIcons {
     display: flex;
     justify-content: center;
@@ -158,8 +168,8 @@ input[type=text] {
 }
 
 .mailIcon {
-    height: 16px;
-    width: 20px;
+    height: 22px;
+    width: 22px;
 }
 
 .personIcon {
