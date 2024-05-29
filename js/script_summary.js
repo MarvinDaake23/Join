@@ -33,9 +33,8 @@ function countTasksByCategory(string) {
     if (boardTasks[index].category == string) {
       cnt++;
     }
-
-    return cnt;
   }
+  return cnt;
 }
 
 /**
