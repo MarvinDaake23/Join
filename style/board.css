@@ -57,7 +57,7 @@
   border: 2px solid #2a3647;
   height: 30px;
   width: 30px;
-  background-image: url("./assets/img/plusImg.png");
+  background-image: url("../assets/img/plusImg.png");
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 5px;
@@ -133,7 +133,7 @@
   width: 34px;
   height: 34px;
   background-repeat: no-repeat;
-  background-image: url('./assets/img/search.png');
+  background-image: url('../assets/img/search.png');
   background-position: center;
   cursor: pointer;
   padding-right: 8px;
