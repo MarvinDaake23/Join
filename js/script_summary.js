@@ -27,16 +27,16 @@ function greetUser() {
   // depending on actual hour, generate a greeting
   if (hour >= 0 && hour < 6) {
     // 0 - 5
-    greeting = "Good night";
+    greeting = "Good night,";
   } else if (hour >= 6 && hour < 12) {
     // 6 - 11
-    greeting = "Good morning";
+    greeting = "Good morning,";
   } else if (hour >= 12 && hour < 18) {
     // 12 - 17
-    greeting = "Good afternoon";
+    greeting = "Good afternoon,";
   } else if (hour >= 18 && hour < 24) {
     // 18 - 23
-    greeting = "Good evening";
+    greeting = "Good evening,";
   }
   return greeting;
 }
