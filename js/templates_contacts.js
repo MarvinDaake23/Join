@@ -30,8 +30,8 @@ function renderSingleContactHTML(id) {
                   <div>
                       <span id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</span>
                       <div class="editdelete">
-                          <a onclick="showEditContact(${id})"><img src="./assets/img/contacts/edit.svg">Edit</a>
-                          <a onclick="deleteContact(${id})"><img src="./assets/img/contacts/delete1.png">Delete</a>
+                          <a onclick="showEditContact(${id})"><img src="./assets/img/edit.svg">Edit</a>
+                          <a onclick="deleteContact(${id})"><img src="./assets/img/delete1.png">Delete</a>
                       </div>
                   </div>
               </div>                
@@ -48,11 +48,11 @@ function renderSingleContactHTML(id) {
                   </div>
               </div>
   
-              <img onclick="showMore()" id="moreButton" src="./assets/img/contacts/more1.png"/>
+              <img onclick="showMore()" id="moreButton" src="./assets/img/more1.png"/>
   
               <div id="moreButtonPopup">
-                  <a onclick="showEditContact(${id})"><img src="./assets/img/contacts/edit1.png" />Edit</a>
-                  <a onclick="deleteContact(${id})"><img src="./assets/img/contacts/delete1.png" />Delete</a>
+                  <a onclick="showEditContact(${id})"><img src="./assets/img/edit1.png" />Edit</a>
+                  <a onclick="deleteContact(${id})"><img src="./assets/img/delete1.png" />Delete</a>
               </div>
   
           </div>
@@ -68,7 +68,7 @@ function renderSingleContactMobileHTML(id) {
                 <div class="contactsHeadlineBox">
                     <div class="contactsHeadline">
                         <h2>Contacts</h2>
-                        <a><img onclick="backToContactList()" src="./assets/img/contacts/arrow-left-line.png" /></a>
+                        <a><img onclick="backToContactList()" src="./assets/img/arrow-left-line.png" /></a>
                     </div>
                     <h3>Better with a team</h3>
                     <hr />
@@ -93,11 +93,11 @@ function renderSingleContactMobileHTML(id) {
                     </div>
                 </div>
     
-                <img onclick="showMore()" id="moreButton" src="./assets/img/contacts/more1.png"/>
+                <img onclick="showMore()" id="moreButton" src="./assets/img/more1.png"/>
     
                 <div id="moreButtonPopup">
-                    <a onclick="showEditContact(${id})"><img src="./assets/img/contacts/edit1.png" />Edit</a>
-                    <a onclick="deleteContact(${id})"><img src="./assets/img/contacts/delete1.png" />Delete</a>
+                    <a onclick="showEditContact(${id})"><img src="./assets/img/edit1.png" />Edit</a>
+                    <a onclick="deleteContact(${id})"><img src="./assets/img/delete1.png" />Delete</a>
                 </div>
     
             </div>

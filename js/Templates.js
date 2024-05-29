@@ -66,51 +66,56 @@ function renderBoardBigContainer(i) {
   return /*html */ `
             <div class="boardBigContainerHeader">
                 <div class="boardBigContainerType" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
-                <img src="./assets/img/close.png" class="boardBigContainerClose">
+                <img src="./assets/img/close.png" onclick="removeboardBigContainer()"  class="boardBigContainerClose">
             </div>
             <div class="boardBigContainerTitle" id="boardBigContainerTitle">${boardTasks[i]["title"]}</div>
             <div class="boardBigContainerDescription" id="boardBigContainerDescription">${boardTasks[i]["description"]}</div>
-            <div>
-                <li class="boardBigContainerdate">
+            <div class="boardContainerStatus">
+                <div class="boardBigContainerdate">
                     <span>Due date:</span>
                     <div class="boardBigContainerDateInput" id="boardBigContainerDateInput">${boardTasks[i]["dueDate"]}</div>
-                </li>
-                <li class="boardBigContainerPrio">
+                </div>
+                <div class="boardBigContainerPrio">
                     <span>Priority:</span>
                     <div>
                         <div class="boardBigContainerPrioInput" id="boardBigContainerPrioInput">${boardTasks[i]["priority"]}</div>
                         <div class="boardBigContainerPrioInputImg"></div>
                     </div>
-                </li>
+            </div>
             </div>
             <div class="boardBigContainerAssignedTo">
-                <span>Assigned To</span>
-                <ul id="boardBigContainerAssignedToContactsInput">
-                </ul>
+                <span>Assigned To:</span>
+                <div id="boardBigContainerAssignedToContactsInput">
             </div>
-            <div>
+            </div>
+            <div class="subtaskSection">
                 <span>Subtasks</span>
-                <ul class="boardBigContainerSubtasks" id="boardBigContainerSubtasks">
-                </ul>
+                <div class="boardBigContainerSubtasks" id="boardBigContainerSubtasks">
+            </div>
+            </div>
+            <div class="editConatiner">
+                <img src="./assets/img/delete.png"><div class="editText">Delete</div>
+                <div class="seperator"></div>
+                <img src="./assets/img/edit.png"><div class="editText">Edit</div>
             </div>
     `;
 }
 
 function renderBoardBigContainerContacts(element) {
   return /*html */ `
-        <li>
+        <div class="boardContacts">
             <div style="background-color:${element["profilColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
             <div class="contactName">${element["firstName"]} ${element["lastName"]}</div>
-        </li>
+        </div>
     `;
 }
 
-function renderBoardBigContainerSubtasks(element) {
+function renderBoardBigContainerSubtasks(element,j) {
   return /* html*/ `
-        <li>
-            <div class="checkboxImg"></div>
+        <div class="SubtaskRow">
+            <img id="checkBox${j}" class="checkBox" onclick="done(${j})" src="../assets/img/Property 1=Default.png" >
             <div class="boardBigContainerSubtasksSingleInput">${element["subtaskText"]}</div>
-        </li>
+        </div>
     `;
 }
 

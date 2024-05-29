@@ -49,23 +49,23 @@ function signUp() {
             <div class="inputfield">
                 <input id="user" type="text" placeholder="Name" required>
                 <div class="inputIcons">
-                    <img class="personIcon hover" src="../assets/img/person.png">
+                    <img class="personIcon hover" src="../assets/img/person_small.png">
                 </div>
             </div>
             <div class="inputfield">
-                <input id="email" type="text" placeholder="Email" required>
+                <input id="email" type="email" placeholder="Email" required>
                 <div class="inputIcons">
                     <img class="mailIcon hover" src="../assets/img/mail.png">
                 </div>
             </div>
             <div class="inputfield">
-                <input id="password" type="text" placeholder="Password" required>
+                <input id="password" type="password" placeholder="Password" required>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
             </div>
             <div class="inputfield">
-                <input type="text" placeholder="Confrim Password" required>
+                <input type="password" placeholder="Confrim Password" required>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
@@ -117,13 +117,13 @@ function backToLogIn() {
 
         <div class="logInSection">
             <div class="inputfield">
-                <input id="email" type="text" placeholder="Email" required>
+                <input id="email" type="eamil" placeholder="Email" required>
                 <div class="inputIcons">
                     <img class="mailIcon hover" src="../assets/img/mail.png">
                 </div>
             </div>
             <div class="inputfield">
-                <input id="password" type="text" placeholder="Password" required>
+                <input id="password" type="password" placeholder="Password" required>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
@@ -194,6 +194,10 @@ function logIn() {
     regsiter.innerHTML += /*HTML*/ `
         <div id="signInNoSuccessful" class="feedback">Sign in successful</div>
         `;
+    // akt. user ins local storage speichern
+    let userAsText = JSON.stringify(user);
+    localStorage.setItem("user", userAsText);
+
     setTimeout(openSummary, 2000);
   } else {
     regsiter.innerHTML += /*HTML*/ `
