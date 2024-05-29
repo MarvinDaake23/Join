@@ -117,7 +117,7 @@ function backToLogIn() {
 
         <div class="logInSection">
             <div class="inputfield">
-                <input id="email" type="eamil" placeholder="Email" required>
+                <input id="email" type="email" placeholder="Email" required>
                 <div class="inputIcons">
                     <img class="mailIcon hover" src="../assets/img/mail.png">
                 </div>
@@ -197,6 +197,8 @@ function logIn() {
     // akt. user ins local storage speichern
     let userAsText = JSON.stringify(user);
     localStorage.setItem("user", userAsText);
+
+    document.getElementById('inputfieldPassword').classList.add('outlineBlue');
 
     setTimeout(openSummary, 2000);
   } else {

@@ -136,6 +136,10 @@ h1 {
     border: 1px solid black;
 }
 
+.outlineBlue {
+    border: 1px solid #8cd1ef;
+}
+
 input {
     border-radius: 10px;
     width: 100%;
@@ -285,6 +289,8 @@ button {
     line-height: 74px;
     animation: moveSuccessful 0.7s forwards;
 }
+
+
 
 @keyframes moveSuccessful {
     from {
