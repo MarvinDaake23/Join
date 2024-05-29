@@ -100,44 +100,10 @@ let boardTasks2 = [
     dueDate: "23-05-2024",
   },
   {
-    id: 1,
-    type: "Technical Task",
-    title: "Saufen",
-    description: "jaja, ist doch klar?",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
-    category: "feedback" /*todo -> feedback" */,
-    priority: "High",
-    dueDate: "23-05-2024",
-  },
-  {
     id: 2,
     type: "User Story",
     title: "Rasen mähen",
-    description: "builde a Kanban baord",
+    description: "Kein Bock",
     subtasks: [
       {
         id: 0,
@@ -153,25 +119,20 @@ let boardTasks2 = [
     finishedSubtasks: [],
     assignedTo: [
       {
-        firstName: "Anton",
-        lastName: "Mayer",
+        firstName: "Christoph",
+        lastName: "Völker",
         profilColor: "#FF7A00",
       },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
     ],
-    category: "feedback" /*todo -> feedback" */,
-    priority: "Low",
-    dueDate: "23-05-2024",
+    category: "todo" /*todo -> feedback" */,
+    priority: "High",
+    dueDate: "29-05-2024",
   },
   {
-    id: 3,
-    type: "User Story",
-    title: "Oma anrufen",
-    description: "builde a Kanban baord",
+    id: 1,
+    type: "Technical Task",
+    title: "Saufen",
+    description: "Das muss man immer machen",
     subtasks: [
       {
         id: 0,
@@ -198,144 +159,8 @@ let boardTasks2 = [
       },
     ],
     category: "todo" /*todo -> feedback" */,
-    priority: "Low",
-    dueDate: "23-05-2024",
-  },
-  {
-    id: 4,
-    type: "User Story",
-    title: "Join Projekt",
-    description: "builde a Kanban baord",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
-    category: "feedback" /*todo -> feedback" */,
-    priority: "Low",
-    dueDate: "23-05-2024",
-  },
-  {
-    id: 5,
-    type: "User Story",
-    title: "Join Projekt",
-    description: "builde a Kanban baord",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
-    category: "feedback" /*todo -> feedback" */,
-    priority: "Low",
-    dueDate: "23-05-2024",
-  },
-  {
-    id: 6,
-    type: "User Story",
-    title: "Join Projekt",
-    description: "builde a Kanban baord",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
-    category: "feedback" /*todo -> feedback" */,
-    priority: "Low",
-    dueDate: "23-05-2024",
-  },
-  {
-    id: 7,
-    type: "User Story",
-    title: "Join Projekt",
-    description: "builde a Kanban baord",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
-    category: "feedback" /*todo -> feedback" */,
-    priority: "Low",
-    dueDate: "23-05-2024",
+    priority: "High",
+    dueDate: "29-05-2024",
   },
 ];
 
