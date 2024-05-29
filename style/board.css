@@ -78,7 +78,7 @@
 }
 
 .emptyPlaceholder {
-   width: 100%;
+  width: 252px;
   background-color: #e7e7e7;
   border-radius: 10px;
   height: 48px;
@@ -154,6 +154,7 @@
   background-color: white;
   gap: 12px;
   box-shadow: 0px 0px 10px 3px #00000014;
+  margin-bottom: 10px;
 }
 
 .boardType {
