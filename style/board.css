@@ -270,9 +270,17 @@
 .boardBigContainerdate{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   padding-top: 10px;
+}
+
+.boardBigContainerdate span{
+  width: 100px;
+  font-size: 16px;
+}
+.boardBigContainerPrio span{
+  width: 100px;
+  font-size: 16px;
 }
 
 .boardContacts{
@@ -285,7 +293,6 @@
 .boardBigContainerPrio{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   padding-top: 10px;
 }

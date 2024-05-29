@@ -66,7 +66,7 @@ function renderBoardBigContainer(i) {
   return /*html */ `
             <div class="boardBigContainerHeader">
                 <div class="boardBigContainerType" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
-                <img src="./assets/img/close.png" class="boardBigContainerClose">
+                <img src="./assets/img/close.png" onclick="removeboardBigContainer()"  class="boardBigContainerClose">
             </div>
             <div class="boardBigContainerTitle" id="boardBigContainerTitle">${boardTasks[i]["title"]}</div>
             <div class="boardBigContainerDescription" id="boardBigContainerDescription">${boardTasks[i]["description"]}</div>
