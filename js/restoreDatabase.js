@@ -69,7 +69,7 @@ let boardTasks2 = [
     id: 0,
     type: "User Story",
     title: "Join Projekt",
-    description: "builde a Kanban baord",
+    description: "build a Kanban board",
     subtasks: [
       {
         id: 0,
@@ -102,8 +102,8 @@ let boardTasks2 = [
   {
     id: 1,
     type: "Technical Task",
-    title: "Join Projekt",
-    description: "builde a Kanban baord",
+    title: "Saufen",
+    description: "jaja, ist doch klar?",
     subtasks: [
       {
         id: 0,
@@ -130,13 +130,13 @@ let boardTasks2 = [
       },
     ],
     category: "feedback" /*todo -> feedback" */,
-    priority: "Low",
+    priority: "High",
     dueDate: "23-05-2024",
   },
   {
     id: 2,
     type: "User Story",
-    title: "Join Projekt",
+    title: "Rasen mähen",
     description: "builde a Kanban baord",
     subtasks: [
       {
@@ -170,7 +170,7 @@ let boardTasks2 = [
   {
     id: 3,
     type: "User Story",
-    title: "Join Projekt",
+    title: "Oma anrufen",
     description: "builde a Kanban baord",
     subtasks: [
       {
@@ -197,7 +197,7 @@ let boardTasks2 = [
         profilColor: "#9327FF",
       },
     ],
-    category: "feedback" /*todo -> feedback" */,
+    category: "todo" /*todo -> feedback" */,
     priority: "Low",
     dueDate: "23-05-2024",
   },
