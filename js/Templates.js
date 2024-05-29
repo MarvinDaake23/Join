@@ -66,7 +66,7 @@ function renderBoardBigContainer(i) {
   return /*html */ `
             <div class="boardBigContainerHeader">
                 <div class="boardBigContainerType" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
-                <img src="./assets/img/close.png" class="boardBigContainerClose">
+                <img src="./assets/img/close.png" onclick="removeboardBigContainer()"  class="boardBigContainerClose">
             </div>
             <div class="boardBigContainerTitle" id="boardBigContainerTitle">${boardTasks[i]["title"]}</div>
             <div class="boardBigContainerDescription" id="boardBigContainerDescription">${boardTasks[i]["description"]}</div>
@@ -88,10 +88,15 @@ function renderBoardBigContainer(i) {
                 <div id="boardBigContainerAssignedToContactsInput">
             </div>
             </div>
-            <div>
+            <div class="subtaskSection">
                 <span>Subtasks</span>
                 <div class="boardBigContainerSubtasks" id="boardBigContainerSubtasks">
             </div>
+            </div>
+            <div class="editConatiner">
+                <img src="./assets/img/delete.png"><div class="editText">Delete</div>
+                <div class="seperator"></div>
+                <img src="./assets/img/edit.png"><div class="editText">Edit</div>
             </div>
     `;
 }
@@ -105,12 +110,12 @@ function renderBoardBigContainerContacts(element) {
     `;
 }
 
-function renderBoardBigContainerSubtasks(element) {
+function renderBoardBigContainerSubtasks(element,j) {
   return /* html*/ `
-        <div>
-            <div class="checkboxImg"></div>
+        <div class="SubtaskRow">
+            <img id="checkBox${j}" class="checkBox" onclick="done(${j})" src="../assets/img/Property 1=Default.png" >
             <div class="boardBigContainerSubtasksSingleInput">${element["subtaskText"]}</div>
-</div>
+        </div>
     `;
 }
 

@@ -1,3 +1,5 @@
+let doneBulian = false;
+
 let boardTasks = [
   {
     id: 0,
@@ -91,7 +93,7 @@ function loadBoardBigContainerSubtasks(i) {
   for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
     const element = boardTasks[i]["subtasks"][j];
     console.log(element);
-    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element);
+    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element,j);
   }
 }
 
@@ -244,4 +246,16 @@ function allowDrop(ev) {
 function moveTo(category) {
   boardTasks[currentDraggedElement]["category"] = category;
   updateHTML();
+}
+
+function done(j) {
+  if (doneBulian == true) {
+    document.getElementById(`checkBox${j}`).src =
+      "../assets/img/Property 1=hover checked.png";
+    doneBulian = false;
+  } else {
+    document.getElementById(`checkBox${j}`).src =
+      "../assets/img/Property 1=Default.png";
+    doneBulian = true;
+  }
 }
