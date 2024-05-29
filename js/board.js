@@ -31,7 +31,7 @@ let boardTasks = [
         profilColor: "#9327FF",
       },
     ],
-    category: "todo",
+    category: "feedback" /*todo -> feedback" */,
     priority: "Low",
     dueDate: "23-05-2024",
   },
@@ -54,13 +54,13 @@ function loadBoardBigContainer(i) {
   let bigContainer = document.getElementById("boardBigContainer");
   bigContainer.innerHTML = renderBoardBigContainer(i);
   loadBoardBigContainerLists(i);
-  document.getElementById('background').classList.remove('d-none');
-  document.getElementById('boardBigContainer').classList.remove('d-none');
+  document.getElementById("background").classList.remove("d-none");
+  document.getElementById("boardBigContainer").classList.remove("d-none");
 }
 
 function removeboardBigContainer() {
-  document.getElementById('background').classList.add('d-none');
-  document.getElementById('boardBigContainer').classList.add('d-none');
+  document.getElementById("background").classList.add("d-none");
+  document.getElementById("boardBigContainer").classList.add("d-none");
 }
 
 /**
@@ -93,7 +93,7 @@ function loadBoardBigContainerSubtasks(i) {
   for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
     const element = boardTasks[i]["subtasks"][j];
     console.log(element);
-    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element,j);
+    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j);
   }
 }
 
