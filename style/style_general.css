@@ -43,14 +43,16 @@ sidebar {
   align-items: center;
   background-color: #2a3647;
   /*width: 232px; steht in grid defs ganz oben! */
-  /*height: 100vh; bei body reicht?*/
+  height: 100vh;
 }
 
 .sidebarLinks {
   display: flex;
-  padding-top: 220px;
+  bottom: 100px;
   flex-direction: column;
-  gap: 8px;
+  gap: 8px;  
+  position: absolute;
+  bottom: 60px;
 }
 
 .sidebarLinks a {
