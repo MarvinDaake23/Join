@@ -10,6 +10,10 @@
     width: 45%;
 }
 
+li{
+    margin-bottom: 10px;
+}
+
 .headline{
     font-weight: 700;
     font-size: 47px;
@@ -47,7 +51,7 @@
     border-radius: 10px 10px 10px 10px;
     list-style-type: none;
     overflow-y: auto;
-    max-height: 200px;
+    max-height: 150px;
     z-index: 1000;
     margin-top: 80px;
     box-sizing: border-box;
@@ -66,6 +70,15 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+.contactWrapperItem:hover{
+    background-color: #091031;
+    color: white;
+}
+
+.initials:hover{
+    color: white;
 }
 
 .contactNameContainer{
@@ -99,6 +112,9 @@
 }
 
 .subtaskSettingContainer{
+    position: absolute;
+    top: -18px;
+    right: -3px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -137,6 +153,11 @@
     display: none;
 }
 
+.addTaskSpans{
+    font-size: 20px;
+    font-weight: 400;
+}
+
 .taskTitleContainer{
     display: flex;
     flex-direction: column;
@@ -145,23 +166,31 @@
     margin-bottom: 15px;
 }
 
-.taskTitleContainer span{
-    font-weight: 400;
-    font-size:16px;
-    line-height: 19.2px;
-}
 
 .taskTitleInputContainer input{
     width:100%;
     border-radius:10px;
     padding: 12px 16px 12px 16px;
     border:1px solid #D1D1D1;
+}
 
+.taskTitleInputContainer{
+    position: relative;
 }
 
 .requiredInput:focus{
     outline: none;
     border: 1px solid #FF8190;
+}
+
+.blueOutlineInput:focus{
+    outline: none;
+    border: 1px solid #29ABE2;
+}
+
+.blueOutlineInput{
+    outline: none;
+    border: 1px solid #29ABE2;
 }
 
 .taskTitleInputContainer input::placeholder{
@@ -182,13 +211,6 @@
     width:100%;
 }
 
-
-.taskDescriptionContainer span{
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19.2px;
-}
-
 .taskDescriptionInputContainer input{
     height:88px;
     padding: 18px 16px 18px 16px;
@@ -204,8 +226,9 @@
     height: 90px;
     border: 1px solid #D1D1D1;
     width: 90%;
-    padding: 18px 16px 18px 16px;
+    padding: 8px 16px 18px 16px;
     outline: none;
+    font-family: "Inter";
 }
 
 .taskDescriptionInputContainer .textareaDescription::placeholder{
@@ -286,6 +309,9 @@
     width: 90%;
     border: 1px solid #D1D1D1;
     justify-content: space-between;
+    color:#D1D1D1;
+    font-family: "Inter";
+    font-size: 20px;
 }
 
 #date::placeholder{
@@ -353,8 +379,12 @@
     background-color: #29ABE2;
 }
 
+.prioContainerBorder{
+    border: 1px solid #D1D1D1;
+}
+
 .lowPrioImg{
-    background-image: url('../assets/imgpriolow.png');
+    background-image: url('../assets/img/prioLow.png');
     width: 20px;
     height:14px;
 }
@@ -420,7 +450,7 @@
     background-position: right 8px center;
 }
 
-@media (max-width : 480px) {
+@media (max-width : 1000px) {
     .addTaskBigContainer {
         flex-direction: column;
     }
@@ -430,12 +460,21 @@
     .leftSideAddTaskPage{
         width: 100%; 
     }
+    .rightSideAddTaskPage{
+        width: 100%; 
+    }
     .addTaskForm{
         width: 100%;
     }
+    .headline{
+        margin-left: 0px;
+    }
+    .wrapperList{
+        margin-top: -112px;
+    }
 }
 
-@media (min-width : 480px) {
+@media (min-width : 620px) {
     .checkoutContainer{
         display: none;
     }    
