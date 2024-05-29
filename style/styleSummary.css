@@ -223,9 +223,12 @@
 .lowerHalf {
   display: flex;
   flex-direction: row;
+  gap: 50px;
 }
 
-
+.leftSide {
+  padding-left: 20px;
+}
 
 .rightSide {
   display: flex;

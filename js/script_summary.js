@@ -12,8 +12,30 @@ async function onLoadSummary() {
   document.getElementById("greeting").innerHTML = greetUser();
   document.getElementById("loggedInUserName").innerHTML = user.User;
 
+  // fill 6 fields
   // total task amount
   document.getElementById("totalTasksCounter").innerHTML = boardTasks.length;
+
+  // 4 categories ... done,feedback,progress,todo
+  document.getElementById("totalTasksInProgressCounter").innerHTML =
+    countTasksByCategory("progress");
+  document.getElementById("totalTasksAwaitingFeedback").innerHTML =
+    countTasksByCategory("feedback");
+  document.getElementById("doneCounter").innerHTML =
+    countTasksByCategory("done");
+  document.getElementById("todoCounter").innerHTML =
+    countTasksByCategory("todo");
+}
+
+function countTasksByCategory(string) {
+  let cnt = 0;
+  for (let index = 0; index < boardTasks.length; index++) {
+    if (boardTasks[index].category == string) {
+      cnt++;
+    }
+
+    return cnt;
+  }
 }
 
 /**
