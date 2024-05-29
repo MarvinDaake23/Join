@@ -198,7 +198,7 @@ content {
   margin-top: 5px;
 }
 
-content h1 {
+.contactsHeadline {
   font-weight: 700;
   font-size: 61px;
   margin: 0px;

@@ -79,12 +79,16 @@ function openWrapper(i) {
     document.getElementById(`arrowUp${i}`).classList.remove(`dNone`);
     document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
     wrapper.classList.add(`openBorader`);
-    wrapperList.style.width = `${wrapper.offsetWidth}px`; // Setze die Breite des geöffneten Containers auf die Breite des übergeordneten Containers
+    wrapperList.style.width = `${wrapper.offsetWidth}px`; 
+      document.getElementById("wrapperAt").classList.add('blueOutlineInput');
+      document.getElementById("wrapper").classList.add('blueOutlineInput');
   } else {
     wrapperList.classList.add(`dNone`);
     document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
     document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
     wrapper.classList.remove(`openBorader`);
+      document.getElementById("wrapperAt").classList.remove('blueOutlineInput');
+      document.getElementById("wrapperAt").classList.remove('blueOutlineInput');
   }
 }
 
@@ -107,16 +111,16 @@ function prioChoose(i) {
   resetPrioContainers();
 
   if (prioValue == 2) {
-    document.getElementById("prio high").classList.add("highPrioBackground");
-    document.getElementById("highPrioImg").classList.add("highPrioImageChange");
+    document.getElementById("prio high").classList.add('highPrioBackground');
+    document.getElementById("highPrioImg").classList.add('highPrioImageChange');
   }
   if (prioValue == 1) {
-    document.getElementById("prio med").classList.add("medPrioBackground");
-    document.getElementById("medPrioImg").classList.add("medPrioImageChange");
+    document.getElementById("prio med").classList.add('medPrioBackground');
+    document.getElementById("medPrioImg").classList.add('medPrioImageChange');
   }
-  if (prioValue == 0) {
-    document.getElementById("prio low").classList.add("lowPrioBackground");
-    document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
+  if (prioValue == 0){
+    document.getElementById("prio low").classList.add('lowPrioBackground');
+    document.getElementById("lowPrioImg").classList.add('lowPrioImageChange');
   }
 }
 
@@ -132,13 +136,6 @@ function resetPrioContainers() {
   document.getElementById("medPrioImg").classList.remove("medPrioImageChange");
   document.getElementById("prio low").classList.remove("lowPrioBackground");
   document.getElementById("lowPrioImg").classList.remove("lowPrioImageChange");
-}
-
-/**
- * function to select the priority
- */
-function prioChoose(i) {
-  prioValue = i;
 }
 
 /**
