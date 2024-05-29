@@ -25,12 +25,26 @@ async function onLoadSummary() {
     countTasksByCategory("done");
   document.getElementById("todoCounter").innerHTML =
     countTasksByCategory("todo");
+
+  // urgent counter
+  document.getElementById("urgentCounter").innerHTML =
+    countTasksByPriority("Urgent");
 }
 
 function countTasksByCategory(string) {
   let cnt = 0;
   for (let index = 0; index < boardTasks.length; index++) {
     if (boardTasks[index].category == string) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+
+function countTasksByPriority(string) {
+  let cnt = 0;
+  for (let index = 0; index < boardTasks.length; index++) {
+    if (boardTasks[index].priority == string) {
       cnt++;
     }
   }

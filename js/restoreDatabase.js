@@ -125,7 +125,7 @@ let boardTasks2 = [
       },
     ],
     category: "todo" /*todo -> feedback" */,
-    priority: "High",
+    priority: "Urgent",
     dueDate: "29-05-2024",
   },
   {
@@ -159,7 +159,7 @@ let boardTasks2 = [
       },
     ],
     category: "todo" /*todo -> feedback" */,
-    priority: "High",
+    priority: "Urgent",
     dueDate: "29-05-2024",
   },
   {
