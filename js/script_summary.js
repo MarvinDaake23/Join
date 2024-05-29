@@ -1,17 +1,19 @@
-
 /**
  * function to load the actual logged in user from local storage (saved in login.html)
  */
 let userAsText = localStorage.getItem("user");
 let user = JSON.parse(userAsText);
 
-
 /**
  * onload function of the summary.html: renders actual data into the html page
  */
-function onLoadSummary() {
+async function onLoadSummary() {
+  boardTasks = await loadData("boardtasks");
   document.getElementById("greeting").innerHTML = greetUser();
   document.getElementById("loggedInUserName").innerHTML = user.User;
+
+  // total task amount
+  document.getElementById("totalTasksCounter").innerHTML = boardTasks.length;
 }
 
 /**

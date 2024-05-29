@@ -310,9 +310,11 @@ function allowDrop(ev) {
 /**
  * function to change the category so that the container is loaded correctly when reloaded
  */
-function moveTo(category) {
+async function moveTo(category) {
   boardTasks[currentDraggedElement]["category"] = category;
   updateHTML();
+  // update Firebase!
+  await putData("boardtasks", boardTasks);
 }
 
 function done(j) {
