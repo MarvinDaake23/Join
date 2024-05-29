@@ -219,7 +219,6 @@ content .headline {
   display: flex;
   align-items: center;
   gap: 30px;
-  margin-left: 30px;
 }
 
 .hover:hover {
@@ -239,10 +238,6 @@ content .headline {
   header,
   sidebar {
     display: none;
-  }
-
-  content .headline {
-    margin-left: 5px;
   }
 
   mobile-footer {
