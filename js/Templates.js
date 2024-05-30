@@ -41,8 +41,8 @@ function renderBoardTask(element, i) {
             <div class="boardTitle">${element["title"]}</div>
             <div class="boardDescription">${element["description"]}</div>
             <div class="progress">
-                <div class="progressBackground">
-                    <div class="progressbar" role="progresbar"></div>
+                <div id="progressBackground" class="progressBackground">
+                    <div id="progressbar${i}" class="progressbar" role="progresbar"></div>
                 </div>
                 <div>Subtasks</div>
             </div>

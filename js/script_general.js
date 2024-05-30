@@ -3,17 +3,30 @@
 // breakpoint of viewport width
 let vwBreak = 480;
 
-async function updateHeaderInitials() {
-  let userAsText = localStorage.getItem("user");
-  let user = JSON.parse(userAsText);
+function getLoggedInUserName() {
+  let user = [];
 
+  // check local storage
+  let userAsText = localStorage.getItem("user");
+
+  if (userAsText == null) {
+    user = { User: "Guest" };
+  } else {
+    user = JSON.parse(userAsText);
+  }
+  return user.User;
+}
+
+function updateHeaderInitials() {
   // guest
-  if (user.User == "Guest") {
-    document.getElementById("headerInitialsDesktop").innerHTML = user.User[0];
-    document.getElementById("headerInitialsMobile").innerHTML = user.User[0];
+  let user = getLoggedInUserName();
+
+  if (user == "Guest") {
+    document.getElementById("headerInitialsDesktop").innerHTML = user[0];
+    document.getElementById("headerInitialsMobile").innerHTML = user[0];
   } else {
     //normal user
-    let nameArray = user.User.split(" ");
+    let nameArray = user.split(" ");
     document.getElementById(
       "headerInitialsMobile"
     ).innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;

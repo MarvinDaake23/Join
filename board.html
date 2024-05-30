@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join: Board</title>
     <link rel="icon" type="image/png" href="favicon.png" >
-    <link rel="stylesheet" href="./style/add_task.css" >
     <link rel="stylesheet" href="./style/board.css" >
     <link rel="stylesheet" href="./style/style_general.css" >
 
@@ -24,24 +23,26 @@
     <header w3-include-html="header.html"></header>
 
     <content class="inputContainer fullInput">
+      
       <div class="headlineContainer">
         <div class="headline">Board</div>
+        <div class="taskTitleContainer">
+          <div class="taskTitleInputContainer">
+            <input class="findInput" id="findInput" type="text" placeholder="Find Task" />
+            <div id="imgContainerSubtask" class="imgContainer">
+              <div class="subtaskSettingContainer">
+                <div class="seperator"></div>
+                <div class="imgContainerSearch"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="addButtonBig addButton">
           <img src="./assets/img/Capa.png">
         </div>
       </div>
 
-      <div class="taskTitleContainer">
-        <div class="taskTitleInputContainer">
-          <input class="findInput" id="findInput" type="text" placeholder="Find Task" />
-          <div id="imgContainerSubtask" class="imgContainer">
-            <div class="subtaskSettingContainer">
-              <div class="seperator"></div>
-              <div class="imgContainerSearch"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       <div class="progressInformationContainer">
         <div class="progressContainer">
@@ -50,7 +51,7 @@
             <div class="addButtonSmall addButton"></div>
           </div>
           <div
-            id="todo"
+            id="todo" class="taskrow"  
             ondrop="moveTo('todo')"
             ondragover="allowDrop(event)"
           ></div>
@@ -62,7 +63,7 @@
             <div class="addButtonSmall addButton"></div>
           </div>
           <div
-            id="progress"
+            id="progress" class="taskrow"  
             ondrop="moveTo('progress')"
             ondragover="allowDrop(event)"
           ></div>
@@ -74,7 +75,7 @@
             <div class="addButtonSmall addButton"></div>
           </div>
           <div
-            id="feedback"
+            id="feedback" class="taskrow"  
             ondrop="moveTo('feedback')"
             ondragover="allowDrop(event)"
           ></div>
@@ -86,7 +87,7 @@
             <div class="addButtonSmall addButton"></div>
           </div>
           <div
-            id="done"
+            id="done" class="taskrow"            
             ondrop="moveTo('done')"
             ondragover="allowDrop(event)"
           ></div>

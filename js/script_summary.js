@@ -11,7 +11,7 @@ async function onLoadSummary() {
   await includeHTML();
   boardTasks = await loadData("boardtasks");
   document.getElementById("greeting").innerHTML = greetUser();
-  document.getElementById("loggedInUserName").innerHTML = user.User;
+  document.getElementById("loggedInUserName").innerHTML = getLoggedInUserName();
 
   // fill 6 fields
   // total task amount
