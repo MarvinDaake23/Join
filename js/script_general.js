@@ -17,7 +17,7 @@ function getLoggedInUserName() {
   return user.User;
 }
 
-async function updateHeaderInitials() {
+function updateHeaderInitials() {
   // guest
   let user = getLoggedInUserName();
 
