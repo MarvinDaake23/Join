@@ -325,7 +325,7 @@ async function moveTo(category) {
   await putData("boardtasks", boardTasks);
 }
 
-function done(j, element) {
+function done(j) {
   if (doneBulian == true) {
     document.getElementById(`checkBox${j}`).src =
       "../assets/img/Property 1=hover checked.png";
