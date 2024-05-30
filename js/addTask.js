@@ -31,7 +31,7 @@ function loadContactWrapper() {
 
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
-    contactWrapper.innerHTML += renderContactWrapper(element,i);
+    contactWrapper.innerHTML += renderContactWrapper(element, i);
   }
 }
 
@@ -42,9 +42,8 @@ function selectContacts(i) {
   if(selectedTaskContacts.indexOf(contacts[i]) == -1 ){
     selectedTaskContacts.push(contacts[i]);
     console.log(selectedTaskContacts);
-  }
-  else{
-    selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]),1)
+  } else {
+    selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
     console.log(selectedTaskContacts);
   }
   loadContacts();
@@ -142,14 +141,15 @@ function prioChoose(i) {
  *function to reset the priority
  */
 function resetPrioContainers() {
-  document.getElementById("prio high").classList.remove('highPrioBackground');
-  document.getElementById("highPrioImg").classList.remove('highPrioImageChange');
-  document.getElementById("prio med").classList.remove('medPrioBackground');
-  document.getElementById("medPrioImg").classList.remove('medPrioImageChange');
-  document.getElementById("prio low").classList.remove('lowPrioBackground');
-  document.getElementById("lowPrioImg").classList.remove('lowPrioImageChange');
+  document.getElementById("prio high").classList.remove("highPrioBackground");
+  document
+    .getElementById("highPrioImg")
+    .classList.remove("highPrioImageChange");
+  document.getElementById("prio med").classList.remove("medPrioBackground");
+  document.getElementById("medPrioImg").classList.remove("medPrioImageChange");
+  document.getElementById("prio low").classList.remove("lowPrioBackground");
+  document.getElementById("lowPrioImg").classList.remove("lowPrioImageChange");
 }
-
 
 /**
  * function to check whether the input field subtask is selected
@@ -211,30 +211,30 @@ function addTaskIntoArray(title, desription, date, prio, category) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-          id: 0,
-          type: 'User Story',
-          title: title,
-          description: desription,
-          subtasks: subtasks,
-          finishedSubtasks: [],
-          assignedTo: [
-              {
-                  firstName: 'Anton',
-                  lastName: 'Mayer',
-                  profilColor: '#FF7A00',
-              },
-              {
-                  firstName: 'Benedikt',
-                  lastName: 'Ziegler',
-                  profilColor: '#9327FF',
-              },
-          ],
-          category: category,
-          priority: prio,
-          dueDate: date,
-        })
-        });
-    
+        id: 0,
+        type: "User Story",
+        title: title,
+        description: desription,
+        subtasks: subtasks,
+        finishedSubtasks: [],
+        assignedTo: [
+          {
+            firstName: "Anton",
+            lastName: "Mayer",
+            profilColor: "#FF7A00",
+          },
+          {
+            firstName: "Benedikt",
+            lastName: "Ziegler",
+            profilColor: "#9327FF",
+          },
+        ],
+        category: category,
+        priority: prio,
+        dueDate: date,
+      }),
+    });
+
     task.push(temTask);
   }
   task.push(temTask);

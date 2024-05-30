@@ -1,3 +1,6 @@
+const BASE_URL =
+  "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
+
 async function init() {
   contacts = await loadData("contacts");
   includeHTML();

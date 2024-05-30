@@ -203,8 +203,8 @@
 /* Welcome Screen Desk-Version*/
 
 .welcomeScreenSummaryDeskVersion {
-  height: 400px;
-  width: 400px;
+  /*height: 400px;
+  width: 400px;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,4 +217,27 @@
   font-weight: 500;
   color: rgba(42, 54, 71, 1);
   margin: 0;
+}
+
+/* CHRISTOPH */
+#loggedInUserName {
+  color: #29abe2;
+  font-weight: 700;
+  font-size: 64px;
+}
+
+.lowerHalf {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.leftSide {
+  padding-left: 20px;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
