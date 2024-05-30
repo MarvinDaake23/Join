@@ -14,7 +14,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 670px) {
   .boxMediumSummary {
     width: 150px;
   }
@@ -65,5 +65,26 @@
   }
   .join360HeadlineSummaryContainerMobile {
     display: none;
+  }
+}
+
+
+@media (max-width: 980px) {
+  .rightSide{
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .summaryBoxContainer{
+    padding-left: 0px;
+  }
+
+  .join360HeadlineSummary{
+    padding-left: 20px;
+  }
+
+  .secondHeadlineSummary{
+    padding-left: 20px;
   }
 }
