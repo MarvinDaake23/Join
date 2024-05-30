@@ -39,7 +39,7 @@ function loadContactWrapper() {
  * function to load all selected Contacts for new task
  */
 function selectContacts(i) {
-  if(selectedTaskContacts.indexOf(contacts[i]) == -1 ){
+  if (selectedTaskContacts.indexOf(contacts[i]) == -1) {
     selectedTaskContacts.push(contacts[i]);
     console.log(selectedTaskContacts);
   } else {
@@ -49,19 +49,19 @@ function selectContacts(i) {
   loadContacts();
 }
 
-function loadContacts(){
+function loadContacts() {
   let sContacts = document.getElementById('selectedContacts');
 
-  sContacts.innerHTML ="";
+  sContacts.innerHTML = "";
 
-   for (let i = 0; i < selectedTaskContacts.length; i++) {
+  for (let i = 0; i < selectedTaskContacts.length; i++) {
     let element = selectedTaskContacts[i];
 
     sContacts.innerHTML += renderSelectedContacs(element, i);
 
     console.log(element['profileColor']);
-    
-   }
+
+  }
 }
 
 /**
@@ -90,18 +90,18 @@ function openWrapper(i) {
   let wrapper = document.getElementById(`wrapper${i}`);
 
   if (wrapperList.classList.contains(`dNone`)) {
-      wrapperList.classList.remove(`dNone`);
-      document.getElementById(`arrowUp${i}`).classList.remove(`dNone`);
-      document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
-      wrapper.classList.add(`openBorader`);
-      wrapperList.style.width = `${wrapper.offsetWidth}px`; 
-      document.getElementById(`wrapper${i}`).classList.add('blueOutlineInput');
+    wrapperList.classList.remove(`dNone`);
+    document.getElementById(`arrowUp${i}`).classList.remove(`dNone`);
+    document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
+    wrapper.classList.add(`openBorader`);
+    wrapperList.style.width = `${wrapper.offsetWidth}px`;
+    document.getElementById(`wrapper${i}`).classList.add('blueOutlineInput');
   } else {
-      wrapperList.classList.add(`dNone`);
-      document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
-      document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
-      wrapper.classList.remove(`openBorader`);
-      document.getElementById(`wrapper${i}`).classList.remove('blueOutlineInput');
+    wrapperList.classList.add(`dNone`);
+    document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
+    document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
+    wrapper.classList.remove(`openBorader`);
+    document.getElementById(`wrapper${i}`).classList.remove('blueOutlineInput');
   }
 }
 
@@ -114,6 +114,72 @@ function chooseCategory(i) {
   placeholder.innerHTML = choose;
   cat = i;
 }
+
+
+/**
+ * function to alert if required dield is empty
+ */
+function checkRequiredInputs() {
+  let title = document.getElementById('title').value;
+  let alert = document.getElementById('requiredInputAddTask');
+
+  if (!title) {
+    alert.innerHTML = `
+    This field is required
+    `;
+  } else {
+    alert.innerHTML = "";
+    document.getElementById("title").classList.add('blueOutlineInput');
+  }
+
+  let titleInput = document.getElementById('title');
+  titleInput.addEventListener('blur', checkRequiredInputs);
+  titleInput.addEventListener('input', checkRequiredInputs);
+}
+
+function checkCategory() {
+  let category = document.getElementById('placeholder');
+  let alert = document.getElementById('requiredCategory');
+
+  if (category.innerHTML = "Select task Category") {
+    alert.innerHTML = `
+    This field is required
+    `;
+  } else {
+    alert.innerHTML = "";
+    document.getElementById("wrapper").classList.add('blueOutlineInput');
+  }
+}
+
+
+
+// document.getElementById('addTaskForm').addEventListener('submit', function (event) {
+//   // Alle Fehlermeldungen entfernen
+//   let errorMessages = document.querySelectorAll('.error-message');
+//   errorMessages.forEach(function (message) {
+//     message.textContent = '';
+//   });
+
+//   // Überprüfen, ob die Felder gültig sind
+//   let isValid = true;
+//   let fields = event.target.elements;
+//   for (let i = 0; i < fields.length; i++) {
+//     if (fields[i].hasAttribute('required') && !fields[i].validity.valid) {
+//       let errorMessage = fields[i].nextElementSibling;
+//       if (fields[i].validity.valueMissing) {
+//         errorMessage.textContent = 'Dieses Feld ist erforderlich.';
+//       } else if (fields[i].type === 'email' && fields[i].validity.typeMismatch) {
+//         errorMessage.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+//       }
+//       isValid = false;
+//     }
+//   }
+
+//   // Wenn das Formular nicht gültig ist, verhindern wir das Absenden
+//   if (!isValid) {
+//     event.preventDefault();
+//   }
+// });
 
 /**
  * function to select the priority
@@ -131,7 +197,7 @@ function prioChoose(i) {
     document.getElementById("prio med").classList.add('medPrioBackground');
     document.getElementById("medPrioImg").classList.add('medPrioImageChange');
   }
-  if (prioValue == 0){
+  if (prioValue == 0) {
     document.getElementById("prio low").classList.add('lowPrioBackground');
     document.getElementById("lowPrioImg").classList.add('lowPrioImageChange');
   }

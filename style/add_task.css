@@ -52,7 +52,7 @@
     overflow-y: auto;
     max-height: 150px;
     z-index: 1000;
-    margin-top: 87px;
+    margin-top: 80px;
     box-sizing: border-box;
     padding-left: 0px;
 }
@@ -88,6 +88,7 @@
     align-items: center;
     flex-direction: row-reverse;
     gap:8px;
+    padding-left: 16px;
 }
 
 .imgContainer{
@@ -162,11 +163,12 @@
 }
 
 .taskTitleContainer{
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 90%;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 8px;
+    height: 83px;
 }
 
 
@@ -301,11 +303,11 @@
 }
 
 .dateCotainer{
-    height:83px;
+    height: 80px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 8px;
+    margin-bottom: 30px;
 }
 
 .dateCotainer input{
@@ -316,7 +318,7 @@
     justify-content: space-between;
     color:#D1D1D1;
     font-family: "Inter";
-    font-size: 20px;
+    font-size: 17px;
 }
 
 #date::placeholder{
@@ -347,13 +349,25 @@
     height: 42px;
     font-size: 12px !important;
   }
+
+  #requiredInputAddTask{
+    color: red;
+    font-size: 9px;
+    margin-top: -6px;
+  }
+
+  #requiredCategory{
+    color: red;
+    font-size: 9px;
+    margin-top: -6px;
+  }
   
 
 .prioContainer{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .prioChoose{
@@ -366,12 +380,16 @@
 .prio{
     gap:8px;
     border-radius: 10px;
-    height:40px;
+    height:56px;
     width:30%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
+}
+
+.categoryContainer{
+    margin-bottom: 20px;
 }
 
 
@@ -478,6 +496,7 @@
 .lowPrioImageChange{
     background-image: url("../assets/img/prioLowHighlight.png");
 }
+
 
 @media (max-width : 1000px) {
     .addTaskBigContainer {
