@@ -198,7 +198,7 @@ function logIn() {
     let userAsText = JSON.stringify(user);
     localStorage.setItem("user", userAsText);
 
-    document.getElementById('inputfieldPassword').classList.add('outlineBlue');
+    document.getElementById("inputfieldPassword").classList.add("outlineBlue");
 
     setTimeout(openSummary, 2000);
   } else {
@@ -219,6 +219,11 @@ function openSummary() {
 
 function guestLogIn() {
   let login = document.getElementById("logIn");
+
+  // Guest ins Localstorage
+  let user = { User: "Guest" };
+  let userAsText = JSON.stringify(user);
+  localStorage.setItem("user", userAsText);
 
   setTimeout(openSummary, 1500);
   login.innerHTML += /*HTML*/ `

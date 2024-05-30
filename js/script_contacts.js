@@ -21,6 +21,7 @@ let backgroundProfileColors = [
 
 async function onLoadFunc() {
   await includeHTML();
+  updateHeaderInitials();
   contacts = await loadData("contacts");
   renderContacts();
 }

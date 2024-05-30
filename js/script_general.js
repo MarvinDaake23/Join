@@ -3,6 +3,38 @@
 // breakpoint of viewport width
 let vwBreak = 480;
 
+function getLoggedInUserName() {
+  let user = [];
+
+  // check local storage
+  let userAsText = localStorage.getItem("user");
+
+  if (userAsText == null) {
+    user = { User: "Guest" };
+  } else {
+    user = JSON.parse(userAsText);
+  }
+  return user.User;
+}
+
+function updateHeaderInitials() {
+  // guest
+  let user = getLoggedInUserName();
+
+  if (user == "Guest") {
+    document.getElementById("headerInitialsDesktop").innerHTML = user[0];
+    document.getElementById("headerInitialsMobile").innerHTML = user[0];
+  } else {
+    //normal user
+    let nameArray = user.split(" ");
+    document.getElementById(
+      "headerInitialsMobile"
+    ).innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
+    document.getElementById(
+      "headerInitialsDesktop"
+    ).innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
+  }
+}
 
 /**
  * function to show the popup when clicking on the header initials
@@ -19,7 +51,6 @@ function showHeaderPopup() {
       .setAttribute("onclick", "closeHeaderPopup()");
   });
 }
-
 
 /**
  * function to show the popup when clicking on the header initials

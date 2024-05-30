@@ -8,9 +8,10 @@ let user = JSON.parse(userAsText);
  * onload function of the summary.html: renders actual data into the html page
  */
 async function onLoadSummary() {
+  await includeHTML();
   boardTasks = await loadData("boardtasks");
   document.getElementById("greeting").innerHTML = greetUser();
-  document.getElementById("loggedInUserName").innerHTML = user.User;
+  document.getElementById("loggedInUserName").innerHTML = getLoggedInUserName();
 
   // fill 6 fields
   // total task amount
@@ -29,6 +30,8 @@ async function onLoadSummary() {
   // urgent counter
   document.getElementById("urgentCounter").innerHTML =
     countTasksByPriority("Urgent");
+
+  await updateHeaderInitials();
 }
 
 function countTasksByCategory(string) {

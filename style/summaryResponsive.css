@@ -14,7 +14,7 @@
   }
 }
 
-@media (max-width: 405px) {
+@media (max-width: 670px) {
   .boxMediumSummary {
     width: 150px;
   }
@@ -28,17 +28,29 @@
   }
 }
 
-@media (max-width: 385px) {
+@media (max-width: 405px) {
   .boxMediumSummary {
     width: 130px;
   }
 
   .boxUrgent {
-    width: 290px;
+    width: 280px;
   }
 
   .boxSmallSummary {
     width: 85px;
+  }
+
+  .summaryBoxContainer{
+    padding-left: 16px;
+  }
+
+  .join360HeadlineSummary{
+    padding-left: 16px;
+  }
+
+  .secondHeadlineSummary{
+    padding-left: 16px;
   }
 }
 
@@ -53,5 +65,26 @@
   }
   .join360HeadlineSummaryContainerMobile {
     display: none;
+  }
+}
+
+
+@media (max-width: 980px) {
+  .rightSide{
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .summaryBoxContainer{
+    padding-left: 0px;
+  }
+
+  .join360HeadlineSummary{
+    padding-left: 20px;
+  }
+
+  .secondHeadlineSummary{
+    padding-left: 20px;
   }
 }
