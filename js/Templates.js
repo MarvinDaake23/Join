@@ -1,5 +1,5 @@
 function inputFocusInput() {
-  return /*html */ `
+    return /*html */ `
       <div class="subtaskSettingContainer">
           <div onclick="inputClear()" class="imgContainerSubtaskCancle"></div>
           <div class="seperator"></div>
@@ -8,8 +8,8 @@ function inputFocusInput() {
       `;
 }
 
-function renderContactWrapper(element,i) {
-  return /*html */ `
+function renderContactWrapper(element, i) {
+    return /*html */ `
             <li>
                 <label class="contactWrapperItem">
                     <input type="checkbox" onchange="selectContacts(${i})">
@@ -25,7 +25,7 @@ function renderContactWrapper(element,i) {
 }
 
 function subtaskListInput(subtask) {
-  return /* html*/ `
+    return /* html*/ `
           <li class="liCat">
               <div id="subtask">
                   <div>${subtask}</div>
@@ -35,7 +35,7 @@ function subtaskListInput(subtask) {
 }
 
 function renderBoardTask(element, i) {
-  return /* html*/ `
+    return /* html*/ `
         <div draggable="true" ondragstart="startDragging(${element["id"]})" class="boardCard" onclick="loadBoardBigContainer(${i})">
             <div id="" class="boardType">${element["type"]}</div>
             <div class="boardTitle">${element["title"]}</div>
@@ -55,7 +55,7 @@ function renderBoardTask(element, i) {
 }
 
 function renderBoardTaskContacts(element) {
-  return /*html */ `
+    return /*html */ `
         <div class="initials initSmall " style="background-color:${element["profilColor"]}">
             <span>${element["firstName"][0]}${element["lastName"][0]}</span>
         </div>
@@ -63,7 +63,7 @@ function renderBoardTaskContacts(element) {
 }
 
 function renderBoardBigContainer(i) {
-  return /*html */ `
+    return /*html */ `
             <div class="boardBigContainerHeader">
                 <div class="boardBigContainerType" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
                 <img src="./assets/img/close.png" onclick="removeboardBigContainer()"  class="boardBigContainerClose">
@@ -102,7 +102,7 @@ function renderBoardBigContainer(i) {
 }
 
 function renderBoardBigContainerContacts(element) {
-  return /*html */ `
+    return /*html */ `
         <div class="boardContacts">
             <div style="background-color:${element["profilColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
             <div class="contactName">${element["firstName"]} ${element["lastName"]}</div>
@@ -110,8 +110,8 @@ function renderBoardBigContainerContacts(element) {
     `;
 }
 
-function renderBoardBigContainerSubtasks(element,j) {
-  return /* html*/ `
+function renderBoardBigContainerSubtasks(element, j) {
+    return /* html*/ `
         <div class="SubtaskRow">
             <img id="checkBox${j}" class="checkBox" onclick="done(${j})" src="../assets/img/Property 1=Default.png" >
             <div class="boardBigContainerSubtasksSingleInput">${element["subtaskText"]}</div>
@@ -120,25 +120,31 @@ function renderBoardBigContainerSubtasks(element,j) {
 }
 
 function renderBoardTaskPlaceholderTodo() {
-  return /*html */ `
+    return /*html */ `
         <div class="emptyPlaceholder">No Task To Do</div>
     `;
 }
 
 function renderBoardTaskPlaceholderProgress() {
-  return /*html */ `
+    return /*html */ `
         <div class="emptyPlaceholder">No Task in progress</div>
     `;
 }
 
 function renderBoardTaskPlaceholderFeedback() {
-  return /*html */ `
+    return /*html */ `
         <div class="emptyPlaceholder">No Task for Feedback</div>
     `;
 }
 
 function renderBoardTaskPlaceholderDone() {
-  return /*html */ `
+    return /*html */ `
         <div class="emptyPlaceholder">No Task done</div>
+    `;
+}
+
+function renderSelectedContacs(element, i) {
+    return /*html */ `
+        <div style="background-color:${element['profileColor']}" class="initials initSmall">${element["firstName"][0]}${element["lastName"][0]}</div>
     `;
 }

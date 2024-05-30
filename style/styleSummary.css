@@ -1,3 +1,4 @@
+
 /* Summary */
 
 .join360HeadlineSummaryContainerDesk {
@@ -8,10 +9,15 @@
   margin-bottom: 50px;
 }
 
+.join360HeadlineSummaryContainerMobile {
+  margin-bottom: 50px;
+}
+
 .summaryBoxContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-left: 50px;
 }
 
 .iconsSummary {
@@ -47,14 +53,14 @@
   font-size: 50px;
   margin: 0;
   font-weight: 700;
-  padding-left: 20px;
+  padding-left: 50px;
 }
 
 .secondHeadlineSummary {
   margin: 0;
   font-weight: 400;
   font-size: 20px;
-  padding-left: 20px;
+  padding-left: 50px;
 }
 
 .secondHeadlineSummaryDesk {
@@ -73,25 +79,25 @@
 }
 
 .iconPencil {
-  background-image: url(./assets/img/pencil.png);
+  background-image: url(../assets/img/iconPencil.png);
 }
 
 .boxMediumSummary:hover .iconPencil {
-  background-image: url(/assets/img/pencilDark.png);
+  background-image: url(../assets/img/pencilDark.png);
   background-repeat: no-repeat;
 }
 
 .iconCheck {
-  background-image: url(/assets/img/check.png);
+  background-image: url(../assets/img/iconCheck.png);
 }
 
 .boxMediumSummary:hover .iconCheck {
-  background-image: url(/assets/img/checkDark.png);
+  background-image: url(../assets/img/checkDark.png);
   background-repeat: no-repeat;
 }
 
 .iconArrows {
-  background-image: url(./assets/img/arrowsRed.png);
+  background-image: url(../assets/img/iconArrows.png);
 }
 
 .boxUrgent:hover .iconArrows {
@@ -211,11 +217,4 @@
   font-weight: 500;
   color: rgba(42, 54, 71, 1);
   margin: 0;
-}
-
-/* CHRISTOPH */
-#loggedInUserName {
-  color: #29abe2;
-  font-weight: 700;
-  font-size: 64px;
 }

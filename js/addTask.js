@@ -39,7 +39,6 @@ function loadContactWrapper() {
  * function to load all selected Contacts for new task
  */
 function selectContacts(i) {
-  let sContacts = document.getElementById('selectedContacts');
   if(selectedTaskContacts.indexOf(contacts[i]) == -1 ){
     selectedTaskContacts.push(contacts[i]);
     console.log(selectedTaskContacts);
@@ -48,6 +47,22 @@ function selectContacts(i) {
     selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]),1)
     console.log(selectedTaskContacts);
   }
+  loadContacts();
+}
+
+function loadContacts(){
+  let sContacts = document.getElementById('selectedContacts');
+
+  sContacts.innerHTML ="";
+
+   for (let i = 0; i < selectedTaskContacts.length; i++) {
+    let element = selectedTaskContacts[i];
+
+    sContacts.innerHTML += renderSelectedContacs(element, i);
+
+    console.log(element['profileColor']);
+    
+   }
 }
 
 /**
@@ -81,15 +96,13 @@ function openWrapper(i) {
       document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
       wrapper.classList.add(`openBorader`);
       wrapperList.style.width = `${wrapper.offsetWidth}px`; 
-      document.getElementById("wrapperAt").classList.add('blueOutlineInput');
-      document.getElementById("wrapper").classList.add('blueOutlineInput');
+      document.getElementById(`wrapper${i}`).classList.add('blueOutlineInput');
   } else {
       wrapperList.classList.add(`dNone`);
       document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
       document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
       wrapper.classList.remove(`openBorader`);
-      document.getElementById("wrapperAt").classList.remove('blueOutlineInput');
-      document.getElementById("wrapperAt").classList.remove('blueOutlineInput');
+      document.getElementById(`wrapper${i}`).classList.remove('blueOutlineInput');
   }
 }
 
