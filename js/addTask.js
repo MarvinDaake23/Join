@@ -49,6 +49,15 @@ function selectContacts(i) {
   }
 }
 
+function loadContacts(){
+  let sContacts = document.getElementById("selectedContacts");
+
+  for (let i = 0; i < selectedTaskContacts.length; i++) {
+    const element = selectedTaskContacts[i];
+    sContacts.innerHTML += rederSelectedContacts(element);
+  }
+}
+
 /**
  * function to load all added subtasks
  */

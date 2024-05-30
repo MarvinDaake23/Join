@@ -178,6 +178,7 @@ function updateHTML() {
  * function for filtering and rendering all tasks with the category "To Do"
  */
 function renderTodos() {
+  let progressName = 'todo';
   let todo = boardTasks.filter((t) => t["category"] == "todo");
   document.getElementById("todo").innerHTML = "";
 
@@ -187,6 +188,7 @@ function renderTodos() {
       element,
       index
     );
+    loadProgressbar(index,progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -201,6 +203,7 @@ function renderTodos() {
  * function for filtering and rendering all tasks with the category "In progess"
  */
 function renderProgress() {
+  let progressName = 'progress';
   let inProgress = boardTasks.filter((t) => t["category"] == "progress");
   document.getElementById("progress").innerHTML = "";
 
@@ -210,6 +213,7 @@ function renderProgress() {
       element,
       index
     );
+    loadProgressbar(index,progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -224,6 +228,7 @@ function renderProgress() {
  * function for filtering and rendering all tasks with the category "Await Feedback"
  */
 function renderAwaitFeedback() {
+  let progressName = 'feedback';
   let feedback = boardTasks.filter((t) => t["category"] == "feedback");
   document.getElementById("feedback").innerHTML = "";
 
@@ -233,6 +238,7 @@ function renderAwaitFeedback() {
       element,
       index
     );
+    loadProgressbar(index,progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -247,6 +253,7 @@ function renderAwaitFeedback() {
  * function for filtering and rendering all tasks with the category "Done"
  */
 function renderDone() {
+  let progressName = 'done';
   let done = boardTasks.filter((t) => t["category"] == "done");
   document.getElementById("done").innerHTML = "";
 
@@ -256,6 +263,7 @@ function renderDone() {
       element,
       index
     );
+    loadProgressbar(index,progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -317,7 +325,7 @@ async function moveTo(category) {
   await putData("boardtasks", boardTasks);
 }
 
-function done(j) {
+function done(j, element) {
   if (doneBulian == true) {
     document.getElementById(`checkBox${j}`).src =
       "../assets/img/Property 1=hover checked.png";
@@ -327,4 +335,11 @@ function done(j) {
       "../assets/img/Property 1=Default.png";
     doneBulian = true;
   }
+}
+
+
+function loadProgressbar (index,progressName){
+  let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
+  console.log(`${progressName}Progressbar${index}`);
+
 }
