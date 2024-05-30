@@ -14,7 +14,7 @@
   }
 }
 
-@media (max-width: 405px) {
+@media (max-width: 480px) {
   .boxMediumSummary {
     width: 150px;
   }
@@ -28,17 +28,29 @@
   }
 }
 
-@media (max-width: 385px) {
+@media (max-width: 405px) {
   .boxMediumSummary {
     width: 130px;
   }
 
   .boxUrgent {
-    width: 290px;
+    width: 280px;
   }
 
   .boxSmallSummary {
     width: 85px;
+  }
+
+  .summaryBoxContainer{
+    padding-left: 16px;
+  }
+
+  .join360HeadlineSummary{
+    padding-left: 16px;
+  }
+
+  .secondHeadlineSummary{
+    padding-left: 16px;
   }
 }
 
