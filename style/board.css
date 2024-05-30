@@ -199,8 +199,11 @@
 }
 
 .progressbar {
-  width: 50%;
+  width: 0;
+  background-color: #0038ff;
+  border-radius: 10px;
   height: 10px;
+  transition: width 0.3s;
 }
 
 .boardTaskContacts {
