@@ -3,6 +3,13 @@
 // breakpoint of viewport width
 let vwBreak = 480;
 
+async function updateHeaderInitials() {
+  let userAsText = localStorage.getItem("user");
+  let user = JSON.parse(userAsText);
+
+  document.getElementById("headerInitialsDesktop").innerHTML = user.User[0];
+  document.getElementById("headerInitialsMobile").innerHTML = user.User[0];
+}
 
 /**
  * function to show the popup when clicking on the header initials
@@ -19,7 +26,6 @@ function showHeaderPopup() {
       .setAttribute("onclick", "closeHeaderPopup()");
   });
 }
-
 
 /**
  * function to show the popup when clicking on the header initials
