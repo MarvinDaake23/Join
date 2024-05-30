@@ -14,10 +14,9 @@
     margin-bottom: 250px;
 }
 
-.headline{
+.headlineAddTask{
     font-weight: 700;
     font-size: 47px;
-    margin-left: 35px;
 }
 
 .addTaskForm{
@@ -150,6 +149,7 @@
 
 .openBorader{
     border-radius: 10px 10px 0px 0px;
+    position: relative;
 }
 
 .dNone{
@@ -378,8 +378,9 @@
 .checkoutContainer{
     position: fixed;
     bottom: 0px;
+    left: 232px;
+    right: 0px;
     display: flex;
-    width: 1200px;
     justify-content: space-between;
     padding: 16px;
     gap:16px;
@@ -494,43 +495,11 @@
     .addTaskForm{
         width: 100%;
     }
-    .headline{
-        margin-left: 0px;
-    }
 }
 
-@media (max-width :1470px) {
+@media (max-width :620px) {
     .checkoutContainer{
-        width: 1000px;
-    }    
-}
-
-@media (max-width :1290px) {
-    .checkoutContainer{
-        width: 850px;
-    }    
-}
-
-@media (max-width :1130px) {
-    .checkoutContainer{
-        width: 650px;
-    }    
-}
-
-@media (max-width :940px) {
-    .checkoutContainer{
-        width: 600px;
-    }    
-}
-
-@media (max-width :900px) {
-    .checkoutContainer{
-        width: 550px;
-    }    
-}
-
-@media (max-width :825px) {
-    .checkoutContainer{
-        width: 500px;
+        bottom: 70px;
+        left: 0px;
     }    
 }
