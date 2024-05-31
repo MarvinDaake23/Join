@@ -230,3 +230,4 @@ function guestLogIn() {
         <div id="signInNoSuccessful" class="feedback">Sign in as Guest successful</div>
         `;
 }
+

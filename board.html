@@ -10,17 +10,16 @@
 
     <!-- general scripts -->
     <script src="./js/script.js"></script>
-    <script src="./js/script_general.js"></script>
     <script src="./js/Templates.js"></script>
     <script src="./js/board.js"></script>
   </head>
-  <body class="board" id="body" onload="includeHTML(); boardInit();">
+  <body class="board" id="body" onload="boardInit()">
     <div onclick="removeboardBigContainer()" id="background" class="background d-none"></div>
-    <sidebar class="sidebar" w3-include-html="sidebar.html"></sidebar>
+    <sidebar class="sidebar" w3-include-html="./includes/sidebar.html"></sidebar>
 
-    <mobile-header w3-include-html="mobile-header.html"></mobile-header>
+    <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
 
-    <header w3-include-html="header.html"></header>
+    <header w3-include-html="./includes/header.html"></header>
 
     <content class="inputContainer fullInput">
       
@@ -97,7 +96,7 @@
 
     </content>
 
-    <mobile-footer w3-include-html="mobile-footer.html"></mobile-footer>
+    <mobile-footer w3-include-html="./includes/mobile-footer.html"></mobile-footer>
     
   </body>
 </html>

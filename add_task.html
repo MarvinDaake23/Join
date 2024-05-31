@@ -11,18 +11,17 @@
 
   <!-- general scripts -->
   <script src="./js/script.js"></script>
-  <script src="./js/script_general.js"></script>
-  <script src="./js/script_contacts.js"></script>
+  <script src="./js/contacts.js"></script>
   <script src="./js/Templates.js"></script>
   <script src="./js/addTask.js"></script>
 </head>
 
-<body class="addtask" id="body" onload="includeHTML(); init();">
-  <sidebar w3-include-html="sidebar.html"></sidebar>
+<body class="addtask" id="body" onload="onLoadAddTask()">
+  <sidebar w3-include-html="./includes/sidebar.html"></sidebar>
 
-  <mobile-header w3-include-html="mobile-header.html"></mobile-header>
+  <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
 
-  <header w3-include-html="header.html"></header>
+  <header w3-include-html="./includes/header.html"></header>
 
   <content class="inputContainer">
     <h1 class="headlineAddTask">
@@ -132,7 +131,7 @@
 </div>
   </content>
 
-  <mobile-footer w3-include-html="mobile-footer.html"></mobile-footer>
+  <mobile-footer w3-include-html="./includes/mobile-footer.html"></mobile-footer>
 </body>
 
 </html>

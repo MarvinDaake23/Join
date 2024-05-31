@@ -10,14 +10,13 @@
 
     <!-- general scripts -->
     <script src="./js/script.js"></script>
-    <script src="./js/script_general.js"></script>
+    <script src="./js/Templates.js"></script>
 
     <!-- style for this page-->
-    <link rel="stylesheet" href="./style/style_contacts.css" />
+    <link rel="stylesheet" href="./style/contacts.css" />
 
     <!-- scripts for this page -->
-    <script src="./js/script_contacts.js"></script>
-    <script src="./js/templates_contacts.js"></script>
+    <script src="./js/contacts.js"></script>
   </head>
   <body class="contacts" id="body" onload="onLoadFunc()">
     <!-- Modal Background -->
@@ -114,11 +113,11 @@
       </div>
     </div>
 
-    <sidebar w3-include-html="sidebar.html"></sidebar>
+    <sidebar w3-include-html="./includes/sidebar.html"></sidebar>
 
-    <mobile-header w3-include-html="mobile-header.html"></mobile-header>
+    <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
 
-    <header w3-include-html="header.html"></header>
+    <header w3-include-html="/includes/header.html"></header>
 
     <list>
       <!-- zunächst display:none -->
@@ -138,6 +137,6 @@
       <div id="contactSingleView"></div>
     </content>
 
-    <mobile-footer w3-include-html="mobile-footer.html"></mobile-footer>
+    <mobile-footer w3-include-html="/includes/mobile-footer.html"></mobile-footer>
   </body>
 </html>
