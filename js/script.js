@@ -137,3 +137,11 @@ function closeHeaderPopupMobile() {
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+/**
+ * log out function: deletes the local storage user and shows the loginpage
+ */
+function logOutUser() {
+  localStorage.removeItem("user");
+  window.location = "index.html";
+}
