@@ -24,15 +24,15 @@ function renderContactWrapper(element, i) {
     `;
 }
 
-function subtaskListInput(subtask) {
+function subtaskListInput(i) {
     return /* html*/ `
-          <li class="liCat" onclick="editSubtaskList()">
+          <li class="liCat">
               <div id="subtask" class="subtask">
-                  <div>${subtask}</div>
+                  <div id="subtaskField">${i}</div>
                   <div class="editContainerSubtask">
-                    <div class="trash iconContainerSubtask"></div>
+                    <div onclick="editSubtaskList(i)" class="edit iconContainerSubtask"></div>
                     <div class="smallLine iconContainerSubtask"></div>
-                    <div class="smallCheck iconContainerSubtask"></div>
+                    <div class="trash iconContainerSubtask"></div>
                   </div>
               <div>
           </li>
@@ -41,7 +41,7 @@ function subtaskListInput(subtask) {
 
 function renderBoardTask(element, i) {
     return /* html*/ `
-        <div draggable="true" ondragstart="startDragging(${element["id"]})" class="boardCard" onclick="loadBoardBigContainer(${i})">
+        <div draggable="true" ondragstart="startDragging(${element[`id`]})" class="boardCard" onclick="loadBoardBigContainer(${i})">
             <div id="" class="boardType">${element["type"]}</div>
             <div class="boardTitle">${element["title"]}</div>
             <div class="boardDescription">${element["description"]}</div>

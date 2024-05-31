@@ -85,17 +85,28 @@ function loadSubtaskList() {
     subtaskList.innerHTML += subtaskListInput(subtasks[i]);
   }
   inputClear();
-  console.log(subtasks);
 }
 
-/**
- * function to edit loaded subtasks
- */
-// function editSubtaskList(){
-//   let singleSubtask = document.getElementById('subtask').innerHTML;
+function editSubtaskList(i) {
+  let editInput = document.getElementById(`subtaskField`);
+  if (editInput) {
+      // Erstelle ein Eingabefeld und setze seinen Wert auf den aktuellen Subtask-Wert
+      let input = document.createElement('input');
+      input.type = 'text';
+      input.value = editInput.innerText;
 
-//   singleSubtask = 
-// }
+      // Füge dem Eingabefeld einen Event-Listener hinzu, um die Bearbeitung zu beenden
+      input.addEventListener('blur', function() {
+          editInput.innerText = this.value;
+      });
+
+      // Ersetze das Anzeigefeld durch das Eingabefeld
+      editInput.innerHTML = '';
+      editInput.appendChild(input);
+      input.focus();
+  }
+}
+
 
 /**
  * function to open all Wrapper on "AddTask" side
