@@ -89,6 +89,15 @@ function loadSubtaskList() {
 }
 
 /**
+ * function to edit loaded subtasks
+ */
+// function editSubtaskList(){
+//   let singleSubtask = document.getElementById('subtask').innerHTML;
+
+//   singleSubtask = 
+// }
+
+/**
  * function to open all Wrapper on "AddTask" side
  */
 /**

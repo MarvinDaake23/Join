@@ -336,8 +336,6 @@ function done(j) {
     doneBulian = true;
   }
 }
-
-
 function loadProgressbar (index,progressName){
   let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
   console.log(`${progressName}Progressbar${index}`);

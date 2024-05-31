@@ -26,9 +26,14 @@ function renderContactWrapper(element, i) {
 
 function subtaskListInput(subtask) {
     return /* html*/ `
-          <li class="liCat">
-              <div id="subtask">
+          <li class="liCat" onclick="editSubtaskList()">
+              <div id="subtask" class="subtask">
                   <div>${subtask}</div>
+                  <div class="editContainerSubtask">
+                    <div class="trash iconContainerSubtask"></div>
+                    <div class="smallLine iconContainerSubtask"></div>
+                    <div class="smallCheck iconContainerSubtask"></div>
+                  </div>
               <div>
           </li>
       `;

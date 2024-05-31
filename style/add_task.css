@@ -108,10 +108,14 @@
 .subTaskContainer{
     display: flex;
     flex-direction: column;
-    height:20px;
     margin: 0px;
-    border-radius: 0px 0px 10px 10px;
     width:100%;
+    padding: 4px, 16px, 4px, 16px;
+    border-radius: 10px;
+    margin-top: -8px;
+}
+.subTaskContainer:hover{
+    background-color: #d3d0d0;
 }
 
 .subtaskSettingContainer{
@@ -146,6 +150,35 @@
     background-position: center;
     background-image: url("../assets/img/close.png");
     cursor: pointer;
+}
+
+.subtask:hover .trash{
+    background-image: url("../assets/img/trash.png");
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.subtask:hover .smallLine{
+    background-image: url("../assets/img/littleLineSubtask.png");
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.subtask:hover .smallCheck{
+    background-image: url("../assets/img/littleCheckSubtask.png");
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.iconContainerSubtask{
+    height: 18px;
+    width: 16px;
+}
+
+.subtask{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .openBorader{
@@ -278,6 +311,15 @@
     margin-left: 16px;
     margin-top: 8px;
     margin-bottom: 8px;
+    padding: 4px, 16px, 4px, 16px;
+    border-radius: 10px;
+}
+
+.editContainerSubtask{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
 }
 
 .list:hover{
