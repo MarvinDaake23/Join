@@ -65,7 +65,7 @@ function signUp() {
                 </div>
             </div>
             <div class="inputfield">
-                <input type="password" placeholder="Confrim Password" required>
+                <input type="password" placeholder="Confirm Password" required>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
