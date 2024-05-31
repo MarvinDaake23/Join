@@ -198,6 +198,9 @@ function logIn() {
     let userAsText = JSON.stringify(user);
     localStorage.setItem("user", userAsText);
 
+    // add newly registered user to contacts
+    addUserToContacts(user);
+
     document.getElementById("inputfieldPassword").classList.add("outlineBlue");
 
     setTimeout(openSummary, 2000);
@@ -231,3 +234,18 @@ function guestLogIn() {
         `;
 }
 
+async function addUserToContacts(user) {
+  let contacts = await loadData("contacts");
+  // split username
+  let nameArray = user.User.split(" ");
+  let new_firstName = nameArray[0];
+  let new_lastName = nameArray[1];
+  let data = {
+    firstName: new_firstName,
+    lastName: new_lastName,
+    email: user.email,
+    phoneNumber: "",
+    profileColor: new_profileColor,
+  };
+  await putData(`contacts/${contacts.length}`, data);
+}
