@@ -245,7 +245,7 @@ async function addUserToContacts(user) {
     lastName: new_lastName,
     email: user.email,
     phoneNumber: "",
-    profileColor: new_profileColor,
+    profileColor: getRandomBackgroundColor(),
   };
   await putData(`contacts/${contacts.length}`, data);
 }
