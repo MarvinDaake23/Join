@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join: Help</title>
     <link rel="stylesheet" href="./style/style_general.css" />
-    <link rel="stylesheet" href="./style/style_extrapages.css" />
+    <link rel="stylesheet" href="./style/extrapages.css" />
     <!-- general scripts -->
     <script src="./js/script.js"></script>
-    <script src="./js/script_general.js"></script>
 
     <link rel="icon" type="image/png" href="favicon.png" />
   </head>
-  <body class="help" id="body" onload="includeHTML();">
+  <body class="help" id="body" onload="onLoadExtraPages();">
     <sidebar w3-include-html="./includes/sidebar.html"></sidebar>
 
     <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
@@ -22,7 +21,7 @@
     <content>
       <div class="headAreaHelpPrivacyPolicyLegalNotice">
         <h1 class="headlineHelpPrivacyPolicyLegalNotice">Help</h1>
-        <img class="arrowLeftBlue" src="../assets/img/arrowLeftBlue.png" />
+        <img onclick="goToPreviousPage();" class="arrowLeftBlue" src="./assets/img/arrowLeftBlue.png" />
       </div>
 
       <div class="containerTextHelpPrivacyPolicyLegalNotice">

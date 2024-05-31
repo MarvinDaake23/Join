@@ -7,6 +7,15 @@ let cat;
 let selectedTaskContacts = [];
 
 /**
+ * Onload Function for the Add Task page
+ */
+async function onLoadAddTask() {
+  await includeHTML();
+  updateHeaderInitials();
+  init();
+}
+
+/**
  *  function to load the category wrapper with all saved categorys
  */
 function loadWrapper() {
@@ -50,7 +59,7 @@ function selectContacts(i) {
 }
 
 function loadContacts() {
-  let sContacts = document.getElementById('selectedContacts');
+  let sContacts = document.getElementById("selectedContacts");
 
   sContacts.innerHTML = "";
 
@@ -59,12 +68,11 @@ function loadContacts() {
 
     sContacts.innerHTML += renderSelectedContacs(element, i);
 
-    console.log(element['profileColor']);
-
+    console.log(element["profileColor"]);
   }
 }
 
-function loadContacts(){
+function loadContacts() {
   let sContacts = document.getElementById("selectedContacts");
 
   for (let i = 0; i < selectedTaskContacts.length; i++) {
@@ -124,13 +132,13 @@ function openWrapper(i) {
     document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
     wrapper.classList.add(`openBorader`);
     wrapperList.style.width = `${wrapper.offsetWidth}px`;
-    document.getElementById(`wrapper${i}`).classList.add('blueOutlineInput');
+    document.getElementById(`wrapper${i}`).classList.add("blueOutlineInput");
   } else {
     wrapperList.classList.add(`dNone`);
     document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
     document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
     wrapper.classList.remove(`openBorader`);
-    document.getElementById(`wrapper${i}`).classList.remove('blueOutlineInput');
+    document.getElementById(`wrapper${i}`).classList.remove("blueOutlineInput");
   }
 }
 
@@ -144,13 +152,12 @@ function chooseCategory(i) {
   cat = i;
 }
 
-
 /**
  * function to alert if required dield is empty
  */
 function checkRequiredInputs() {
-  let title = document.getElementById('title').value;
-  let alert = document.getElementById('requiredInputAddTask');
+  let title = document.getElementById("title").value;
+  let alert = document.getElementById("requiredInputAddTask");
 
   if (!title) {
     alert.innerHTML = `
@@ -158,29 +165,27 @@ function checkRequiredInputs() {
     `;
   } else {
     alert.innerHTML = "";
-    document.getElementById("title").classList.add('blueOutlineInput');
+    document.getElementById("title").classList.add("blueOutlineInput");
   }
 
-  let titleInput = document.getElementById('title');
-  titleInput.addEventListener('blur', checkRequiredInputs);
-  titleInput.addEventListener('input', checkRequiredInputs);
+  let titleInput = document.getElementById("title");
+  titleInput.addEventListener("blur", checkRequiredInputs);
+  titleInput.addEventListener("input", checkRequiredInputs);
 }
 
 function checkCategory() {
-  let category = document.getElementById('placeholder');
-  let alert = document.getElementById('requiredCategory');
+  let category = document.getElementById("placeholder");
+  let alert = document.getElementById("requiredCategory");
 
-  if (category.innerHTML = "Select task Category") {
+  if ((category.innerHTML = "Select task Category")) {
     alert.innerHTML = `
     This field is required
     `;
   } else {
     alert.innerHTML = "";
-    document.getElementById("wrapper").classList.add('blueOutlineInput');
+    document.getElementById("wrapper").classList.add("blueOutlineInput");
   }
 }
-
-
 
 // document.getElementById('addTaskForm').addEventListener('submit', function (event) {
 //   // Alle Fehlermeldungen entfernen
@@ -219,16 +224,16 @@ function prioChoose(i) {
   resetPrioContainers();
 
   if (prioValue == 2) {
-    document.getElementById("prio high").classList.add('highPrioBackground');
-    document.getElementById("highPrioImg").classList.add('highPrioImageChange');
+    document.getElementById("prio high").classList.add("highPrioBackground");
+    document.getElementById("highPrioImg").classList.add("highPrioImageChange");
   }
   if (prioValue == 1) {
-    document.getElementById("prio med").classList.add('medPrioBackground');
-    document.getElementById("medPrioImg").classList.add('medPrioImageChange');
+    document.getElementById("prio med").classList.add("medPrioBackground");
+    document.getElementById("medPrioImg").classList.add("medPrioImageChange");
   }
   if (prioValue == 0) {
-    document.getElementById("prio low").classList.add('lowPrioBackground');
-    document.getElementById("lowPrioImg").classList.add('lowPrioImageChange');
+    document.getElementById("prio low").classList.add("lowPrioBackground");
+    document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
   }
 }
 

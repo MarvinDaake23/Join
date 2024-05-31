@@ -324,9 +324,17 @@
   padding-top: 15px;
 }
 
-.SubtaskRow {
+.subTaskRow {
   	display: flex;
     flex-direction: row;
+    width: fit-content;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.subTaskRow:hover {
+  	background-color: rgba(182, 182, 182, 0.648);
+    cursor: pointer;
 }
 
 .subtaskSection{
