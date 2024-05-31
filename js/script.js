@@ -145,3 +145,10 @@ function logOutUser() {
   localStorage.removeItem("user");
   window.location = "index.html";
 }
+
+/**
+ * function to go back to the previous visited page
+ */
+function goToPreviousPage() {
+  window.history.back();
+}

@@ -31,3 +31,8 @@
 .lightblue {
   color: #29abe2;
 }
+
+
+.headAreaHelpPrivacyPolicyLegalNotice img {
+  cursor: pointer;
+}
