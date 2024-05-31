@@ -108,14 +108,7 @@ function getDataForNewContact() {
   return data;
 }
 
-function getRandomBackgroundColor() {
-  // random color from list
-  let new_profileColor =
-    backgroundProfileColors[
-      Math.floor(Math.random() * backgroundProfileColors.length)
-    ];
-  return new_profileColor;
-}
+
 
 function resetAddContactForm() {
   document.getElementById("nameInput").value = "";

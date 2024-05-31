@@ -20,6 +20,15 @@ let backgroundProfileColors = [
   "#FFE62B",
 ];
 
+function getRandomBackgroundColor() {
+  // random color from list
+  let new_profileColor =
+    backgroundProfileColors[
+      Math.floor(Math.random() * backgroundProfileColors.length)
+    ];
+  return new_profileColor;
+}
+
 // muss diese funktion vielleicht in die addTask.js?
 async function init() {
   contacts = await loadData("contacts");

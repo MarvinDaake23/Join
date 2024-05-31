@@ -160,6 +160,10 @@ async function signUpSuccessful() {
     regsiter.innerHTML += /*HTML*/ `
         <div id="signInSuccessful" class="feedback">You Signed Up successful</div>
     `;
+
+    // add newly registered user to contacts and update firebase
+    addUserToContacts(user,email);
+
     await fetch(BASE_URL + "users.json", {
       method: "POST",
       headers: {
@@ -172,7 +176,6 @@ async function signUpSuccessful() {
       }),
     });
     loadUserData();
-
     setTimeout(backToLogIn, 1600);
   } else {
     regsiter.innerHTML += /*HTML*/ `
@@ -198,10 +201,9 @@ function logIn() {
     let userAsText = JSON.stringify(user);
     localStorage.setItem("user", userAsText);
 
-    // add newly registered user to contacts
-    addUserToContacts(user);
-
+    /* was passiert hier?
     document.getElementById("inputfieldPassword").classList.add("outlineBlue");
+    */
 
     setTimeout(openSummary, 2000);
   } else {
@@ -234,16 +236,16 @@ function guestLogIn() {
         `;
 }
 
-async function addUserToContacts(user) {
+async function addUserToContacts(user,email) {
   let contacts = await loadData("contacts");
   // split username
-  let nameArray = user.User.split(" ");
+  let nameArray = user.split(" ");
   let new_firstName = nameArray[0];
   let new_lastName = nameArray[1];
   let data = {
     firstName: new_firstName,
     lastName: new_lastName,
-    email: user.email,
+    email: email,
     phoneNumber: "",
     profileColor: getRandomBackgroundColor(),
   };
