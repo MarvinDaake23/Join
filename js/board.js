@@ -109,9 +109,10 @@ let currentDraggedElement;
  * function to initialize the board page
  */
 async function boardInit() {
+  await includeHTML();  //- edit christoph
+  updateHeaderInitials(); // edit christoph
   boardTasks = await loadData("boardtasks");
   updateHTML();
-  //includeHTML();  - edit christoph
 }
 
 /**
