@@ -275,6 +275,10 @@
   padding: 5px;
 }
 
+.boardBigContainerClose{
+  cursor: pointer;
+}
+
 .boardBigContainerTitle {
   font-size: 28px;
   font-weight: 700;

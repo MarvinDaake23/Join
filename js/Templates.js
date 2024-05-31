@@ -117,7 +117,7 @@ function renderBoardBigContainerContacts(element) {
 
 function renderBoardBigContainerSubtasks(element, j) {
     return /* html*/ `
-        <div class="SubtaskRow">
+        <div class="subTaskRow">
             <img id="checkBox${j}" class="checkBox" onclick="done(${j})" src="../assets/img/Property 1=Default.png" >
             <div class="boardBigContainerSubtasksSingleInput">${element["subtaskText"]}</div>
         </div>
