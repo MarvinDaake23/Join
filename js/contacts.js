@@ -21,7 +21,7 @@ function renderContacts() {
   container.innerHTML += `
   <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
 
-  // first contact: logged in user
+  // first shown contact: logged in user
   let idOfLoggedInUser = getIdOfLoggedInUser();
 
   // nur wenns kein Gast ist
