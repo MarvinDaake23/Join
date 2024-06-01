@@ -440,6 +440,21 @@ content .headline h2 {
   margin-top: -40px;
 }
 
+#editInitialsDesktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  color: white;
+  border-radius: 180px;
+  font-size: 47px !important;
+  font-weight: 500 !important;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+}
+
 .seperatorLetter {
   border-bottom: 1px solid #d1d1d1;
   font-size: 20px;
@@ -546,6 +561,28 @@ a {
 
 nav a:hover {
   background-color: #091931;
+}
+
+#modalEditContactDesktop {
+  width: 80vw;
+  height: 592px;
+  margin: 120px auto;
+  display: flex;
+  align-content: center;
+  background-color: white;
+  border-radius: 30px;
+
+}
+
+#modalEditContactDesktop .leftSide {
+  background-color: #2A3647;
+  color: white;
+  width: 553px;
+}
+
+#modalEditContactDesktop h1 {
+font-weight: 700;
+font-size: 61px;
 }
 
 @media (max-width: 480px) {
