@@ -163,7 +163,7 @@ function renderSingleContactEntryHTML(element, index) {
                       ${element.firstName[0]}${element.lastName[0]}
                   </div>
                   <div class="nameAndAdress">
-                      <span>${element.firstName} ${element.lastName}</span>
+                      <span id="userNameInList">${element.firstName} ${element.lastName}</span>
                       <a href="mailto:${element.email}" class="emailAdress">${element.email}</a>
                   </div>
               </div>
