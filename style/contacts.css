@@ -29,7 +29,7 @@ content {
 #addContactButton {
   width: 352px;
   height: 56px;
-  margin-top: 12px;
+  margin: 12px 0px;
   padding: 12px 0px 12px 0px;
   gap: 16px;
   border-radius: 10px;
