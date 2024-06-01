@@ -1,7 +1,5 @@
 let contacts = [];
 
-
-
 async function onLoadFunc() {
   await includeHTML();
   updateHeaderInitials();
@@ -23,25 +21,31 @@ function renderContacts() {
   container.innerHTML += `
   <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
 
-// first contact: logged in user
-let idOfLoggedInUser = getIdOfLoggedInUser();
-container.innerHTML += renderSingleContactEntryHTML(contacts[idOfLoggedInUser], idOfLoggedInUser);
-// add: ME
-document.getElementById("userNameInList").innerHTML += " (Me)";
+  // first contact: logged in user
+  let idOfLoggedInUser = getIdOfLoggedInUser();
+
+  // nur wenns kein Gast ist
+  if (idOfLoggedInUser !== undefined) {
+    container.innerHTML += renderSingleContactEntryHTML(
+      contacts[idOfLoggedInUser],
+      idOfLoggedInUser
+    );
+    // add: ME
+    document.getElementById("userNameInList").innerHTML += " (Me)";
+  }
 
   for (let index = 0; index < contacts.length; index++) {
-
     // not render logged in user again
     if (index != idOfLoggedInUser) {
-
-    const element = contacts[index];
-    if (firstLetter != element.firstName[0]) {
-      container.innerHTML += renderContactSeperatorHTML(element);
-      // update first letter
-      firstLetter = element.firstName[0];
+      const element = contacts[index];
+      if (firstLetter != element.firstName[0]) {
+        container.innerHTML += renderContactSeperatorHTML(element);
+        // update first letter
+        firstLetter = element.firstName[0];
+      }
+      container.innerHTML += renderSingleContactEntryHTML(element, index);
     }
-    container.innerHTML += renderSingleContactEntryHTML(element, index);
-  }}
+  }
 }
 
 /**
@@ -117,8 +121,6 @@ function getDataForNewContact() {
   };
   return data;
 }
-
-
 
 function resetAddContactForm() {
   document.getElementById("nameInput").value = "";
@@ -243,14 +245,16 @@ function setActive(newId) {
   }
 }
 
-function getIdOfLoggedInUser(){
+function getIdOfLoggedInUser() {
   let user = getLoggedInUserName();
   //split name
   let nameArray = user.split(" ");
-for (x in contacts) {
-  if (contacts[x].firstName == nameArray[0] && contacts[x].lastName == nameArray[1]) {
+  for (x in contacts) {
+    if (
+      contacts[x].firstName == nameArray[0] &&
+      contacts[x].lastName == nameArray[1]
+    ) {
       return x;
+    }
   }
-}
-
 }
