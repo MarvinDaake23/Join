@@ -25,13 +25,15 @@
 .arrowLeftBlue {
   height: 24px;
   width: 24px;
-  padding-top: 30px;
+  /*padding-top: 30px;*/
+  position: fixed;
+  top: 225px;
+  right: 130px;
 }
 
 .lightblue {
   color: #29abe2;
 }
-
 
 .headAreaHelpPrivacyPolicyLegalNotice img {
   cursor: pointer;

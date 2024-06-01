@@ -25,7 +25,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background-color: #f6f7f8;
+  /*background-color: #f6f7f8; - content! */
 }
 
 .inputContainer {
@@ -60,15 +60,15 @@ sidebar {
   color: #a8a8a8;
   font-size: 16px;
   font-weight: 400;
-  transition: transform 0.05s; /* Animation */
+  /*transition: transform 0.05s; /* Animation */
   padding: 8px 63px;
 }
 
 .sidebarLinks a:hover {
   color: #29abe2;
-  /*font-size: 16px;
-      font-weight: 700;*/
-  transform: scale(1.05);
+  font-size: 16px;
+  font-weight: 700;
+  /*transform: scale(1.05);*/
 }
 
 nav {
