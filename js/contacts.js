@@ -232,3 +232,12 @@ function setActive(newId) {
     currentId = newId;
   }
 }
+
+function getIdOfLoggedInUser(){
+for (x in contacts) {
+  if (contacts[x].firstName == 'Theo') {
+      return x;
+  }
+}
+
+}
