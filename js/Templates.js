@@ -188,7 +188,7 @@ function renderSingleContactHTML(id) {
                         <h2 id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</h2>
                         <div class="editdelete">
                             <a onclick="showEditContact(${id})"><img src="./assets/img/edit.svg">Edit</a>
-                            <a onclick="deleteContact(${id})"><img src="./assets/img/delete1.png">Delete</a>
+                            <a onclick="deleteContact(${id})"><img src="./assets/img/delete.svg">Delete</a>
                         </div>
                     </div>
                 </div>                
