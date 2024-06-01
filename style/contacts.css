@@ -568,16 +568,21 @@ nav a:hover {
   height: 592px;
   margin: 120px auto;
   display: flex;
-  align-content: center;
+  align-items: stretch;
   background-color: white;
   border-radius: 30px;
 
 }
 
 #modalEditContactDesktop .leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   background-color: #2A3647;
   color: white;
   width: 553px;
+  border-radius: 30px 0px 0px 30px;
 }
 
 #modalEditContactDesktop h1 {
