@@ -47,8 +47,8 @@ content {
   position: relative;
   right: 0px;
   background-color: #f6f7f8;
-  height: 80vh;
-  padding: 48px 0px 0px 46px;
+  /*height: 80vh;*/
+  padding: 8px 0px 0px 46px;
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
 }
@@ -68,13 +68,17 @@ content {
 
 .singleContactContainer .editdelete{
   margin-left: 64px;
+  gap: 16px;
+}
+
+.singleContactContainer .editdelete a{
   gap: 8px;
 }
 
 .singleContactContainer h2 { /*USER NAME */
   font-size: 47px;
   font-weight: 500;
-  margin: 0px 0px 0px 54px;
+  margin: 0px 0px 16px 54px;
 }
 
 content .headline {
@@ -290,21 +294,21 @@ content .headline h2{
 }
 
 .nameInput {
-  background: url("../assets/img/contacts/person_small.png") no-repeat right;
+  background: url("../assets/img/person_small.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
   background-origin: content-box;
 }
 
 .mailInput {
-  background: url("../assets/img/contacts/mail.png") no-repeat right;
+  background: url("../assets/img/mail.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
   background-origin: content-box;
 }
 
 .phoneInput {
-  background: url("../assets/img/contacts/call.png") no-repeat right;
+  background: url("../assets/img/call.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
   background-origin: content-box;
@@ -532,7 +536,7 @@ a {
 .editdelete {
   display: flex;
   flex-direction: row;
-  gap: 13px;
+  gap: 16px;
 }
 
 nav a:hover {
