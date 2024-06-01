@@ -59,23 +59,24 @@ content {
   padding: 48px 16px 0px 16px;
 }
 
-.singleContactContainer .initials{
+.singleContactContainer .initials {
   height: 120px;
   width: 120px;
   font-size: 47px !important;
   font-weight: 500 !important;
 }
 
-.singleContactContainer .editdelete{
+.singleContactContainer .editdelete {
   margin-left: 64px;
   gap: 16px;
 }
 
-.singleContactContainer .editdelete a{
+.singleContactContainer .editdelete a {
   gap: 8px;
 }
 
-.singleContactContainer h2 { /*USER NAME */
+.singleContactContainer h2 {
+  /*USER NAME */
   font-size: 47px;
   font-weight: 500;
   margin: 0px 0px 16px 54px;
@@ -86,16 +87,15 @@ content .headline {
   gap: 30px;
 }
 
-content .headline h1{
+content .headline h1 {
   font-weight: 700;
   font-size: 61px;
-  border-right: 3px solid #29ABE2;
+  border-right: 3px solid #29abe2;
   padding-right: 30px;
   margin: 0;
-
 }
 
-content .headline h2{
+content .headline h2 {
   font-weight: 400;
   font-size: 27px;
 }
@@ -518,7 +518,7 @@ a {
   font-weight: 400;
 }
 
-.editdelete a:hover svg path{
+.editdelete a:hover svg path {
   fill: #29abe2;
 }
 
@@ -527,7 +527,6 @@ a {
   font-size: 16px;
   font-weight: 700;
 }
-
 
 .editdelete img {
   border: none;

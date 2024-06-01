@@ -38,3 +38,9 @@
 .headAreaHelpPrivacyPolicyLegalNotice img {
   cursor: pointer;
 }
+
+
+/* padding wegen blauem pfeil */
+content {
+  padding-right: 100px;
+}
