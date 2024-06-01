@@ -59,10 +59,41 @@ content {
   padding: 48px 16px 0px 16px;
 }
 
-.singleContactContainer h2 {
+.singleContactContainer .initials{
+  height: 120px;
+  width: 120px;
+  font-size: 47px !important;
+  font-weight: 500 !important;
+}
+
+.singleContactContainer .editdelete{
+  margin-left: 64px;
+  gap: 8px;
+}
+
+.singleContactContainer h2 { /*USER NAME */
   font-size: 47px;
+  font-weight: 500;
+  margin: 0px 0px 0px 54px;
+}
+
+content .headline {
+  margin-left: 58px;
+  gap: 30px;
+}
+
+content .headline h1{
   font-weight: 700;
-  margin: 0px 0px 8px 0px;
+  font-size: 61px;
+  border-right: 3px solid #29ABE2;
+  padding-right: 30px;
+  margin: 0;
+
+}
+
+content .headline h2{
+  font-weight: 400;
+  font-size: 27px;
 }
 
 .upperHalf h2 {

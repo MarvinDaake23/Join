@@ -185,7 +185,7 @@ function renderSingleContactHTML(id) {
                 <div class="singleContact">
                     <span style="background-color:${contacts[id].profileColor}" id="contactInitials" class="initials">${contacts[id].firstName[0]}${contacts[id].lastName[0]}</span>
                     <div>
-                        <span id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</span>
+                        <h2 id="contactName">${contacts[id].firstName} ${contacts[id].lastName}</h2>
                         <div class="editdelete">
                             <a onclick="showEditContact(${id})"><img src="./assets/img/edit.svg">Edit</a>
                             <a onclick="deleteContact(${id})"><img src="./assets/img/delete1.png">Delete</a>
