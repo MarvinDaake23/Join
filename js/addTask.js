@@ -66,18 +66,18 @@ function loadContacts() {
   for (let i = 0; i < selectedTaskContacts.length; i++) {
     let element = selectedTaskContacts[i];
 
-    sContacts.innerHTML += renderSelectedContacs(element, i);
-
-    console.log(element["profileColor"]);
+    sContacts.innerHTML += renderSelectedContacts(element, i);
   }
 }
 
 function loadContacts() {
   let sContacts = document.getElementById("selectedContacts");
 
+  sContacts.innerHTML = "";
+
   for (let i = 0; i < selectedTaskContacts.length; i++) {
     const element = selectedTaskContacts[i];
-    sContacts.innerHTML += rederSelectedContacts(element);
+    sContacts.innerHTML += renderSelectedContacts(element);
   }
 }
 
