@@ -58,6 +58,10 @@ function selectContacts(i) {
   loadContacts();
 }
 
+function visitBoard() {
+  window.location = "board.html";
+}
+
 function loadContacts() {
   let sContacts = document.getElementById("selectedContacts");
 
