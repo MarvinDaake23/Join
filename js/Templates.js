@@ -46,10 +46,7 @@ function renderBoardTask(element, i) {
             <div class="boardTitle">${element["title"]}</div>
             <div class="boardDescription">${element["description"]}</div>
             <div id="${element['category']}Progressbar${i}" class="progress">
-                <div id="progressBackground" class="progressBackground">
-                    <div id="progressbar${i}" class="progressbar" role="progresbar"></div>
-                </div>
-                <div>Subtasks</div>
+                
             </div>
             <div class="boardTaskFooter">
                 <div class="boardTaskContacts" id="boardTaskContacts"></div>
@@ -59,8 +56,13 @@ function renderBoardTask(element, i) {
     `;
 }
 
-function renderProgressbar(){
-    
+function renderProgressbar(subEndCountLength,finished,width){
+    return/*html */`
+        <div class="progressBackground">
+            <div style="width:${width}%" class="progressbar" role="progresbar"></div>
+        </div>
+        <div>${finished}/${subEndCountLength} Subtasks</div>
+            `
 }
 
 function renderBoardTaskContacts(element) {

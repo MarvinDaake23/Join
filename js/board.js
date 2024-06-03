@@ -184,11 +184,13 @@ function renderTodos() {
 
   for (let index = 0; index < todo.length; index++) {
     let element = todo[index];
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
     document.getElementById("todo").innerHTML += renderBoardTask(
       element,
       index
     );
-    loadProgressbar(index,progressName, element);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -209,11 +211,11 @@ function renderProgress() {
 
   for (let index = 0; index < inProgress.length; index++) {
     const element = inProgress[index];
-    document.getElementById("progress").innerHTML += renderBoardTask(
-      element,
-      index
-    );
-    loadProgressbar(index,progressName,element);
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
+    console.log(subtaskCount.length);
+    document.getElementById("progress").innerHTML += renderBoardTask(element,index);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -234,11 +236,13 @@ function renderAwaitFeedback() {
 
   for (let index = 0; index < feedback.length; index++) {
     const element = feedback[index];
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
     document.getElementById("feedback").innerHTML += renderBoardTask(
       element,
       index
     );
-    loadProgressbar(index,progressName,element);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -259,11 +263,13 @@ function renderDone() {
 
   for (let index = 0; index < done.length; index++) {
     const element = done[index];
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
     document.getElementById("done").innerHTML += renderBoardTask(
       element,
       index
     );
-    loadProgressbar(index,progressName,element);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -342,31 +348,35 @@ function done(j) {
     doneBulian = true;
   }
 }
-function loadProgressbar (index,progressName, element){
+
+function loadProgressbar (index, progressName, subEndCount, finished){
   let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
-  console.log(element);
-  // currentProgressbar.innerHTML = renderProgressbar();
+  let progress = finished / subEndCount;
+  let width = progress * 100;
+  currentProgressbar.innerHTML = renderProgressbar(subEndCount,finished,width);
+}
+
 
 //
 function searchTask() {
   let search = document.getElementById("findInput").value;
 
-  let todo = document.getElementById("todo");
+  let idTodo = document.getElementById("todo");
   let inProgress = document.getElementById("progress");
   let awaitFeedback = document.getElementById("feedback");
   let done = document.getElementById("done");
 
   search = search.toLowerCase();
   if (search.length > 2) {
-    taskQuery(todo, search);
-    taskQuery(inProgress, search);
+    taskQuery(idTodo, search);
+    /* taskQuery(inProgress, search);
     taskQuery(awaitFeedback, search);
-    taskQuery(done, search);
+    taskQuery(done, search); */
   }
 }
 
-async function taskQuery(variable, search) {
-  variable.innerHTML = ``;
+async function taskQuery(idTodo, search) {
+  idTodo.innerHTML = ``;
 
   let response = await fetch(BASE_URL + "boardtasks.json");
   boardTasksToJson = await response.json();
@@ -374,12 +384,15 @@ async function taskQuery(variable, search) {
   for (let i = 0; i < boardTasksToJson.length; i++) {
     let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
     let searchIndex = boardtasks.indexOf(search);
+
     if (searchIndex !== -1) {
       if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === " ") {
-        /*   variable.innerHTML += renderBoardTask(element, i); */
-        /*  hier gitb es noch Probleme ich weiß nicht wie ich die einzelen sektionenn druch etarieriern soll */
+        for (let index = 0; index < todo.length; index++) {
+          const element = todo[index];
+          idTodo.innerHTML += renderBoardTask(element,i); 
+        }
       }
     }
   }
 }
-}
+
