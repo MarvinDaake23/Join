@@ -185,10 +185,7 @@ function renderTodos() {
 
   for (let index = 0; index < todo.length; index++) {
     const element = todo[index];
-    document.getElementById("todo").innerHTML += renderBoardTask(
-      element,
-      index
-    );
+    document.getElementById("todo").innerHTML += renderBoardTask(element,index);
     loadProgressbar(index, progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
@@ -350,22 +347,22 @@ function loadProgressbar(index, progressName) {
 function searchTask() {
   let search = document.getElementById("findInput").value;
 
-  let todo = document.getElementById("todo");
+  let idTodo = document.getElementById("todo");
   let inProgress = document.getElementById("progress");
   let awaitFeedback = document.getElementById("feedback");
   let done = document.getElementById("done");
 
   search = search.toLowerCase();
   if (search.length > 2) {
-    taskQuery(todo, search);
-    taskQuery(inProgress, search);
+    taskQuery(idTodo, search);
+    /* taskQuery(inProgress, search);
     taskQuery(awaitFeedback, search);
-    taskQuery(done, search);
+    taskQuery(done, search); */
   }
 }
 
-async function taskQuery(variable, search) {
-  variable.innerHTML = ``;
+async function taskQuery(idTodo, search) {
+  idTodo.innerHTML = ``;
 
   let response = await fetch(BASE_URL + "boardtasks.json");
   boardTasksToJson = await response.json();
@@ -373,10 +370,13 @@ async function taskQuery(variable, search) {
   for (let i = 0; i < boardTasksToJson.length; i++) {
     let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
     let searchIndex = boardtasks.indexOf(search);
+
     if (searchIndex !== -1) {
       if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === " ") {
-        /*   variable.innerHTML += renderBoardTask(element, i); */
-        /*  hier gitb es noch Probleme ich weiß nicht wie ich die einzelen sektionenn druch etarieriern soll */
+        for (let index = 0; index < todo.length; index++) {
+          const element = todo[index];
+          idTodo.innerHTML += renderBoardTask(element,i); 
+        }
       }
     }
   }
