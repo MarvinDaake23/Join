@@ -167,6 +167,11 @@
   margin-right: 10px;
 }
 
+.boardCard:hover {
+  cursor: pointer;
+
+}
+
 .taskrow {
   display: flex;
   width: 98%;
@@ -396,6 +401,11 @@
   margin-left: 5px;
 }
 
+.progressContainer{
+  width: 252px;
+  height: 320px;
+}
+
 @media (min-width: 1200px) {
   .progressInformationContainer {
     display: flex;
@@ -403,6 +413,7 @@
   }
   .progressContainer{
     width: 252px;
+    height: 280px;
     margin-right: 15px;
     margin-left: 15px;
   }
