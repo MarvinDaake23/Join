@@ -58,18 +58,6 @@ function selectContacts(i) {
   loadContacts();
 }
 
-// function loadContacts() {
-//   let sContacts = document.getElementById("selectedContacts");
-
-//   sContacts.innerHTML = "";
-
-//   for (let i = 0; i < selectedTaskContacts.length; i++) {
-//     let element = selectedTaskContacts[i];
-
-    sContacts.innerHTML += renderSelectedContacts(element, i);
-  }
-}
-
 function loadContacts() {
   let sContacts = document.getElementById("selectedContacts");
 
