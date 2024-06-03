@@ -370,16 +370,13 @@ async function taskQuery(variable,search) {
 
       for (let i = 0 ; i < boardTasksToJson.length; i++) {
 
-          let boardtasks = boardTasksToJson[i]['subtasks']['title'].toLowerCase();
+          let boardtasks = boardTasksToJson[i]['title'].toLowerCase();
           let searchIndex = boardtasks.indexOf(search);
           if (searchIndex !== -1) {
           if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === ' ') {
 
-          variable.innerHTML += 
-          renderTodos();
-          renderProgress();
-          renderAwaitFeedback();
-          renderDone();
+        /*   variable.innerHTML += renderBoardTask(element, i); */
+         /*  hier gitb es noch Probleme ich weiß nicht wie ich die einzelen sektionenn druch etarieriern soll */
       }
       }
   }
