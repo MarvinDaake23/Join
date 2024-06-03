@@ -160,7 +160,15 @@ function loadBoardBigContainerSubtasks(i) {
   let Subtasks = document.getElementById("boardBigContainerSubtasks");
   for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
     const element = boardTasks[i]["subtasks"][j];
-    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j);
+    let src = '';
+    if(element['complete']== false){
+      src = "../assets/img/Property 1=Default.png";
+      
+    }
+    else{
+      src = "../assets/img/Property 1=hover checked.png";
+    };
+    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j, i, src);
   }
 }
 
@@ -213,7 +221,6 @@ function renderProgress() {
     const element = inProgress[index];
     let finished = element['finishedSubtasks'];
     let subtaskCount = element['subtasks'];
-    console.log(subtaskCount.length);
     document.getElementById("progress").innerHTML += renderBoardTask(element,index);
     loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
@@ -337,15 +344,15 @@ async function moveTo(category) {
   await putData("boardtasks", boardTasks);
 }
 
-function done(j) {
-  if (doneBulian == true) {
-    document.getElementById(`checkBox${j}`).src =
-      "../assets/img/Property 1=hover checked.png";
-    doneBulian = false;
-  } else {
-    document.getElementById(`checkBox${j}`).src =
-      "../assets/img/Property 1=Default.png";
-    doneBulian = true;
+function done(j, i) {
+   if (boardTasks[i]['subtasks'][j]['complete'] == false) {
+     document.getElementById(`${i}checkBox${j}`).src =
+       "../assets/img/Property 1=hover checked.png";
+       boardTasks[i]['subtasks'][j]['complete'] = true;
+   } else {
+     document.getElementById(`${i}checkBox${j}`).src =
+       "../assets/img/Property 1=Default.png";
+       boardTasks[i]['subtasks'][j]['complete'] = false;
   }
 }
 
