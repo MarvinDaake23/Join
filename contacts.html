@@ -7,15 +7,12 @@
     <!-- general style + favicon -->
     <link rel="stylesheet" href="./style/style_general.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
-
     <!-- general Scripts -->
     <script src="./js/script.js"></script>
     <script src="./js/Templates.js"></script>
-
     <!-- style for this page-->
     <link rel="stylesheet" href="./style/contacts.css" />
-
-    <!-- scripts for this pages -->
+    <!-- scripts for this page -->
     <script src="./js/contacts.js"></script>
   </head>
   <body class="contacts" id="body" onload="onLoadFunc()">
@@ -57,7 +54,12 @@
               placeholder="Phone"
               pattern="([0-9]+)"
             />
-            <button id="createContactButton">Create contact</button>
+            <div class="buttonPair">
+              <button>Cancel <img src="./assets/img/cancel.svg" /></button>
+              <button id="createContactButton">
+                Create contact<img src="assets/img/check.svg" />
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -106,7 +108,64 @@
               >
                 Delete
               </button>
-              <button type="submit" id="editContactSaveButton">Save</button>
+              <button type="submit" id="editContactSaveButton">
+                Save<img src="./assets/img/check.svg" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Modal content v3: Edit -->
+      <div id="modalEditContactDesktop">
+        <div class="leftSide">
+          <img src="./assets/img/headerlogo.svg">
+          <h1>Edit contact</h1>
+          <hr />
+        </div>
+
+        <div class="middle">
+          <div id="editInitialsDesktop"></div>
+        </div>
+
+        <div class="right">
+          <span onclick="closeEditContact()">&times;</span>
+          <form id="editContactForm" onsubmit="editContact();return false;">
+            <input
+              required
+              id="editNameInput"
+              type="text"
+              class="nameInput"
+              placeholder="Name"
+              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
+              title="first and last name needed"
+            />
+            <input
+              required
+              id="editEmailInput"
+              type="email"
+              class="mailInput"
+              placeholder="Email"
+            />
+            <input
+              required
+              id="editPhoneInput"
+              type=""
+              class="phoneInput"
+              placeholder="Phone"
+              pattern="([0-9]+)"
+            />
+            <div class="buttonPair">
+              <button
+                type="button"
+                id="editContactDeleteButton"
+                onclick="deleteContact()"
+              >
+                Delete
+              </button>
+              <button type="submit" id="editContactSaveButton">
+                Save<img src="./assets/img/check.svg" />
+              </button>
             </div>
           </form>
         </div>
@@ -115,7 +174,9 @@
 
     <sidebar w3-include-html="./includes/sidebar.html"></sidebar>
 
-    <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
+    <mobile-header
+      w3-include-html="./includes/mobile-header.html"
+    ></mobile-header>
 
     <header w3-include-html="/includes/header.html"></header>
 
@@ -130,13 +191,15 @@
 
     <content>
       <div class="headline">
-        <h1 class="contactsHeadline">Contacts</h1>
+        <h1>Contacts</h1>
         <h2>Better with a team</h2>
       </div>
 
       <div id="contactSingleView"></div>
     </content>
 
-    <mobile-footer w3-include-html="/includes/mobile-footer.html"></mobile-footer>
+    <mobile-footer
+      w3-include-html="/includes/mobile-footer.html"
+    ></mobile-footer>
   </body>
 </html>

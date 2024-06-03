@@ -1,24 +1,5 @@
 let contacts = [];
 
-/* Background colors for profile initials */
-let backgroundProfileColors = [
-  "#0038FF",
-  "#00BEE8",
-  "#1FD7C1",
-  "#6E52FF",
-  "#9327FF",
-  "#C3FF2B",
-  "#FC71FF",
-  "#FF4646",
-  "#FF5EB3",
-  "#FF745E",
-  "#FF7A00",
-  "#FFA35E",
-  "#FFBB2B",
-  "#FFC701",
-  "#FFE62B",
-];
-
 async function onLoadFunc() {
   await includeHTML();
   updateHeaderInitials();
@@ -40,14 +21,30 @@ function renderContacts() {
   container.innerHTML += `
   <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
 
+  // first shown contact: logged in user
+  let idOfLoggedInUser = getIdOfLoggedInUser();
+
+  // nur wenns kein Gast ist
+  if (idOfLoggedInUser !== undefined) {
+    container.innerHTML += renderSingleContactEntryHTML(
+      contacts[idOfLoggedInUser],
+      idOfLoggedInUser
+    );
+    // add: ME
+    document.getElementById("userNameInList").innerHTML += " (Me)";
+  }
+
   for (let index = 0; index < contacts.length; index++) {
-    const element = contacts[index];
-    if (firstLetter != element.firstName[0]) {
-      container.innerHTML += renderContactSeperatorHTML(element);
-      // update first letter
-      firstLetter = element.firstName[0];
+    // not render logged in user again
+    if (index != idOfLoggedInUser) {
+      const element = contacts[index];
+      if (firstLetter != element.firstName[0]) {
+        container.innerHTML += renderContactSeperatorHTML(element);
+        // update first letter
+        firstLetter = element.firstName[0];
+      }
+      container.innerHTML += renderSingleContactEntryHTML(element, index);
     }
-    container.innerHTML += renderSingleContactEntryHTML(element, index);
   }
 }
 
@@ -113,18 +110,14 @@ function getDataForNewContact() {
   let new_lastName = nameArray[1];
   let new_email = document.getElementById("emailInput").value;
   let new_phone = document.getElementById("phoneInput").value;
-  // random color from list
-  let new_profileColor =
-    backgroundProfileColors[
-      Math.floor(Math.random() * backgroundProfileColors.length)
-    ];
+
   // Create JSON
   let data = {
     firstName: new_firstName,
     lastName: new_lastName,
     email: new_email,
     phoneNumber: new_phone,
-    profileColor: new_profileColor,
+    profileColor: getRandomBackgroundColor(),
   };
   return data;
 }
@@ -165,32 +158,62 @@ function showMore() {
 }
 
 function showEditContact(id) {
-  document.getElementById("modalBackground").style.display = "block";
-  document.getElementById("modalEditContact").style.display = "block";
-  document.getElementById(
-    "editNameInput"
-  ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
-  document.getElementById("editEmailInput").value = contacts[id].email;
-  document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
-  document.getElementById(
-    "editInitials"
-  ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
-  document.getElementById("editInitials").style.backgroundColor =
-    contacts[id].profileColor;
+  if (window.innerWidth > vwBreak) {
+    // desktop
+    document.getElementById("modalBackground").style.display = "block";
+    document.getElementById("modalEditContactDesktop").style.display = "flex";
+    document.getElementById(
+      "editNameInput"
+    ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
+    document.getElementById("editEmailInput").value = contacts[id].email;
+    document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
+    document.getElementById(
+      "editInitialsDesktop"
+    ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
+    document.getElementById("editInitialsDesktop").style.backgroundColor =
+      contacts[id].profileColor;
 
-  document
-    .getElementById("editContactForm")
-    .setAttribute(
-      "onsubmit",
-      `editContact(${id});closeEditContact();return false;`
-    );
+    document
+      .getElementById("editContactForm")
+      .setAttribute(
+        "onsubmit",
+        `editContact(${id});closeEditContact();return false;`
+      );
 
-  document
-    .getElementById("editContactDeleteButton")
-    .setAttribute(
-      "onclick",
-      `deleteContact(${id});closeEditContact();return false;`
-    );
+    document
+      .getElementById("editContactDeleteButton")
+      .setAttribute(
+        "onclick",
+        `deleteContact(${id});closeEditContact();return false;`
+      );
+  } else { // mobile
+    document.getElementById("modalBackground").style.display = "block";
+    document.getElementById("modalEditContact").style.display = "block";
+    document.getElementById(
+      "editNameInput"
+    ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
+    document.getElementById("editEmailInput").value = contacts[id].email;
+    document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
+    document.getElementById(
+      "editInitials"
+    ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
+    document.getElementById("editInitials").style.backgroundColor =
+      contacts[id].profileColor;
+
+    document
+      .getElementById("editContactForm")
+      .setAttribute(
+        "onsubmit",
+        `editContact(${id});closeEditContact();return false;`
+      );
+
+    document
+      .getElementById("editContactDeleteButton")
+      .setAttribute(
+        "onclick",
+        `deleteContact(${id});closeEditContact();return false;`
+      );
+  }
 }
 
 async function editContact(id) {
@@ -249,5 +272,19 @@ function setActive(newId) {
     }
     // speichern
     currentId = newId;
+  }
+}
+
+function getIdOfLoggedInUser() {
+  let user = getLoggedInUserName();
+  //split name
+  let nameArray = user.split(" ");
+  for (x in contacts) {
+    if (
+      contacts[x].firstName == nameArray[0] &&
+      contacts[x].lastName == nameArray[1]
+    ) {
+      return x;
+    }
   }
 }

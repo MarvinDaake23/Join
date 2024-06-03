@@ -8,7 +8,7 @@
   margin-top: 30px;
 }
 
-.background{
+.background {
   position: absolute;
   background: #aaaaaaa9;
   width: 100%;
@@ -16,17 +16,21 @@
   z-index: 1;
 }
 
-.d-none{
+.d-none {
   display: none;
 }
 
-.todoCheck{
+.todoCheck {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-top: 15px;
   margin-bottom: 15px;
+  /*  min-width: 252px;
+  max-width: 252px;
+  padding-left: 16px;
+  padding-right: 16px; */
 }
 
 .headline {
@@ -56,7 +60,7 @@
 }
 
 .addButtonBig:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .addButtonSmall {
@@ -81,8 +85,8 @@
 }
 
 .progressInformationContainer span {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .emptyPlaceholder {
@@ -94,7 +98,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a8a8a8; 
+  color: #a8a8a8;
 }
 
 .imgContainer {
@@ -121,7 +125,7 @@
 }
 
 .findInput:focus {
-    outline: 1px solid #29abe2;
+  outline: 1px solid #29abe2;
 }
 
 .seperator {
@@ -152,8 +156,8 @@
 .boardCard {
   display: flex;
   flex-direction: column;
-  min-width: 252px;
-  max-width: 252px;
+  min-width: 220px;
+  max-width: 220px;
   border-radius: 24px;
   padding: 16px;
   background-color: white;
@@ -161,6 +165,11 @@
   box-shadow: 0px 0px 10px 3px #00000014;
   margin-bottom: 10px;
   margin-right: 10px;
+}
+
+.boardCard:hover {
+  cursor: pointer;
+
 }
 
 .taskrow {
@@ -173,9 +182,9 @@
   color: white;
   border-radius: 8px;
   padding: 4px 16px 4px 16px;
-  width: 40%;
   display: flex;
   justify-content: center;
+  width: fit-content;
 }
 
 .boardTitle {
@@ -240,14 +249,14 @@
   font-size: 12px !important;
 }
 
-.boardBigContainerHeader{
+.boardBigContainerHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 12px;
 }
 
-.boardBigContainer{
+.boardBigContainer {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -259,8 +268,8 @@
   padding: 30px;
 }
 
-.boardBigContainerType{
-  background: #0038FF;
+.boardBigContainerType {
+  background: #0038ff;
   color: white;
   font-size: 12px;
   font-weight: 400;
@@ -269,10 +278,14 @@
   padding: 4px 16px 4px 16px;
 }
 
-.boardBigContainerClose{
+.boardBigContainerClose {
   width: 14px;
   height: 14px;
   padding: 5px;
+}
+
+.boardBigContainerClose {
+  cursor: pointer;
 }
 
 .boardBigContainerTitle {
@@ -281,76 +294,76 @@
   margin-bottom: 12px;
 }
 
-.boardBigContainerDescription{
+.boardBigContainerDescription {
   font-size: 16px;
 }
 
-.boardBigContainerAssignedTo{
+.boardBigContainerAssignedTo {
   font-size: 16px;
   padding-top: 12px;
 }
 
-.boardBigContainerdate{
+.boardBigContainerdate {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-top: 10px;
 }
 
-.boardBigContainerdate span{
+.boardBigContainerdate span {
   width: 100px;
   font-size: 16px;
 }
-.boardBigContainerPrio span{
+.boardBigContainerPrio span {
   width: 100px;
   font-size: 16px;
 }
 
-.boardContacts{
+.boardContacts {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-top: 10px;
 }
 
-.boardBigContainerPrio{
+.boardBigContainerPrio {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-top: 10px;
 }
 
-.boardContainerStatus{
+.boardContainerStatus {
   padding-top: 15px;
 }
 
 .subTaskRow {
-  	display: flex;
-    flex-direction: row;
-    width: fit-content;
-    padding: 3px;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  padding: 3px;
+  border-radius: 10px;
 }
 
 .subTaskRow:hover {
-  	background-color: rgba(182, 182, 182, 0.648);
-    cursor: pointer;
+  background-color: rgba(182, 182, 182, 0.648);
+  cursor: pointer;
 }
 
-.subtaskSection{
+.subtaskSection {
   font-size: 16px;
 }
 
-.boardBigContainerSubtasks{
+.boardBigContainerSubtasks {
   padding-top: 10px;
   padding-left: 10px;
 }
 
-#boardBigContainerAssignedToContactsInput{
+#boardBigContainerAssignedToContactsInput {
   padding-bottom: 10px;
 }
 
-.boardBigContainerSubtasksSingleInput{
+.boardBigContainerSubtasksSingleInput {
   padding-left: 10px;
   font-size: 16px;
   font-weight: 400;
@@ -361,7 +374,7 @@
   height: 20px;
 }
 
-.editConatiner{
+.editConatiner {
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -376,16 +389,25 @@
   padding: 4px;
 }
 
-.editText{
+.editText {
   margin-right: 8px;
 }
 
-.contactName{
+.contactName {
   padding-left: 8px;
 }
 
-.content .headline{
+.content .headline {
   margin-left: 5px;
+}
+
+.rotate {
+  rotate: 5deg;
+}
+
+.progressContainer{
+  width: 252px;
+  height: 320px;
 }
 
 @media (min-width: 1200px) {
@@ -393,25 +415,19 @@
     display: flex;
     flex-direction: row;
   }
-  .progressContainer{
-    width: 284px;
+  .progressContainer {
+    width: 252px;
+    height: 280px;
     margin-right: 15px;
     margin-left: 15px;
   }
-  .progressInformationContainer span {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .addButtonSmall{
+  .addButtonSmall {
     width: 24px;
     height: 24px;
   }
   .taskrow {
     flex-direction: column;
   }
-}
-
-@media (min-width: 1080px) {
   .taskTitleContainer {
     position: absolute;
     display: flex;
@@ -425,7 +441,7 @@
     margin-top: 56px;
   }
   .addButtonBig {
-    background-image: url("../assets/img/Secondary-plus.svg") ;
+    background-image: url("../assets/img/Secondary-plus.svg");
     width: 160px;
   }
 }
@@ -441,4 +457,3 @@
     width: 464px;
   }
 }
-

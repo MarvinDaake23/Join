@@ -29,7 +29,7 @@ content {
 #addContactButton {
   width: 352px;
   height: 56px;
-  margin-top: 12px;
+  margin: 12px 0px;
   padding: 12px 0px 12px 0px;
   gap: 16px;
   border-radius: 10px;
@@ -47,8 +47,8 @@ content {
   position: relative;
   right: 0px;
   background-color: #f6f7f8;
-  height: 80vh;
-  padding: 48px 0px 0px 46px;
+  /*height: 80vh;*/
+  padding: 8px 0px 0px 46px;
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
 }
@@ -59,10 +59,45 @@ content {
   padding: 48px 16px 0px 16px;
 }
 
+.singleContactContainer .initials {
+  height: 120px;
+  width: 120px;
+  font-size: 47px !important;
+  font-weight: 500 !important;
+}
+
+.singleContactContainer .editdelete {
+  margin-left: 64px;
+  gap: 16px;
+}
+
+.singleContactContainer .editdelete a {
+  gap: 8px;
+}
+
 .singleContactContainer h2 {
+  /*USER NAME */
   font-size: 47px;
+  font-weight: 500;
+  margin: 0px 0px 16px 54px;
+}
+
+content .headline {
+  margin-left: 58px;
+  gap: 30px;
+}
+
+content .headline h1 {
   font-weight: 700;
-  margin: 0px 0px 8px 0px;
+  font-size: 61px;
+  border-right: 3px solid #29abe2;
+  padding-right: 30px;
+  margin: 0;
+}
+
+content .headline h2 {
+  font-weight: 400;
+  font-size: 27px;
 }
 
 .upperHalf h2 {
@@ -259,21 +294,21 @@ content {
 }
 
 .nameInput {
-  background: url("../assets/img/contacts/person_small.png") no-repeat right;
+  background: url("../assets/img/person_small.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
   background-origin: content-box;
 }
 
 .mailInput {
-  background: url("../assets/img/contacts/mail.png") no-repeat right;
+  background: url("../assets/img/mail.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
   background-origin: content-box;
 }
 
 .phoneInput {
-  background: url("../assets/img/contacts/call.png") no-repeat right;
+  background: url("../assets/img/call.png") no-repeat right;
   padding-right: 25px;
   background-size: 20px;
   background-origin: content-box;
@@ -405,6 +440,21 @@ content {
   margin-top: -40px;
 }
 
+#editInitialsDesktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 120px;
+  color: white;
+  border-radius: 180px;
+  font-size: 47px !important;
+  font-weight: 500 !important;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+}
+
 .seperatorLetter {
   border-bottom: 1px solid #d1d1d1;
   font-size: 20px;
@@ -483,6 +533,10 @@ a {
   font-weight: 400;
 }
 
+.editdelete a:hover svg path {
+  fill: #29abe2;
+}
+
 .editdelete a:hover {
   color: #29abe2;
   font-size: 16px;
@@ -496,16 +550,44 @@ a {
 
 .editdelete img:hover {
   color: #29abe2;
+  filter: grayscale(0.2);
 }
 
 .editdelete {
   display: flex;
   flex-direction: row;
-  gap: 13px;
+  gap: 16px;
 }
 
 nav a:hover {
   background-color: #091931;
+}
+
+#modalEditContactDesktop {
+  width: 80vw;
+  height: 592px;
+  margin: 120px auto;
+  display: flex;
+  align-items: stretch;
+  background-color: white;
+  border-radius: 30px;
+
+}
+
+#modalEditContactDesktop .leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #2A3647;
+  color: white;
+  width: 553px;
+  border-radius: 30px 0px 0px 30px;
+}
+
+#modalEditContactDesktop h1 {
+font-weight: 700;
+font-size: 61px;
 }
 
 @media (max-width: 480px) {
