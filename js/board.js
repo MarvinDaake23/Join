@@ -160,7 +160,6 @@ function loadBoardBigContainerSubtasks(i) {
   let Subtasks = document.getElementById("boardBigContainerSubtasks");
   for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
     const element = boardTasks[i]["subtasks"][j];
-    console.log(element);
     Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j);
   }
 }
@@ -184,10 +183,13 @@ function renderTodos() {
   document.getElementById("todo").innerHTML = "";
 
   for (let index = 0; index < todo.length; index++) {
-    const element = todo[index];
-    document.getElementById("todo").innerHTML += renderBoardTask(element,index);
-    loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    let element = todo[index];
+    document.getElementById("todo").innerHTML += renderBoardTask(
+      element,
+      index
+    );
+    loadProgressbar(index,progressName, element);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -211,8 +213,8 @@ function renderProgress() {
       element,
       index
     );
-    loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    loadProgressbar(index,progressName,element);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -236,8 +238,8 @@ function renderAwaitFeedback() {
       element,
       index
     );
-    loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    loadProgressbar(index,progressName,element);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -261,8 +263,8 @@ function renderDone() {
       element,
       index
     );
-    loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    loadProgressbar(index,progressName,element);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -273,7 +275,7 @@ function renderDone() {
 }
 
 /**
- *  function to render the priority of each task in the small view
+ *  function to render the contacts of each task in the small view
  */
 function loadContactInBoardTask(i) {
   let contacts = document.getElementById("boardTaskContacts");
@@ -286,16 +288,20 @@ function loadContactInBoardTask(i) {
 /**
  * function to render the priority of each task
  */
-function loadPrioBoardTask(i) {
-  let prio = document.getElementById("boardTaskPrio");
+function loadPrioBoardTask(element, i) {
+  // element dazu
+  let prio = document.getElementById(`boardTaskPrio${element["id"]}`);
   if (boardTasks[i]["priority"] == "Low") {
     prio.classList.add("lowPrioImg");
+    prio.innerHTML = "Low";
   }
   if (boardTasks[i]["priority"] == "Medium") {
     prio.classList.add("medPrioImg");
+    prio.innerHTML = "Medium";
   }
   if (boardTasks[i]["priority"] == "Urgent") {
     prio.classList.add("highPrioImg");
+    prio.innerHTML = "Urgent";
   }
 }
 
@@ -336,12 +342,10 @@ function done(j) {
     doneBulian = true;
   }
 }
-function loadProgressbar(index, progressName) {
-  let currentProgressbar = document.getElementById(
-    `${progressName}Progressbar${index}`
-  );
-  console.log(`${progressName}Progressbar${index}`);
-}
+function loadProgressbar (index,progressName, element){
+  let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
+  console.log(element);
+  // currentProgressbar.innerHTML = renderProgressbar();
 
 //
 function searchTask() {
@@ -381,5 +385,4 @@ async function taskQuery(idTodo, search) {
     }
   }
 }
-
-//
+}

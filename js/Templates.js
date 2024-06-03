@@ -45,7 +45,7 @@ function renderBoardTask(element, i) {
             <div id="" class="boardType">${element["type"]}</div>
             <div class="boardTitle">${element["title"]}</div>
             <div class="boardDescription">${element["description"]}</div>
-            <div class="progress">
+            <div id="${element['category']}Progressbar${i}" class="progress">
                 <div id="progressBackground" class="progressBackground">
                     <div id="progressbar${i}" class="progressbar" role="progresbar"></div>
                 </div>
@@ -53,10 +53,14 @@ function renderBoardTask(element, i) {
             </div>
             <div class="boardTaskFooter">
                 <div class="boardTaskContacts" id="boardTaskContacts"></div>
-                <div id="boardTaskPrio"></div>
+                <div id="boardTaskPrio${element[`id`]}"></div>
             </div>
         </div>
     `;
+}
+
+function renderProgressbar(){
+    
 }
 
 function renderBoardTaskContacts(element) {
