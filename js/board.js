@@ -109,7 +109,7 @@ let currentDraggedElement;
  * function to initialize the board page
  */
 async function boardInit() {
-  await includeHTML();  //- edit christoph
+  await includeHTML(); //- edit christoph
   updateHeaderInitials(); // edit christoph
   boardTasks = await loadData("boardtasks");
   updateHTML();
@@ -179,7 +179,7 @@ function updateHTML() {
  * function for filtering and rendering all tasks with the category "To Do"
  */
 function renderTodos() {
-  let progressName = 'todo';
+  let progressName = "todo";
   let todo = boardTasks.filter((t) => t["category"] == "todo");
   document.getElementById("todo").innerHTML = "";
 
@@ -189,7 +189,7 @@ function renderTodos() {
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index, progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -204,7 +204,7 @@ function renderTodos() {
  * function for filtering and rendering all tasks with the category "In progess"
  */
 function renderProgress() {
-  let progressName = 'progress';
+  let progressName = "progress";
   let inProgress = boardTasks.filter((t) => t["category"] == "progress");
   document.getElementById("progress").innerHTML = "";
 
@@ -214,7 +214,7 @@ function renderProgress() {
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index, progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -229,7 +229,7 @@ function renderProgress() {
  * function for filtering and rendering all tasks with the category "Await Feedback"
  */
 function renderAwaitFeedback() {
-  let progressName = 'feedback';
+  let progressName = "feedback";
   let feedback = boardTasks.filter((t) => t["category"] == "feedback");
   document.getElementById("feedback").innerHTML = "";
 
@@ -239,7 +239,7 @@ function renderAwaitFeedback() {
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index, progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -254,7 +254,7 @@ function renderAwaitFeedback() {
  * function for filtering and rendering all tasks with the category "Done"
  */
 function renderDone() {
-  let progressName = 'done';
+  let progressName = "done";
   let done = boardTasks.filter((t) => t["category"] == "done");
   document.getElementById("done").innerHTML = "";
 
@@ -264,7 +264,7 @@ function renderDone() {
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index, progressName);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -307,6 +307,8 @@ function loadPrioBoardTask(i) {
  */
 function startDragging(id) {
   currentDraggedElement = id;
+  // add class with rotation
+  document.getElementById(id).classList.add("rotate");
 }
 
 /**
@@ -337,50 +339,47 @@ function done(j) {
     doneBulian = true;
   }
 }
-function loadProgressbar (index,progressName){
-  let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
+function loadProgressbar(index, progressName) {
+  let currentProgressbar = document.getElementById(
+    `${progressName}Progressbar${index}`
+  );
   console.log(`${progressName}Progressbar${index}`);
-
 }
 
 //
 function searchTask() {
-  let search = document.getElementById('findInput').value ;
+  let search = document.getElementById("findInput").value;
 
-  let todo = document.getElementById('todo');
-  let inProgress = document.getElementById('progress'); 
-  let awaitFeedback = document.getElementById('feedback');
-  let done = document.getElementById('done');
+  let todo = document.getElementById("todo");
+  let inProgress = document.getElementById("progress");
+  let awaitFeedback = document.getElementById("feedback");
+  let done = document.getElementById("done");
 
   search = search.toLowerCase();
-  if (search.length > 2){
-      taskQuery(todo,search);
-      taskQuery(inProgress,search);
-      taskQuery(awaitFeedback,search);
-      taskQuery(done,search);
-   
+  if (search.length > 2) {
+    taskQuery(todo, search);
+    taskQuery(inProgress, search);
+    taskQuery(awaitFeedback, search);
+    taskQuery(done, search);
   }
 }
 
-async function taskQuery(variable,search) {
+async function taskQuery(variable, search) {
   variable.innerHTML = ``;
 
   let response = await fetch(BASE_URL + "boardtasks.json");
   boardTasksToJson = await response.json();
 
-      for (let i = 0 ; i < boardTasksToJson.length; i++) {
-
-          let boardtasks = boardTasksToJson[i]['title'].toLowerCase();
-          let searchIndex = boardtasks.indexOf(search);
-          if (searchIndex !== -1) {
-          if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === ' ') {
-
+  for (let i = 0; i < boardTasksToJson.length; i++) {
+    let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
+    let searchIndex = boardtasks.indexOf(search);
+    if (searchIndex !== -1) {
+      if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === " ") {
         /*   variable.innerHTML += renderBoardTask(element, i); */
-         /*  hier gitb es noch Probleme ich weiß nicht wie ich die einzelen sektionenn druch etarieriern soll */
+        /*  hier gitb es noch Probleme ich weiß nicht wie ich die einzelen sektionenn druch etarieriern soll */
       }
-      }
+    }
   }
 }
 
 //
-
