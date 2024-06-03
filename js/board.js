@@ -184,11 +184,13 @@ function renderTodos() {
 
   for (let index = 0; index < todo.length; index++) {
     let element = todo[index];
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
     document.getElementById("todo").innerHTML += renderBoardTask(
       element,
       index
     );
-    loadProgressbar(index,progressName, element);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -209,11 +211,11 @@ function renderProgress() {
 
   for (let index = 0; index < inProgress.length; index++) {
     const element = inProgress[index];
-    document.getElementById("progress").innerHTML += renderBoardTask(
-      element,
-      index
-    );
-    loadProgressbar(index,progressName,element);
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
+    console.log(subtaskCount.length);
+    document.getElementById("progress").innerHTML += renderBoardTask(element,index);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -234,11 +236,13 @@ function renderAwaitFeedback() {
 
   for (let index = 0; index < feedback.length; index++) {
     const element = feedback[index];
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
     document.getElementById("feedback").innerHTML += renderBoardTask(
       element,
       index
     );
-    loadProgressbar(index,progressName,element);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -259,11 +263,13 @@ function renderDone() {
 
   for (let index = 0; index < done.length; index++) {
     const element = done[index];
+    let finished = element['finishedSubtasks'];
+    let subtaskCount = element['subtasks'];
     document.getElementById("done").innerHTML += renderBoardTask(
       element,
       index
     );
-    loadProgressbar(index,progressName,element);
+    loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
@@ -342,10 +348,14 @@ function done(j) {
     doneBulian = true;
   }
 }
-function loadProgressbar (index,progressName, element){
+
+function loadProgressbar (index, progressName, subEndCount, finished){
   let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
-  console.log(element);
-  // currentProgressbar.innerHTML = renderProgressbar();
+  let progress = finished / subEndCount;
+  let width = progress * 100;
+  currentProgressbar.innerHTML = renderProgressbar(subEndCount,finished,width);
+}
+
 
 //
 function searchTask() {
@@ -382,4 +392,4 @@ async function taskQuery(variable, search) {
     }
   }
 }
-}
+
