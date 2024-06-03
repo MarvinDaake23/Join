@@ -66,9 +66,7 @@ function loadContacts() {
   for (let i = 0; i < selectedTaskContacts.length; i++) {
     let element = selectedTaskContacts[i];
 
-    sContacts.innerHTML += renderSelectedContacs(element, i);
-
-    console.log(element["profileColor"]);
+    sContacts.innerHTML += renderSelectedContacts(element, i);
   }
 }
 
@@ -77,7 +75,7 @@ function loadContacts() {
 
   for (let i = 0; i < selectedTaskContacts.length; i++) {
     const element = selectedTaskContacts[i];
-    sContacts.innerHTML += rederSelectedContacts(element);
+    sContacts.innerHTML += renderSelectedContacts(element);
   }
 }
 
