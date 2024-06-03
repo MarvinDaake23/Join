@@ -160,7 +160,6 @@ function loadBoardBigContainerSubtasks(i) {
   let Subtasks = document.getElementById("boardBigContainerSubtasks");
   for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
     const element = boardTasks[i]["subtasks"][j];
-    console.log(element);
     Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j);
   }
 }
@@ -184,12 +183,12 @@ function renderTodos() {
   document.getElementById("todo").innerHTML = "";
 
   for (let index = 0; index < todo.length; index++) {
-    const element = todo[index];
+    let element = todo[index];
     document.getElementById("todo").innerHTML += renderBoardTask(
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index,progressName, element);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -214,7 +213,7 @@ function renderProgress() {
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index,progressName,element);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -239,7 +238,7 @@ function renderAwaitFeedback() {
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index,progressName,element);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -264,7 +263,7 @@ function renderDone() {
       element,
       index
     );
-    loadProgressbar(index,progressName);
+    loadProgressbar(index,progressName,element);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -276,7 +275,7 @@ function renderDone() {
 }
 
 /**
- *  function to render the priority of each task in the small view
+ *  function to render the contacts of each task in the small view
  */
 function loadContactInBoardTask(i) {
   let contacts = document.getElementById("boardTaskContacts");
@@ -337,8 +336,9 @@ function done(j) {
     doneBulian = true;
   }
 }
-function loadProgressbar (index,progressName){
+function loadProgressbar (index,progressName, element){
   let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
-  console.log(`${progressName}Progressbar${index}`);
+  console.log(element);
+  // currentProgressbar.innerHTML = renderProgressbar();
 
 }
