@@ -342,3 +342,48 @@ function loadProgressbar (index,progressName){
   console.log(`${progressName}Progressbar${index}`);
 
 }
+
+//
+function searchTask() {
+  let search = document.getElementById('findInput').value ;
+
+  let todo = document.getElementById('todo');
+  let inProgress = document.getElementById('progress'); 
+  let awaitFeedback = document.getElementById('feedback');
+  let done = document.getElementById('done');
+
+  search = search.toLowerCase();
+  if (search.length > 2){
+      taskQuery(todo,search);
+      taskQuery(inProgress,search);
+      taskQuery(awaitFeedback,search);
+      taskQuery(done,search);
+   
+  }
+}
+
+async function taskQuery(variable,search) {
+  variable.innerHTML = ``;
+
+  let response = await fetch(BASE_URL + "boardtasks.json");
+  boardTasksToJson = await response.json();
+
+      for (let i = 0 ; i < boardTasksToJson.length; i++) {
+
+          let boardtasks = boardTasksToJson[i]['subtasks']['title'].toLowerCase();
+          let searchIndex = boardtasks.indexOf(search);
+          if (searchIndex !== -1) {
+          if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === ' ') {
+
+          variable.innerHTML += 
+          renderTodos();
+          renderProgress();
+          renderAwaitFeedback();
+          renderDone();
+      }
+      }
+  }
+}
+
+//
+
