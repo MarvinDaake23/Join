@@ -33,7 +33,7 @@
 <div class="leftSideAddTaskPage">
               
 
-  <form id="addTaskForm" onsubmit="addTask()" class="addTaskForm" action="">
+  <form id="addTaskForm" onsubmit="addTask(); return false;" class="addTaskForm" action="">
       <div class="taskTitleContainer">
           <span class="addTaskSpans">Title <span class="red">*</span></span>
           <div class="taskTitleInputContainer">
@@ -45,7 +45,7 @@
       <div class="taskDescriptionContainer">
           <span class="addTaskSpans">Description</span>
           <div class="taskDescriptionInputContainer">
-              <textarea placeholder="Enter a Description" class="textareaDescription blueOutlineInput"></textarea>
+              <textarea placeholder="Enter a Description" class="textareaDescription blueOutlineInput" id="description"></textarea>
           </div>
       </div>
 

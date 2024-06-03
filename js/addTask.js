@@ -58,26 +58,26 @@ function selectContacts(i) {
   loadContacts();
 }
 
-function loadContacts() {
-  let sContacts = document.getElementById("selectedContacts");
+// function loadContacts() {
+//   let sContacts = document.getElementById("selectedContacts");
 
-  sContacts.innerHTML = "";
+//   sContacts.innerHTML = "";
 
-  for (let i = 0; i < selectedTaskContacts.length; i++) {
-    let element = selectedTaskContacts[i];
+//   for (let i = 0; i < selectedTaskContacts.length; i++) {
+//     let element = selectedTaskContacts[i];
 
-    sContacts.innerHTML += renderSelectedContacs(element, i);
+//     sContacts.innerHTML += renderSelectedContacs(element, i);
 
-    console.log(element["profileColor"]);
-  }
-}
+//     console.log(element["profileColor"]);
+//   }
+// }
 
 function loadContacts() {
   let sContacts = document.getElementById("selectedContacts");
 
   for (let i = 0; i < selectedTaskContacts.length; i++) {
     const element = selectedTaskContacts[i];
-    sContacts.innerHTML += rederSelectedContacts(element);
+    sContacts.innerHTML += renderSelectedContacts(element);
   }
 }
 
@@ -98,23 +98,22 @@ function loadSubtaskList() {
 function editSubtaskList(i) {
   let editInput = document.getElementById(`subtaskField`);
   if (editInput) {
-      // Erstelle ein Eingabefeld und setze seinen Wert auf den aktuellen Subtask-Wert
-      let input = document.createElement('input');
-      input.type = 'text';
-      input.value = editInput.innerText;
+    // Erstelle ein Eingabefeld und setze seinen Wert auf den aktuellen Subtask-Wert
+    let input = document.createElement("input");
+    input.type = "text";
+    input.value = editInput.innerText;
 
-      // Füge dem Eingabefeld einen Event-Listener hinzu, um die Bearbeitung zu beenden
-      input.addEventListener('blur', function() {
-          editInput.innerText = this.value;
-      });
+    // Füge dem Eingabefeld einen Event-Listener hinzu, um die Bearbeitung zu beenden
+    input.addEventListener("blur", function () {
+      editInput.innerText = this.value;
+    });
 
-      // Ersetze das Anzeigefeld durch das Eingabefeld
-      editInput.innerHTML = '';
-      editInput.appendChild(input);
-      input.focus();
+    // Ersetze das Anzeigefeld durch das Eingabefeld
+    editInput.innerHTML = "";
+    editInput.appendChild(input);
+    input.focus();
   }
 }
-
 
 /**
  * function to open all Wrapper on "AddTask" side
@@ -291,51 +290,40 @@ function inputClear() {
 /**
  * function for bringing together all data from the input fields
  */
-function addTask() {
+async function addTask() {
   let title = document.getElementById("title").value;
-  let desription = document.getElementById("description").value;
+  let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = prios[prioValue];
   let category = categorys[cat];
-  addTaskIntoArray(title, desription, date, prio, category);
+  let data = generateDataForTask(title, description, date, prio, category);
+  boardTasks.push(data);
+  // update firebase
+  await putData("boardtasks", boardTasks);
 }
 
-/**
- * function to pass all data into an array
- */
-function addTaskIntoArray(title, desription, date, prio, category) {
-  async function addTaskIntoArray(title, desription, date, prio, category) {
-    await fetch(BASE_URL + "tasks.json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+function generateDataForTask(title, description, date, prio, category) {
+  // Create JSON
+  let data = {
+    title: title,
+    description: description,
+    subtasks: subtasks,
+    finishedSubtasks: [],
+    assignedTo: [
+      {
+        firstName: "Anton",
+        lastName: "Mayer",
+        profilColor: "#FF7A00",
       },
-      body: JSON.stringify({
-        id: 0,
-        type: "User Story",
-        title: title,
-        description: desription,
-        subtasks: subtasks,
-        finishedSubtasks: [],
-        assignedTo: [
-          {
-            firstName: "Anton",
-            lastName: "Mayer",
-            profilColor: "#FF7A00",
-          },
-          {
-            firstName: "Benedikt",
-            lastName: "Ziegler",
-            profilColor: "#9327FF",
-          },
-        ],
-        category: category,
-        priority: prio,
-        dueDate: date,
-      }),
-    });
-
-    task.push(temTask);
-  }
-  task.push(temTask);
+      {
+        firstName: "Benedikt",
+        lastName: "Ziegler",
+        profilColor: "#9327FF",
+      },
+    ],
+    category: category,
+    priority: prio,
+    dueDate: date,
+  };
+  return data;
 }
