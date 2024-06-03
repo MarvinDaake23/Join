@@ -73,6 +73,8 @@ function loadContacts() {
 function loadContacts() {
   let sContacts = document.getElementById("selectedContacts");
 
+  sContacts.innerHTML = "";
+
   for (let i = 0; i < selectedTaskContacts.length; i++) {
     const element = selectedTaskContacts[i];
     sContacts.innerHTML += renderSelectedContacts(element);
