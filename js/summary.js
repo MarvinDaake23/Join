@@ -80,3 +80,7 @@ function greetUser() {
   }
   return greeting;
 }
+
+function goToBoardPage() {
+  window.location = "board.html";
+}

@@ -15,7 +15,9 @@
   <body class="summary" id="body" onload="onLoadSummary();">
     <sidebar w3-include-html="./includes/sidebar.html"></sidebar>
 
-    <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
+    <mobile-header
+      w3-include-html="./includes/mobile-header.html"
+    ></mobile-header>
 
     <header w3-include-html="./includes/header.html"></header>
 
@@ -39,14 +41,14 @@
           <div class="summaryBoxContainer">
             <div class="content">
               <div class="firstRowSummaryBoxes">
-                <div class="boxMediumSummary">
+                <div class="boxMediumSummary" onclick="goToBoardPage()">
                   <div class="iconsSummary iconPencil"></div>
                   <div class="numberAndTextBoxSummary">
                     <span id="todoCounter" class="numbersSummary">1</span>
                     <p class="textSummary">To-Do</p>
                   </div>
                 </div>
-                <div class="boxMediumSummary">
+                <div class="boxMediumSummary" onclick="goToBoardPage()">
                   <div class="iconsSummary iconCheck"></div>
                   <div class="numberAndTextBoxSummary">
                     <span id="doneCounter" class="numbersSummary">1</span>
@@ -55,7 +57,7 @@
                 </div>
               </div>
               <div class="secondRowSummaryBoxes">
-                <div class="boxUrgent">
+                <div class="boxUrgent" onclick="goToBoardPage()">
                   <div class="iconsSummary iconArrows"></div>
                   <div class="numberAndTextBoxSummary">
                     <span id="urgentCounter" class="numbersSummary">1</span>
@@ -69,7 +71,7 @@
                 </div>
               </div>
               <div class="thirdRowSummaryBoxes">
-                <div class="boxSmallSummary">
+                <div class="boxSmallSummary" onclick="goToBoardPage()">
                   <div class="numberAndTextBoxSummary">
                     <span id="totalTasksCounter" class="numbersSummary">5</span>
                     <p class="textSummary">
@@ -78,18 +80,24 @@
                     </p>
                   </div>
                 </div>
-                <div class="boxSmallSummary">
+                <div class="boxSmallSummary" onclick="goToBoardPage()">
                   <div class="numberAndTextBoxSummary">
-                    <span id="totalTasksInProgressCounter" class="numbersSummary">2</span>
+                    <span
+                      id="totalTasksInProgressCounter"
+                      class="numbersSummary"
+                      >2</span
+                    >
                     <p class="textSummary">
                       Tasks in<br />
                       Progress
                     </p>
                   </div>
                 </div>
-                <div class="boxSmallSummary">
+                <div class="boxSmallSummary" onclick="goToBoardPage()">
                   <div class="numberAndTextBoxSummary">
-                    <span id="totalTasksAwaitingFeedback" class="numbersSummary">2</span>
+                    <span id="totalTasksAwaitingFeedback" class="numbersSummary"
+                      >2</span
+                    >
                     <p class="textSummary">
                       Awaiting<br />
                       feedback
@@ -108,6 +116,8 @@
       </div>
     </content>
 
-    <mobile-footer w3-include-html="./includes/mobile-footer.html"></mobile-footer>
+    <mobile-footer
+      w3-include-html="./includes/mobile-footer.html"
+    ></mobile-footer>
   </body>
 </html>
