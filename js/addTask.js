@@ -301,7 +301,7 @@ function generateDataForTask(title, description, date, prio, category) {
   let data = {
     title: title,
     description: description,
-    subtasks: subtasks,
+    subtasks: "",
     finishedSubtasks: [],
     assignedTo: [
       {
@@ -315,9 +315,10 @@ function generateDataForTask(title, description, date, prio, category) {
         profilColor: "#9327FF",
       },
     ],
-    category: category,
+    type: category,
     priority: prio,
     dueDate: date,
+    category: "todo",
   };
   return data;
 }
