@@ -53,7 +53,7 @@ function renderBoardTask(element, i) {
             </div>
             <div class="boardTaskFooter">
                 <div class="boardTaskContacts" id="boardTaskContacts"></div>
-                <div id="boardTaskPrio"></div>
+                <div id="boardTaskPrio${element[`id`]}"></div>
             </div>
         </div>
     `;

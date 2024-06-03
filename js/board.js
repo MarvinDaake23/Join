@@ -190,7 +190,7 @@ function renderTodos() {
       index
     );
     loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -215,7 +215,7 @@ function renderProgress() {
       index
     );
     loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -240,7 +240,7 @@ function renderAwaitFeedback() {
       index
     );
     loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -265,7 +265,7 @@ function renderDone() {
       index
     );
     loadProgressbar(index, progressName);
-    loadPrioBoardTask(index);
+    loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
   }
 
@@ -289,16 +289,20 @@ function loadContactInBoardTask(i) {
 /**
  * function to render the priority of each task
  */
-function loadPrioBoardTask(i) {
-  let prio = document.getElementById("boardTaskPrio");
+function loadPrioBoardTask(element, i) {
+  // element dazu
+  let prio = document.getElementById(`boardTaskPrio${element["id"]}`);
   if (boardTasks[i]["priority"] == "Low") {
     prio.classList.add("lowPrioImg");
+    prio.innerHTML = "Low";
   }
   if (boardTasks[i]["priority"] == "Medium") {
     prio.classList.add("medPrioImg");
+    prio.innerHTML = "Medium";
   }
   if (boardTasks[i]["priority"] == "Urgent") {
     prio.classList.add("highPrioImg");
+    prio.innerHTML = "Urgent";
   }
 }
 
