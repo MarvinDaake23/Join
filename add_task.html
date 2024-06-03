@@ -33,7 +33,7 @@
 <div class="leftSideAddTaskPage">
               
 
-  <form id="addTaskForm" onsubmit="addTask(); return false;" class="addTaskForm" action="">
+  <form id="addTaskForm" onsubmit="addTask(); return false;" form="board.html" class="addTaskForm" action="">
       <div class="taskTitleContainer">
           <span class="addTaskSpans">Title <span class="red">*</span></span>
           <div class="taskTitleInputContainer">
@@ -55,8 +55,8 @@
               <span class="addTaskSpans">Assigned to</span>
               <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
   <span>Select contacts to assign</span>
-  <img id="arrowDownAt" src="../assets/img/arrow_down.png" alt="">
-  <img id="arrowUpAt" class="dNone" src="../assets/img/arrow_up.png" alt="">
+  <img id="arrowDownAt" src="./assets/img/arrow_down.png" alt="">
+  <img id="arrowUpAt" class="dNone" src="./assets/img/arrow_up.png" alt="">
 </div>
     <ul id="wrapperListAt" class="wrapperList dNone"></ul>
 <div id="selectedContacts"></div>
@@ -101,8 +101,8 @@
               <span class="addTaskSpans">Category<span class="red"> *</span></span>
               <div id="wrapper" class="wrapper" onclick="openWrapper('')">
                   <span id="placeholder">Select task category</span>
-                  <img id="arrowDown" src="../assets/img/arrow_down.png" alt="">
-                  <img id="arrowUp" class="dNone" src="../assets/img/arrow_up.png" alt="">
+                  <img id="arrowDown" src="./assets/img/arrow_down.png" alt="">
+                  <img id="arrowUp" class="dNone" src="./assets/img/arrow_up.png" alt="">
               </div>
               <ul id="wrapperList" class="wrapperList dNone">
               </ul>
@@ -123,9 +123,7 @@
 
           <div class="checkoutContainer">
               <span><span class="red">*</span>This field is required</span>
-              <button class="addTaskButton">Create Task
-                  <img src="..//assets/img/checkWhite.png" alt="">
-              </button>
+              <button type="submit" class="addTaskButton">Create Task<img src="./assets/img/checkWhite.png" alt=""></button>
           </div>
       </form>
 </div>

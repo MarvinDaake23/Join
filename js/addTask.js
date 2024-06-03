@@ -292,6 +292,8 @@ async function addTask() {
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
+  // board seite
+  visitBoard();
 }
 
 function generateDataForTask(title, description, date, prio, category) {
