@@ -41,7 +41,7 @@ function subtaskListInput(i) {
 
 function renderBoardTask(element, i) {
     return /* html*/ `
-        <div draggable="true" ondragstart="startDragging(${element[`id`]})" class="boardCard" onclick="loadBoardBigContainer(${i})">
+        <div id="${element[`id`]}" draggable="true" ondragstart="startDragging(${element[`id`]})" class="boardCard" onclick="loadBoardBigContainer(${i})">
             <div id="" class="boardType">${element["type"]}</div>
             <div class="boardTitle">${element["title"]}</div>
             <div class="boardDescription">${element["description"]}</div>
