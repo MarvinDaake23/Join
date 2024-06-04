@@ -169,7 +169,6 @@
 
 .boardCard:hover {
   cursor: pointer;
-
 }
 
 .taskrow {
@@ -405,7 +404,7 @@
   rotate: 5deg;
 }
 
-.progressContainer{
+.progressContainer {
   width: 252px;
   height: 320px;
 }
@@ -416,13 +415,35 @@
   width: -1;
 } */
 
-
 .editConatiner div {
   display: flex;
   cursor: pointer;
   align-items: center;
 }
 
+.lowPrioImg {
+  background-image: url("./assets/img/prioLow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.medPrioImg {
+  background-image: url("./assets/img/prioMedium.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.highPrioImg {
+  background-image: url("./assets/img/prioHigh.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
 
 @media (min-width: 1200px) {
   .progressInformationContainer {

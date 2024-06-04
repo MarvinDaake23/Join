@@ -495,13 +495,15 @@
 }
 
 .lowPrioImg{
-    background-image: url('../assets/img/prioLow.png');
+    background-image: url('./assets/img/prioLow.png');
+    background-repeat: no-repeat;
+    background-position: center;
     width: 20px;
     height:14px;
 }
 
 .medPrioImg{
-    background-image: url('../assets/img/prioMedium.png');
+    background-image: url('./assets/img/prioMedium.png');
     background-repeat: no-repeat;
     background-position: center;
     width: 20px;
@@ -509,7 +511,9 @@
 }
 
 .highPrioImg{
-    background-image: url('../assets/img/prioHigh.png');
+    background-image: url('./assets/img/prioHigh.png');
+    background-repeat: no-repeat;
+    background-position: center;
     width: 20px;
     height:14px;
 }
