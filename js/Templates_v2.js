@@ -132,25 +132,25 @@ function renderBoardBigContainerSubtasks(element, j, i,src) {
 
 function renderBoardTaskPlaceholderTodo() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task To Do</div>
+        <div id="todoPlaceholder" class="emptyPlaceholder">No Task To Do</div>
     `;
 }
 
 function renderBoardTaskPlaceholderProgress() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task in progress</div>
+        <div id="progressPlaceholder" class="emptyPlaceholder">No Task in progress</div>
     `;
 }
 
 function renderBoardTaskPlaceholderFeedback() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task for Feedback</div>
+        <div id="feedbackPlaceholder" class="emptyPlaceholder">No Task for Feedback</div>
     `;
 }
 
 function renderBoardTaskPlaceholderDone() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task done</div>
+        <div id="donePlaceholder" class="emptyPlaceholder">No Task done</div>
     `;
 }
 
