@@ -1,102 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join: Board</title>
-    <link rel="icon" type="image/png" href="favicon.png" >
-    <link rel="stylesheet" href="./style/board.css" >
-    <link rel="stylesheet" href="./style/style_general.css" >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join: Board</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="./style/board.css">
+  <link rel="stylesheet" href="./style/style_general.css">
 
     <!-- general scripts -->
     <script src="./js/script.js"></script>
-    <script src="./js/Templates_v2.js"></script>
-    <script src="./js/board_v2.js"></script>
+    <script src="./js/Templates.js"></script>
+    <script src="./js/board.js"></script>
   </head>
   <body class="board" id="body" onload="boardInit()">
     <div onclick="removeboardBigContainer()" id="background" class="background d-none"></div>
     <sidebar class="sidebar" w3-include-html="./includes/sidebar.html"></sidebar>
 
-    <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
+  <mobile-header w3-include-html="./includes/mobile-header.html"></mobile-header>
 
-    <header w3-include-html="./includes/header.html"></header>
+  <header w3-include-html="./includes/header.html"></header>
 
-    <content class="inputContainer fullInput">
-      
-      <div class="headlineContainer">
-        <div class="headline">Board</div>
-        <div class="taskTitleContainer">
-          <div class="taskTitleInputContainer">
-            <input class="findInput" id="findInput" type="text" placeholder="Find Task" />
-            <div id="imgContainerSubtask" class="imgContainer">
-              <div class="subtaskSettingContainer">
-                <div class="seperator"></div>
-                <img src="../assets/img/search.png" class="imgContainerSearch" onclick="searchTask()">
-              </div>
+  <content class="inputContainer fullInput">
+
+    <div class="headlineContainer">
+      <div class="headline">Board</div>
+      <div class="taskTitleContainer">
+        <div class="taskTitleInputContainer">
+          <input class="findInput" id="findInput" type="text" placeholder="Find Task" />
+          <div id="imgContainerSubtask" class="imgContainer">
+            <div class="subtaskSettingContainer">
+              <div class="seperator"></div>
+              <img src="../assets/img/search.png" class="imgContainerSearch" onclick="searchTask()">
             </div>
           </div>
         </div>
-        <div class="addButtonBig addButton">
-          <img class="blueplusButton" >
+      </div>
+      <div class="addButtonBig addButton">
+        <img class="blueplusButton">
+      </div>
+    </div>
+
+
+
+    <div class="progressInformationContainer">
+      <div class="progressContainer">
+        <div class="todoCheck">
+          <span>To do</span>
+          <div class="addButtonSmall addButton"></div>
         </div>
+        <div id="todo" class="taskrow" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
       </div>
 
-      
-
-      <div class="progressInformationContainer">
-        <div class="progressContainer">
-          <div class="todoCheck">
-            <span>To do</span>
-            <div class="addButtonSmall addButton"></div>
-          </div>
-          <div
-            id="todo" class="taskrow"  
-            ondrop="moveTo('todo')"
-            ondragover="allowDrop(event)"
-          ></div>
+      <div id="toDoContainer" class="progressContainer">
+        <div class="todoCheck">
+          <span>In progress</span>
+          <div class="addButtonSmall addButton"></div>
         </div>
-
-        <div id="toDoContainer" class="progressContainer">
-          <div class="todoCheck">
-            <span >In progress</span>
-            <div class="addButtonSmall addButton"></div>
-          </div>
-          <div
-            id="progress" class="taskrow"  
-            ondrop="moveTo('progress')"
-            ondragover="allowDrop(event)"
-          ></div>
-        </div>
-
-        <div class="progressContainer">
-          <div class="todoCheck">
-            <span>Await Feedback</span>
-            <div class="addButtonSmall addButton"></div>
-          </div>
-          <div
-            id="feedback" class="taskrow"  
-            ondrop="moveTo('feedback')"
-            ondragover="allowDrop(event)"
-          ></div>
-        </div>
-
-        <div class="progressContainer">
-          <div class="todoCheck">
-            <span>Done</span>
-          </div>
-          <div
-            id="done" class="taskrow"            
-            ondrop="moveTo('done')"
-            ondragover="allowDrop(event)"
-          ></div>
-        </div>
+        <div id="progress" class="taskrow" ondrop="moveTo('progress')" ondragover="allowDrop(event)"></div>
       </div>
 
-      <div class="boardBigContainer d-none" id="boardBigContainer"></div>
+      <div class="progressContainer">
+        <div class="todoCheck">
+          <span>Await Feedback</span>
+          <div class="addButtonSmall addButton"></div>
+        </div>
+        <div id="feedback" class="taskrow" ondrop="moveTo('feedback')" ondragover="allowDrop(event)"></div>
+      </div>
 
-    </content>
+      <div class="progressContainer">
+        <div class="todoCheck">
+          <span>Done</span>
+        </div>
+        <div id="done" class="taskrow" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+      </div>
+    </div>
 
-    <mobile-footer w3-include-html="./includes/mobile-footer.html"></mobile-footer>
-    
-  </body>
+    <div class="boardBigContainer d-none" id="boardBigContainer"></div>
+
+  </content>
+
+  <mobile-footer w3-include-html="./includes/mobile-footer.html"></mobile-footer>
+
+</body>
+
 </html>
