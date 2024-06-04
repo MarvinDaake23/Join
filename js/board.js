@@ -366,9 +366,9 @@ function searchTask() {
   let search = document.getElementById("findInput").value;
 
   let idTodo = document.getElementById("todo");
-  let inProgress = document.getElementById("progress");
+/*   let inProgress = document.getElementById("progress");
   let awaitFeedback = document.getElementById("feedback");
-  let done = document.getElementById("done");
+  let done = document.getElementById("done"); */
 
   search = search.toLowerCase();
   if (search.length > 2) {
@@ -384,6 +384,7 @@ async function taskQuery(idTodo, search) {
 
   let response = await fetch(BASE_URL + "boardtasks.json");
   boardTasksToJson = await response.json();
+  console.log(boardTasksToJson);
 
   for (let i = 0; i < boardTasksToJson.length; i++) {
     let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
