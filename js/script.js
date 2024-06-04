@@ -32,6 +32,7 @@ function getRandomBackgroundColor() {
 // muss diese funktion vielleicht in die addTask.js?
 async function init() {
   contacts = await loadData("contacts");
+  boardTasks = await loadData("boardtasks");
   //includeHTML();  -> edit christoph
   loadContactWrapper();
   loadWrapper();

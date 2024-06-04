@@ -26,33 +26,35 @@ function renderContactWrapper(element, i) {
 
 
 
-function renderBoardTask(element, i) {
+function renderBoardTask(element, index) {
     return /* html*/ `
-        <div id="${element[`id`]}" draggable="true" ondragstart="startDragging(${element[`id`]})" class="boardCard" onclick="loadBoardBigContainer(${i})">
+        <div id="boardTask${index}" draggable="true" ondragstart="startDragging(${index})" class="boardCard" onclick="loadBoardBigContainer(${index})">
             <div id="" class="boardType">${element["type"]}</div>
-            <div class="boardTitle">${element["title"]}</div>
-            <div class="boardDescription">${element["description"]}</div>
-            <div id="${element['category']}Progressbar${i}" class="progress">
-                <div id="progressBackground" class="progressBackground">
-                    <div id="progressbar${i}" class="progressbar" role="progresbar"></div>
-                </div>
-                <div>Subtasks</div>
+            <div id="title" class="boardTitle">${element["title"]}</div>
+            <div id="description" class="boardDescription">${element["description"]}</div>
+            <div id="progressBar${index}" class="progress">
+            
             </div>
             <div class="boardTaskFooter">
-                <div class="boardTaskContacts" id="boardTaskContacts"></div>
-                <div id="boardTaskPrio${element[`id`]}"></div>
+                <div class="boardTaskContacts" id="boardTaskContacts${index}"></div>
+                <div id="boardTaskPrio${index}"></div>
             </div>
         </div>
     `;
 }
 
-function renderProgressbar(){
-    
+function renderProgressbar(subEndCountLength,finished,width){
+    return/*html */`
+        <div class="progressBackground">
+            <div style="width:${width}%" class="progressbar" role="progresbar"></div>
+        </div>
+        <div>${finished}/${subEndCountLength} Subtasks</div>
+            `
 }
 
 function renderBoardTaskContacts(element) {
     return /*html */ `
-        <div class="initials initSmall " style="background-color:${element["profilColor"]}">
+        <div class="initials initSmall" style="background-color:${element["profileColor"]}; margin-left: -10px;">
             <span>${element["firstName"][0]}${element["lastName"][0]}</span>
         </div>
     `;
@@ -90,7 +92,7 @@ function renderBoardBigContainer(i) {
             </div>
             </div>
             <div class="editConatiner">
-                <img src="./assets/img/delete.png"><div class="editText">Delete</div>
+                <div onclick="deleteTask(${i})"><img src="./assets/img/delete.png"><div class="editText">Delete</div></div>
                 <div class="seperator"></div>
                 <img src="./assets/img/edit.png"><div class="editText">Edit</div>
             </div>
@@ -100,16 +102,16 @@ function renderBoardBigContainer(i) {
 function renderBoardBigContainerContacts(element) {
     return /*html */ `
         <div class="boardContacts">
-            <div style="background-color:${element["profilColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
+            <div style="background-color:${element["profileColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
             <div class="contactName">${element["firstName"]} ${element["lastName"]}</div>
         </div>
     `;
 }
 
-function renderBoardBigContainerSubtasks(element, j) {
+function renderBoardBigContainerSubtasks(element, j, i,src) {
     return /* html*/ `
         <div class="subTaskRow">
-            <img id="checkBox${j}" class="checkBox" onclick="done(${j})" src="../assets/img/Property 1=Default.png" >
+            <img id="${i}checkBox${j}" class="checkBox" onclick="done(${j}, ${i})" src="${src}" >
             <div class="boardBigContainerSubtasksSingleInput">${element["subtaskText"]}</div>
         </div>
     `;
@@ -117,25 +119,25 @@ function renderBoardBigContainerSubtasks(element, j) {
 
 function renderBoardTaskPlaceholderTodo() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task To Do</div>
+        <div id="todoPlaceholder" class="emptyPlaceholder">No Task To Do</div>
     `;
 }
 
 function renderBoardTaskPlaceholderProgress() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task in progress</div>
+        <div id="progressPlaceholder" class="emptyPlaceholder">No Task in progress</div>
     `;
 }
 
 function renderBoardTaskPlaceholderFeedback() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task for Feedback</div>
+        <div id="feedbackPlaceholder" class="emptyPlaceholder">No Task for Feedback</div>
     `;
 }
 
 function renderBoardTaskPlaceholderDone() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task done</div>
+        <div id="donePlaceholder" class="emptyPlaceholder">No Task done</div>
     `;
 }
 

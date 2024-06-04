@@ -1,108 +1,6 @@
 let doneBulian = false;
 let boardTasks = [];
 
-/*
-let boardTasks = [
-  {
-    id: 0,
-    type: "User Story",
-    title: "Join Projekt",
-    description: "build a Kanban board",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
-    category: "feedback",
-    priority: "Low",
-    dueDate: "23-05-2024",
-  },
-  {
-    id: 2,
-    type: "User Story",
-    title: "Rasen mähen",
-    description: "Kein Bock",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Christoph",
-        lastName: "Völker",
-        profilColor: "#FF7A00",
-      },
-    ],
-    category: "todo",
-    priority: "High",
-    dueDate: "29-05-2024",
-  },
-  {
-    id: 1,
-    type: "Technical Task",
-    title: "Saufen",
-    description: "Das muss man immer machen",
-    subtasks: [
-      {
-        id: 0,
-        subtaskText: "header",
-        complete: false,
-      },
-      {
-        id: 1,
-        subtaskText: "footer",
-        complete: false,
-      },
-    ],
-    finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
-    category: "todo",
-    priority: "High",
-    dueDate: "29-05-2024",
-  },
-];
-*/
-
 let currentDraggedElement;
 
 /**
@@ -160,117 +58,73 @@ function loadBoardBigContainerSubtasks(i) {
   let Subtasks = document.getElementById("boardBigContainerSubtasks");
   for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
     const element = boardTasks[i]["subtasks"][j];
-    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j);
+    let src = "";
+    if (element["complete"] == false) {
+      src = "../assets/img/Property 1=Default.png";
+    } else {
+      src = "../assets/img/Property 1=hover checked.png";
+    }
+    Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j, i, src);
   }
 }
 
-/*
- *function to render all boarTasks
+/**
+ *  function to render all boarTasks
  */
 function updateHTML() {
-  renderTodos();
-  renderProgress();
-  renderAwaitFeedback();
-  renderDone();
+  renderAllBoardTasks();
 }
 
-/**
- * function for filtering and rendering all tasks with the category "To Do"
- */
-function renderTodos() {
-  let progressName = "todo";
-  let todo = boardTasks.filter((t) => t["category"] == "todo");
-  document.getElementById("todo").innerHTML = "";
-
-  for (let index = 0; index < todo.length; index++) {
-    let element = todo[index];
-    document.getElementById("todo").innerHTML += renderBoardTask(
-      element,
-      index
-    );
-    loadProgressbar(index,progressName, element);
-    loadPrioBoardTask(element, index); // element dazu
-    loadContactInBoardTask(index);
-  }
-
-  if (todo.length == 0) {
-    document.getElementById("todo").innerHTML =
-      renderBoardTaskPlaceholderTodo();
-  }
+function fillWithPlaceholders() {
+  document.getElementById("todo").innerHTML = renderBoardTaskPlaceholderTodo();
+  document.getElementById("progress").innerHTML =
+    renderBoardTaskPlaceholderProgress();
+  document.getElementById("feedback").innerHTML =
+    renderBoardTaskPlaceholderFeedback();
+  document.getElementById("done").innerHTML = renderBoardTaskPlaceholderDone();
 }
 
-/**
- * function for filtering and rendering all tasks with the category "In progess"
- */
-function renderProgress() {
-  let progressName = "progress";
-  let inProgress = boardTasks.filter((t) => t["category"] == "progress");
-  document.getElementById("progress").innerHTML = "";
-
-  for (let index = 0; index < inProgress.length; index++) {
-    const element = inProgress[index];
-    document.getElementById("progress").innerHTML += renderBoardTask(
-      element,
-      index
-    );
-    loadProgressbar(index,progressName,element);
-    loadPrioBoardTask(element, index); // element dazu
+function renderAllBoardTasks() {
+  fillWithPlaceholders();
+  for (let index = 0; index < boardTasks.length; index++) {
+    const boardTask = boardTasks[index];
+    let finished = boardTask.finishedSubtasks;
+    let subtaskCount = boardTask.subtasks;
+    if (boardTask.category == "todo") {
+      document.getElementById("todo").innerHTML += renderBoardTask(
+        boardTask,
+        index
+      );
+      //placeholder unsichtbar machen
+      document.getElementById("todoPlaceholder").style.display = "none";
+    } else if (boardTask.category == "progress") {
+      document.getElementById("progress").innerHTML += renderBoardTask(
+        boardTask,
+        index
+      );
+      //placeholder unsichtbar machen
+      document.getElementById("progressPlaceholder").style.display = "none";
+    } else if (boardTask.category == "feedback") {
+      document.getElementById("feedback").innerHTML += renderBoardTask(
+        boardTask,
+        index
+      );
+      //placeholder unsichtbar machen
+      document.getElementById("feedbackPlaceholder").style.display = "none";
+    } else if (boardTask.category == "done") {
+      document.getElementById("done").innerHTML += renderBoardTask(
+        boardTask,
+        index
+      );
+      //placeholder unsichtbar machen
+      document.getElementById("donePlaceholder").style.display = "none";
+    }
+    //loadProgressbar(index, progressName, subtaskCount.length, finished);
+    if (subtaskCount.length != 0) {
+      loadProgressbar(index, subtaskCount.length, finished);
+    }
+    loadPrioBoardTask(index);
     loadContactInBoardTask(index);
-  }
-
-  if (inProgress.length == 0) {
-    document.getElementById("progress").innerHTML =
-      renderBoardTaskPlaceholderProgress();
-  }
-}
-
-/**
- * function for filtering and rendering all tasks with the category "Await Feedback"
- */
-function renderAwaitFeedback() {
-  let progressName = "feedback";
-  let feedback = boardTasks.filter((t) => t["category"] == "feedback");
-  document.getElementById("feedback").innerHTML = "";
-
-  for (let index = 0; index < feedback.length; index++) {
-    const element = feedback[index];
-    document.getElementById("feedback").innerHTML += renderBoardTask(
-      element,
-      index
-    );
-    loadProgressbar(index,progressName,element);
-    loadPrioBoardTask(element, index); // element dazu
-    loadContactInBoardTask(index);
-  }
-
-  if (feedback.length == 0) {
-    document.getElementById("feedback").innerHTML =
-      renderBoardTaskPlaceholderFeedback();
-  }
-}
-
-/**
- * function for filtering and rendering all tasks with the category "Done"
- */
-function renderDone() {
-  let progressName = "done";
-  let done = boardTasks.filter((t) => t["category"] == "done");
-  document.getElementById("done").innerHTML = "";
-
-  for (let index = 0; index < done.length; index++) {
-    const element = done[index];
-    document.getElementById("done").innerHTML += renderBoardTask(
-      element,
-      index
-    );
-    loadProgressbar(index,progressName,element);
-    loadPrioBoardTask(element, index); // element dazu
-    loadContactInBoardTask(index);
-  }
-
-  if (done.length == 0) {
-    document.getElementById("done").innerHTML =
-      renderBoardTaskPlaceholderDone();
   }
 }
 
@@ -278,7 +132,7 @@ function renderDone() {
  *  function to render the contacts of each task in the small view
  */
 function loadContactInBoardTask(i) {
-  let contacts = document.getElementById("boardTaskContacts");
+  let contacts = document.getElementById(`boardTaskContacts${i}`);
   for (let j = 0; j < boardTasks[i]["assignedTo"].length; j++) {
     const element = boardTasks[i]["assignedTo"][j];
     contacts.innerHTML += renderBoardTaskContacts(element);
@@ -288,9 +142,9 @@ function loadContactInBoardTask(i) {
 /**
  * function to render the priority of each task
  */
-function loadPrioBoardTask(element, i) {
+function loadPrioBoardTask(i) {
   // element dazu
-  let prio = document.getElementById(`boardTaskPrio${element["id"]}`);
+  let prio = document.getElementById(`boardTaskPrio${i}`);
   if (boardTasks[i]["priority"] == "Low") {
     prio.classList.add("lowPrioImg");
     prio.innerHTML = "Low";
@@ -311,7 +165,7 @@ function loadPrioBoardTask(element, i) {
 function startDragging(id) {
   currentDraggedElement = id;
   // add class with rotation
-  document.getElementById(id).classList.add("rotate");
+  document.getElementById(`boardTask${id}`).classList.add("rotate");
 }
 
 /**
@@ -331,58 +185,65 @@ async function moveTo(category) {
   await putData("boardtasks", boardTasks);
 }
 
-function done(j) {
-  if (doneBulian == true) {
-    document.getElementById(`checkBox${j}`).src =
+async function done(j, i) {
+  if (boardTasks[i]["subtasks"][j]["complete"] == false) {
+    document.getElementById(`${i}checkBox${j}`).src =
       "../assets/img/Property 1=hover checked.png";
-    doneBulian = false;
+    boardTasks[i]["subtasks"][j]["complete"] = true;
+    boardTasks[i]["finishedSubtasks"]++;
   } else {
-    document.getElementById(`checkBox${j}`).src =
+    document.getElementById(`${i}checkBox${j}`).src =
       "../assets/img/Property 1=Default.png";
-    doneBulian = true;
+    boardTasks[i]["subtasks"][j]["complete"] = false;
+    boardTasks[i]["finishedSubtasks"]--;
   }
+  await putData("boardtasks", boardTasks);
+  updateHTML();
 }
-function loadProgressbar (index,progressName, element){
-  let currentProgressbar = document.getElementById(`${progressName}Progressbar${index}`);
-  console.log(element);
-  // currentProgressbar.innerHTML = renderProgressbar();
+
+function loadProgressbar(index, subEndCount, finished) {
+  let currentProgressbar = document.getElementById(`progressBar${index}`);
+  let progress = finished / subEndCount;
+  let width = progress * 100;
+  currentProgressbar.innerHTML = renderProgressbar(
+    subEndCount,
+    finished,
+    width
+  );
+}
 
 //
 function searchTask() {
-  let search = document.getElementById("findInput").value;
+  let search = document.getElementById("findInput").value.toLowerCase();
+  let boardTaskClass = document.querySelectorAll(".boardCard");
 
-  let idTodo = document.getElementById("todo");
-  let inProgress = document.getElementById("progress");
-  let awaitFeedback = document.getElementById("feedback");
-  let done = document.getElementById("done");
-
-  search = search.toLowerCase();
-  if (search.length > 2) {
-    taskQuery(idTodo, search);
-    /* taskQuery(inProgress, search);
-    taskQuery(awaitFeedback, search);
-    taskQuery(done, search); */
+  if (search.length > 3) {
+    taskQuery(search, boardTaskClass);
+  } else {
+    boardTaskClass.forEach((container) => {
+      container.style.display = "flex";
+    });
   }
 }
 
-async function taskQuery(idTodo, search) {
-  idTodo.innerHTML = ``;
-
-  let response = await fetch(BASE_URL + "boardtasks.json");
-  boardTasksToJson = await response.json();
-
-  for (let i = 0; i < boardTasksToJson.length; i++) {
-    let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
-    let searchIndex = boardtasks.indexOf(search);
-
-    if (searchIndex !== -1) {
-      if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === " ") {
-        for (let index = 0; index < todo.length; index++) {
-          const element = todo[index];
-          idTodo.innerHTML += renderBoardTask(element,i); 
-        }
-      }
+async function taskQuery(search, boardTaskClass) {
+  boardTaskClass.forEach((container) => {
+    let title = container.querySelector("#title").innerText.toLowerCase();
+    let description = container
+      .querySelector("#description")
+      .innerText.toLowerCase();
+    if (title.includes(search) || description.includes(search)) {
+      container.style.display = "flex";
+    } else {
+      container.style.display = "none";
     }
-  }
+  });
 }
+
+async function deleteTask(i) {
+  boardTasks.splice(i, 1);
+  // neu hochladen
+  await putData("boardtasks", boardTasks);
+  removeboardBigContainer();
+  updateHTML();
 }

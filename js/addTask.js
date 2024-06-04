@@ -58,16 +58,8 @@ function selectContacts(i) {
   loadContacts();
 }
 
-function loadContacts() {
-  let sContacts = document.getElementById("selectedContacts");
-
-  sContacts.innerHTML = "";
-
-  for (let i = 0; i < selectedTaskContacts.length; i++) {
-    let element = selectedTaskContacts[i];
-
-    sContacts.innerHTML += renderSelectedContacts(element, i);
-  }
+function visitBoard() {
+  window.location = "board.html";
 }
 
 function loadContacts() {
@@ -153,7 +145,6 @@ function keepSubtask(i) {
       updateSubtasksList();
   }
 }
-
 
 /**
  * function to open all Wrapper on "AddTask" side
@@ -339,51 +330,46 @@ function inputClearAmendedSubtask() {
 /**
  * function for bringing together all data from the input fields
  */
-function addTask() {
+async function addTask() {
   let title = document.getElementById("title").value;
-  let desription = document.getElementById("description").value;
+  let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = prios[prioValue];
   let category = categorys[cat];
-  addTaskIntoArray(title, desription, date, prio, category);
+  let data = generateDataForTask(title, description, date, prio, category);
+  boardTasks.push(data);
+  // update firebase
+  await putData("boardtasks", boardTasks);
+  // zur board seite
+  visitBoard();
 }
 
-/**
- * function to pass all data into an array
- */
-function addTaskIntoArray(title, desription, date, prio, category) {
-  async function addTaskIntoArray(title, desription, date, prio, category) {
-    await fetch(BASE_URL + "tasks.json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: 0,
-        type: "User Story",
-        title: title,
-        description: desription,
-        subtasks: subtasks,
-        finishedSubtasks: [],
-        assignedTo: [
-          {
-            firstName: "Anton",
-            lastName: "Mayer",
-            profilColor: "#FF7A00",
-          },
-          {
-            firstName: "Benedikt",
-            lastName: "Ziegler",
-            profilColor: "#9327FF",
-          },
-        ],
-        category: category,
-        priority: prio,
-        dueDate: date,
-      }),
-    });
 
-    task.push(temTask);
+
+function generateDataForTask(title, description, date, prio, category) {
+  // Create JSON
+  let data = {
+    title: title,
+    description: description,
+    subtasks: "",
+    finishedSubtasks: [],
+    assignedTo: [],
+    type: category,
+    priority: prio,
+    dueDate: date,
+    category: "todo",
+  };
+
+  /*wichtig!*/
+  for (let index = 0; index < selectedTaskContacts.length; index++) {
+    const contact = selectedTaskContacts[index];
+    let json = {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      profileColor: contact.profileColor,
+    };
+    data.assignedTo.push(json);
   }
-  task.push(temTask);
+
+  return data;
 }

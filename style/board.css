@@ -410,6 +410,20 @@
   height: 320px;
 }
 
+/* .initialsOverlay{
+  position: relative;
+  z-index: 1;
+  width: -1;
+} */
+
+
+.editConatiner div {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+
 @media (min-width: 1200px) {
   .progressInformationContainer {
     display: flex;
