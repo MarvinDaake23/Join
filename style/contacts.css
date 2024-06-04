@@ -590,7 +590,7 @@ font-weight: 700;
 font-size: 61px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 620px) {
   body {
     grid-template-areas:
       "mobile-header"

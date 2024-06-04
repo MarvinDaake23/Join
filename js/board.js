@@ -147,15 +147,15 @@ function loadPrioBoardTask(i) {
   let prio = document.getElementById(`boardTaskPrio${i}`);
   if (boardTasks[i]["priority"] == "Low") {
     prio.classList.add("lowPrioImg");
-    prio.innerHTML = "Low";
+    //prio.innerHTML = "Low";
   }
   if (boardTasks[i]["priority"] == "Medium") {
     prio.classList.add("medPrioImg");
-    prio.innerHTML = "Medium";
+    //prio.innerHTML = "Medium";
   }
   if (boardTasks[i]["priority"] == "Urgent") {
     prio.classList.add("highPrioImg");
-    prio.innerHTML = "Urgent";
+    //prio.innerHTML = "Urgent";
   }
 }
 
