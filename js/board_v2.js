@@ -75,7 +75,17 @@ function updateHTML() {
   renderAllBoardTasks();
 }
 
+function fillWithPlaceholders() {
+  document.getElementById("todo").innerHTML = renderBoardTaskPlaceholderTodo();
+  document.getElementById("progress").innerHTML =
+    renderBoardTaskPlaceholderTodo();
+  document.getElementById("feedback").innerHTML =
+    renderBoardTaskPlaceholderTodo();
+  document.getElementById("done").innerHTML = renderBoardTaskPlaceholderTodo();
+}
+
 function renderAllBoardTasks() {
+  fillWithPlaceholders();
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
     let finished = boardTask.finishedSubtasks;
