@@ -298,38 +298,26 @@ function loadProgressbar(index, progressName, subEndCount, finished) {
 //
 function searchTask() {
   let search = document.getElementById("findInput").value;
+  let boardTaskClass = document.querySelectorAll('boardCard');
 
   let idTodo = document.getElementById("todo");
-  let inProgress = document.getElementById("progress");
-  let awaitFeedback = document.getElementById("feedback");
-  let done = document.getElementById("done");
 
   search = search.toLowerCase();
-  if (search.length > 2) {
-    taskQuery(idTodo, search);
-    /* taskQuery(inProgress, search);
-    taskQuery(awaitFeedback, search);
-    taskQuery(done, search); */
+  if (search.length > 3) {
+    taskQuery(idTodo, search ,boardTaskClass);
   }
 }
 
-async function taskQuery(idTodo, search) {
-  idTodo.innerHTML = ``;
-
-  let response = await fetch(BASE_URL + "boardtasks.json");
-  boardTasksToJson = await response.json();
-
-  for (let i = 0; i < boardTasksToJson.length; i++) {
-    let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
-    let searchIndex = boardtasks.indexOf(search);
-
-    if (searchIndex !== -1) {
-      if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === " ") {
-        for (let index = 0; index < todo.length; index++) {
-          const element = todo[index];
-          idTodo.innerHTML += renderBoardTask(element, i);
-        }
-      }
+async function taskQuery(idTodo, search, boardTaskClass) {
+  boardTaskClass.forEach(container => {
+    let title = container.querySelector('#title').innerText.toLowerCase();
+    if (title.includes(search)) {
+      container.style.display ='flex';
     }
-  }
+    else{
+      container.style.display = 'none'
+    }
+  })
 }
+
+ 

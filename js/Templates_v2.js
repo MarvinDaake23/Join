@@ -43,7 +43,7 @@ function renderBoardTask(element, index) {
     return /* html*/ `
         <div id="boardTask${index}" draggable="true" ondragstart="startDragging(${index})" class="boardCard" onclick="loadBoardBigContainer(${index})">
             <div id="" class="boardType">${element["type"]}</div>
-            <div class="boardTitle">${element["title"]}</div>
+            <div id="title" class="boardTitle">${element["title"]}</div>
             <div class="boardDescription">${element["description"]}</div>
             <div id="${element['category']}Progressbar${index}" class="progress">
                 
