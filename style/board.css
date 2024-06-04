@@ -417,6 +417,13 @@
 } */
 
 
+.editConatiner div {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+
 @media (min-width: 1200px) {
   .progressInformationContainer {
     display: flex;

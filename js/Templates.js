@@ -105,7 +105,7 @@ function renderBoardBigContainer(i) {
             </div>
             </div>
             <div class="editConatiner">
-                <img src="./assets/img/delete.png"><div class="editText">Delete</div>
+                <div onclick="deleteTask(${i})"><img src="./assets/img/delete.png"><div class="editText">Delete</div></div>
                 <div class="seperator"></div>
                 <img src="./assets/img/edit.png"><div class="editText">Edit</div>
             </div>

@@ -296,6 +296,8 @@ async function addTask() {
   visitBoard();
 }
 
+
+
 function generateDataForTask(title, description, date, prio, category) {
   // Create JSON
   let data = {

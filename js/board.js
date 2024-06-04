@@ -120,15 +120,13 @@ function renderAllBoardTasks() {
       document.getElementById("donePlaceholder").style.display = "none";
     }
     //loadProgressbar(index, progressName, subtaskCount.length, finished);
-    if(subtaskCount.length != 0){
-    loadProgressbar(index, subtaskCount.length, finished);
+    if (subtaskCount.length != 0) {
+      loadProgressbar(index, subtaskCount.length, finished);
     }
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
 }
-
-
 
 /**
  *  function to render the contacts of each task in the small view
@@ -192,12 +190,12 @@ async function done(j, i) {
     document.getElementById(`${i}checkBox${j}`).src =
       "../assets/img/Property 1=hover checked.png";
     boardTasks[i]["subtasks"][j]["complete"] = true;
-    boardTasks[i]["finishedSubtasks"] ++; 
+    boardTasks[i]["finishedSubtasks"]++;
   } else {
     document.getElementById(`${i}checkBox${j}`).src =
       "../assets/img/Property 1=Default.png";
     boardTasks[i]["subtasks"][j]["complete"] = false;
-    boardTasks[i]["finishedSubtasks"] --;
+    boardTasks[i]["finishedSubtasks"]--;
   }
   await putData("boardtasks", boardTasks);
   updateHTML();
@@ -217,29 +215,35 @@ function loadProgressbar(index, subEndCount, finished) {
 //
 function searchTask() {
   let search = document.getElementById("findInput").value.toLowerCase();
-  let boardTaskClass = document.querySelectorAll('.boardCard');
+  let boardTaskClass = document.querySelectorAll(".boardCard");
 
   if (search.length > 3) {
-    taskQuery(search ,boardTaskClass);
-  }
-  else{
-    boardTaskClass.forEach(container => {
-      container.style.display = 'flex';
-    })
+    taskQuery(search, boardTaskClass);
+  } else {
+    boardTaskClass.forEach((container) => {
+      container.style.display = "flex";
+    });
   }
 }
 
 async function taskQuery(search, boardTaskClass) {
-  boardTaskClass.forEach(container => {
-    let title = container.querySelector('#title').innerText.toLowerCase();
-    let description = container.querySelector('#description').innerText.toLowerCase();
-    if (title.includes(search) || description.includes(search) ) {
-      container.style.display ='flex';
+  boardTaskClass.forEach((container) => {
+    let title = container.querySelector("#title").innerText.toLowerCase();
+    let description = container
+      .querySelector("#description")
+      .innerText.toLowerCase();
+    if (title.includes(search) || description.includes(search)) {
+      container.style.display = "flex";
+    } else {
+      container.style.display = "none";
     }
-    else{
-      container.style.display = 'none'
-    }
-  })
+  });
 }
 
- 
+async function deleteTask(i) {
+  boardTasks.splice(i, 1);
+  // neu hochladen
+  await putData("boardtasks", boardTasks);
+  removeboardBigContainer();
+  updateHTML();
+}
