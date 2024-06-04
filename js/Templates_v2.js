@@ -67,7 +67,7 @@ function renderProgressbar(subEndCountLength,finished,width){
 
 function renderBoardTaskContacts(element) {
     return /*html */ `
-        <div class="initials initSmall " style="background-color:${element["profilColor"]}">
+        <div class="initials initSmall" style="background-color:${element["profileColor"]}">
             <span>${element["firstName"][0]}${element["lastName"][0]}</span>
         </div>
     `;
@@ -115,7 +115,7 @@ function renderBoardBigContainer(i) {
 function renderBoardBigContainerContacts(element) {
     return /*html */ `
         <div class="boardContacts">
-            <div style="background-color:${element["profilColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
+            <div style="background-color:${element["profileColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
             <div class="contactName">${element["firstName"]} ${element["lastName"]}</div>
         </div>
     `;
