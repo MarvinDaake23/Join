@@ -194,10 +194,7 @@ function renderTodos() {
     let element = todo[index];
     let finished = element['finishedSubtasks'];
     let subtaskCount = element['subtasks'];
-    document.getElementById("todo").innerHTML += renderBoardTask(
-      element,
-      index
-    );
+    document.getElementById("todo").innerHTML += renderBoardTask(element,index);
     loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
@@ -380,24 +377,23 @@ function searchTask() {
 }
 
 async function taskQuery(idTodo, search) {
+
   idTodo.innerHTML = ``;
 
-  let response = await fetch(BASE_URL + "boardtasks.json");
-  boardTasksToJson = await response.json();
-  console.log(boardTasksToJson);
+  for (let i = 0; i < boardTasks.length; i++) {
+    let boardTasksName = boardTasks[i]["title"].toLowerCase();
+    let searchIndex = boardTasksName.indexOf(search);
 
-  for (let i = 0; i < boardTasksToJson.length; i++) {
-    let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
-    let searchIndex = boardtasks.indexOf(search);
+    let todo = boardTasks.filter((t) => t["category"] == "todo");
 
     if (searchIndex !== -1) {
-      if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === " ") {
-        for (let index = 0; index < todo.length; index++) {
-          const element = todo[index];
-          idTodo.innerHTML += renderBoardTask(element,i); 
+      if (searchIndex === 0 || boardTasksName.charAt(searchIndex - 1) === " ") {
+
+          for (let index = 0; index < todo.length; index++) {
+            const element = todo[i];
+            idTodo.innerHTML += renderBoardTask(element);
+          }
         }
-      }
     }
   }
 }
-
