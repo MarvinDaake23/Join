@@ -110,6 +110,7 @@
     flex-direction: column;
     margin: 0px;
     width:100%;
+    padding-left: 0px;
     padding: 4px, 16px, 4px, 16px;
     border-radius: 10px;
     margin-top: -8px;
@@ -152,33 +153,48 @@
     cursor: pointer;
 }
 
-.subtask:hover .trash{
+.subtask:hover .trashIcon{
     background-image: url("../assets/img/trash.png");
     background-repeat: no-repeat;
-    object-fit: cover;
+    background-size: contain;
 }
 
 .subtask:hover .smallLine{
     background-image: url("../assets/img/littleLineSubtask.png");
     background-repeat: no-repeat;
-    object-fit: cover;
+    background-size: contain;
 }
 
 .subtask:hover .edit{
-    background-image: url("../assets/img/smallEdit.png");
+    background-image: url("../assets/img/edit.png");
     background-repeat: no-repeat;
-    object-fit: cover;
+    background-size: contain;
+}
+
+.subtaskInputField{
+    background-color: white;
+    border-bottom: 1px solid #005DFF;
+    border-radius: 0;
+    padding: 4px 16px 4px 16px;
+    padding-left: 0;
+}
+
+.subtaskInputField:focus{
+    outline: none;
+    border: none;
 }
 
 .iconContainerSubtask{
-    height: 20px;
-    width: 20px;
+    height: 16px;
+    width: 16px;
+    background-size: contain;
 }
 
 .subtask{
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .openBorader{
@@ -313,13 +329,14 @@
     margin-bottom: 8px;
     padding: 4px, 16px, 4px, 16px;
     border-radius: 10px;
+    width: 90%;
 }
 
 .editContainerSubtask{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 5px;
 }
 
 .list:hover{

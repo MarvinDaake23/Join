@@ -87,31 +87,70 @@ function loadContacts() {
 function loadSubtaskList() {
   let subtask = document.getElementById("subtaskInput").value;
   let subtaskList = document.getElementById("subTasks");
-  subtasks.push(subtask);
   subtaskList.innerHTML = ``;
+
+  if(subtask == ""){
+  }else {
+  subtasks.push(subtask);
   for (let i = 0; i < subtasks.length; i++) {
-    subtaskList.innerHTML += subtaskListInput(subtasks[i]);
+    subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
   }
   inputClear();
 }
+}
 
-function editSubtaskList(i) {
-  let editInput = document.getElementById(`subtaskField`);
-  if (editInput) {
-      // Erstelle ein Eingabefeld und setze seinen Wert auf den aktuellen Subtask-Wert
-      let input = document.createElement('input');
-      input.type = 'text';
-      input.value = editInput.innerText;
+function updateSubtasksList(){
+  let subtaskList = document.getElementById("subTasks");
+  for (let i = 0; i < subtasks.length; i++) {
+    subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
+  }
+  inputClearAmendedSubtask();
+}
 
-      // Füge dem Eingabefeld einen Event-Listener hinzu, um die Bearbeitung zu beenden
-      input.addEventListener('blur', function() {
-          editInput.innerText = this.value;
-      });
+function subtaskListInput(element, i) {
 
-      // Ersetze das Anzeigefeld durch das Eingabefeld
-      editInput.innerHTML = '';
-      editInput.appendChild(input);
-      input.focus();
+  return /* html*/ `
+  <div id="bigSubtaskContainer${i}">
+        <li class="liCat">
+            <div id="subtask" class="subtask">
+                <div id="subtaskField${i}">${element}</div>
+                <div class="editContainerSubtask">
+                  <div onclick="editSubtaskList('${element}', ${i})" class="edit iconContainerSubtask"></div>
+                  <div class="smallLine iconContainerSubtask"></div>
+                  <div onclick="deleteSubtask(${i})" class="trashIcon iconContainerSubtask"></div>
+                </div>
+            <div>
+        </li>
+</div>
+`;
+}
+
+function editSubtaskList(element, i) {
+  let container = document.getElementById(`bigSubtaskContainer${i}`);
+  container.innerHTML = templateEditSubtask(element, i);
+}
+
+function templateEditSubtask(element, i) {
+  return /* html*/ `
+  <input id="amendedSubtask${i}" value="${element}" class="subtaskInputField" type="text">
+  <div class="editContainerSubtask">
+    <img onclick="deleteSubtask(${i})"src="../assets/img/trash.png" class="iconContainerSubtask">
+    <img src="../assets/img/littleLineSubtask.png" class="iconContainerSubtask">
+    <img onclick="keepSubtask(${i})"src="../assets/img/check.png" class="iconContainerSubtask">
+  </div>
+  `;
+}
+
+function deleteSubtask(i){
+  subtasks.splice(i, 1);
+  loadSubtaskList();
+}
+
+function keepSubtask(i) {
+  let newSubtask = document.getElementById(`amendedSubtask${i}`).value;  if (newSubtask.length > 1) {
+      subtasks.splice(i, 1);
+      subtasks.push(newSubtask)
+      updateSubtasksList();
   }
 }
 
@@ -285,6 +324,15 @@ function inputBlur() {
 function inputClear() {
   let subtaskInput = document.getElementById("subtaskInput");
   subtaskInput.value = ``;
+  inputBlur();
+}
+
+/**
+ * function to clear the input field
+ */
+function inputClearAmendedSubtask() {
+  let subtaskInputAmended = document.getElementById(`amendedSubtask`);
+  subtaskInputAmended.value = ``;
   inputBlur();
 }
 
