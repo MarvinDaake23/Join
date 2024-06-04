@@ -78,73 +78,94 @@ function loadContacts() {
  */
 function loadSubtaskList() {
   let subtask = document.getElementById("subtaskInput").value;
-  let subtaskList = document.getElementById("subTasks");
-  subtaskList.innerHTML = ``;
-
-  if(subtask == ""){
-  }else {
-  subtasks.push(subtask);
-  for (let i = 0; i < subtasks.length; i++) {
-    subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
+  if (subtask) {
+    subtasks.push(subtask);
   }
+  renderSubtaskList();
   inputClear();
 }
-}
 
-function updateSubtasksList(){
-  let subtaskList = document.getElementById("subTasks");
-  for (let i = 0; i < subtasks.length; i++) {
-    subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
-  }
-  inputClearAmendedSubtask();
-}
+
+// function updateSubtasksList(){
+//   let subtaskList = document.getElementById("subTasks");
+//   for (let i = 0; i < subtasks.length; i++) {
+//     subtaskList.innerHTML = subtaskListInput(subtasks[i], i);
+//   }
+//   inputClearAmendedSubtask();
+// }
 
 function subtaskListInput(element, i) {
 
   return /* html*/ `
-  <div id="bigSubtaskContainer${i}">
+  <div id="bigSubtaskContainer${i}" class="bigSubtaskContainer">
         <li class="liCat">
             <div id="subtask" class="subtask">
                 <div id="subtaskField${i}">${element}</div>
                 <div class="editContainerSubtask">
                   <div onclick="editSubtaskList('${element}', ${i})" class="edit iconContainerSubtask"></div>
-                  <div class="smallLine iconContainerSubtask"></div>
+                  <div class="inputIconSmallLine"></div>
                   <div onclick="deleteSubtask(${i})" class="trashIcon iconContainerSubtask"></div>
                 </div>
-            <div>
+</div>
         </li>
 </div>
 `;
 }
 
-function editSubtaskList(element, i) {
-  let container = document.getElementById(`bigSubtaskContainer${i}`);
-  container.innerHTML = templateEditSubtask(element, i);
-}
-
-function templateEditSubtask(element, i) {
-  return /* html*/ `
-  <input id="amendedSubtask${i}" value="${element}" class="subtaskInputField" type="text">
-  <div class="editContainerSubtask">
-    <img onclick="deleteSubtask(${i})"src="../assets/img/trash.png" class="iconContainerSubtask">
-    <img src="../assets/img/littleLineSubtask.png" class="iconContainerSubtask">
-    <img onclick="keepSubtask(${i})"src="../assets/img/check.png" class="iconContainerSubtask">
-  </div>
-  `;
-}
-
-function deleteSubtask(i){
-  subtasks.splice(i, 1);
-  loadSubtaskList();
-}
-
-function keepSubtask(i) {
-  let newSubtask = document.getElementById(`amendedSubtask${i}`).value;  if (newSubtask.length > 1) {
-      subtasks.splice(i, 1);
-      subtasks.push(newSubtask)
-      updateSubtasksList();
+function renderSubtaskList() {
+  let subtaskList = document.getElementById("subTasks");
+  subtaskList.innerHTML = ``;
+  for (let i = 0; i < subtasks.length; i++) {
+    if (subtasks[i]) {
+      subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
+    }
   }
 }
+
+function editSubtaskList(element, i) {
+  let bigSubtaskContainer = document.getElementById(`bigSubtaskContainer${i}`);
+
+  bigSubtaskContainer.innerHTML = `
+    <li class="liCat" id="liCat${i}">
+      <div class="relativeContainer">
+        <input type="text" id="editSubtaskInput${i}" value="${element}" class="editInput">
+        <div class="editContainerSubtask positionFinalEditContainer">
+          <div class="iconContainerSubtask inputIconTrash" onclick="deleteSubtask(${i})">
+          </div>
+          <div class="inputIconSmallLineEdit">
+          </div>
+          <div class="iconContainerSubtask inputIconCheck" onclick="saveEditedSubtask(${i})">
+          </div>
+        </div>
+      </div>
+    </li>
+  `;
+
+  document.getElementById(`liCat${i}`).classList.add(`noMarker`);
+  document.getElementById(`bigSubtaskContainer${i}`).classList.remove(`bigSubtaskContainer`);
+}
+
+
+function saveEditedSubtask(i) {
+  let editedValue = document.getElementById(`editSubtaskInput${i}`).value;
+  if (editedValue) {
+    subtasks[i] = editedValue;
+  } else {
+    subtasks.splice(i, 1); // Remove the subtask if the edited value is empty
+  }
+  renderSubtaskList();
+}
+
+
+function deleteSubtask(i) {
+  subtasks.splice(i, 1);
+  renderSubtaskList();
+}
+
+function inputClear() {
+  document.getElementById("subtaskInput").value = "";
+}
+
 
 /**
  * function to open all Wrapper on "AddTask" side
@@ -272,9 +293,7 @@ function prioChoose(i) {
  */
 function resetPrioContainers() {
   document.getElementById("prio high").classList.remove("highPrioBackground");
-  document
-    .getElementById("highPrioImg")
-    .classList.remove("highPrioImageChange");
+  document.getElementById("highPrioImg").classList.remove("highPrioImageChange");
   document.getElementById("prio med").classList.remove("medPrioBackground");
   document.getElementById("medPrioImg").classList.remove("medPrioImageChange");
   document.getElementById("prio low").classList.remove("lowPrioBackground");
@@ -315,15 +334,6 @@ function inputBlur() {
 function inputClear() {
   let subtaskInput = document.getElementById("subtaskInput");
   subtaskInput.value = ``;
-  inputBlur();
-}
-
-/**
- * function to clear the input field
- */
-function inputClearAmendedSubtask() {
-  let subtaskInputAmended = document.getElementById(`amendedSubtask`);
-  subtaskInputAmended.value = ``;
   inputBlur();
 }
 

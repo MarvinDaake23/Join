@@ -115,9 +115,7 @@
     border-radius: 10px;
     margin-top: -8px;
 }
-.subTaskContainer:hover{
-    background-color: #d3d0d0;
-}
+
 
 .subtaskSettingContainer{
     position: absolute;
@@ -128,6 +126,75 @@
     justify-content: space-between;
     z-index: 2;
 }
+
+.relativeContainer {
+    position: relative;
+  }
+  
+  .editInput {
+    display: flex;
+    align-items: center;
+    border-right-width: 0px;
+    padding-right: 16px;
+    padding-top: 4px;
+    height: 20px;
+    padding-bottom: 4px;
+    padding-left: 16px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-bottom: 1px solid #005DFF;
+    position: absolute;
+    left: -15px;
+    right: -60px;
+  }
+
+  .inputIconTrash{
+    background-image: url("../assets/img/trash.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .inputIconSmallLineEdit{
+    border: 1px solid #d1d1d1;
+    height: 15px;
+  }
+
+  .subtask:hover .inputIconSmallLine{
+    border: 1px solid #d1d1d1;
+    height: 15px;
+  }
+
+  .inputIconCheck{
+    background-image: url("../assets/img/check.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .noMarker {
+    list-style-type: none;
+  }
+  
+  .editBox {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .editImgContainer {
+    cursor: pointer;
+    height: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .editImgContainer img {
+    object-fit: cover;
+  }
 
 .seperator{
     width:1px;
@@ -171,23 +238,21 @@
     background-size: contain;
 }
 
-.subtaskInputField{
-    background-color: white;
-    border-bottom: 1px solid #005DFF;
-    border-radius: 0;
-    padding: 4px 16px 4px 16px;
-    padding-left: 0;
+.bigSubtaskContainer:hover{
+    background-color: #EEEEEE;
+    border-radius: 10px;
 }
-
-.subtaskInputField:focus{
-    outline: none;
-    border: none;
+.bigSubtaskContainer{
+    background-color: transparent;
+    border-radius: 10px;
+    padding-left: 20px;
+    margin-top: 8px;
 }
 
 .iconContainerSubtask{
-    height: 16px;
-    width: 16px;
-    background-size: contain;
+    height: 14px;
+    width: 14px;
+    cursor: pointer;
 }
 
 .subtask{
@@ -337,6 +402,13 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+    width: 50px;
+}
+
+.positionFinalEditContainer{
+    position: absolute;
+    right: -60px;
+    top: 7px;
 }
 
 .list:hover{
