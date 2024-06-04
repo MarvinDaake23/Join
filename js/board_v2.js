@@ -316,24 +316,30 @@ function loadProgressbar(index, subEndCount, finished) {
 
 //
 function searchTask() {
-  let search = document.getElementById("findInput").value;
-  let boardTaskClass = document.querySelectorAll("boardCard");
+  let search = document.getElementById("findInput").value.toLowerCase();
+  let boardTaskClass = document.querySelectorAll('.boardCard');
 
   let idTodo = document.getElementById("todo");
-
-  search = search.toLowerCase();
   if (search.length > 3) {
-    taskQuery(idTodo, search, boardTaskClass);
+    taskQuery(idTodo, search ,boardTaskClass);
+  }
+  else{
+    boardTaskClass.forEach(container => {
+      container.style.display = 'flex';
+    })
   }
 }
 
 async function taskQuery(idTodo, search, boardTaskClass) {
-  boardTaskClass.forEach((container) => {
-    let title = container.querySelector("#title").innerText.toLowerCase();
+  boardTaskClass.forEach(container => {
+    let title = container.querySelector('#title').innerText.toLowerCase();
     if (title.includes(search)) {
-      container.style.display = "flex";
-    } else {
-      container.style.display = "none";
+      container.style.display ='flex';
     }
-  });
+    else{
+      container.style.display = 'none'
+    }
+  })
 }
+
+ 
