@@ -265,6 +265,14 @@ function loadPrioBoardTask(i) {
   }
 }
 
+async function deleteTask(index) {
+  boardTasks.splice(index, 1);
+  // neu hochladen
+  await putData("boardtasks", boardTasks);
+  removeboardBigContainer();
+  updateHTML();
+}
+
 /*
  * function to check which element is being moved
  */
@@ -317,29 +325,25 @@ function loadProgressbar(index, subEndCount, finished) {
 //
 function searchTask() {
   let search = document.getElementById("findInput").value.toLowerCase();
-  let boardTaskClass = document.querySelectorAll('.boardCard');
+  let boardTaskClass = document.querySelectorAll(".boardCard");
 
   let idTodo = document.getElementById("todo");
   if (search.length > 3) {
-    taskQuery(idTodo, search ,boardTaskClass);
-  }
-  else{
-    boardTaskClass.forEach(container => {
-      container.style.display = 'flex';
-    })
+    taskQuery(idTodo, search, boardTaskClass);
+  } else {
+    boardTaskClass.forEach((container) => {
+      container.style.display = "flex";
+    });
   }
 }
 
 async function taskQuery(idTodo, search, boardTaskClass) {
-  boardTaskClass.forEach(container => {
-    let title = container.querySelector('#title').innerText.toLowerCase();
+  boardTaskClass.forEach((container) => {
+    let title = container.querySelector("#title").innerText.toLowerCase();
     if (title.includes(search)) {
-      container.style.display ='flex';
+      container.style.display = "flex";
+    } else {
+      container.style.display = "none";
     }
-    else{
-      container.style.display = 'none'
-    }
-  })
+  });
 }
-
- 
