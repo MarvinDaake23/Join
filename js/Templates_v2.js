@@ -45,7 +45,7 @@ function renderBoardTask(element, index) {
             <div id="" class="boardType">${element["type"]}</div>
             <div class="boardTitle">${element["title"]}</div>
             <div class="boardDescription">${element["description"]}</div>
-            <div id="${element['category']}Progressbar${index}" class="progress">
+            <div id="progressBar${index}" class="progress">
                 
             </div>
             <div class="boardTaskFooter">
