@@ -39,18 +39,18 @@ function subtaskListInput(i) {
       `;
 }
 
-function renderBoardTask(element, i) {
+function renderBoardTask(element, index) {
     return /* html*/ `
-        <div id="${element[`id`]}" draggable="true" ondragstart="startDragging(${element[`id`]})" class="boardCard" onclick="loadBoardBigContainer(${i})">
+        <div id="boardTask${index}" draggable="true" ondragstart="startDragging(${index})" class="boardCard" onclick="loadBoardBigContainer(${index})">
             <div id="" class="boardType">${element["type"]}</div>
-            <div class="boardTitle">${element["title"]}</div>
-            <div class="boardDescription">${element["description"]}</div>
-            <div id="${element['category']}Progressbar${i}" class="progress">
-                
+            <div id="title" class="boardTitle">${element["title"]}</div>
+            <div id="description" class="boardDescription">${element["description"]}</div>
+            <div id="progressBar${index}" class="progress">
+            
             </div>
             <div class="boardTaskFooter">
-                <div class="boardTaskContacts" id="boardTaskContacts"></div>
-                <div id="boardTaskPrio${element[`id`]}"></div>
+                <div class="boardTaskContacts" id="boardTaskContacts${index}"></div>
+                <div id="boardTaskPrio${index}"></div>
             </div>
         </div>
     `;
@@ -65,12 +65,9 @@ function renderProgressbar(subEndCountLength,finished,width){
             `
 }
 
-/**
- *  Template for render Contact Icons in Boardtasks on Board Website
- */
 function renderBoardTaskContacts(element) {
     return /*html */ `
-        <div class="initialsOverlay initials initSmall " style="background-color:${element["profilColor"]}">
+        <div class="initials initSmall" style="background-color:${element["profileColor"]}">
             <span>${element["firstName"][0]}${element["lastName"][0]}</span>
         </div>
     `;
@@ -118,7 +115,7 @@ function renderBoardBigContainer(i) {
 function renderBoardBigContainerContacts(element) {
     return /*html */ `
         <div class="boardContacts">
-            <div style="background-color:${element["profilColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
+            <div style="background-color:${element["profileColor"]}" class="contactIcon initials initSmall">${element["firstName"][0]} ${element["lastName"][0]}</div>
             <div class="contactName">${element["firstName"]} ${element["lastName"]}</div>
         </div>
     `;
@@ -135,25 +132,25 @@ function renderBoardBigContainerSubtasks(element, j, i,src) {
 
 function renderBoardTaskPlaceholderTodo() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task To Do</div>
+        <div id="todoPlaceholder" class="emptyPlaceholder">No Task To Do</div>
     `;
 }
 
 function renderBoardTaskPlaceholderProgress() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task in progress</div>
+        <div id="progressPlaceholder" class="emptyPlaceholder">No Task in progress</div>
     `;
 }
 
 function renderBoardTaskPlaceholderFeedback() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task for Feedback</div>
+        <div id="feedbackPlaceholder" class="emptyPlaceholder">No Task for Feedback</div>
     `;
 }
 
 function renderBoardTaskPlaceholderDone() {
     return /*html */ `
-        <div class="emptyPlaceholder">No Task done</div>
+        <div id="donePlaceholder" class="emptyPlaceholder">No Task done</div>
     `;
 }
 
