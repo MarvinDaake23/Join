@@ -292,7 +292,7 @@ async function addTask() {
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
-  // board seite
+  // zur board seite
   visitBoard();
 }
 
