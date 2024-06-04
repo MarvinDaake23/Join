@@ -250,7 +250,7 @@ function loadPrioBoardTask(i) {
 function startDragging(id) {
   currentDraggedElement = id;
   // add class with rotation
-  document.getElementById(id).classList.add("rotate");
+  document.getElementById(`boardTask${id}`).classList.add("rotate");
 }
 
 /**
