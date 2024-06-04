@@ -555,6 +555,11 @@
     background-image: url("../assets/img/prioLowHighlight.png");
 }
 
+.bigSubtaskContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 @media (max-width : 1000px) {
     .addTaskBigContainer {

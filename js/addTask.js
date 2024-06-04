@@ -101,12 +101,12 @@ function updateSubtasksList(i){
 
 function subtaskListInput(element, i) {
   return /* html*/ `
-  <div id="bigSubtaskContainer${i}">
+  <div id="bigSubtaskContainer${i}" class="bigSubtaskContainer">
         <li class="liCat">
             <div id="subtask" class="subtask">
                 <div id="subtaskField${i}">${element}</div>
                 <div class="editContainerSubtask">
-                  <div onclick="editSubtaskList(${element}, ${i})" class="edit iconContainerSubtask"></div>
+                  <div onclick="editSubtaskList('${element}', ${i})" class="edit iconContainerSubtask"></div>
                   <div class="smallLine iconContainerSubtask"></div>
                   <div onclick="deleteSubtask(${i})" class="trashIcon iconContainerSubtask"></div>
                 </div>
