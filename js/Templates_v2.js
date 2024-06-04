@@ -44,9 +44,9 @@ function renderBoardTask(element, index) {
         <div id="boardTask${index}" draggable="true" ondragstart="startDragging(${index})" class="boardCard" onclick="loadBoardBigContainer(${index})">
             <div id="" class="boardType">${element["type"]}</div>
             <div id="title" class="boardTitle">${element["title"]}</div>
-            <div class="boardDescription">${element["description"]}</div>
+            <div id="description" class="boardDescription">${element["description"]}</div>
             <div id="progressBar${index}" class="progress">
-                
+            
             </div>
             <div class="boardTaskFooter">
                 <div class="boardTaskContacts" id="boardTaskContacts${index}"></div>
