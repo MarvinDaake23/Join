@@ -66,18 +66,15 @@ await putData("contacts", contacts2);
 // TASKS BACKUP
 let boardTasks2 = [
   {
-    id: 0,
     type: "User Story",
     title: "Join Projekt",
     description: "build a Kanban board",
     subtasks: [
       {
-        id: 0,
         subtaskText: "header",
         complete: false,
       },
       {
-        id: 1,
         subtaskText: "footer",
         complete: false,
       },
@@ -100,18 +97,15 @@ let boardTasks2 = [
     dueDate: "23-05-2024",
   },
   {
-    id: 1,
     type: "User Story",
     title: "Rasen mähen",
     description: "Kein Bock",
     subtasks: [
       {
-        id: 0,
         subtaskText: "header",
         complete: false,
       },
       {
-        id: 1,
         subtaskText: "footer",
         complete: false,
       },
@@ -129,18 +123,15 @@ let boardTasks2 = [
     dueDate: "29-05-2024",
   },
   {
-    id: 2,
     type: "Technical Task",
     title: "Saufen",
     description: "Das muss man immer machen",
     subtasks: [
       {
-        id: 0,
         subtaskText: "header",
         complete: false,
       },
       {
-        id: 1,
         subtaskText: "footer",
         complete: false,
       },
@@ -163,18 +154,15 @@ let boardTasks2 = [
     dueDate: "29-05-2024",
   },
   {
-    id: 3,
     type: "Technical Task",
     title: "Join abgeben",
     description: "fertig stellen",
     subtasks: [
       {
-        id: 0,
         subtaskText: "header",
         complete: false,
       },
       {
-        id: 1,
         subtaskText: "footer",
         complete: false,
       },
