@@ -128,6 +128,8 @@ function renderAllBoardTasks() {
   }
 }
 
+
+
 /**
  *  function to render the contacts of each task in the small view
  */
