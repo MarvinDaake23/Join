@@ -65,9 +65,12 @@ function renderProgressbar(subEndCountLength,finished,width){
             `
 }
 
+/**
+ *  Template for render Contact Icons in Boardtasks on Board Website
+ */
 function renderBoardTaskContacts(element) {
     return /*html */ `
-        <div class="initials initSmall " style="background-color:${element["profilColor"]}">
+        <div class="initialsOverlay initials initSmall " style="background-color:${element["profilColor"]}">
             <span>${element["firstName"][0]}${element["lastName"][0]}</span>
         </div>
     `;

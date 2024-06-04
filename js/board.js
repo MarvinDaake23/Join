@@ -245,10 +245,7 @@ function renderAwaitFeedback() {
     const element = feedback[index];
     let finished = element['finishedSubtasks'];
     let subtaskCount = element['subtasks'];
-    document.getElementById("feedback").innerHTML += renderBoardTask(
-      element,
-      index
-    );
+    document.getElementById("feedback").innerHTML += renderBoardTask(element,index);
     loadProgressbar(index,progressName,subtaskCount.length,finished);
     loadPrioBoardTask(element, index); // element dazu
     loadContactInBoardTask(index);
@@ -294,7 +291,7 @@ function loadContactInBoardTask(i) {
   let contacts = document.getElementById("boardTaskContacts");
   for (let j = 0; j < boardTasks[i]["assignedTo"].length; j++) {
     const element = boardTasks[i]["assignedTo"][j];
-    contacts.innerHTML += renderBoardTaskContacts(element);
+    contacts.innerHTML += renderBoardTaskContacts(element,i);
   }
 }
 
