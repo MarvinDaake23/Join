@@ -109,12 +109,11 @@
     display: flex;
     flex-direction: column;
     margin: 0px;
-    width:100%;
-    padding-left: 0px;
-    padding: 4px, 16px, 4px, 16px;
+    width: 98%;
     border-radius: 10px;
-    margin-top: -8px;
+    margin-top: -4px;
 }
+
 .subTaskContainer:hover{
     background-color: #d3d0d0;
 }
@@ -157,6 +156,7 @@
     background-image: url("../assets/img/trash.png");
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
 }
 
 .subtask:hover .smallLine{
@@ -169,6 +169,7 @@
     background-image: url("../assets/img/edit.png");
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
 }
 
 .subtaskInputField{
@@ -324,12 +325,10 @@
 }
 
 .liCat{
-    margin-left: 16px;
     margin-top: 8px;
     margin-bottom: 8px;
-    padding: 4px, 16px, 4px, 16px;
     border-radius: 10px;
-    width: 90%;
+    width: 98%;
 }
 
 .editContainerSubtask{

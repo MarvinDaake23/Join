@@ -91,29 +91,28 @@ function loadSubtaskList() {
 }
 }
 
-function updateSubtasksList(){
-  let subtaskList = document.getElementById("subTasks");
+function updateSubtasksList(i){
+  let subtaskList = document.getElementById(`bigSubtaskContainer${i}`);
   for (let i = 0; i < subtasks.length; i++) {
-    subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
+    subtaskList.innerHTML = subtaskListInput(subtasks[i], i);
   }
   inputClearAmendedSubtask();
 }
 
 function subtaskListInput(element, i) {
-
   return /* html*/ `
   <div id="bigSubtaskContainer${i}">
         <li class="liCat">
             <div id="subtask" class="subtask">
                 <div id="subtaskField${i}">${element}</div>
                 <div class="editContainerSubtask">
-                  <div onclick="editSubtaskList('${element}', ${i})" class="edit iconContainerSubtask"></div>
+                  <div onclick="editSubtaskList(${element}, ${i})" class="edit iconContainerSubtask"></div>
                   <div class="smallLine iconContainerSubtask"></div>
                   <div onclick="deleteSubtask(${i})" class="trashIcon iconContainerSubtask"></div>
                 </div>
-            <div>
+            </div>
         </li>
-</div>
+  </div>
 `;
 }
 
@@ -135,14 +134,15 @@ function templateEditSubtask(element, i) {
 
 function deleteSubtask(i){
   subtasks.splice(i, 1);
-  loadSubtaskList();
+  updateSubtasksList(i);
 }
 
 function keepSubtask(i) {
-  let newSubtask = document.getElementById(`amendedSubtask${i}`).value;  if (newSubtask.length > 1) {
+  let newSubtask = document.getElementById(`amendedSubtask${i}`).value;  
+  if (newSubtask.length > 1) {
       subtasks.splice(i, 1);
       subtasks.push(newSubtask)
-      updateSubtasksList();
+      updateSubtasksList(i);
   }
 }
 
@@ -343,8 +343,6 @@ async function addTask() {
   // zur board seite
   visitBoard();
 }
-
-
 
 function generateDataForTask(title, description, date, prio, category) {
   // Create JSON
