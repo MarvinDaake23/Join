@@ -75,31 +75,52 @@ function updateHTML() {
   renderAllBoardTasks();
 }
 
+function fillWithPlaceholders() {
+  document.getElementById("todo").innerHTML = renderBoardTaskPlaceholderTodo();
+  document.getElementById("progress").innerHTML =
+    renderBoardTaskPlaceholderProgress();
+  document.getElementById("feedback").innerHTML =
+    renderBoardTaskPlaceholderFeedback();
+  document.getElementById("done").innerHTML = renderBoardTaskPlaceholderDone();
+}
+
 function renderAllBoardTasks() {
+  fillWithPlaceholders();
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
+    let finished = boardTask.finishedSubtasks;
+    let subtaskCount = boardTask.subtasks;
     if (boardTask.category == "todo") {
       document.getElementById("todo").innerHTML += renderBoardTask(
         boardTask,
         index
       );
+      //placeholder unsichtbar machen
+      document.getElementById("todoPlaceholder").style.display = "none";
     } else if (boardTask.category == "progress") {
       document.getElementById("progress").innerHTML += renderBoardTask(
         boardTask,
         index
       );
+      //placeholder unsichtbar machen
+      document.getElementById("progressPlaceholder").style.display = "none";
     } else if (boardTask.category == "feedback") {
       document.getElementById("feedback").innerHTML += renderBoardTask(
         boardTask,
         index
       );
+      //placeholder unsichtbar machen
+      document.getElementById("feedbackPlaceholder").style.display = "none";
     } else if (boardTask.category == "done") {
       document.getElementById("done").innerHTML += renderBoardTask(
         boardTask,
         index
       );
+      //placeholder unsichtbar machen
+      document.getElementById("donePlaceholder").style.display = "none";
     }
     //loadProgressbar(index, progressName, subtaskCount.length, finished);
+    loadProgressbar(index, subtaskCount.length, finished);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -282,10 +303,8 @@ function done(j, i) {
   }
 }
 
-function loadProgressbar(index, progressName, subEndCount, finished) {
-  let currentProgressbar = document.getElementById(
-    `${progressName}Progressbar${index}`
-  );
+function loadProgressbar(index, subEndCount, finished) {
+  let currentProgressbar = document.getElementById(`progressBar${index}`);
   let progress = finished / subEndCount;
   let width = progress * 100;
   currentProgressbar.innerHTML = renderProgressbar(
@@ -297,39 +316,30 @@ function loadProgressbar(index, progressName, subEndCount, finished) {
 
 //
 function searchTask() {
-  let search = document.getElementById("findInput").value;
+  let search = document.getElementById("findInput").value.toLowerCase();
+  let boardTaskClass = document.querySelectorAll('.boardCard');
 
-  let idTodo = document.getElementById("todo");
-  let inProgress = document.getElementById("progress");
-  let awaitFeedback = document.getElementById("feedback");
-  let done = document.getElementById("done");
-
-  search = search.toLowerCase();
-  if (search.length > 2) {
-    taskQuery(idTodo, search);
-    /* taskQuery(inProgress, search);
-    taskQuery(awaitFeedback, search);
-    taskQuery(done, search); */
+  if (search.length > 3) {
+    taskQuery(search ,boardTaskClass);
+  }
+  else{
+    boardTaskClass.forEach(container => {
+      container.style.display = 'flex';
+    })
   }
 }
 
-async function taskQuery(idTodo, search) {
-  idTodo.innerHTML = ``;
-
-  let response = await fetch(BASE_URL + "boardtasks.json");
-  boardTasksToJson = await response.json();
-
-  for (let i = 0; i < boardTasksToJson.length; i++) {
-    let boardtasks = boardTasksToJson[i]["title"].toLowerCase();
-    let searchIndex = boardtasks.indexOf(search);
-
-    if (searchIndex !== -1) {
-      if (searchIndex === 0 || boardtasks.charAt(searchIndex - 1) === " ") {
-        for (let index = 0; index < todo.length; index++) {
-          const element = todo[index];
-          idTodo.innerHTML += renderBoardTask(element, i);
-        }
-      }
+async function taskQuery(search, boardTaskClass) {
+  boardTaskClass.forEach(container => {
+    let title = container.querySelector('#title').innerText.toLowerCase();
+    let description = container.querySelector('#description').innerText.toLowerCase();
+    if (title.includes(search) || description.includes(search) ) {
+      container.style.display ='flex';
     }
-  }
+    else{
+      container.style.display = 'none'
+    }
+  })
 }
+
+ 

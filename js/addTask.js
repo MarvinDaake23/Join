@@ -303,22 +303,23 @@ function generateDataForTask(title, description, date, prio, category) {
     description: description,
     subtasks: "",
     finishedSubtasks: [],
-    assignedTo: [
-      {
-        firstName: "Anton",
-        lastName: "Mayer",
-        profilColor: "#FF7A00",
-      },
-      {
-        firstName: "Benedikt",
-        lastName: "Ziegler",
-        profilColor: "#9327FF",
-      },
-    ],
+    assignedTo: [],
     type: category,
     priority: prio,
     dueDate: date,
     category: "todo",
   };
+
+  /*wichtig!*/
+  for (let index = 0; index < selectedTaskContacts.length; index++) {
+    const contact = selectedTaskContacts[index];
+    let json = {
+      firstName: contact.firstName,
+      lastName: contact.lastName,
+      profileColor: contact.profileColor,
+    };
+    data.assignedTo.push(json);
+  }
+
   return data;
 }
