@@ -78,6 +78,8 @@ function updateHTML() {
 function renderAllBoardTasks() {
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
+    let finished = boardTask.finishedSubtasks;
+    let subtaskCount = boardTask.subtasks;
     if (boardTask.category == "todo") {
       document.getElementById("todo").innerHTML += renderBoardTask(
         boardTask,
@@ -100,6 +102,7 @@ function renderAllBoardTasks() {
       );
     }
     //loadProgressbar(index, progressName, subtaskCount.length, finished);
+    loadProgressbar(index, subtaskCount.length, finished);
     loadPrioBoardTask(index);
     loadContactInBoardTask(index);
   }
@@ -282,10 +285,8 @@ function done(j, i) {
   }
 }
 
-function loadProgressbar(index, progressName, subEndCount, finished) {
-  let currentProgressbar = document.getElementById(
-    `${progressName}Progressbar${index}`
-  );
+function loadProgressbar(index, subEndCount, finished) {
+  let currentProgressbar = document.getElementById(`progressBar${index}`);
   let progress = finished / subEndCount;
   let width = progress * 100;
   currentProgressbar.innerHTML = renderProgressbar(
