@@ -67,7 +67,7 @@ function renderProgressbar(subEndCountLength,finished,width){
 
 function renderBoardTaskContacts(element) {
     return /*html */ `
-        <div class="initials initSmall" style="background-color:${element["profileColor"]}">
+        <div class="initials initSmall" style="background-color:${element["profileColor"]}; margin-left: -10px;">
             <span>${element["firstName"][0]}${element["lastName"][0]}</span>
         </div>
     `;
