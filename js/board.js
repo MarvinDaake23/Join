@@ -129,7 +129,7 @@ function renderAllBoardTasks() {
 /**
  * function for filtering and rendering all tasks with the category "To Do"
  */
-function renderTodos() {
+/* function renderTodos() {
   let progressName = "todo";
   let todo = boardTasks.filter((t) => t["category"] == "todo");
   document.getElementById("todo").innerHTML = "";
@@ -151,12 +151,12 @@ function renderTodos() {
     document.getElementById("todo").innerHTML =
       renderBoardTaskPlaceholderTodo();
   }
-}
+} */
 
 /**
  * function for filtering and rendering all tasks with the category "In progess"
  */
-function renderProgress() {
+/* function renderProgress() {
   let progressName = "progress";
   let inProgress = boardTasks.filter((t) => t["category"] == "progress");
   document.getElementById("progress").innerHTML = "";
@@ -178,12 +178,12 @@ function renderProgress() {
     document.getElementById("progress").innerHTML =
       renderBoardTaskPlaceholderProgress();
   }
-}
+} */
 
 /**
  * function for filtering and rendering all tasks with the category "Await Feedback"
  */
-function renderAwaitFeedback() {
+/* function renderAwaitFeedback() {
   let progressName = "feedback";
   let feedback = boardTasks.filter((t) => t["category"] == "feedback");
   document.getElementById("feedback").innerHTML = "";
@@ -205,12 +205,12 @@ function renderAwaitFeedback() {
     document.getElementById("feedback").innerHTML =
       renderBoardTaskPlaceholderFeedback();
   }
-}
+} */
 
 /**
  * function for filtering and rendering all tasks with the category "Done"
  */
-function renderDone() {
+/* function renderDone() {
   let progressName = "done";
   let done = boardTasks.filter((t) => t["category"] == "done");
   document.getElementById("done").innerHTML = "";
@@ -233,6 +233,8 @@ function renderDone() {
       renderBoardTaskPlaceholderDone();
   }
 }
+ */
+
 
 /**
  *  function to render the contacts of each task in the small view
