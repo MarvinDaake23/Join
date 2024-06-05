@@ -36,6 +36,10 @@ function loadWrapper() {
  *  function to load the contact wrapper with all saved contacts
  */
 function loadContactWrapper() {
+
+  // sort contacts by first name
+  sortContacts();
+
   let contactWrapper = document.getElementById("wrapperListAt");
 
   for (let i = 0; i < contacts.length; i++) {
