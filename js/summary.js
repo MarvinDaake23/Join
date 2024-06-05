@@ -49,7 +49,9 @@ async function onLoadSummary() {
   ];
   let deadline = new Date(boardTasks[0].dueDate);
   document.getElementById("upcomingDeadLine").innerHTML = `
-      ${monthNames[deadline.getMonth()]} ${deadline.getFullYear()}
+      ${monthNames[deadline.getMonth()]}
+      ${deadline.getDate()},
+      ${deadline.getFullYear()}
   `;
 
   await updateHeaderInitials();
