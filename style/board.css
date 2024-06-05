@@ -27,10 +27,7 @@
   justify-content: space-between;
   margin-top: 15px;
   margin-bottom: 15px;
-  /*  min-width: 252px;
-  max-width: 252px;
-  padding-left: 16px;
-  padding-right: 16px; */
+  height: 32px;
 }
 
 .headline {
