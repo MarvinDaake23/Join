@@ -66,8 +66,6 @@ sidebar {
 
 .sidebarLinks a:hover {
   color: #29abe2;
-  font-size: 16px;
-  font-weight: 700;
   /*transform: scale(1.05);*/
 }
 
