@@ -85,7 +85,6 @@ function loadSubtaskList() {
   inputClear();
 }
 
-
 function subtaskListInput(element, i) {
   return /* html*/ `
   <div id="bigSubtaskContainer${i}" class="bigSubtaskContainer">
@@ -133,9 +132,10 @@ function editSubtaskList(element, i) {
   `;
 
   document.getElementById(`liCat${i}`).classList.add(`noMarker`);
-  document.getElementById(`bigSubtaskContainer${i}`).classList.remove(`bigSubtaskContainer`);
+  document
+    .getElementById(`bigSubtaskContainer${i}`)
+    .classList.remove(`bigSubtaskContainer`);
 }
-
 
 function saveEditedSubtask(i) {
   let editedValue = document.getElementById(`editSubtaskInput${i}`).value;
@@ -147,7 +147,6 @@ function saveEditedSubtask(i) {
   renderSubtaskList();
 }
 
-
 function deleteSubtask(i) {
   subtasks.splice(i, 1);
   renderSubtaskList();
@@ -156,7 +155,6 @@ function deleteSubtask(i) {
 function inputClear() {
   document.getElementById("subtaskInput").value = "";
 }
-
 
 /**
  * function to open all Wrapper on "AddTask" side
@@ -219,7 +217,7 @@ function checkCategory() {
   let category = document.getElementById("placeholder");
   let alert = document.getElementById("requiredCategory");
 
-  if ((category.innerHTML === "Select task Category")) {
+  if (category.innerHTML === "Select task Category") {
     alert.innerHTML = `
     This field is required
     `;
@@ -232,9 +230,9 @@ function checkCategory() {
 /**
  * function to block date in the past
  */
-document.addEventListener('DOMContentLoaded', (event) => {
-  let today = new Date().toISOString().split('T')[0];
-  document.getElementById('date').min = today;
+document.addEventListener("DOMContentLoaded", (event) => {
+  let today = new Date().toISOString().split("T")[0];
+  document.getElementById("date").min = today;
 });
 
 // document.getElementById('addTaskForm').addEventListener('submit', function (event) {
@@ -277,7 +275,9 @@ function prioChoose(i) {
     resetPrioContainers();
     if (prioValue === 2) {
       document.getElementById("prio high").classList.add("highPrioBackground");
-      document.getElementById("highPrioImg").classList.add("highPrioImageChange");
+      document
+        .getElementById("highPrioImg")
+        .classList.add("highPrioImageChange");
     }
     if (prioValue === 1) {
       document.getElementById("prio med").classList.add("medPrioBackground");
@@ -295,7 +295,9 @@ function prioChoose(i) {
  */
 function resetPrioContainers() {
   document.getElementById("prio high").classList.remove("highPrioBackground");
-  document.getElementById("highPrioImg").classList.remove("highPrioImageChange");
+  document
+    .getElementById("highPrioImg")
+    .classList.remove("highPrioImageChange");
   document.getElementById("prio med").classList.remove("medPrioBackground");
   document.getElementById("medPrioImg").classList.remove("medPrioImageChange");
   document.getElementById("prio low").classList.remove("lowPrioBackground");
@@ -361,8 +363,8 @@ function generateDataForTask(title, description, date, prio, category) {
   let data = {
     title: title,
     description: description,
-    subtasks: "",
-    finishedSubtasks: [],
+    subtasks: [],
+    finishedSubtasks: 0,
     assignedTo: [],
     type: category,
     priority: prio,
@@ -370,7 +372,7 @@ function generateDataForTask(title, description, date, prio, category) {
     category: "todo",
   };
 
-  /*wichtig!*/
+  /*contacts!*/
   for (let index = 0; index < selectedTaskContacts.length; index++) {
     const contact = selectedTaskContacts[index];
     let json = {
@@ -379,6 +381,16 @@ function generateDataForTask(title, description, date, prio, category) {
       profileColor: contact.profileColor,
     };
     data.assignedTo.push(json);
+  }
+
+  /*subtasks*/
+  for (let index = 0; index < subtasks.length; index++) {
+    const subtask = subtasks[index];
+    let json = {
+      subtaskText: subtask,
+      complete: false,
+    };
+    data.subtasks.push(json);
   }
 
   return data;
