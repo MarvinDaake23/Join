@@ -86,6 +86,7 @@ function backToContactList() {
 
 function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalEditContact").style.display = "none";
   document.getElementById("modalAddContact").style.display = "";
 }
 
@@ -160,6 +161,13 @@ function showMore() {
 }
 
 function showEditContact(id) {
+  document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalAddContact").style.display = "none";
+  document.getElementById("modalEditContact").style.display = "";
+}
+
+/*
+function showEditContact(id) {
   if (window.innerWidth > vwBreak) {
     // desktop
     document.getElementById("modalBackground").style.display = "block";
@@ -219,6 +227,7 @@ function showEditContact(id) {
       );
   }
 }
+*/
 
 async function editContact(id) {
   //update array and put to db

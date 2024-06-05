@@ -1,11 +1,13 @@
-#modalAddContact {
+/* DESKTOP VIEW */
+#modalAddContact,
+#modalEditContact {
   display: flex;
   flex-direction: row;
 }
 
-
 @media (max-width: 620px) {
-  #modalAddContact {
+  #modalAddContact,
+  #modalEditContact {
     flex-direction: column;
   }
 }
