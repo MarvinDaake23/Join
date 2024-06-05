@@ -98,7 +98,7 @@
   color: #a8a8a8;
 }
 
-.imgContainer {
+.imgContainersubtask {
   position: absolute;
   top: 6px;
   right: 30px;
@@ -114,10 +114,11 @@
 }
 
 .taskTitleInputContainer input {
-  width: 90%; 
+  width: 100%;
   border-radius: 10px;
   padding: 8px 16px 8px 16px;
   border: 1px solid #d1d1d1;
+  height: 32px;
 }
 
 .findInput:focus {
@@ -555,14 +556,14 @@
   background-image: url("../assets/img/prioLowHighlight.png");
 }
 
-.taskTitleInputContainer input{
-  width:100%;
+.sutaskTitleInputContainer input{
+  width: 90%;
   border-radius:10px;
   padding: 12px 16px 12px 16px;
   border:1px solid #D1D1D1;
 }
 
-.taskTitleInputContainer{
+.subtaskTitleInputContainer{
   position: relative;
 }
 

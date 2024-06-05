@@ -292,7 +292,7 @@ function rendersubtaskTemplate() {
       <div>Title</div>
         <input class="requiredInput" type="text" placeholder="Enter at title">
       <div>Discription</div>
-        <input class="textareaDescription blueOutlineInput" type="text" placeholder="Enter a Description">
+        <input class="textareaDescription" type="text" placeholder="Enter a Description">
       <div>Due Date</div>
         <input class="requiredInput" id="date" required type="date" placeholder="dd/mm/yyyy" min="2024-06-05">
       <div>Priority</div>
@@ -321,9 +321,9 @@ function rendersubtaskTemplate() {
           <ul id="wrapperListAt" class="wrapperList d-none"></ul>
           <div id="selectedContacts"></div>
       <div>Subtask</div>
-        <div class="taskTitleInputContainer">
+        <div class="sutaskTitleInputContainer">
             <input id="subtaskInput" type="text" placeholder="Add new subtask">
-            <div id="imgContainerSubtask" class="imgContainer imgContainerBackground"></div>
+            <div id="imgContainerSubtask" class="imgContainersubtask imgContainerBackground"></div>
         </div>
     `;
 }
