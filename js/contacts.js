@@ -164,70 +164,35 @@ function showEditContact(id) {
   document.getElementById("modalBackground").style.display = "block";
   document.getElementById("modalAddContact").style.display = "none";
   document.getElementById("modalEditContact").style.display = "";
+  renderValuesToEditContactFormular(id);
 }
 
-/*
-function showEditContact(id) {
-  if (window.innerWidth > vwBreak) {
-    // desktop
-    document.getElementById("modalBackground").style.display = "block";
-    document.getElementById("modalEditContactDesktop").style.display = "flex";
-    document.getElementById(
-      "editNameInputDesktop"
-    ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
-    document.getElementById("editEmailInputDesktop").value = contacts[id].email;
-    document.getElementById("editPhoneInputDesktop").value =
-      contacts[id].phoneNumber;
-    document.getElementById(
-      "editInitialsDesktop"
-    ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
-    document.getElementById("editInitialsDesktop").style.backgroundColor =
-      contacts[id].profileColor;
+function renderValuesToEditContactFormular(id) {
+  document.getElementById(
+    "editNameInput"
+  ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
+  document.getElementById("editEmailInput").value = contacts[id].email;
+  document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
+  document.getElementById(
+    "editInitials"
+  ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
+  document.getElementById("editInitials").style.backgroundColor =
+    contacts[id].profileColor;
 
-    document
-      .getElementById("editContactFormDesktop")
-      .setAttribute(
-        "onsubmit",
-        `editContactDesktop(${id});closeEditContact();singleContactView(${id});return false;`
-      );
+  document
+    .getElementById("editContactForm")
+    .setAttribute(
+      "onsubmit",
+      `editContact(${id});closeEditContact();return false;`
+    );
 
-    document
-      .getElementById("editContactDeleteButtonDesktop")
-      .setAttribute(
-        "onclick",
-        `deleteContact(${id});closeEditContact();return false;`
-      );
-  } else {
-    // mobile
-    document.getElementById("modalBackground").style.display = "block";
-    document.getElementById("modalEditContact").style.display = "block";
-    document.getElementById(
-      "editNameInput"
-    ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
-    document.getElementById("editEmailInput").value = contacts[id].email;
-    document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
-    document.getElementById(
-      "editInitials"
-    ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
-    document.getElementById("editInitials").style.backgroundColor =
-      contacts[id].profileColor;
-
-    document
-      .getElementById("editContactForm")
-      .setAttribute(
-        "onsubmit",
-        `editContact(${id});closeEditContact();return false;`
-      );
-
-    document
-      .getElementById("editContactDeleteButton")
-      .setAttribute(
-        "onclick",
-        `deleteContact(${id});closeEditContact();return false;`
-      );
-  }
+  document
+    .getElementById("editContactDeleteButton")
+    .setAttribute(
+      "onclick",
+      `deleteContact(${id});closeEditContact();return false;`
+    );
 }
-*/
 
 async function editContact(id) {
   //update array and put to db
