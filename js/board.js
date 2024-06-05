@@ -247,3 +247,10 @@ async function deleteTask(i) {
   removeboardBigContainer();
   updateHTML();
 }
+
+function rendersubtask() {
+  let newTask = document.getElementById('boardBigContainer');
+  newTask.innerHTML =``; 
+
+  newTask.innerHTML = rendersubtaskTemplate();
+}
