@@ -291,16 +291,39 @@ function rendersubtaskTemplate() {
     return /*html */ `
     <div class="column">
       <div>Title</div>
-      <input type="text" placeholder="Kochwelt beispiel">
+      <input class="requiredInput" type="text" placeholder="Enter at title">
       <div>Discription</div>
-      <input type="text" placeholder="idnfnwedofnweo wccw cwc wdcwcwcwds cwc wcwc">
+      <input class="textareaDescription blueOutlineInput" type="text" placeholder="Enter a Description">
       <div>Due Date</div>
-      <input type="text" placeholder="date">
+      <input class="requiredInput" id="date" required type="date" placeholder="dd/mm/yyyy" min="2024-06-05">
       <div>Priority</div>
       <div class="row">
-        <img src="../assets/img/Frame Urgent-White.png" alt="">
-        <img src="../assets/img/Frame Medium-White.png" alt="">
-        <img src="../assets/img/Frame Low-White.png" alt="">
+      <div class="prioChoose">
+                <div
+                  onclick="prioChoose(2)"
+                  id="prio high"
+                  class="prio high prioContainerBorder"
+                >
+                  <span>Urgent</span>
+                  <div id="highPrioImg" class="highPrioImg"></div>
+                </div>
+                <div
+                  onclick="prioChoose(1)"
+                  id="prio med"
+                  class="prio med prioContainerBorder"
+                >
+                  <span>Medium</span>
+                  <div id="medPrioImg" class="medPrioImg"></div>
+                </div>
+                <div
+                  onclick="prioChoose(0)"
+                  id="prio low"
+                  class="prio low prioContainerBorder"
+                >
+                  <span>Low</span>
+                  <div id="lowPrioImg" class="lowPrioImg"></div>
+                </div>
+              </div>
       </div>
       <div>Assigned to</div>
       <input type="text" placeholder="">

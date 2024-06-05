@@ -456,6 +456,98 @@
   border:1px solid #d1d1d1;
 }
 
+.requiredInput{
+  width: 90%;
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  border: 1px solid #D1D1D1;
+}
+
+.textareaDescription{
+  border-radius: 10px;
+  border: none;
+  height: 90px;
+  border: 1px solid #D1D1D1;
+  width: 90%;
+  padding: 8px 16px 18px 16px;
+  outline: none;
+  font-family: "Inter";
+}
+
+.prioChoose{
+  display: flex;
+  align-items: center;
+  gap:16px;
+  cursor: pointer;
+}
+
+.prio{
+  gap:8px;
+  border-radius: 10px;
+  height:56px;
+  width:30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.lowPrioImg{
+  background-image: url('../assets/img/prioLow.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height:14px;
+}
+
+.medPrioImg{
+  background-image: url('../assets/img/prioMedium.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height:14px;
+}
+
+.highPrioImg{
+  background-image: url('../assets/img/prioHigh.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height:14px;
+}
+
+.high:hover{
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
+}
+
+.highPrioBackground{
+  background-color: #FF3D00;
+  color: white;
+}
+
+.highPrioImageChange{
+  background-image: url("../assets/img/prioHighHighlight.png");
+}
+
+.medPrioBackground{
+  background-color: #FFA800;
+  color: white;
+}
+
+.medPrioImageChange{
+  background-image: url("../assets/img/prioMediumHighlight.png");
+}
+
+.lowPrioBackground{
+  background-color: #7AE229;
+  color: white;
+}
+
+.lowPrioImageChange{
+  background-image: url("../assets/img/prioLowHighlight.png");
+}
+
+
 @media (min-width: 1200px) {
   .progressInformationContainer {
     display: flex;
