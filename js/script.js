@@ -79,7 +79,7 @@ async function includeHTML() {
 /* GENERAL FUNCTIONS */
 
 // breakpoint of viewport width
-let vwBreak = 480;
+let vwBreak = 620;
 
 function getLoggedInUserName() {
   let user = [];
