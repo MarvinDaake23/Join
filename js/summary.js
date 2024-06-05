@@ -31,6 +31,9 @@ async function onLoadSummary() {
   document.getElementById("urgentCounter").innerHTML =
     countTasksByPriority("Urgent");
 
+  // upcoming deadline
+  document.getElementById("upcomingDeadLine").innerHTML = boardTasks[0].dueDate;
+
   await updateHeaderInitials();
 }
 
@@ -83,4 +86,11 @@ function greetUser() {
 
 function goToBoardPage() {
   window.location = "board.html";
+}
+
+/**
+ * function to sort the due Dates
+ */
+function sortDates() {
+  boardTasks.sort((a, b) => (a.dueDate > b.dueDate ? -1 : 1));
 }
