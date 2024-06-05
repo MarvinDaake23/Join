@@ -33,7 +33,26 @@ async function onLoadSummary() {
     countTasksByPriority("Urgent");
 
   // upcoming deadline
-  document.getElementById("upcomingDeadLine").innerHTML = boardTasks[0].dueDate;
+  let monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let deadline = new Date(boardTasks[0].dueDate);
+  document.getElementById("upcomingDeadLine").innerHTML = `
+      ${monthNames[deadline.getMonth()]}
+      ${deadline.getDate()},
+      ${deadline.getFullYear()}
+  `;
 
   await updateHeaderInitials();
 }

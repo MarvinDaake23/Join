@@ -94,7 +94,7 @@ let boardTasks2 = [
     ],
     category: "feedback" /*todo -> feedback" */,
     priority: "Low",
-    dueDate: new Date("2024-05-23"),
+    dueDate: "2024-05-23",
   },
   {
     type: "User Story",
@@ -120,7 +120,7 @@ let boardTasks2 = [
     ],
     category: "todo" /*todo -> feedback" */,
     priority: "Urgent",
-    dueDate: new Date("2024-01-01"),
+    dueDate: "2024-01-01",
   },
   {
     type: "Technical Task",
@@ -151,7 +151,7 @@ let boardTasks2 = [
     ],
     category: "todo" /*todo -> feedback" */,
     priority: "Urgent",
-    dueDate: new Date("2024-03-03"),
+    dueDate: "2024-03-03",
   },
   {
     type: "Technical Task",
@@ -182,7 +182,7 @@ let boardTasks2 = [
     ],
     category: "done" /*todo -> feedback" */,
     priority: "Medium",
-    dueDate: new Date("2023-05-04"),
+    dueDate: "2023-05-04",
   },
 ];
 
