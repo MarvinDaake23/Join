@@ -504,7 +504,7 @@ a {
   padding: 16px;
 }
 
-#editContactDeleteButton {
+#editContactDeleteButton, #editContactDeleteButtonDesktop {
   width: 82px;
   height: 51px;
   background-color: white;
