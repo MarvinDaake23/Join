@@ -10,6 +10,7 @@ let user = JSON.parse(userAsText);
 async function onLoadSummary() {
   await includeHTML();
   boardTasks = await loadData("boardtasks");
+  sortDates();
   document.getElementById("greeting").innerHTML = greetUser();
   document.getElementById("loggedInUserName").innerHTML = getLoggedInUserName();
 
@@ -89,8 +90,9 @@ function goToBoardPage() {
 }
 
 /**
- * function to sort the due Dates
+ * function to sort the due Dates, aufsteigend sortieren ab heute
  */
 function sortDates() {
-  boardTasks.sort((a, b) => (a.dueDate > b.dueDate ? -1 : 1));
+  //boardTasks.sort((a, b) => (Date.parse(a.dueDate) > Date.parse(b.dueDate) ? -1 : 1));
+  boardTasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
 }
