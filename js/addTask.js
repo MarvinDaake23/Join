@@ -2,7 +2,7 @@ let categorys = ["Technical Task", "User Story"];
 let prios = ["Low", "Medium", "Urgent"];
 let subtasks = [];
 let task = [];
-let prioValue;
+let prioValue = null;
 let cat;
 let selectedTaskContacts = [];
 
@@ -86,17 +86,8 @@ function loadSubtaskList() {
 }
 
 
-// function updateSubtasksList(){
-//   let subtaskList = document.getElementById("subTasks");
-//   for (let i = 0; i < subtasks.length; i++) {
-//     subtaskList.innerHTML = subtaskListInput(subtasks[i], i);
-//   }
-//   inputClearAmendedSubtask();
-// }
-
 function subtaskListInput(element, i) {
   return /* html*/ `
-  <div id="bigSubtaskContainer${i}" class="bigSubtaskContainer">
   <div id="bigSubtaskContainer${i}" class="bigSubtaskContainer">
         <li class="liCat">
             <div id="subtask" class="subtask">
@@ -228,7 +219,7 @@ function checkCategory() {
   let category = document.getElementById("placeholder");
   let alert = document.getElementById("requiredCategory");
 
-  if ((category.innerHTML = "Select task Category")) {
+  if ((category.innerHTML === "Select task Category")) {
     alert.innerHTML = `
     This field is required
     `;
@@ -237,6 +228,14 @@ function checkCategory() {
     document.getElementById("wrapper").classList.add("blueOutlineInput");
   }
 }
+
+/**
+ * function to block date in the past
+ */
+document.addEventListener('DOMContentLoaded', (event) => {
+  let today = new Date().toISOString().split('T')[0];
+  document.getElementById('date').min = today;
+});
 
 // document.getElementById('addTaskForm').addEventListener('submit', function (event) {
 //   // Alle Fehlermeldungen entfernen
@@ -267,29 +266,32 @@ function checkCategory() {
 // });
 
 /**
- * function to select the priority
+ * Function to select the priority
  */
 function prioChoose(i) {
-  prioValue = i;
-
-  resetPrioContainers();
-
-  if (prioValue == 2) {
-    document.getElementById("prio high").classList.add("highPrioBackground");
-    document.getElementById("highPrioImg").classList.add("highPrioImageChange");
-  }
-  if (prioValue == 1) {
-    document.getElementById("prio med").classList.add("medPrioBackground");
-    document.getElementById("medPrioImg").classList.add("medPrioImageChange");
-  }
-  if (prioValue == 0) {
-    document.getElementById("prio low").classList.add("lowPrioBackground");
-    document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
+  if (prioValue === i) {
+    prioValue = null;
+    resetPrioContainers();
+  } else {
+    prioValue = i;
+    resetPrioContainers();
+    if (prioValue === 2) {
+      document.getElementById("prio high").classList.add("highPrioBackground");
+      document.getElementById("highPrioImg").classList.add("highPrioImageChange");
+    }
+    if (prioValue === 1) {
+      document.getElementById("prio med").classList.add("medPrioBackground");
+      document.getElementById("medPrioImg").classList.add("medPrioImageChange");
+    }
+    if (prioValue === 0) {
+      document.getElementById("prio low").classList.add("lowPrioBackground");
+      document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
+    }
   }
 }
 
 /**
- *function to reset the priority
+ * Function to reset the priority
  */
 function resetPrioContainers() {
   document.getElementById("prio high").classList.remove("highPrioBackground");
