@@ -12,6 +12,7 @@
     <script src="./js/Templates.js"></script>
     <!-- style for this page-->
     <link rel="stylesheet" href="./style/contacts.css" />
+    <link rel="stylesheet" href="./style/contacts_modal.css" />
     <!-- scripts for this page -->
     <script src="./js/contacts.js"></script>
   </head>
@@ -19,169 +20,17 @@
   <body class="contacts" id="body" onload="onLoadFunc()">
     <!-- Modal Background -->
     <div id="modalBackground">
-      <!-- Modal content v1: Add contact MOBILE -->
+      <!-- Modal content v1: Add contact MOBILE/DESKTOP -->
       <div
         id="modalAddContact"
         w3-include-html="./includes/modalAddContact.html"
       ></div>
 
-      <!-- Modal content v4: Add Contact Desktop -->
-      <div id="modalAddContact">
-        <div class="upperHalf">
-          <span onclick="closeAddContact()">&times;</span>
-          <h2>Add contact</h2>
-          <h3>Tasks are better with a team!</h3>
-          <hr />
-        </div>
-
-        <div class="lowerHalf">
-          <img class="newContactPic" src="./assets/img/person.png" />
-          <form onsubmit="createContact(); return false;">
-            <input
-              required
-              id="nameInput"
-              type="text"
-              class="nameInput"
-              placeholder="Name"
-              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
-              title="first and last name needed"
-            />
-            <input
-              required
-              id="emailInput"
-              type="email"
-              class="mailInput"
-              placeholder="Email"
-            />
-            <input
-              required
-              id="phoneInput"
-              type=""
-              class="phoneInput"
-              placeholder="Phone"
-              pattern="([0-9]+)"
-            />
-            <div class="buttonPair">
-              <button class="cancelButton">
-                Cancel<img src="./assets/img/cancel.svg" />
-              </button>
-              <button id="createContactButton">
-                Create contact<img src="assets/img/check.svg" />
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- Modal content v2: Edit -->
-      <div id="modalEditContact">
-        <div class="upperHalf">
-          <span onclick="closeEditContact()">&times;</span>
-          <h1>Edit contact</h1>
-          <h3>Tasks are better with a team!</h3>
-          <hr />
-        </div>
-
-        <div class="lowerHalf">
-          <div id="editInitials"></div>
-          <form id="editContactForm" onsubmit="editContact();return false;">
-            <input
-              required
-              id="editNameInput"
-              type="text"
-              class="nameInput"
-              placeholder="Name"
-              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
-              title="first and last name needed"
-            />
-            <input
-              required
-              id="editEmailInput"
-              type="email"
-              class="mailInput"
-              placeholder="Email"
-            />
-            <input
-              required
-              id="editPhoneInput"
-              type=""
-              class="phoneInput"
-              placeholder="Phone"
-              pattern="([0-9]+)"
-            />
-            <div class="buttonPair">
-              <button
-                type="button"
-                id="editContactDeleteButton"
-                onclick="deleteContact()"
-              >
-                Delete
-              </button>
-              <button type="submit" id="editContactSaveButton">
-                Save<img src="./assets/img/check.svg" />
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- Modal content v3: Edit -->
-      <div id="modalEditContactDesktop">
-        <div class="leftSide">
-          <img src="./assets/img/headerlogo.svg" />
-          <h1>Edit contact</h1>
-          <hr />
-        </div>
-
-        <div class="middle">
-          <div id="editInitialsDesktop"></div>
-        </div>
-
-        <div class="right">
-          <span onclick="closeEditContact()">&times;</span>
-          <form
-            id="editContactFormDesktop"
-            onsubmit="editContactDesktop();return false;"
-          >
-            <input
-              required
-              id="editNameInputDesktop"
-              type="text"
-              class="nameInput"
-              placeholder="Name"
-              pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
-              title="first and last name needed"
-            />
-            <input
-              required
-              id="editEmailInputDesktop"
-              type="email"
-              class="mailInput"
-              placeholder="Email"
-            />
-            <input
-              required
-              id="editPhoneInputDesktop"
-              type=""
-              class="phoneInput"
-              placeholder="Phone"
-              pattern="([0-9]+)"
-            />
-            <div class="buttonPair">
-              <button
-                type="button"
-                id="editContactDeleteButtonDesktop"
-                onclick="deleteContact()"
-              >
-                Delete
-              </button>
-              <button type="submit" id="editContactSaveButton">
-                Save<img src="./assets/img/check.svg" />
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <!-- Modal content v2: Edit contact MOBILE/DESKTOP -->
+      <div
+        id="modalEditContact"
+        w3-include-html="./includes/modalEditContact.html"
+      ></div>
     </div>
 
     <sidebar w3-include-html="./includes/sidebar.html"></sidebar>

@@ -1,0 +1,11 @@
+#modalAddContact {
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media (max-width: 620px) {
+  #modalAddContact {
+    flex-direction: column;
+  }
+}

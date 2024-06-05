@@ -86,7 +86,7 @@ function backToContactList() {
 
 function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
-  document.getElementById("modalAddContact").style.display = "block";
+  document.getElementById("modalAddContact").style.display = "";
 }
 
 function closeAddContact() {
