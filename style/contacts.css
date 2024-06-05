@@ -702,6 +702,6 @@ nav a:hover {
   }
 
   .moreButton {
-    display: fixed;
+    display: flex;
   }
 }
