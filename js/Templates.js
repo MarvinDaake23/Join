@@ -289,160 +289,26 @@ function renderSingleContactMobileHTML(id) {
 
 function rendersubtaskTemplate() {
     return /*html */ `
-      <h1 class="headlineAddTask">Add Task</h1>
-
-      <div class="addTaskBigContainer">
-        <form
-          id="addTaskForm"
-          onsubmit="addTask(); return false;"
-          form="board.html"
-          class="addTaskForm"
-          action=""
-        >
-          <div class="leftSideAddTaskPage">
-            <div class="taskTitleContainer">
-              <span class="addTaskSpans">Title <span class="red">*</span></span>
-              <div class="taskTitleInputContainer">
-                <input
-                  onclick="checkRequiredInputs()"
-                  class="requiredInput"
-                  id="title"
-                  required
-                  type="text"
-                  placeholder="Enter at title"
-                />
-              </div>
-              <span
-                id="requiredInputAddTask"
-                class="error-message"
-                aria-live="polite"
-              ></span>
-            </div>
-
-            <div class="taskDescriptionContainer">
-              <span class="addTaskSpans">Description</span>
-              <div class="taskDescriptionInputContainer">
-                <textarea
-                  placeholder="Enter a Description"
-                  class="textareaDescription blueOutlineInput"
-                  id="description"
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="taskTitleContainer">
-              <span class="addTaskSpans">Assigned to</span>
-              <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
-                <span>Select contacts to assign</span>
-                <img
-                  id="arrowDownAt"
-                  src="./assets/img/arrow_down.png"
-                  alt=""
-                />
-                <img
-                  id="arrowUpAt"
-                  class="dNone"
-                  src="./assets/img/arrow_up.png"
-                  alt=""
-                />
-              </div>
-              <ul id="wrapperListAt" class="wrapperList dNone"></ul>
-              <div id="selectedContacts"></div>
-            </div>
-          </div>
-
-          <div class="grayLineAddTaskPage"></div>
-
-          <div class="rightSideAddTaskPage">
-            <div class="dateCotainer">
-              <span class="addTaskSpans"
-                >Due date <span class="red">*</span></span
-              >
-              <input
-                class="requiredInput"
-                id="date"
-                required
-                type="date"
-                placeholder="dd/mm/yyyy"
-              />
-              <span class="error-message" aria-live="polite"></span>
-            </div>
-
-            <div class="prioContainer">
-              <span class="addTaskSpans">Prio</span>
-              <div class="prioChoose">
-                <div
-                  onclick="prioChoose(2)"
-                  id="prio high"
-                  class="prio high prioContainerBorder"
-                >
-                  <span>Urgent</span>
-                  <div id="highPrioImg" class="highPrioImg"></div>
-                </div>
-                <div
-                  onclick="prioChoose(1)"
-                  id="prio med"
-                  class="prio med prioContainerBorder"
-                >
-                  <span>Medium</span>
-                  <div id="medPrioImg" class="medPrioImg"></div>
-                </div>
-                <div
-                  onclick="prioChoose(0)"
-                  id="prio low"
-                  class="prio low prioContainerBorder"
-                >
-                  <span>Low</span>
-                  <div id="lowPrioImg" class="lowPrioImg"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="taskTitleContainer categoryContainer">
-              <span class="addTaskSpans"
-                >Category<span class="red"> *</span></span
-              >
-
-              <div id="wrapper" class="wrapper" onclick="openWrapper('')">
-                <span id="placeholder">Select task category</span>
-                <img id="arrowDown" src="./assets/img/arrow_down.png" alt="" />
-                <img
-                  id="arrowUp"
-                  class="dNone"
-                  src="./assets/img/arrow_up.png"
-                  alt=""
-                />
-              </div>
-              <ul id="wrapperList" class="wrapperList dNone"></ul>
-              <span
-                id="requiredCategory"
-                class="error-message"
-                aria-live="polite"
-              ></span>
-            </div>
-
-            <div class="taskTitleContainer">
-              <span class="addTaskSpans">Subtask</span>
-              <div class="taskTitleInputContainer">
-                <input
-                  id="subtaskInput"
-                  type="text"
-                  placeholder="Add new subtask"
-                />
-                <div
-                  id="imgContainerSubtask"
-                  class="imgContainer imgContainerBackground"
-                ></div>
-              </div>
-              <ul class="subTaskContainer" id="subTasks"></ul>
-            </div>
-
-            <div class="checkoutContainer">
-              <span><span class="red">*</span>This field is required</span>
-              <button type="submit" class="addTaskButton">Create Task<img src="./assets/img/checkWhite.png" alt="" onclick="checkCategory()"></button>
-          </div>
-        </form>
+    <div class="column">
+      <div>Title</div>
+      <input type="text" placeholder="Kochwelt beispiel">
+      <div>Discription</div>
+      <input type="text" placeholder="idnfnwedofnweo wccw cwc wdcwcwcwds cwc wcwc">
+      <div>Due Date</div>
+      <input type="text" placeholder="date">
+      <div>Priority</div>
+      <div class="row">
+        <img src="../assets/img/Frame Urgent-White.png" alt="">
+        <img src="../assets/img/Frame Medium-White.png" alt="">
+        <img src="../assets/img/Frame Low-White.png" alt="">
       </div>
-
+      <div>Assigned to</div>
+      <input type="text" placeholder="">
+    </div>
+    <div id="wrapper" class="wrapper" onclick="openWrapper()">
+      <span id="placeholder">Select task category</span>
+      <img id="arrowDown" src="./assets/img/arrow_down.png" alt="" />
+      <img id="arrowUp" class="d-none" src="./assets/img/arrow_up.png" alt=""/>
+    </div>
     `;
 }
