@@ -15,10 +15,17 @@
     <!-- scripts for this page -->
     <script src="./js/contacts.js"></script>
   </head>
+
   <body class="contacts" id="body" onload="onLoadFunc()">
     <!-- Modal Background -->
     <div id="modalBackground">
-      <!-- Modal content v1: Add -->
+      <!-- Modal content v1: Add contact MOBILE -->
+      <div
+        id="modalAddContact"
+        w3-include-html="./includes/modalAddContact.html"
+      ></div>
+
+      <!-- Modal content v4: Add Contact Desktop -->
       <div id="modalAddContact">
         <div class="upperHalf">
           <span onclick="closeAddContact()">&times;</span>
@@ -55,7 +62,9 @@
               pattern="([0-9]+)"
             />
             <div class="buttonPair">
-              <button>Cancel <img src="./assets/img/cancel.svg" /></button>
+              <button class="cancelButton">
+                Cancel<img src="./assets/img/cancel.svg" />
+              </button>
               <button id="createContactButton">
                 Create contact<img src="assets/img/check.svg" />
               </button>

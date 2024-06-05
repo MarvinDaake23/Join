@@ -479,6 +479,22 @@ content .headline h2 {
   border: none;
 }
 
+.cancelButton {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 202px;
+  height: 51px;
+  padding: 18px 10px 18px 10px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+  border: none;
+}
+
 .upperHalf span {
   text-align: right;
   font-size: xx-large;

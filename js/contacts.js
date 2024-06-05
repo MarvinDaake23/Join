@@ -168,7 +168,8 @@ function showEditContact(id) {
       "editNameInputDesktop"
     ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
     document.getElementById("editEmailInputDesktop").value = contacts[id].email;
-    document.getElementById("editPhoneInputDesktop").value = contacts[id].phoneNumber;
+    document.getElementById("editPhoneInputDesktop").value =
+      contacts[id].phoneNumber;
     document.getElementById(
       "editInitialsDesktop"
     ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
@@ -188,7 +189,8 @@ function showEditContact(id) {
         "onclick",
         `deleteContact(${id});closeEditContact();return false;`
       );
-  } else { // mobile
+  } else {
+    // mobile
     document.getElementById("modalBackground").style.display = "block";
     document.getElementById("modalEditContact").style.display = "block";
     document.getElementById(
@@ -234,7 +236,6 @@ async function editContact(id) {
     renderSingleContactHTML(id);
 }
 
-
 async function editContactDesktop(id) {
   //update array and put to db
   let nameInput = document.getElementById("editNameInputDesktop").value;
@@ -242,7 +243,9 @@ async function editContactDesktop(id) {
   contacts[id].firstName = nameArray[0];
   contacts[id].lastName = nameArray[1];
   contacts[id].email = document.getElementById("editEmailInputDesktop").value;
-  contacts[id].phoneNumber = document.getElementById("editPhoneInputDesktop").value;
+  contacts[id].phoneNumber = document.getElementById(
+    "editPhoneInputDesktop"
+  ).value;
 
   await putData("contacts", contacts);
 
@@ -250,7 +253,6 @@ async function editContactDesktop(id) {
 
   //document.getElementById("contactSingleView").innerHTML = renderSingleContactHTML(id);
 }
-
 
 let currentId;
 function setActive(newId) {
