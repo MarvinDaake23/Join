@@ -1,57 +1,93 @@
+/* The Modal (background) */
+#modalBackground {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
+
 /* DESKTOP VIEW */
 #modalAddOrEditContact {
   display: flex;
   flex-direction: row;
-}
-
-/* Modal Content */
-#modalAddContact {
   margin: 80px 10px;
   position: relative;
   animation-name: slideIn;
   animation-duration: 0.5s;
-}
-
-/* Modal Content */
-#modalEditContact {
-  margin: 80px 10px;
-  position: relative;
-  animation-name: slideIn;
-  animation-duration: 0.5s;
-}
-
-.first {
+  width: 80vw;
+  height: 592px;
+  margin: 120px auto;
   display: flex;
-  flex-direction: column;
-  background-color: #2a3647;
-  padding: 14px 24px;
-  color: white;
-  border-radius: 20px 20px 0px 0px;
-  height: 250px;
-}
-
-.first h2 {
-  font-size: 47px;
-  font-weight: 700;
-  margin: 30px 0px 8px 0px;
-}
-
-.first h3 {
-  font-size: 20px;
-  font-weight: 400;
-  margin: 0px 0px 8px 0px;
-}
-
-.third {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   background-color: white;
-  padding: 0px 16px;
-  border-radius: 0px 0px 20px 20px;
-  gap: 15px;
-  height: 350px;
+  border-radius: 30px;
 }
+
+
+
+#modalAddOrEditContact .first {
+  display: flex;
+  flex: 0.9;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #2a3647;
+  color: white;
+  width: 553px;
+  border-radius: 30px 0px 0px 30px;
+  padding: 20px;
+}
+
+#modalAddOrEditContact .first img {
+  width: 53.93px;
+  height: 66.48px;
+}
+
+#modalAddOrEditContact h1 {
+  font-weight: 700;
+  font-size: 61px;
+}
+
+#modalAddOrEditContact .second {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+#modalAddOrEditContact .third  {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  flex: 1;
+}
+
+#modalAddOrEditContact .third  span {
+  align-self: flex-end;
+  flex: 1;
+  cursor: pointer;
+}
+
+#modalAddOrEditContact .third  form {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  padding: 20px;
+  flex: 2;
+  height: 215px;
+}
+
+
+
+
 
 .nameInput {
   background: url("../assets/img/person_small.png") no-repeat right;
@@ -74,19 +110,7 @@
   background-origin: content-box;
 }
 
-.third form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
 
-.third input {
-  border: 1px solid #d1d1d1;
-  border-radius: 10px;
-  padding: 5px 13px;
-  width: 364px;
-}
 
 @media (max-width: 620px) {
   #modalAddOrEditContact {
