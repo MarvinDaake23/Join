@@ -100,11 +100,7 @@ content .headline h2 {
   font-size: 27px;
 }
 
-.upperHalf h2 {
-  font-size: 47px;
-  font-weight: 700;
-  margin: 30px 0px 8px 0px;
-}
+
 
 .singleContactContainer h3 {
   font-size: 20px;
@@ -112,11 +108,7 @@ content .headline h2 {
   margin: 0px 0px 8px 0px;
 }
 
-.upperHalf h3 {
-  font-size: 20px;
-  font-weight: 400;
-  margin: 0px 0px 8px 0px;
-}
+
 
 .singleContactContainer h4 {
   font-size: 16px;
@@ -263,16 +255,6 @@ content .headline h2 {
   border-radius: 10px;
 }
 
-.lowerHalf {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  padding: 0px 16px;
-  border-radius: 0px 0px 20px 20px;
-  gap: 15px;
-  height: 350px;
-}
 
 .newContactPic {
   background-color: #d1d1d1;
@@ -283,50 +265,7 @@ content .headline h2 {
   border: 3px solid #ffffff;
 }
 
-.upperHalf {
-  display: flex;
-  flex-direction: column;
-  background-color: #2a3647;
-  padding: 14px 24px;
-  color: white;
-  border-radius: 20px 20px 0px 0px;
-  height: 250px;
-}
 
-.nameInput {
-  background: url("../assets/img/person_small.png") no-repeat right;
-  padding-right: 25px;
-  background-size: 20px;
-  background-origin: content-box;
-}
-
-.mailInput {
-  background: url("../assets/img/mail.png") no-repeat right;
-  padding-right: 25px;
-  background-size: 20px;
-  background-origin: content-box;
-}
-
-.phoneInput {
-  background: url("../assets/img/call.png") no-repeat right;
-  padding-right: 25px;
-  background-size: 20px;
-  background-origin: content-box;
-}
-
-.lowerHalf form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-.lowerHalf input {
-  border: 1px solid #d1d1d1;
-  border-radius: 10px;
-  padding: 5px 13px;
-  width: 364px;
-}
 
 /* The Modal (background) */
 #modalBackground {
@@ -344,23 +283,6 @@ content .headline h2 {
   animation-duration: 0.4s;
 }
 
-/* Modal Content */
-#modalAddContact {
-  display: none;
-  margin: 80px 10px;
-  position: relative;
-  animation-name: slideIn;
-  animation-duration: 0.5s;
-}
-
-/* Modal Content */
-#modalEditContact {
-  display: none;
-  margin: 80px 10px;
-  position: relative;
-  animation-name: slideIn;
-  animation-duration: 0.5s;
-}
 
 /* Add Animation */
 @keyframes slideIn {
