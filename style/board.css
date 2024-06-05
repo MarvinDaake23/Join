@@ -177,6 +177,7 @@
   overflow-x: auto;
   padding-top: 12px;
   padding-left: 12px;
+  scrollbar-width: none; 
 }
 
 .boardType {
