@@ -109,11 +109,9 @@
     display: flex;
     flex-direction: column;
     margin: 0px;
-    width: 98%;
+    width: 99%;
     border-radius: 10px;
-    margin-top: -4px;
 }
-
 
 .subtaskSettingContainer{
     position: absolute;
@@ -238,15 +236,17 @@
     cursor: pointer;
 }
 
-.bigSubtaskContainer:hover{
-    background-color: #EEEEEE;
-    border-radius: 10px;
-}
 .bigSubtaskContainer{
     background-color: transparent;
     border-radius: 10px;
-    padding-left: 20px;
-    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bigSubtaskContainer:hover{
+    background-color: #EEEEEE;
 }
 
 .iconContainerSubtask{
@@ -630,12 +630,6 @@
     background-image: url("../assets/img/prioLowHighlight.png");
 }
 
-.bigSubtaskContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 @media (max-width : 1000px) {
     .addTaskBigContainer {
         flex-direction: column;
@@ -651,6 +645,8 @@
     }
     .addTaskForm{
         width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 }
 

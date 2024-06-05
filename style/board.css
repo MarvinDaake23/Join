@@ -27,10 +27,7 @@
   justify-content: space-between;
   margin-top: 15px;
   margin-bottom: 15px;
-  /*  min-width: 252px;
-  max-width: 252px;
-  padding-left: 16px;
-  padding-right: 16px; */
+  height: 32px;
 }
 
 .headline {
@@ -174,6 +171,10 @@
 .taskrow {
   display: flex;
   width: 98%;
+  overflow-x: auto;
+  padding-top: 12px;
+  padding-left: 12px;
+  scrollbar-width: none; 
 }
 
 .boardType {
@@ -190,15 +191,19 @@
   font-weight: bold;
 }
 
-/*
+
 .boardDescription {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 2; 
 }
-*/
 
 .progress {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 16px;
 }
 
 .progressBackground {
@@ -405,7 +410,6 @@
 }
 
 .progressContainer {
-  width: 252px;
   height: 320px;
 }
 
@@ -462,6 +466,8 @@
   }
   .taskrow {
     flex-direction: column;
+    overflow-x: visible;
+    padding-top: 0px;
   }
   .taskTitleContainer {
     position: absolute;
