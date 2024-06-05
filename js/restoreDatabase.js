@@ -84,17 +84,17 @@ let boardTasks2 = [
       {
         firstName: "Anton",
         lastName: "Mayer",
-        profilColor: "#FF7A00",
+        profileColor: "#FF7A00",
       },
       {
         firstName: "Benedikt",
         lastName: "Ziegler",
-        profilColor: "#9327FF",
+        profileColor: "#9327FF",
       },
     ],
     category: "feedback" /*todo -> feedback" */,
     priority: "Low",
-    dueDate: "23-05-2024",
+    dueDate: "2024-05-23",
   },
   {
     type: "User Story",
@@ -115,12 +115,12 @@ let boardTasks2 = [
       {
         firstName: "Christoph",
         lastName: "Völker",
-        profilColor: "#FF7A00",
+        profileColor: "#FF7A00",
       },
     ],
     category: "todo" /*todo -> feedback" */,
     priority: "Urgent",
-    dueDate: "29-05-2024",
+    dueDate: "2024-01-01",
   },
   {
     type: "Technical Task",
@@ -141,17 +141,17 @@ let boardTasks2 = [
       {
         firstName: "Anton",
         lastName: "Mayer",
-        profilColor: "#FF7A00",
+        profileColor: "#FF7A00",
       },
       {
         firstName: "Benedikt",
         lastName: "Ziegler",
-        profilColor: "#9327FF",
+        profileColor: "#9327FF",
       },
     ],
     category: "todo" /*todo -> feedback" */,
     priority: "Urgent",
-    dueDate: "29-05-2024",
+    dueDate: "2024-03-03",
   },
   {
     type: "Technical Task",
@@ -172,17 +172,17 @@ let boardTasks2 = [
       {
         firstName: "Anton",
         lastName: "Mayer",
-        profilColor: "#FF7A00",
+        profileColor: "#FF7A00",
       },
       {
         firstName: "Benedikt",
         lastName: "Ziegler",
-        profilColor: "#9327FF",
+        profileColor: "#9327FF",
       },
     ],
     category: "done" /*todo -> feedback" */,
     priority: "Medium",
-    dueDate: "29-05-2024",
+    dueDate: "2023-05-04",
   },
 ];
 
