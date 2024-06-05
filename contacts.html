@@ -130,10 +130,10 @@
 
         <div class="right">
           <span onclick="closeEditContact()">&times;</span>
-          <form id="editContactForm" onsubmit="editContact();return false;">
+          <form id="editContactFormDesktop" onsubmit="editContactDesktop();return false;">
             <input
               required
-              id="editNameInput"
+              id="editNameInputDesktop"
               type="text"
               class="nameInput"
               placeholder="Name"
@@ -142,14 +142,14 @@
             />
             <input
               required
-              id="editEmailInput"
+              id="editEmailInputDesktop"
               type="email"
               class="mailInput"
               placeholder="Email"
             />
             <input
               required
-              id="editPhoneInput"
+              id="editPhoneInputDesktop"
               type=""
               class="phoneInput"
               placeholder="Phone"
@@ -158,7 +158,7 @@
             <div class="buttonPair">
               <button
                 type="button"
-                id="editContactDeleteButton"
+                id="editContactDeleteButtonDesktop"
                 onclick="deleteContact()"
               >
                 Delete

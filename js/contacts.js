@@ -98,6 +98,7 @@ function closeEditContact() {
   document.getElementById("modalBackground").style.display = "none";
   document.getElementById("modalEditContact").style.display = "none";
   document.getElementById("moreButton").style.display = "none";
+  document.getElementById("contactSingleView").innerHTML = "";
 }
 
 /**
@@ -151,6 +152,7 @@ async function deleteContact(id) {
   await putData("contacts", contacts);
   backToContactList();
   renderContacts();
+  document.getElementById("contactSingleView").innerHTML = "";
 }
 
 function showMore() {
@@ -163,10 +165,10 @@ function showEditContact(id) {
     document.getElementById("modalBackground").style.display = "block";
     document.getElementById("modalEditContactDesktop").style.display = "flex";
     document.getElementById(
-      "editNameInput"
+      "editNameInputDesktop"
     ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
-    document.getElementById("editEmailInput").value = contacts[id].email;
-    document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
+    document.getElementById("editEmailInputDesktop").value = contacts[id].email;
+    document.getElementById("editPhoneInputDesktop").value = contacts[id].phoneNumber;
     document.getElementById(
       "editInitialsDesktop"
     ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
@@ -174,14 +176,14 @@ function showEditContact(id) {
       contacts[id].profileColor;
 
     document
-      .getElementById("editContactForm")
+      .getElementById("editContactFormDesktop")
       .setAttribute(
         "onsubmit",
-        `editContact(${id});closeEditContact();return false;`
+        `editContactDesktop(${id});closeEditContact();singleContactView(${id});return false;`
       );
 
     document
-      .getElementById("editContactDeleteButton")
+      .getElementById("editContactDeleteButtonDesktop")
       .setAttribute(
         "onclick",
         `deleteContact(${id});closeEditContact();return false;`
@@ -231,6 +233,24 @@ async function editContact(id) {
   document.getElementById("contactSingleView").innerHTML =
     renderSingleContactHTML(id);
 }
+
+
+async function editContactDesktop(id) {
+  //update array and put to db
+  let nameInput = document.getElementById("editNameInputDesktop").value;
+  const nameArray = nameInput.split(" ");
+  contacts[id].firstName = nameArray[0];
+  contacts[id].lastName = nameArray[1];
+  contacts[id].email = document.getElementById("editEmailInputDesktop").value;
+  contacts[id].phoneNumber = document.getElementById("editPhoneInputDesktop").value;
+
+  await putData("contacts", contacts);
+
+  closeEditContact();
+
+  //document.getElementById("contactSingleView").innerHTML = renderSingleContactHTML(id);
+}
+
 
 let currentId;
 function setActive(newId) {
