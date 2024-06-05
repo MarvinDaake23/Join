@@ -251,6 +251,25 @@ async function deleteTask(i) {
 function rendersubtask() {
   let newTask = document.getElementById('boardBigContainer');
   newTask.innerHTML =``; 
-
   newTask.innerHTML = rendersubtaskTemplate();
+}
+
+function openWrapper() {
+  let wrapperList = document.getElementById(`wrapperList`);
+  let wrapper = document.getElementById(`wrapper`);
+
+  if (wrapperList.classList.contains(`d-none`)) {
+    wrapperList.classList.remove(`d-none`);
+    document.getElementById(`arrowUp`).classList.remove(`d-none`);
+    document.getElementById(`arrowDown`).classList.add(`d-none`);
+    wrapper.classList.add(`openBorader`);
+    wrapperList.style.width = `${wrapper.offsetWidth}px`;
+    document.getElementById(`wrapper`).classList.add("blueOutlineInput");
+  } else {
+    wrapperList.classList.add(`d-none`);
+    document.getElementById(`arrowUp`).classList.add(`d-none`);
+    document.getElementById(`arrowDown`).classList.remove(`d-none`);
+    wrapper.classList.remove(`openBorader`);
+    document.getElementById(`wrapper`).classList.remove("blueOutlineInput");
+  }
 }
