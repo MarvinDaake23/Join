@@ -98,10 +98,10 @@
   color: #a8a8a8;
 }
 
-.imgContainer {
+.imgContainersubtask {
   position: absolute;
   top: 6px;
-  right: -20px;
+  right: 30px;
   width: 54px;
 }
 
@@ -490,6 +490,7 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+  border: solid 1px rgb(173, 173, 173);
 }
 
 .lowPrioImg{
@@ -520,6 +521,14 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
 }
 
+.low:hover{
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
+}
+
+.med:hover{
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
+}
+
 .highPrioBackground{
   background-color: #FF3D00;
   color: white;
@@ -545,6 +554,86 @@
 
 .lowPrioImageChange{
   background-image: url("../assets/img/prioLowHighlight.png");
+}
+
+.sutaskTitleInputContainer input{
+  width: 90%;
+  border-radius:10px;
+  padding: 12px 16px 12px 16px;
+  border:1px solid #D1D1D1;
+}
+
+.subtaskTitleInputContainer{
+  position: relative;
+}
+
+.imgContainer{
+  position: absolute;
+  top: 12px;
+  right:-26px; 
+  width:50px;
+  height:20px;
+}
+
+.imgContainerBackground{
+  background-repeat: no-repeat;
+  background-image: url("../assets/img/add.png");
+  background-position: right 8px center;
+}
+
+
+.wrapperList{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px 10px 10px 10px;
+  list-style-type: none;
+  overflow-y: auto;
+  max-height: 150px;
+  z-index: 1000;
+  margin-top: 80px;
+  box-sizing: border-box;
+  padding-left: 0px;
+}
+
+.wrapperContactList{
+  width:100%;
+  height:300px;
+  background-color: #2A3647;
+}
+
+.contactWrapperItem{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 7px, 16px, 7px, 16px;
+}
+
+.contactWrapperItem:hover{
+  background-color: #F5F5F5;
+}
+
+.openBorader{
+  border-radius: 10px 10px 0px 0px;
+  position: relative;
+}
+
+.blueOutlineInput:focus{
+  outline: none;
+  border: 1px solid #29ABE2;
+  border-radius: 10px;
+}
+
+.blueOutlineInput{
+  outline: none;
+  border: 1px solid #29ABE2;
+  border-radius: 10px;
 }
 
 

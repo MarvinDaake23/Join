@@ -254,22 +254,46 @@ function rendersubtask() {
   newTask.innerHTML = rendersubtaskTemplate();
 }
 
-function openWrapper() {
-  let wrapperList = document.getElementById(`wrapperList`);
-  let wrapper = document.getElementById(`wrapper`);
+function openWrapper(i) {
+  let wrapperList = document.getElementById(`wrapperList${i}`);
+  let wrapper = document.getElementById(`wrapper${i}`);
 
   if (wrapperList.classList.contains(`d-none`)) {
     wrapperList.classList.remove(`d-none`);
-    document.getElementById(`arrowUp`).classList.remove(`d-none`);
-    document.getElementById(`arrowDown`).classList.add(`d-none`);
+    document.getElementById(`arrowUp${i}`).classList.remove(`d-none`);
+    document.getElementById(`arrowDown${i}`).classList.add(`d-none`);
     wrapper.classList.add(`openBorader`);
     wrapperList.style.width = `${wrapper.offsetWidth}px`;
-    document.getElementById(`wrapper`).classList.add("blueOutlineInput");
+    document.getElementById(`wrapper${i}`).classList.add("blueOutlineInput");
   } else {
     wrapperList.classList.add(`d-none`);
-    document.getElementById(`arrowUp`).classList.add(`d-none`);
-    document.getElementById(`arrowDown`).classList.remove(`d-none`);
+    document.getElementById(`arrowUp${i}`).classList.add(`d-none`);
+    document.getElementById(`arrowDown${i}`).classList.remove(`d-none`);
     wrapper.classList.remove(`openBorader`);
-    document.getElementById(`wrapper`).classList.remove("blueOutlineInput");
+    document.getElementById(`wrapper${i}`).classList.remove("blueOutlineInput");
+  }
+}
+
+function prioChoose(i) {
+  if (prioValue === i) {
+    prioValue = null;
+    resetPrioContainers();
+  } else {
+    prioValue = i;
+    resetPrioContainers();
+    if (prioValue === 2) {
+      document.getElementById("prio high").classList.add("highPrioBackground");
+      document
+        .getElementById("highPrioImg")
+        .classList.add("highPrioImageChange");
+    }
+    if (prioValue === 1) {
+      document.getElementById("prio med").classList.add("medPrioBackground");
+      document.getElementById("medPrioImg").classList.add("medPrioImageChange");
+    }
+    if (prioValue === 0) {
+      document.getElementById("prio low").classList.add("lowPrioBackground");
+      document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
+    }
   }
 }

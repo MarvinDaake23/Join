@@ -289,49 +289,41 @@ function renderSingleContactMobileHTML(id) {
 
 function rendersubtaskTemplate() {
     return /*html */ `
-    <div class="column">
       <div>Title</div>
-      <input class="requiredInput" type="text" placeholder="Enter at title">
+        <input class="requiredInput" type="text" placeholder="Enter at title">
       <div>Discription</div>
-      <input class="textareaDescription blueOutlineInput" type="text" placeholder="Enter a Description">
+        <input class="textareaDescription" type="text" placeholder="Enter a Description">
       <div>Due Date</div>
-      <input class="requiredInput" id="date" required type="date" placeholder="dd/mm/yyyy" min="2024-06-05">
+        <input class="requiredInput" id="date" required type="date" placeholder="dd/mm/yyyy" min="2024-06-05">
       <div>Priority</div>
-      <div class="row">
-      <div class="prioChoose">
-                <div
-                  onclick="prioChoose(2)"
-                  id="prio high"
-                  class="prio high prioContainerBorder"
-                >
-                  <span>Urgent</span>
-                  <div id="highPrioImg" class="highPrioImg"></div>
-                </div>
-                <div
-                  onclick="prioChoose(1)"
-                  id="prio med"
-                  class="prio med prioContainerBorder"
-                >
-                  <span>Medium</span>
-                  <div id="medPrioImg" class="medPrioImg"></div>
-                </div>
-                <div
-                  onclick="prioChoose(0)"
-                  id="prio low"
-                  class="prio low prioContainerBorder"
-                >
-                  <span>Low</span>
-                  <div id="lowPrioImg" class="lowPrioImg"></div>
-                </div>
-              </div>
-      </div>
+        <div class="row">
+        <div class="prioChoose">
+            <div onclick="prioChoose(2)" id="prio high" class="prio high prioContainerBorder">
+              <span>Urgent</span>
+              <div id="highPrioImg" class="highPrioImg"></div>
+            </div>
+            <div onclick="prioChoose(1)" id="prio med" class="prio med prioContainerBorder">
+              <span>Medium</span>
+              <div id="medPrioImg" class="medPrioImg"></div>
+            </div>
+            <div onclick="prioChoose(0)" id="prio low" class="prio low prioContainerBorder">
+              <span>Low</span>
+              <div id="lowPrioImg" class="lowPrioImg"></div>
+            </div>
+          </div>
+        </div>
       <div>Assigned to</div>
-      <input type="text" placeholder="">
-    </div>
-    <div id="wrapper" class="wrapper" onclick="openWrapper()">
-      <span id="placeholder">Select task category</span>
-      <img id="arrowDown" src="./assets/img/arrow_down.png" alt="" />
-      <img id="arrowUp" class="d-none" src="./assets/img/arrow_up.png" alt=""/>
-    </div>
+        <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
+          <span>Select contacts to assign</span>
+          <img id="arrowDownAt" src="./assets/img/arrow_down.png" alt class>
+          <img id="arrowUpAt" class="d-none" src="./assets/img/arrow_up.png" alt>
+        </div>
+          <ul id="wrapperListAt" class="wrapperList d-none"></ul>
+          <div id="selectedContacts"></div>
+      <div>Subtask</div>
+        <div class="sutaskTitleInputContainer">
+            <input id="subtaskInput" type="text" placeholder="Add new subtask">
+            <div id="imgContainerSubtask" class="imgContainersubtask imgContainerBackground"></div>
+        </div>
     `;
 }
