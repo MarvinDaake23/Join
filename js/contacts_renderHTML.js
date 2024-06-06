@@ -95,7 +95,6 @@ function renderSingleContactMobileHTML(id) {
   return /*html */ `
                 <div class="singleContactContainerMobile">
         
-            
                     <div class="contactsHeadlineBox">
                         <div class="contactsHeadline">
                             <h2>Contacts</h2>

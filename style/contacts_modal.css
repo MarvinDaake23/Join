@@ -271,4 +271,8 @@
   #modalAddOrEditContact .third form input {
     height: 41px;
   }
+
+  #cancelButton {
+    display: none;
+  }
 }

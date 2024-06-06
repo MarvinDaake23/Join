@@ -67,6 +67,8 @@ function singleContactView(id) {
     document.getElementById("contactContainerOuter").style.display = "none";
     document.getElementById("contactSingleViewMobile").innerHTML =
       renderSingleContactMobileHTML(id);
+    // buttons "tauschen"
+    document.getElementById("addContactButtonMobile").style.display = "none";
   }
 
   document.getElementById("contactSingleView").innerHTML =
@@ -82,6 +84,7 @@ function backToContactList() {
   document.getElementById("contactContainerOuter").style.display = "";
   document.getElementById("contactSingleViewMobile").innerHTML = "";
   renderContacts();
+  document.getElementById("addContactButtonMobile").style.display = "flex";
 }
 
 /* MODAL STUFF */
@@ -104,7 +107,7 @@ function closeAddOrEditContact() {
 function updateModalTemplateToEdit(id) {
   document.getElementById("addContactHeadline").innerHTML = "Edit contact";
   document.getElementById("addContactSubheadline").innerHTML = "";
-  document.getElementById("leftButton").innerHTML = "Delete";
+  document.getElementById("cancelButton").innerHTML = "Delete";
   document.getElementById(
     "rightButton"
   ).innerHTML = `Save<img src="assets/img/check.svg">`;
@@ -116,7 +119,7 @@ function updateModalTemplateToEdit(id) {
       `editContact(${id});closeAddOrEditContact();return false;`
     );
   document
-    .getElementById("leftButton")
+    .getElementById("cancelButton")
     .setAttribute(
       "onclick",
       `deleteContact(${id});closeAddOrEditContact();return false;`
@@ -130,7 +133,7 @@ function updateModalTemplateToAdd() {
   document.getElementById("addContactSubheadline").innerHTML =
     "Tasks are better in a team!";
   document.getElementById(
-    "leftButton"
+    "cancelButton"
   ).innerHTML = `Cancel<img src="assets/img/cancel.svg" />`;
   document.getElementById(
     "rightButton"
@@ -140,7 +143,7 @@ function updateModalTemplateToAdd() {
     .getElementById("addOrEditForm")
     .setAttribute("onsubmit", `createContact();return false;`);
   document
-    .getElementById("leftButton")
+    .getElementById("cancelButton")
     .setAttribute("onclick", "closeAddOrEditContact()");
   document.getElementById("newContactPic").style.display = "flex";
   document.getElementById("editInitials").style.display = "none";
