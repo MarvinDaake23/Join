@@ -151,16 +151,16 @@ function renderSelectedContacts(element, i) {
 }
 
 function rendersubtaskTemplate(title,description,dueDate) {
-    
     return /*html */ `
-    <div class="editConatinerBackground">
+
+    <form onsubmit="editTask()" class="editConatinerBackground">
     <div class="editContainer">
         <div class="textEditConatiner">Title</div>
             <input id="edittitle" class="requiredInput" type="text" value="${title}">
         <div class="textEditConatiner">Description</div>
-            <input class="textareaDescription" type="text" value="${description}">
+            <input id="editdescription" class="textareaDescription" type="text" value="${description}">
         <div class="textEditConatiner">Due Date</div>
-            <input class="requiredInput" id="date" required type="date" value="${dueDate}" min="2024-06-05">
+            <input id="editdate" class="requiredInput" id="date" required type="date" value="${dueDate}" min="2024-06-05">
         <div class="textEditConatiner">Priority</div>
             <div class="row">
             <div class="prioChoose">
@@ -192,7 +192,7 @@ function rendersubtaskTemplate(title,description,dueDate) {
                 <div id="imgContainerSubtask" class="imgContainersubtask imgContainerBackground"></div>
             </div>
     </div>
-        <img onclick="" class="okButton" src="../assets/img/Primary check button.png">
-    <div>
+        <button type="submit" class="okButton"></button>
+    <form>
     `;
 }
