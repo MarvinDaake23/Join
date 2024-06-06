@@ -304,23 +304,10 @@ content .headline h2 {
   box-shadow: 0px 0px 4px 0px #0000001a;
   border: 3px solid #ffffff;
   box-sizing: border-box;
-  margin-top: -40px;
+  
 }
 
-#editInitialsDesktop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
-  width: 120px;
-  color: white;
-  border-radius: 180px;
-  font-size: 47px !important;
-  font-weight: 500 !important;
-  box-shadow: 0px 0px 4px 0px #0000001a;
-  border: 3px solid #ffffff;
-  box-sizing: border-box;
-}
+
 
 .seperatorLetter {
   border-bottom: 1px solid #d1d1d1;

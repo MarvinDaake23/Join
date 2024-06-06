@@ -1,17 +1,28 @@
 <div class="first">
-  <img class="close" src="./assets/img/close_white.svg" onclick="closeAddOrEditContact()" />
+  <img
+    class="close"
+    src="./assets/img/close_white.svg"
+    onclick="closeAddOrEditContact()"
+  />
   <img class="logo" src="./assets/img/headerlogo.svg" />
   <div id="addContactHeadline" class="headline">Add contact</div>
-  <div id="addContactSubheadline" class="subheadline">Tasks are better with a team!</div>
+  <div id="addContactSubheadline" class="subheadline">
+    Tasks are better with a team!
+  </div>
   <hr />
 </div>
 
 <div class="second">
-  <img class="newContactPic" src="./assets/img/new_contact.svg" />
+  <img id="newContactPic" src="./assets/img/new_contact.svg" />
+  <div id="editInitials"></div>
 </div>
 
 <div class="third">
-  <img class="close" src="./assets/img/close.svg" onclick="closeAddOrEditContact()" />
+  <img
+    class="close"
+    src="./assets/img/close.svg"
+    onclick="closeAddOrEditContact()"
+  />
   <form id="addOrEditForm" onsubmit="createContact(); return false;">
     <input
       required

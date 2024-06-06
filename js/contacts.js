@@ -121,6 +121,8 @@ function updateModalTemplateToEdit(id) {
       "onclick",
       `deleteContact(${id});closeAddOrEditContact();return false;`
     );
+  document.getElementById("newContactPic").style.display = "none";
+  document.getElementById("editInitials").style.display = "flex";
 }
 
 function updateModalTemplateToAdd() {
@@ -140,6 +142,8 @@ function updateModalTemplateToAdd() {
   document
     .getElementById("leftButton")
     .setAttribute("onclick", "closeAddOrEditContact()");
+  document.getElementById("newContactPic").style.display = "flex";
+  document.getElementById("editInitials").style.display = "none";
 }
 
 /**
@@ -206,13 +210,12 @@ function renderValuesToEditContactFormular(id) {
   ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
   document.getElementById("emailInput").value = contacts[id].email;
   document.getElementById("phoneInput").value = contacts[id].phoneNumber;
-  /*
+
   document.getElementById(
     "editInitials"
   ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
   document.getElementById("editInitials").style.backgroundColor =
     contacts[id].profileColor;
-    */
 }
 
 async function editContact(id) {
