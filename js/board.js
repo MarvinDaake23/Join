@@ -10,8 +10,46 @@ async function boardInit() {
   await includeHTML(); //- edit christoph
   updateHeaderInitials(); // edit christoph
   boardTasks = await loadData("boardtasks");
+  contacts = await loadData("contacts");
   updateHTML();
 }
+
+function loadContacteditWrapper() {
+
+  // sort contacts by first name
+  sortContacts();
+
+  let contactWrapper = document.getElementById("editwrapperListAt"); 
+
+  for (let i = 0; i < contacts.length; i++) {
+    const element = contacts[i];
+    contactWrapper.innerHTML += renderContactWrapper(element, i);
+  }
+}
+
+function loadeditWrapper() {
+  let wrapperList = document.getElementById("editwrapperList");
+
+  for (let i = 0; i < categorys.length; i++) {
+    wrapperList.innerHTML += /*html */ `
+          <li onclick="chooseCategory(${i})"  class ="list">
+              <span id="category${i}">
+                  <div>${categorys[i]}</div>
+              </span>
+          </li>
+          `;
+  }
+}
+
+function inputeditSelector() {
+  let subtaskInput = document.getElementById("subtaskInput");
+  subtaskInput.addEventListener("focus", function () {
+    inputFocus();
+  });
+}
+
+
+
 
 /**
  * function to render the large view of the task
@@ -309,6 +347,10 @@ async function editTask(i) {
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
 
+  loadContacteditWrapper();
+  loadeditWrapper();
+  inputeditSelector(); 
+  
   console.log(edittitle);
   console.log(editdescription);
   console.log(editdate);

@@ -40,7 +40,7 @@ function loadContactWrapper() {
   // sort contacts by first name
   sortContacts();
 
-  let contactWrapper = document.getElementById("wrapperListAt");
+  let contactWrapper = document.getElementById("wrapperListAt"); 
 
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
