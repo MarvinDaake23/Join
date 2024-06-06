@@ -182,7 +182,7 @@ function rendersubtaskTemplate(title,description,dueDate,i) {
                 <img id="editarrowDownAt" src="./assets/img/arrow_down.png" alt class>
                 <img id="editarrowUpAt" class="d-none" src="./assets/img/arrow_up.png" alt>
             </div>
-            <ul id="editwrapperListAT" class="wrapperList d-none"></ul>
+            <ul id="editwrapperListAt" class="wrapperList"></ul>
             <div id="selectedContacts"></div>
 
         <div class="textEditConatiner">Subtask</div>
