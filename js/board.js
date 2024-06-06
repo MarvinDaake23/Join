@@ -305,12 +305,13 @@ async function editTask() {
   let title = document.getElementById("edittitle").value;
   let description = document.getElementById("editdescription").value;
   let date = document.getElementById("editdate").value;
-  let prio = prios[prioValue];
+  console.log(title);
+  /* let prio = prios[prioValue];
   let category = categorys[cat];
   let data = generateDataForTask(title, description, date, prio, category);
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
   // zur board seite
-  visitBoard();
+  visitBoard(); */
 }
