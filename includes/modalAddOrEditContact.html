@@ -1,6 +1,6 @@
 <div class="first">
-  <span onclick="closeAddOrEditContact()">&times;</span>
-  <img src="./assets/img/headerlogo.svg" />
+  <img class="close" src="./assets/img/close_white.svg" onclick="closeAddOrEditContact()" />
+  <img class="logo" src="./assets/img/headerlogo.svg" />
   <div class="headline">Add contact</div>
   <div class="subheadline">Tasks are better with a team!</div>
   <hr />
@@ -11,7 +11,7 @@
 </div>
 
 <div class="third">
-  <img src="./assets/img/close.svg" onclick="closeAddOrEditContact()" />
+  <img class="close" src="./assets/img/close.svg" onclick="closeAddOrEditContact()" />
   <form onsubmit="createContact(); return false;">
     <input
       required
