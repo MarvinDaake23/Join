@@ -7,11 +7,11 @@
 </div>
 
 <div class="second">
-  <img class="newContactPic" src="./assets/img/person.png" />
+  <img class="newContactPic" src="./assets/img/new_contact.svg" />
 </div>
 
 <div class="third">
-  <span onclick="closeAddOrEditContact()">&times;</span>
+  <img src="./assets/img/close.svg" onclick="closeAddOrEditContact()" />
   <form onsubmit="createContact(); return false;">
     <input
       required
@@ -38,6 +38,9 @@
       pattern="([0-9]+)"
     />
     <div class="buttonPair">
+      <button type="button" id="cancelButton" onclick="closeAddOrEditContact()">
+        Cancel<img src="assets/img/cancel.svg" />
+      </button>
       <button id="createContactButton">
         Create contact<img src="assets/img/check.svg" />
       </button>

@@ -5,6 +5,7 @@ body {
     "sidebar  list   content";
 
   grid-template-columns: 232px 453px auto;
+  box-sizing: border-box;
 }
 
 list {
@@ -100,15 +101,11 @@ content .headline h2 {
   font-size: 27px;
 }
 
-
-
 .singleContactContainer h3 {
   font-size: 20px;
   font-weight: 400;
   margin: 0px 0px 8px 0px;
 }
-
-
 
 .singleContactContainer h4 {
   font-size: 16px;
@@ -255,23 +252,6 @@ content .headline h2 {
   border-radius: 10px;
 }
 
-
-.newContactPic {
-  background-color: #d1d1d1;
-  width: 120px;
-  height: 120px;
-  border-radius: 100px;
-  margin-top: -60px;
-  border: 3px solid #ffffff;
-}
-
-
-
-
-
-
-
-
 #moreButtonPopup {
   display: none;
   flex-direction: column;
@@ -295,7 +275,6 @@ content .headline h2 {
   display: flex;
   gap: 8px;
 }
-
 
 @keyframes slideInFromRight {
   from {
@@ -351,37 +330,9 @@ content .headline h2 {
   box-sizing: border-box;
 }
 
-#createContactButton {
-  background-color: #2a3647;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 202px;
-  height: 51px;
-  padding: 18px 10px 18px 10px;
-  border-radius: 10px;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 21px;
-  cursor: pointer;
-  border: none;
-}
 
-.cancelButton {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 202px;
-  height: 51px;
-  padding: 18px 10px 18px 10px;
-  border-radius: 10px;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 21px;
-  cursor: pointer;
-  border: none;
-}
+
+
 
 .upperHalf span {
   text-align: right;
@@ -408,7 +359,8 @@ a {
   padding: 16px;
 }
 
-#editContactDeleteButton, #editContactDeleteButtonDesktop {
+#editContactDeleteButton,
+#editContactDeleteButtonDesktop {
   width: 82px;
   height: 51px;
   background-color: white;
@@ -421,10 +373,7 @@ a {
   cursor: pointer;
 }
 
-.buttonPair {
-  display: flex;
-  gap: 20px;
-}
+
 
 .active {
   background-color: #2a3647 !important;
@@ -468,8 +417,6 @@ a {
 nav a:hover {
   background-color: #091931;
 }
-
-
 
 @media (max-width: 620px) {
   body {
