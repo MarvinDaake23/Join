@@ -291,11 +291,13 @@ function rendersubtask(i) {
   let title = boardTasks[i]["title"];
   let description =  boardTasks[i]["description"];
   let dueDate = boardTasks[i]["dueDate"];
-
   loadData("contacts");
 
   newTask.innerHTML =``; 
   newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate,i);
+  loadContacteditWrapper();
+  loadeditWrapper();
+  inputeditSelector(); 
 }
 
 function editopenWrapper(i) {
@@ -347,10 +349,6 @@ async function editTask(i) {
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
 
-  loadContacteditWrapper();
-  loadeditWrapper();
-  inputeditSelector(); 
-  
   console.log(edittitle);
   console.log(editdescription);
   console.log(editdate);
