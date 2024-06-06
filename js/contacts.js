@@ -19,7 +19,7 @@ function renderContacts() {
 
   // Button
   container.innerHTML += `
-  <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
+  <button onclick="showAddOrEditContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
 
   // first shown contact: logged in user
   let idOfLoggedInUser = getIdOfLoggedInUser();
@@ -84,15 +84,14 @@ function backToContactList() {
   renderContacts();
 }
 
-function showAddContact() {
+function showAddOrEditContact() {
   document.getElementById("modalBackground").style.display = "block";
-  document.getElementById("modalEditContact").style.display = "none";
-  document.getElementById("modalAddContact").style.display = "";
+  //document.getElementById("modalAddOrEditContact").style.display = "flex";
 }
 
-function closeAddContact() {
+function closeAddOrEditContact() {
   document.getElementById("modalBackground").style.display = "none";
-  document.getElementById("modalAddContact").style.display = "none";
+  //document.getElementById("modalAddContact").style.display = "none";
 }
 
 function closeEditContact() {
@@ -141,7 +140,7 @@ async function createContact() {
   onLoadFunc();
 
   // schließen
-  closeAddContact();
+  closeAddOrEditContact();
 }
 
 /**

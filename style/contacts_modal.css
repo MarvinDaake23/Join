@@ -20,7 +20,7 @@
   flex-direction: row;
   margin: 80px 10px;
   position: relative;
-  animation-name: slideIn;
+  animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
   width: 80vw;
   height: 592px;
@@ -111,9 +111,32 @@
 }
 
 
+/* Add Animation */
+@keyframes slideInFromBottom {
+  from {
+    bottom: -500px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
 
+@keyframes slideInFromRightDesktop {
+  from {
+    right: -2000px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+
+/* MOBILE */
 @media (max-width: 620px) {
   #modalAddOrEditContact {
     flex-direction: column;
+    animation-name: slideInFromBottom;
   }
 }
