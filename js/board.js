@@ -248,10 +248,13 @@ async function deleteTask(i) {
   updateHTML();
 }
 
-function rendersubtask() {
+function rendersubtask(i) {
   let newTask = document.getElementById('boardBigContainer');
+  let title = boardTasks[i]["title"];
+  let description =  boardTasks[i]["description"];
+  let dueDate = boardTasks[i]["dueDate"];
   newTask.innerHTML =``; 
-  newTask.innerHTML = rendersubtaskTemplate();
+  newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate);
 }
 
 function openWrapper(i) {

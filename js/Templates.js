@@ -61,6 +61,7 @@ function renderBoardTaskContacts(element) {
 }
 
 function renderBoardBigContainer(i) {
+    
     return /*html */ `
             <div class="boardBigContainerHeader">
                 <div class="boardBigContainerType" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
@@ -94,7 +95,7 @@ function renderBoardBigContainer(i) {
             <div class="editConatiner">
                 <div onclick="deleteTask(${i})"><img src="./assets/img/delete.png"><div class="editText">Delete</div></div>
                 <div class="seperator"></div>
-                <div onclick="rendersubtask()">
+                <div onclick="rendersubtask(${i})">
                 <img src="./assets/img/edit.png"><div class="editText">Edit</div>
                 <div>
             </div>
@@ -149,43 +150,49 @@ function renderSelectedContacts(element, i) {
     `;
 }
 
-function rendersubtaskTemplate() {
+function rendersubtaskTemplate(title,description,dueDate) {
+    
     return /*html */ `
-      <div>Title</div>
-        <input class="requiredInput" type="text" placeholder="Enter at title">
-      <div>Discription</div>
-        <input class="textareaDescription" type="text" placeholder="Enter a Description">
-      <div>Due Date</div>
-        <input class="requiredInput" id="date" required type="date" placeholder="dd/mm/yyyy" min="2024-06-05">
-      <div>Priority</div>
-        <div class="row">
-        <div class="prioChoose">
-            <div onclick="prioChoose(2)" id="prio high" class="prio high prioContainerBorder">
-              <span>Urgent</span>
-              <div id="highPrioImg" class="highPrioImg"></div>
+    <div class="editConatinerBackground">
+    <div class="editContainer">
+        <div class="textEditConatiner">Title</div>
+            <input id="edittitle" class="requiredInput" type="text" value="${title}">
+        <div class="textEditConatiner">Description</div>
+            <input class="textareaDescription" type="text" value="${description}">
+        <div class="textEditConatiner">Due Date</div>
+            <input class="requiredInput" id="date" required type="date" value="${dueDate}" min="2024-06-05">
+        <div class="textEditConatiner">Priority</div>
+            <div class="row">
+            <div class="prioChoose">
+                <div onclick="prioChoose(2)" id="prio high" class="prio high prioContainerBorder">
+                <span>Urgent</span>
+                <div id="highPrioImg" class="highPrioImg"></div>
+                </div>
+                <div onclick="prioChoose(1)" id="prio med" class="prio med prioContainerBorder">
+                <span>Medium</span>
+                <div id="medPrioImg" class="medPrioImg"></div>
+                </div>
+                <div onclick="prioChoose(0)" id="prio low" class="prio low prioContainerBorder">
+                <span>Low</span>
+                <div id="lowPrioImg" class="lowPrioImg"></div>
+                </div>
             </div>
-            <div onclick="prioChoose(1)" id="prio med" class="prio med prioContainerBorder">
-              <span>Medium</span>
-              <div id="medPrioImg" class="medPrioImg"></div>
             </div>
-            <div onclick="prioChoose(0)" id="prio low" class="prio low prioContainerBorder">
-              <span>Low</span>
-              <div id="lowPrioImg" class="lowPrioImg"></div>
+        <div class="textEditConatiner">Assigned to</div>
+            <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
+            <span>Select contacts to assign</span>
+            <img id="arrowDownAt" src="./assets/img/arrow_down.png" alt class>
+            <img id="arrowUpAt" class="d-none" src="./assets/img/arrow_up.png" alt>
             </div>
-          </div>
-        </div>
-      <div>Assigned to</div>
-        <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
-          <span>Select contacts to assign</span>
-          <img id="arrowDownAt" src="./assets/img/arrow_down.png" alt class>
-          <img id="arrowUpAt" class="d-none" src="./assets/img/arrow_up.png" alt>
-        </div>
-          <ul id="wrapperListAt" class="wrapperList d-none"></ul>
-          <div id="selectedContacts"></div>
-      <div>Subtask</div>
-        <div class="sutaskTitleInputContainer">
-            <input id="subtaskInput" type="text" placeholder="Add new subtask">
-            <div id="imgContainerSubtask" class="imgContainersubtask imgContainerBackground"></div>
-        </div>
+            <ul id="wrapperListAt" class="wrapperList d-none"></ul>
+            <div id="selectedContacts"></div>
+        <div class="textEditConatiner">Subtask</div>
+            <div class="sutaskTitleInputContainer">
+                <input id="subtaskInput" type="text" placeholder="Add new subtask">
+                <div id="imgContainerSubtask" class="imgContainersubtask imgContainerBackground"></div>
+            </div>
+    </div>
+        <img onclick="" class="okButton" src="../assets/img/Primary check button.png">
+    <div>
     `;
 }
