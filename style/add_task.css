@@ -139,8 +139,8 @@
     border-left-width: 0px;
     border-bottom: 1px solid #005DFF;
     position: absolute;
-    left: -15px;
-    right: -60px;
+    left: -40px; /* vorher -15px */
+    right: -4px; /* vorher -60px */
   }
 
   .inputIconTrash{
@@ -404,7 +404,7 @@
 
 .positionFinalEditContainer{
     position: absolute;
-    right: -60px;
+    right: -4px; /* vorher -60px*/
     top: 7px;
 }
 
