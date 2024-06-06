@@ -257,23 +257,23 @@ function rendersubtask(i) {
   newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate,i);
 }
 
-function openWrapper(i) {
-  let wrapperList = document.getElementById(`wrapperList${i}`);
-  let wrapper = document.getElementById(`wrapper${i}`);
+function editopenWrapper(i) {
+  let wrapperList = document.getElementById(`editwrapperList${i}`);
+  let wrapper = document.getElementById(`editwrapper${i}`);
 
   if (wrapperList.classList.contains(`d-none`)) {
     wrapperList.classList.remove(`d-none`);
-    document.getElementById(`arrowUp${i}`).classList.remove(`d-none`);
-    document.getElementById(`arrowDown${i}`).classList.add(`d-none`);
+    document.getElementById(`editarrowUp${i}`).classList.remove(`d-none`);
+    document.getElementById(`editarrowDown${i}`).classList.add(`d-none`);
     wrapper.classList.add(`openBorader`);
     wrapperList.style.width = `${wrapper.offsetWidth}px`;
-    document.getElementById(`wrapper${i}`).classList.add("blueOutlineInput");
+    document.getElementById(`editwrapper${i}`).classList.add("blueOutlineInput");
   } else {
     wrapperList.classList.add(`d-none`);
-    document.getElementById(`arrowUp${i}`).classList.add(`d-none`);
-    document.getElementById(`arrowDown${i}`).classList.remove(`d-none`);
+    document.getElementById(`editarrowUp${i}`).classList.add(`d-none`);
+    document.getElementById(`editarrowDown${i}`).classList.remove(`d-none`);
     wrapper.classList.remove(`openBorader`);
-    document.getElementById(`wrapper${i}`).classList.remove("blueOutlineInput");
+    document.getElementById(`editwrapper${i}`).classList.remove("blueOutlineInput");
   }
 }
 
@@ -313,8 +313,8 @@ async function editTask(i) {
   let prio = prios[prioValue];
   let category = categorys[cat];
 
-  let data = generateDataForTask(title, description, date, prio, category);
-  
+  let data = generateDataForTask(edittitle, editdescription, editdate, prio, category);
+
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);

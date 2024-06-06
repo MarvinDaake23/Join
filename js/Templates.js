@@ -24,8 +24,6 @@ function renderContactWrapper(element, i) {
     `;
 }
 
-
-
 function renderBoardTask(element, index) {
     return /* html*/ `
         <div id="boardTask${index}" draggable="true" ondragstart="startDragging(${index})" class="boardCard" onclick="loadBoardBigContainer(${index})">
@@ -152,7 +150,6 @@ function renderSelectedContacts(element, i) {
 
 function rendersubtaskTemplate(title,description,dueDate,i) {
     return /*html */ `
-
     <form onsubmit="editTask(${i})" class="editConatinerBackground">
     <div class="editContainer">
         <div class="textEditConatiner">Title</div>
@@ -178,14 +175,16 @@ function rendersubtaskTemplate(title,description,dueDate,i) {
                 </div>
             </div>
             </div>
+
         <div class="textEditConatiner">Assigned to</div>
-            <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
-            <span>Select contacts to assign</span>
-            <img id="arrowDownAt" src="./assets/img/arrow_down.png" alt class>
-            <img id="arrowUpAt" class="d-none" src="./assets/img/arrow_up.png" alt>
+            <div id="editwrapperAt" class="wrapper" onclick="editopenWrapper('At')">
+                <span>Select contacts to assign</span>
+                <img id="editarrowDownAt" src="./assets/img/arrow_down.png" alt class>
+                <img id="editarrowUpAt" class="d-none" src="./assets/img/arrow_up.png" alt>
             </div>
-            <ul id="wrapperListAt" class="wrapperList d-none"></ul>
+            <ul id="editwrapperListAT" class="wrapperList d-none"></ul>
             <div id="selectedContacts"></div>
+
         <div class="textEditConatiner">Subtask</div>
             <div class="sutaskTitleInputContainer">
                 <input id="subtaskInput" type="text" placeholder="Add new subtask">
