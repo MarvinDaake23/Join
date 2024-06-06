@@ -1,8 +1,8 @@
 <div class="first">
   <img class="close" src="./assets/img/close_white.svg" onclick="closeAddOrEditContact()" />
   <img class="logo" src="./assets/img/headerlogo.svg" />
-  <div class="headline">Add contact</div>
-  <div class="subheadline">Tasks are better with a team!</div>
+  <div id="addContactHeadline" class="headline">Add contact</div>
+  <div id="addContactSubheadline" class="subheadline">Tasks are better with a team!</div>
   <hr />
 </div>
 
@@ -12,7 +12,7 @@
 
 <div class="third">
   <img class="close" src="./assets/img/close.svg" onclick="closeAddOrEditContact()" />
-  <form onsubmit="createContact(); return false;">
+  <form id="addOrEditForm" onsubmit="createContact(); return false;">
     <input
       required
       id="nameInput"
@@ -38,10 +38,10 @@
       pattern="([0-9]+)"
     />
     <div class="buttonPair">
-      <button type="button" id="cancelButton" onclick="closeAddOrEditContact()">
+      <button type="button" id="leftButton" onclick="closeAddOrEditContact()">
         Cancel<img src="assets/img/cancel.svg" />
       </button>
-      <button id="createContactButton">
+      <button id="rightButton">
         Create contact<img src="assets/img/check.svg" />
       </button>
     </div>

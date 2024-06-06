@@ -138,20 +138,20 @@
   gap: 20px;
 }
 
-#createContactButton {
+#rightButton {
   background-color: #2a3647;
   color: #ffffff;
   border: none;
 }
 
-#cancelButton {
+#leftButton {
   background-color: white;
   color: #2a3647;
   border: 1px solid #2a3647;
 }
 
-#createContactButton,
-#cancelButton {
+#leftButton,
+#rightButton {
   display: flex;
   gap: 4px;
   justify-content: center;
@@ -164,8 +164,8 @@
   cursor: pointer;
 }
 
-#createContactButton img,
-#cancelButton img {
+#leftButton img,
+#rightButton img {
   width: 24px !important;
   height: 24px !important;
   padding: 0px !important;

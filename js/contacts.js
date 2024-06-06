@@ -19,7 +19,7 @@ function renderContacts() {
 
   // Button
   container.innerHTML += `
-  <button onclick="showAddOrEditContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
+  <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
 
   // first shown contact: logged in user
   let idOfLoggedInUser = getIdOfLoggedInUser();
@@ -84,9 +84,10 @@ function backToContactList() {
   renderContacts();
 }
 
-function showAddOrEditContact() {
+function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
-  //document.getElementById("modalAddOrEditContact").style.display = "flex";
+  updateAddTemplateToAdd();
+  document.getElementById("addOrEditForm").reset();
 }
 
 function closeAddOrEditContact() {
@@ -96,9 +97,12 @@ function closeAddOrEditContact() {
 
 function closeEditContact() {
   document.getElementById("modalBackground").style.display = "none";
+
+  /*
   document.getElementById("modalEditContact").style.display = "none";
   document.getElementById("moreButton").style.display = "none";
   document.getElementById("contactSingleView").innerHTML = "";
+  */
 }
 
 /**
@@ -161,50 +165,78 @@ function showMore() {
 
 function showEditContact(id) {
   document.getElementById("modalBackground").style.display = "block";
-  document.getElementById("modalAddContact").style.display = "none";
-  document.getElementById("modalEditContact").style.display = "";
+  updateAddTemplateToEdit(id);
   renderValuesToEditContactFormular(id);
+}
+
+function updateAddTemplateToEdit(id) {
+  document.getElementById("addContactHeadline").innerHTML = "Edit contact";
+  document.getElementById("addContactSubheadline").innerHTML = "";
+  document.getElementById("leftButton").innerHTML = "Delete";
+  document.getElementById("rightButton").innerHTML = `Save<img src="assets/img/check.svg">`;
+  document
+  .getElementById("addOrEditForm")
+  .setAttribute(
+    "onsubmit",
+    `editContact(${id});closeEditContact();return false;`
+  );
+}
+
+function updateAddTemplateToAdd() {
+  document.getElementById("addContactHeadline").innerHTML = "Add contact";
+  document.getElementById("addContactSubheadline").innerHTML =
+    "Tasks are better in a team!";
+  document.getElementById("leftButton").innerHTML = `Cancel<img src="assets/img/cancel.svg" />`;
+  document.getElementById("rightButton").innerHTML = `Create contact<img src="assets/img/check.svg">`;
+  document
+  .getElementById("addOrEditForm")
+  .setAttribute(
+    "onsubmit",
+    `createContact();return false;`
+  );
 }
 
 function renderValuesToEditContactFormular(id) {
   document.getElementById(
-    "editNameInput"
+    "nameInput"
   ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
-  document.getElementById("editEmailInput").value = contacts[id].email;
-  document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
+  document.getElementById("emailInput").value = contacts[id].email;
+  document.getElementById("phoneInput").value = contacts[id].phoneNumber;
+  /*
   document.getElementById(
     "editInitials"
   ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
   document.getElementById("editInitials").style.backgroundColor =
     contacts[id].profileColor;
+    */
 
-  document
-    .getElementById("editContactForm")
-    .setAttribute(
-      "onsubmit",
-      `editContact(${id});closeEditContact();return false;`
-    );
 
+
+  /*
   document
     .getElementById("editContactDeleteButton")
     .setAttribute(
       "onclick",
       `deleteContact(${id});closeEditContact();return false;`
     );
+    */
 }
 
 async function editContact(id) {
   //update array and put to db
-  let nameInput = document.getElementById("editNameInput").value;
+  let nameInput = document.getElementById("nameInput").value;
   const nameArray = nameInput.split(" ");
   contacts[id].firstName = nameArray[0];
   contacts[id].lastName = nameArray[1];
-  contacts[id].email = document.getElementById("editEmailInput").value;
-  contacts[id].phoneNumber = document.getElementById("editPhoneInput").value;
+  contacts[id].email = document.getElementById("emailInput").value;
+  contacts[id].phoneNumber = document.getElementById("phoneInput").value;
 
   await putData("contacts", contacts);
 
   closeEditContact();
+  // liste neu rendern
+  renderContacts();
+  // einzelansicht wieder
   document.getElementById("contactSingleView").innerHTML =
     renderSingleContactHTML(id);
 }
