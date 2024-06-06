@@ -654,6 +654,12 @@
   position: absolute;
   right: 30px;
   bottom: 20px;
+  background-repeat: no-repeat;
+  background: url('../assets/img/Primary check button.png');
+  background-position: center;
+  height: 58px;
+  width: 90px;
+  border: none;
 }
 
 .okButton:hover{
