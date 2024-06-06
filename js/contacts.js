@@ -84,7 +84,6 @@ function backToContactList() {
   renderContacts();
 }
 
-
 /* MODAL STUFF */
 function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
@@ -109,11 +108,18 @@ function updateModalTemplateToEdit(id) {
   document.getElementById(
     "rightButton"
   ).innerHTML = `Save<img src="assets/img/check.svg">`;
+  // Form und linker Button
   document
     .getElementById("addOrEditForm")
     .setAttribute(
       "onsubmit",
-      `editContact(${id});closeEditContact();return false;`
+      `editContact(${id});closeAddOrEditContact();return false;`
+    );
+  document
+    .getElementById("leftButton")
+    .setAttribute(
+      "onclick",
+      `deleteContact(${id});closeAddOrEditContact();return false;`
     );
 }
 
@@ -127,9 +133,13 @@ function updateModalTemplateToAdd() {
   document.getElementById(
     "rightButton"
   ).innerHTML = `Create contact<img src="assets/img/check.svg">`;
+  // Form und linker Butten
   document
     .getElementById("addOrEditForm")
     .setAttribute("onsubmit", `createContact();return false;`);
+  document
+    .getElementById("leftButton")
+    .setAttribute("onclick", "closeAddOrEditContact()");
 }
 
 /**
@@ -190,10 +200,6 @@ function showMore() {
   document.getElementById("moreButtonPopup").style.display = "flex";
 }
 
-
-
-
-
 function renderValuesToEditContactFormular(id) {
   document.getElementById(
     "nameInput"
@@ -206,15 +212,6 @@ function renderValuesToEditContactFormular(id) {
   ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
   document.getElementById("editInitials").style.backgroundColor =
     contacts[id].profileColor;
-    */
-
-  /*
-  document
-    .getElementById("editContactDeleteButton")
-    .setAttribute(
-      "onclick",
-      `deleteContact(${id});closeEditContact();return false;`
-    );
     */
 }
 
@@ -229,7 +226,7 @@ async function editContact(id) {
 
   await putData("contacts", contacts);
 
-  closeEditContact();
+  closeAddOrEditContact();
   // liste neu rendern
   renderContacts();
   // einzelansicht wieder
