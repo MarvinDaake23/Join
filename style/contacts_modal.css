@@ -31,8 +31,6 @@
   border-radius: 30px;
 }
 
-
-
 #modalAddOrEditContact .first {
   display: flex;
   flex: 0.9;
@@ -46,14 +44,23 @@
   padding: 20px;
 }
 
+#modalAddOrEditContact .first span {
+  display: none;
+}
+
 #modalAddOrEditContact .first img {
   width: 53.93px;
   height: 66.48px;
 }
 
-#modalAddOrEditContact h1 {
+#modalAddOrEditContact .headline {
   font-weight: 700;
   font-size: 61px;
+}
+
+#modalAddOrEditContact .subheadline {
+  font-weight: 400;
+  font-size: 27px;
 }
 
 #modalAddOrEditContact .second {
@@ -62,7 +69,7 @@
   padding: 20px;
 }
 
-#modalAddOrEditContact .third  {
+#modalAddOrEditContact .third {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -70,13 +77,13 @@
   flex: 1;
 }
 
-#modalAddOrEditContact .third  span {
+#modalAddOrEditContact .third span {
   align-self: flex-end;
   flex: 1;
   cursor: pointer;
 }
 
-#modalAddOrEditContact .third  form {
+#modalAddOrEditContact .third form {
   display: flex;
   gap: 32px;
   flex-direction: column;
@@ -84,10 +91,6 @@
   flex: 2;
   height: 215px;
 }
-
-
-
-
 
 .nameInput {
   background: url("../assets/img/person_small.png") no-repeat right;
@@ -110,7 +113,6 @@
   background-origin: content-box;
 }
 
-
 /* Add Animation */
 @keyframes slideInFromBottom {
   from {
@@ -131,7 +133,6 @@
     right: 0px;
   }
 }
-
 
 /* MOBILE */
 @media (max-width: 620px) {
