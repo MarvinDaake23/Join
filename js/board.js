@@ -253,6 +253,9 @@ function rendersubtask(i) {
   let title = boardTasks[i]["title"];
   let description =  boardTasks[i]["description"];
   let dueDate = boardTasks[i]["dueDate"];
+
+  loadData("contacts");
+
   newTask.innerHTML =``; 
   newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate,i);
 }
