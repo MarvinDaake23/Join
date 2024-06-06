@@ -150,17 +150,17 @@ function renderSelectedContacts(element, i) {
     `;
 }
 
-function rendersubtaskTemplate(title,description,dueDate) {
+function rendersubtaskTemplate(title,description,dueDate,i) {
     return /*html */ `
 
-    <form onsubmit="editTask()" class="editConatinerBackground">
+    <form onsubmit="editTask(${i})" class="editConatinerBackground">
     <div class="editContainer">
         <div class="textEditConatiner">Title</div>
-            <input id="edittitle" class="requiredInput" type="text" value="${title}">
+            <input id="edittitle${i}" class="requiredInput" type="text" value="${title}">
         <div class="textEditConatiner">Description</div>
-            <input id="editdescription" class="textareaDescription" type="text" value="${description}">
+            <input id="editdescription${i}" class="textareaDescription" type="text" value="${description}">
         <div class="textEditConatiner">Due Date</div>
-            <input id="editdate" class="requiredInput" id="date" required type="date" value="${dueDate}" min="2024-06-05">
+            <input id="editdate${i}" class="requiredInput" id="date" required type="date" value="${dueDate}" min="2024-06-05">
         <div class="textEditConatiner">Priority</div>
             <div class="row">
             <div class="prioChoose">

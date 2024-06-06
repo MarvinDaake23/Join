@@ -254,7 +254,7 @@ function rendersubtask(i) {
   let description =  boardTasks[i]["description"];
   let dueDate = boardTasks[i]["dueDate"];
   newTask.innerHTML =``; 
-  newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate);
+  newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate,i);
 }
 
 function openWrapper(i) {
@@ -301,17 +301,23 @@ function prioChoose(i) {
   }
 }
 
-async function editTask() {
-  let title = document.getElementById("edittitle").value;
-  let description = document.getElementById("editdescription").value;
-  let date = document.getElementById("editdate").value;
-  console.log(title);
-  /* let prio = prios[prioValue];
+async function editTask(i) {
+  let edittitle = document.getElementById(`edittitle${i}`).value;
+  let editdescription = document.getElementById(`editdescription${i}`).value;
+  let editdate = document.getElementById(`editdate${i}`).value;
+
+  console.log(edittitle);
+  console.log(editdescription);
+  console.log(editdate);
+
+  let prio = prios[prioValue];
   let category = categorys[cat];
+
   let data = generateDataForTask(title, description, date, prio, category);
+  
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
   // zur board seite
-  visitBoard(); */
+  visitBoard();
 }
