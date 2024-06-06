@@ -84,25 +84,52 @@ function backToContactList() {
   renderContacts();
 }
 
+
+/* MODAL STUFF */
 function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
-  updateAddTemplateToAdd();
+  updateModalTemplateToAdd();
   document.getElementById("addOrEditForm").reset();
+}
+
+function showEditContact(id) {
+  document.getElementById("modalBackground").style.display = "block";
+  updateModalTemplateToEdit(id);
+  renderValuesToEditContactFormular(id);
 }
 
 function closeAddOrEditContact() {
   document.getElementById("modalBackground").style.display = "none";
-  //document.getElementById("modalAddContact").style.display = "none";
 }
 
-function closeEditContact() {
-  document.getElementById("modalBackground").style.display = "none";
+function updateModalTemplateToEdit(id) {
+  document.getElementById("addContactHeadline").innerHTML = "Edit contact";
+  document.getElementById("addContactSubheadline").innerHTML = "";
+  document.getElementById("leftButton").innerHTML = "Delete";
+  document.getElementById(
+    "rightButton"
+  ).innerHTML = `Save<img src="assets/img/check.svg">`;
+  document
+    .getElementById("addOrEditForm")
+    .setAttribute(
+      "onsubmit",
+      `editContact(${id});closeEditContact();return false;`
+    );
+}
 
-  /*
-  document.getElementById("modalEditContact").style.display = "none";
-  document.getElementById("moreButton").style.display = "none";
-  document.getElementById("contactSingleView").innerHTML = "";
-  */
+function updateModalTemplateToAdd() {
+  document.getElementById("addContactHeadline").innerHTML = "Add contact";
+  document.getElementById("addContactSubheadline").innerHTML =
+    "Tasks are better in a team!";
+  document.getElementById(
+    "leftButton"
+  ).innerHTML = `Cancel<img src="assets/img/cancel.svg" />`;
+  document.getElementById(
+    "rightButton"
+  ).innerHTML = `Create contact<img src="assets/img/check.svg">`;
+  document
+    .getElementById("addOrEditForm")
+    .setAttribute("onsubmit", `createContact();return false;`);
 }
 
 /**
@@ -163,38 +190,9 @@ function showMore() {
   document.getElementById("moreButtonPopup").style.display = "flex";
 }
 
-function showEditContact(id) {
-  document.getElementById("modalBackground").style.display = "block";
-  updateAddTemplateToEdit(id);
-  renderValuesToEditContactFormular(id);
-}
 
-function updateAddTemplateToEdit(id) {
-  document.getElementById("addContactHeadline").innerHTML = "Edit contact";
-  document.getElementById("addContactSubheadline").innerHTML = "";
-  document.getElementById("leftButton").innerHTML = "Delete";
-  document.getElementById("rightButton").innerHTML = `Save<img src="assets/img/check.svg">`;
-  document
-  .getElementById("addOrEditForm")
-  .setAttribute(
-    "onsubmit",
-    `editContact(${id});closeEditContact();return false;`
-  );
-}
 
-function updateAddTemplateToAdd() {
-  document.getElementById("addContactHeadline").innerHTML = "Add contact";
-  document.getElementById("addContactSubheadline").innerHTML =
-    "Tasks are better in a team!";
-  document.getElementById("leftButton").innerHTML = `Cancel<img src="assets/img/cancel.svg" />`;
-  document.getElementById("rightButton").innerHTML = `Create contact<img src="assets/img/check.svg">`;
-  document
-  .getElementById("addOrEditForm")
-  .setAttribute(
-    "onsubmit",
-    `createContact();return false;`
-  );
-}
+
 
 function renderValuesToEditContactFormular(id) {
   document.getElementById(
@@ -209,8 +207,6 @@ function renderValuesToEditContactFormular(id) {
   document.getElementById("editInitials").style.backgroundColor =
     contacts[id].profileColor;
     */
-
-
 
   /*
   document
