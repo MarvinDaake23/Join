@@ -270,17 +270,7 @@ content .headline h2 {
 
 
 
-/* Add Animation */
-@keyframes slideIn {
-  from {
-    bottom: -500px;
-    opacity: 0;
-  }
-  to {
-    bottom: 0px;
-    opacity: 1;
-  }
-}
+
 
 #moreButtonPopup {
   display: none;
@@ -306,16 +296,6 @@ content .headline h2 {
   gap: 8px;
 }
 
-@keyframes slideInFromRightDesktop {
-  from {
-    right: -2000px;
-    opacity: 0;
-  }
-  to {
-    /*right: 20px;*/
-    opacity: 1;
-  }
-}
 
 @keyframes slideInFromRight {
   from {
