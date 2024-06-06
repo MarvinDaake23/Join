@@ -107,7 +107,7 @@ function closeAddOrEditContact() {
 function updateModalTemplateToEdit(id) {
   document.getElementById("addContactHeadline").innerHTML = "Edit contact";
   document.getElementById("addContactSubheadline").innerHTML = "";
-  document.getElementById("cancelButton").innerHTML = "Delete";
+  //document.getElementById("cancelButton").innerHTML = "Delete";
   document.getElementById(
     "rightButton"
   ).innerHTML = `Save<img src="assets/img/check.svg">`;
@@ -125,6 +125,7 @@ function updateModalTemplateToEdit(id) {
       `deleteContact(${id});closeAddOrEditContact();return false;`
     );
   document.getElementById("newContactPic").style.display = "none";
+  document.getElementById("cancelButton").style.display = "none";
   document.getElementById("editInitials").style.display = "flex";
 }
 
@@ -138,7 +139,7 @@ function updateModalTemplateToAdd() {
   document.getElementById(
     "rightButton"
   ).innerHTML = `Create contact<img src="assets/img/check.svg">`;
-  // Form und linker Butten
+  // Form und linker Button
   document
     .getElementById("addOrEditForm")
     .setAttribute("onsubmit", `createContact();return false;`);
@@ -147,6 +148,8 @@ function updateModalTemplateToAdd() {
     .setAttribute("onclick", "closeAddOrEditContact()");
   document.getElementById("newContactPic").style.display = "flex";
   document.getElementById("editInitials").style.display = "none";
+  document.getElementById("deleteButton").style.display = "none";
+
 }
 
 /**
@@ -198,6 +201,7 @@ async function deleteContact(id) {
   contacts.splice(id, 1);
   // neu hochladen
   await putData("contacts", contacts);
+  closeAddOrEditContact();
   backToContactList();
   renderContacts();
   document.getElementById("contactSingleView").innerHTML = "";
