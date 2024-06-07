@@ -56,7 +56,8 @@ content {
 
 .singleContactContainerMobile {
   background-color: #f6f7f8;
-  padding: 48px 16px 188px 16px;
+  padding: 48px 16px 48px 16px;
+  margin-bottom: auto;
 }
 
 .singleContactContainer .initials {
@@ -233,7 +234,7 @@ content .headline h2 {
 
 #contactContainer {
   padding: 10px 40px;
-  margin-bottom: 80px;
+  /*margin-bottom: 80px;*/
 }
 
 /*
@@ -438,7 +439,7 @@ nav a:hover {
     font-weight: 700;
   }
 
-  .singleContact{
-    gap:20px;
+  .singleContact {
+    gap: 20px;
   }
 }

@@ -237,6 +237,7 @@ function checkCategory() {
 document.addEventListener("DOMContentLoaded", (event) => {
   let today = new Date().toISOString().split("T")[0];
   document.getElementById("date").min = today;
+  
 });
 
 // document.getElementById('addTaskForm').addEventListener('submit', function (event) {
