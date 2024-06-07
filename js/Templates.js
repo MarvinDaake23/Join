@@ -184,10 +184,6 @@ function rendersubtaskTemplate(title,description,dueDate,i) {
             </div>
             <ul id="editwrapperListAt" class="wrapperList d-none"></ul>
             <div id="selectedContacts"></div>
-
-
-
-
         <div class="textEditConatiner">Subtask</div>
             <div class="sutaskTitleInputContainer">
                 <input id="editsubtaskInput" type="text" onclick="editInputFocus()" placeholder="Add new subtask">
@@ -200,18 +196,9 @@ function rendersubtaskTemplate(title,description,dueDate,i) {
                     <img onclick="editloadSubtaskList()" src="../assets/img/check.png">
                 </div>
             </div>
-            <ul class="subTaskContainer" id="editsubTasks"></ul>
+            <ul class="subTaskContainer" id="editsubTasks"></ul><!-- hier wird das rein geladne und das will ich vorher shco nrender bei den die aus dem boared conatriner shcon geladne werdne  -->
         </div> 
-
-
-
-
     </div>
-
-
-
-
-
         <button type="submit" class="okButton"></button>
     <form>
     `;

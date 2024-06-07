@@ -48,6 +48,9 @@ function loadBoardBigContainer(i) {
 function removeboardBigContainer() {
   document.getElementById("background").classList.add("d-none");
   document.getElementById("boardBigContainer").classList.add("d-none");
+
+  
+
 }
 
 /**
@@ -269,7 +272,7 @@ async function deleteTask(i) {
   updateHTML();
 }
 
-function rendersubtask(i) {
+async function rendersubtask(i) {
   let newTask = document.getElementById('boardBigContainer');
   let title = boardTasks[i]["title"];
   let description =  boardTasks[i]["description"];
@@ -279,7 +282,16 @@ function rendersubtask(i) {
   newTask.innerHTML =``; 
   newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate,i);
   loadContacteditWrapper();
-  inputeditSelector(); 
+  inputeditSelector();
+  
+  subtasks.splice(0,subtasks.length);
+  for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
+    let response = await fetch(`${BASE_URL}boardtasks/${i}/subtasks/${j}/subtaskText.json`);
+    let responseJson = await response.json();
+  subtasks.push(responseJson);
+  }
+
+  editrenderSubtaskList();
 }
 
 function editopenWrapper(i) {
@@ -335,8 +347,9 @@ async function editTask(i) {
   console.log(editdescription);
   console.log(editdate);
 
-  let prio = prios[prioValue];
+/*   let prio = prios[prioValue];
   let category = categorys[cat];
+ */
 
   let data = generateDataForTask(edittitle, editdescription, editdate, prio, category);
 
@@ -375,6 +388,7 @@ function editloadSubtaskList() {
 function editrenderSubtaskList() {
   let subtaskList = document.getElementById("editsubTasks");
   subtaskList.innerHTML = ``;
+
   for (let i = 0; i < subtasks.length; i++) {
     if (subtasks[i]) {
       subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
