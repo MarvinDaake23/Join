@@ -236,7 +236,6 @@ function loadProgressbar(index, subEndCount, finished) {
   );
 }
 
-//
 function searchTask() {
   let search = document.getElementById("findInput").value.toLowerCase();
   let boardTaskClass = document.querySelectorAll(".boardCard");
@@ -291,6 +290,12 @@ async function rendersubtask(i) {
   subtasks.push(responseJson);
   }
 
+  let sContacts = document.getElementById("selectedContacts");
+  for (let x = 0; x < selectedTaskContacts.length; x++) {
+    const element = selectedTaskContacts[x];
+    sContacts.innerHTML += renderSelectedContacts(element);
+  }
+
   editrenderSubtaskList();
 }
 
@@ -343,9 +348,6 @@ async function editTask(i) {
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
 
-  console.log(edittitle);
-  console.log(editdescription);
-  console.log(editdate);
 
 /*   let prio = prios[prioValue];
   let category = categorys[cat];

@@ -144,7 +144,7 @@ function renderBoardTaskPlaceholderDone() {
 
 function renderSelectedContacts(element, i) {
     return /*html */ `
-             <div style="background-color:${element["profileColor"]}" class="initials initSmall">${element["firstName"][0]}${element["lastName"][0]}</div>
+        <div style="background-color:${element["profileColor"]}" class="initials initSmall">${element["firstName"][0]}${element["lastName"][0]}</div>
     `;
 }
 
@@ -183,7 +183,8 @@ function rendersubtaskTemplate(title,description,dueDate,i) {
                 <img id="editarrowUpAt" class="d-none" src="./assets/img/arrow_up.png" alt>
             </div>
             <ul id="editwrapperListAt" class="wrapperList d-none"></ul>
-            <div id="selectedContacts"></div>
+            <div id="editselectedContacts"></div>
+            
         <div class="textEditConatiner">Subtask</div>
             <div class="sutaskTitleInputContainer">
                 <input id="editsubtaskInput" type="text" onclick="editInputFocus()" placeholder="Add new subtask">
