@@ -27,29 +27,12 @@ function loadContacteditWrapper() {
   }
 }
 
-function loadeditWrapper() {
-  let wrapperList = document.getElementById("editwrapperList");
-
-  for (let i = 0; i < categorys.length; i++) {
-    wrapperList.innerHTML += /*html */ `
-          <li onclick="chooseCategory(${i})"  class ="list">
-              <span id="category${i}">
-                  <div>${categorys[i]}</div>
-              </span>
-          </li>
-          `;
-  }
-}
-
 function inputeditSelector() {
-  let subtaskInput = document.getElementById("subtaskInput");
+  let subtaskInput = document.getElementById("editsubtaskInput");
   subtaskInput.addEventListener("focus", function () {
     inputFocus();
   });
 }
-
-
-
 
 /**
  * function to render the large view of the task
@@ -296,7 +279,6 @@ function rendersubtask(i) {
   newTask.innerHTML =``; 
   newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate,i);
   loadContacteditWrapper();
-  loadeditWrapper();
   inputeditSelector(); 
 }
 
@@ -363,4 +345,43 @@ async function editTask(i) {
   await putData("boardtasks", boardTasks);
   // zur board seite
   visitBoard();
+}
+
+function editInputFocus() {
+  let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
+  let editimgContainerSubtask = document.getElementById("editimgContainerSubtask");
+
+  editaddTaskinEditTask.classList.add("d-none");
+  editimgContainerSubtask.classList.remove("d-none");
+}
+
+function editInputBlur() {
+  let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
+  let editimgContainerSubtask = document.getElementById("editimgContainerSubtask");
+
+  editaddTaskinEditTask.classList.remove("d-none");
+  editimgContainerSubtask.classList.add("d-none");
+}
+
+function editloadSubtaskList() {
+  let subtask = document.getElementById("editsubtaskInput").value;
+  if (subtask) {
+    subtasks.push(subtask);
+  }
+  editrenderSubtaskList();
+  editinputClear();
+}
+
+function editrenderSubtaskList() {
+  let subtaskList = document.getElementById("editsubTasks");
+  subtaskList.innerHTML = ``;
+  for (let i = 0; i < subtasks.length; i++) {
+    if (subtasks[i]) {
+      subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
+    }
+  }
+}
+
+function editinputClear() {
+  document.getElementById("editsubtaskInput").value = "";
 }

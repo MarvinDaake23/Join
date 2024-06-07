@@ -185,12 +185,33 @@ function rendersubtaskTemplate(title,description,dueDate,i) {
             <ul id="editwrapperListAt" class="wrapperList d-none"></ul>
             <div id="selectedContacts"></div>
 
+
+
+
         <div class="textEditConatiner">Subtask</div>
             <div class="sutaskTitleInputContainer">
-                <input id="subtaskInput" type="text" placeholder="Add new subtask">
-                <div id="imgContainerSubtask" class="imgContainersubtask imgContainerBackground"></div>
+                <input id="editsubtaskInput" type="text" onclick="editInputFocus()" placeholder="Add new subtask">
+
+                <img id="editaddTaskinEditTask" class="editaddTaskinEditTask" onclick="editInputFocus()" src="../assets/img/add.png">
+
+                <div id="editimgContainerSubtask" class="imgContainersubtask d-none">
+                    <img onclick="editInputBlur()" src="../assets/img/close.png">
+                    <div class="editseperator"></div>
+                    <img onclick="editloadSubtaskList()" src="../assets/img/check.png">
+                </div>
             </div>
+            <ul class="subTaskContainer" id="editsubTasks"></ul>
+        </div> 
+
+
+
+
     </div>
+
+
+
+
+
         <button type="submit" class="okButton"></button>
     <form>
     `;
