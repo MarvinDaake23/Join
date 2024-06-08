@@ -135,10 +135,21 @@
             </div>
 
             <div class="taskTitleContainer categoryContainer">
+              <!--
               <span class="addTaskSpans"
                 >Category<span class="red"> *</span></span
               >
+              -->
 
+              <label for="category">Category<span class="red">*</span></label>
+              <br />
+              <select id="type" name="category" required>
+                <option value="">Select task category</option>
+                <option value="User Story">User Story</option>
+                <option value="Technical Task">Technical Task</option>
+              </select>
+
+              <!--
               <div id="wrapper" class="wrapper" onclick="openWrapper('')">
                 <span id="placeholder">Select task category</span>
                 <img id="arrowDown" src="./assets/img/arrow_down.png" alt="" />
@@ -155,7 +166,9 @@
                 class="error-message"
                 aria-live="polite"
               ></span>
-            </div>
+
+              
+            --></div>
 
             <div class="taskTitleContainer">
               <span class="addTaskSpans">Subtask</span>

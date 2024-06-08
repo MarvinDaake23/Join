@@ -15,14 +15,14 @@ async function onLoadAddTask() {
   init();
 }
 
-// muss diese funktion vielleicht in die addTask.js?
 async function init() {
   contacts = await loadData("contacts");
   boardTasks = await loadData("boardtasks");
   //includeHTML();  -> edit christoph
   loadContactWrapper();
-  loadWrapper();
+  //loadWrapper(); // categorys anders!
   inputSelector();
+  prioChoose(1); //pre-selected medium
 }
 
 /**
@@ -109,7 +109,7 @@ function subtaskListInput(element, i) {
                   <div class="inputIconSmallLine"></div>
                   <div onclick="deleteSubtask(${i})" class="trashIcon iconContainerSubtask"></div>
                 </div>
-</div>
+              </div>
         </li>
   </div>
 `;
