@@ -12,7 +12,12 @@
 }
 
 .rightSideAddTaskPage {
-  margin-bottom: 250px;
+  /*margin-bottom: 250px; - sieht bei mir doof aus (chr.)*/
+}
+
+
+.required {
+  padding-left: 50px;
 }
 
 .headlineAddTask {
@@ -536,12 +541,12 @@
 }
 
 .checkoutContainer {
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0px;
   left: 232px;
   right: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 16px;
   gap: 16px;
   align-items: center;
