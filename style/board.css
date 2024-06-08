@@ -17,7 +17,6 @@
 /* DESKTOP VIEW */
 #modalAddTask {
   display: flex;
-  flex-direction: row;
   margin: 80px 10px;
   position: relative;
   animation-name: slideInFromRightDesktop;
@@ -25,10 +24,17 @@
   width: 80vw;
   height: 592px;
   margin: 120px auto;
-  display: flex;
-  align-items: stretch;
   background-color: white;
   border-radius: 30px;
+}
+
+@keyframes slideInFromRightDesktop {
+  from {
+    right: -2000px;
+  }
+  to {
+    right: 0px;
+  }
 }
 
 .headlineContainer {
