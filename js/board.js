@@ -15,11 +15,10 @@ async function boardInit() {
 }
 
 function loadContacteditWrapper() {
-
   // sort contacts by first name
   sortContacts();
 
-  let contactWrapper = document.getElementById("editwrapperListAt"); 
+  let contactWrapper = document.getElementById("editwrapperListAt");
 
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
@@ -48,17 +47,18 @@ function loadBoardBigContainer(i) {
 function removeboardBigContainer() {
   document.getElementById("background").classList.add("d-none");
   document.getElementById("boardBigContainer").classList.add("d-none");
-
-  
-
 }
 
 /**
  * function to render the lists in the large view of the task
  */
 function loadBoardBigContainerLists(i) {
-  loadBoardBigContainerContacts(i);
-  loadBoardBigContainerSubtasks(i);
+  if (boardTasks[i].subtasks) {
+    loadBoardBigContainerSubtasks(i);
+  }
+  if (boardTasks[i].assignedTo) {
+    loadBoardBigContainerContacts(i);
+  }
 }
 
 /**
@@ -113,7 +113,9 @@ function renderAllBoardTasks() {
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
     let finished = boardTask.finishedSubtasks;
-    let subtaskCount = boardTask.subtasks;
+    let subtasks = boardTask.subtasks;
+    let assignedTo = boardTask.assignedTo;
+
     if (boardTask.category == "todo") {
       document.getElementById("todo").innerHTML += renderBoardTask(
         boardTask,
@@ -144,11 +146,15 @@ function renderAllBoardTasks() {
       document.getElementById("donePlaceholder").style.display = "none";
     }
     //loadProgressbar(index, progressName, subtaskCount.length, finished);
-    if (subtaskCount.length != 0) {
-      loadProgressbar(index, subtaskCount.length, finished);
+    if (subtasks && subtasks.length != 0) {
+      loadProgressbar(index, subtasks.length, finished);
     }
     //loadPrioBoardTask(index); -> christoph
-    loadContactInBoardTask(index);
+
+    if (assignedTo) {
+      // nur wenn kontakte zugeordnet sind, rendern
+      loadContactInBoardTask(index);
+    }
   }
 }
 
@@ -272,22 +278,24 @@ async function deleteTask(i) {
 }
 
 async function rendersubtask(i) {
-  let newTask = document.getElementById('boardBigContainer');
+  let newTask = document.getElementById("boardBigContainer");
   let title = boardTasks[i]["title"];
-  let description =  boardTasks[i]["description"];
+  let description = boardTasks[i]["description"];
   let dueDate = boardTasks[i]["dueDate"];
   loadData("contacts");
 
-  newTask.innerHTML =``; 
-  newTask.innerHTML = rendersubtaskTemplate(title,description,dueDate,i);
+  newTask.innerHTML = ``;
+  newTask.innerHTML = rendersubtaskTemplate(title, description, dueDate, i);
   loadContacteditWrapper();
   inputeditSelector();
-  
-  subtasks.splice(0,subtasks.length);
+
+  subtasks.splice(0, subtasks.length);
   for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
-    let response = await fetch(`${BASE_URL}boardtasks/${i}/subtasks/${j}/subtaskText.json`);
+    let response = await fetch(
+      `${BASE_URL}boardtasks/${i}/subtasks/${j}/subtaskText.json`
+    );
     let responseJson = await response.json();
-  subtasks.push(responseJson);
+    subtasks.push(responseJson);
   }
 
   let sContacts = document.getElementById("selectedContacts");
@@ -309,13 +317,17 @@ function editopenWrapper(i) {
     document.getElementById(`editarrowDown${i}`).classList.add(`d-none`);
     wrapper.classList.add(`openBorader`);
     wrapperList.style.width = `${wrapper.offsetWidth}px`;
-    document.getElementById(`editwrapper${i}`).classList.add("blueOutlineInput");
+    document
+      .getElementById(`editwrapper${i}`)
+      .classList.add("blueOutlineInput");
   } else {
     wrapperList.classList.add(`d-none`);
     document.getElementById(`editarrowUp${i}`).classList.add(`d-none`);
     document.getElementById(`editarrowDown${i}`).classList.remove(`d-none`);
     wrapper.classList.remove(`openBorader`);
-    document.getElementById(`editwrapper${i}`).classList.remove("blueOutlineInput");
+    document
+      .getElementById(`editwrapper${i}`)
+      .classList.remove("blueOutlineInput");
   }
 }
 
@@ -348,12 +360,17 @@ async function editTask(i) {
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
 
-
-/*   let prio = prios[prioValue];
+  /*   let prio = prios[prioValue];
   let category = categorys[cat];
  */
 
-  let data = generateDataForTask(edittitle, editdescription, editdate, prio, category);
+  let data = generateDataForTask(
+    edittitle,
+    editdescription,
+    editdate,
+    prio,
+    category
+  );
 
   boardTasks.push(data);
   // update firebase
@@ -364,7 +381,9 @@ async function editTask(i) {
 
 function editInputFocus() {
   let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
-  let editimgContainerSubtask = document.getElementById("editimgContainerSubtask");
+  let editimgContainerSubtask = document.getElementById(
+    "editimgContainerSubtask"
+  );
 
   editaddTaskinEditTask.classList.add("d-none");
   editimgContainerSubtask.classList.remove("d-none");
@@ -372,7 +391,9 @@ function editInputFocus() {
 
 function editInputBlur() {
   let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
-  let editimgContainerSubtask = document.getElementById("editimgContainerSubtask");
+  let editimgContainerSubtask = document.getElementById(
+    "editimgContainerSubtask"
+  );
 
   editaddTaskinEditTask.classList.remove("d-none");
   editimgContainerSubtask.classList.add("d-none");
