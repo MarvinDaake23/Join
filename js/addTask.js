@@ -15,6 +15,16 @@ async function onLoadAddTask() {
   init();
 }
 
+// muss diese funktion vielleicht in die addTask.js?
+async function init() {
+  contacts = await loadData("contacts");
+  boardTasks = await loadData("boardtasks");
+  //includeHTML();  -> edit christoph
+  loadContactWrapper();
+  loadWrapper();
+  inputSelector();
+}
+
 /**
  *  function to load the category wrapper with all saved categorys
  */
@@ -36,11 +46,10 @@ function loadWrapper() {
  *  function to load the contact wrapper with all saved contacts
  */
 function loadContactWrapper() {
-
   // sort contacts by first name
   sortContacts();
 
-  let contactWrapper = document.getElementById("wrapperListAt"); 
+  let contactWrapper = document.getElementById("wrapperListAt");
 
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
@@ -237,7 +246,6 @@ function checkCategory() {
 document.addEventListener("DOMContentLoaded", (event) => {
   let today = new Date().toISOString().split("T")[0];
   document.getElementById("date").min = today;
-  
 });
 
 // document.getElementById('addTaskForm').addEventListener('submit', function (event) {
