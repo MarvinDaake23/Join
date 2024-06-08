@@ -172,6 +172,14 @@
   margin-right: 10px;
 }
 
+.UserStory {
+  background: #0038ff;
+}
+
+.TechnicalTask {
+  background: #1fd7c1;
+}
+
 .boardCard:hover {
   cursor: pointer;
 }
@@ -186,7 +194,6 @@
 }
 
 .boardType {
-  background-color: #0038ff;
   color: white;
   border-radius: 8px;
   padding: 4px 16px 4px 16px;
@@ -281,7 +288,6 @@
 }
 
 .boardBigContainerType {
-  background: #0038ff;
   color: white;
   font-size: 12px;
   font-weight: 400;
