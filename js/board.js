@@ -3,6 +3,10 @@ let boardTasks = [];
 
 let currentDraggedElement;
 
+function showAddTask() {
+  document.getElementById("modalBackground").style.display = "block";
+}
+
 /**
  * function to initialize the board page
  */

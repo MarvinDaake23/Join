@@ -14,8 +14,17 @@
     <script src="./js/board.js"></script>
     <script src="./js/addTask.js"></script>
     <script src="./js/contacts.js"></script>
-    </head>
+  </head>
   <body class="board" id="body" onload="boardInit()">
+    <!-- Modal Background -->
+    <div id="modalBackground">
+      <!-- Modal content: Add task -->
+      <div
+        id="modalAddTask"
+        w3-include-html="./includes/addTaskInner.html"
+      ></div>
+    </div>
+
     <div
       onclick="removeboardBigContainer()"
       id="background"
@@ -55,7 +64,7 @@
             </div>
           </div>
         </div>
-        <div class="addButtonBig addButton">
+        <div class="addButtonBig addButton" onclick="showAddTask()">
           <img class="blueplusButton" />
         </div>
       </div>
