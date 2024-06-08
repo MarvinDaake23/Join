@@ -243,10 +243,11 @@ function checkCategory() {
 /**
  * function to block date in the past
  */
-document.addEventListener("DOMContentLoaded", (event) => {
-  let today = new Date().toISOString().split("T")[0];
-  document.getElementById("date").min = today;
-});
+// edit by christoph
+//document.addEventListener("DOMContentLoaded", (event) => {
+//  let today = new Date().toISOString().split("T")[0];
+//  document.getElementById("date").min = today;
+//});
 
 // document.getElementById('addTaskForm').addEventListener('submit', function (event) {
 //   // Alle Fehlermeldungen entfernen
@@ -362,7 +363,7 @@ async function addTask() {
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = prios[prioValue];
-  let category = categorys[cat];
+  let category = document.getElementById("category").value; //categorys[cat];
   let data = generateDataForTask(title, description, date, prio, category);
   boardTasks.push(data);
   // update firebase

@@ -39,7 +39,8 @@ function renderBoardTask(element, index) {
             </div>
             <div class="boardTaskFooter">
                 <div class="boardTaskContacts" id="boardTaskContacts${index}"></div>
-                <div id="boardTaskPrio${index}"></div>
+                <!-- <div id="boardTaskPrio${index}"></div> -->
+                <div class="${element.priority}"></div>
             </div>
         </div>
     `;
@@ -65,20 +66,32 @@ function renderBoardTaskContacts(element) {
 function renderBoardBigContainer(i) {
   return /*html */ `
             <div class="boardBigContainerHeader">
-                <div class="boardBigContainerType ${boardTasks[i]["type"].split(" ").join("")}" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
+                <div class="boardBigContainerType ${boardTasks[i]["type"]
+                  .split(" ")
+                  .join("")}" id="boardBigContainerType">${
+    boardTasks[i]["type"]
+  }</div>
                 <img src="./assets/img/close.png" onclick="removeboardBigContainer()"  class="boardBigContainerClose">
             </div>
-            <div class="boardBigContainerTitle" id="boardBigContainerTitle">${boardTasks[i]["title"]}</div>
-            <div class="boardBigContainerDescription" id="boardBigContainerDescription">${boardTasks[i]["description"]}</div>
+            <div class="boardBigContainerTitle" id="boardBigContainerTitle">${
+              boardTasks[i]["title"]
+            }</div>
+            <div class="boardBigContainerDescription" id="boardBigContainerDescription">${
+              boardTasks[i]["description"]
+            }</div>
             <div class="boardContainerStatus">
                 <div class="boardBigContainerdate">
                     <span>Due date:</span>
-                    <div class="boardBigContainerDateInput" id="boardBigContainerDateInput">${boardTasks[i]["dueDate"]}</div>
+                    <div class="boardBigContainerDateInput" id="boardBigContainerDateInput">${
+                      boardTasks[i]["dueDate"]
+                    }</div>
                 </div>
                 <div class="boardBigContainerPrio">
                     <span>Priority:</span>
                     <div>
-                        <div class="boardBigContainerPrioInput" id="boardBigContainerPrioInput">${boardTasks[i]["priority"]}</div>
+                        <div class="boardBigContainerPrioInput" id="boardBigContainerPrioInput">${
+                          boardTasks[i]["priority"]
+                        }</div>
                         <div class="boardBigContainerPrioInputImg"></div>
                     </div>
             </div>

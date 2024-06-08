@@ -147,7 +147,7 @@ function renderAllBoardTasks() {
     if (subtaskCount.length != 0) {
       loadProgressbar(index, subtaskCount.length, finished);
     }
-    loadPrioBoardTask(index);
+    //loadPrioBoardTask(index); -> christoph
     loadContactInBoardTask(index);
   }
 }
