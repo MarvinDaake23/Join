@@ -171,7 +171,7 @@ function rendersubtaskTemplate(title, description, dueDate, i) {
         <div class="textEditConatiner">Title</div>
             <input id="edittitle${i}" class="requiredInput" type="text" value="${title}">
         <div class="textEditConatiner">Description</div>
-            <input id="editdescription${i}" class="textareaDescription" type="text" value="${description}">
+            <textarea id="editdescription${i}" class="textareaDescription" type="text" >${description}</textarea>
         <div class="textEditConatiner">Due Date</div>
             <input id="editdate${i}" class="requiredInput" id="date" required type="date" value="${dueDate}" min="2024-06-05">
         <div class="textEditConatiner">Priority</div>
@@ -213,7 +213,7 @@ function rendersubtaskTemplate(title, description, dueDate, i) {
                     <img onclick="editloadSubtaskList()" src="../assets/img/check.png">
                 </div>
             </div>
-            <ul class="subTaskContainer" id="editsubTasks"></ul><!-- hier wird das rein geladne und das will ich vorher shco nrender bei den die aus dem boared conatriner shcon geladne werdne  -->
+            <ul class="subTaskContainer" id="editsubTasks"></ul>
         </div> 
     </div>
         <button type="submit" class="okButton"></button>
