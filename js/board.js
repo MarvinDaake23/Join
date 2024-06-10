@@ -105,7 +105,7 @@ function loadBoardBigContainerSubtasks(i) {
 }
 
 /**
- *  function to render all boarTasks
+ *  function to render all boardTasks
  */
 function updateHTML() {
   renderAllBoardTasks();
@@ -258,7 +258,7 @@ function searchTask() {
   let search = document.getElementById("findInput").value.toLowerCase();
   let boardTaskClass = document.querySelectorAll(".boardCard");
 
-  if (search.length > 3) {
+  if (search.length >= 3) {
     taskQuery(search, boardTaskClass);
   } else {
     boardTaskClass.forEach((container) => {
@@ -277,8 +277,53 @@ async function taskQuery(search, boardTaskClass) {
       container.style.display = "flex";
     } else {
       container.style.display = "none";
+      // wie viele sind noch drin
+      checkIfEmptyContainer1();
+      checkIfEmptyContainer2();
+      checkIfEmptyContainer3();
+      checkIfEmptyContainer4();
     }
   });
+}
+
+async function checkIfEmptyContainer1() {
+  let all = document.querySelectorAll("#todo > div").length;
+  let invisible = document.querySelectorAll(
+    '#todo > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("todoPlaceholder").style.display = "flex";
+  }
+}
+
+async function checkIfEmptyContainer2() {
+  let all = document.querySelectorAll("#progress > div").length;
+  let invisible = document.querySelectorAll(
+    '#progress > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("progressPlaceholder").style.display = "flex";
+  }
+}
+
+async function checkIfEmptyContainer3() {
+  let all = document.querySelectorAll("#feedback > div").length;
+  let invisible = document.querySelectorAll(
+    '#feedback > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("feedbackPlaceholder").style.display = "flex";
+  }
+}
+
+async function checkIfEmptyContainer4() {
+  let all = document.querySelectorAll("#done > div").length;
+  let invisible = document.querySelectorAll(
+    '#done > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("donePlaceholder").style.display = "flex";
+  }
 }
 
 async function deleteTask(i) {
@@ -296,7 +341,8 @@ async function rendersubtask(i) {
   let dueDate = boardTasks[i]["dueDate"];
   loadData("contacts");
 
-  direction = 'edit'; /* Change the direction for rendering the subtask, not from "AddTask" but to "board" view */
+  direction =
+    "edit"; /* Change the direction for rendering the subtask, not from "AddTask" but to "board" view */
   newTask.innerHTML = ``;
   newTask.innerHTML = rendersubtaskTemplate(title, description, dueDate, i);
   loadContacteditWrapper();

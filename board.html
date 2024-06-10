@@ -52,7 +52,7 @@
               id="findInput"
               type="text"
               placeholder="Find Task"
-              onchange="searchTask()"
+              oninput="searchTask()"
             />
             <div id="imgContainerSubtask" class="imgContainer">
               <div class="subtaskSettingContainer">
@@ -72,7 +72,8 @@
       </div>
 
       <div class="progressInformationContainer">
-        <div class="progressContainer">
+
+        <div class="progressContainer toDoContainer">
           <div class="todoCheck">
             <span>To do</span>
             <div
@@ -88,7 +89,7 @@
           ></div>
         </div>
 
-        <div id="toDoContainer" class="progressContainer">
+        <div class="progressContainer progressContainer">
           <div class="todoCheck">
             <span>In progress</span>
             <div
@@ -104,7 +105,7 @@
           ></div>
         </div>
 
-        <div class="progressContainer">
+        <div class="progressContainer feedbackContainer">
           <div class="todoCheck">
             <span>Await Feedback</span>
             <div
@@ -120,7 +121,7 @@
           ></div>
         </div>
 
-        <div class="progressContainer">
+        <div class="progressContainer doneContainer">
           <div class="todoCheck">
             <span>Done</span>
           </div>
