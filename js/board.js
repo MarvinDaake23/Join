@@ -84,10 +84,10 @@ function loadBoardBigContainerContacts(i) {
  */
 function loadBoardBigContainerSubtasks(i) {
   let Subtasks = document.getElementById("boardBigContainerSubtasks");
-  for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
-    const element = boardTasks[i]["subtasks"][j];
+  for (let j = 0; j < boardTasks[i].subtasks.length; j++) {
+    const element = boardTasks[i].subtasks[j];
     let src = "";
-    if (element["complete"] == false) {
+    if (element.complete == false) {
       src = "../assets/img/Property 1=Default.png";
     } else {
       src = "../assets/img/Property 1=hover checked.png";

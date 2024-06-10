@@ -72,7 +72,7 @@ let boardTasks2 = [
     subtasks: [
       {
         subtaskText: "header",
-        complete: false,
+        complete: true,
       },
       {
         subtaskText: "footer",
@@ -133,10 +133,10 @@ let boardTasks2 = [
       },
       {
         subtaskText: "footer",
-        complete: false,
+        complete: true,
       },
     ],
-    finishedSubtasks: 2,
+    finishedSubtasks: 1,
     assignedTo: [
       {
         firstName: "Anton",
@@ -167,7 +167,7 @@ let boardTasks2 = [
         complete: false,
       },
     ],
-    finishedSubtasks: 1,
+    finishedSubtasks: 0,
     assignedTo: [
       {
         firstName: "Anton",
