@@ -34,7 +34,7 @@
   padding: 30px;
 }
 
-#modalAddTask .addTaskBigContainer {
+#modalAddTask .addTaskBigContainer form{
 display: flex;
 }
 
