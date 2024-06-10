@@ -11,6 +11,10 @@ function showAddTask(column) {
     .setAttribute("onsubmit", `addTask(${column});return false;`);
 }
 
+function closeModal() {
+  document.getElementById("modalBackground").style.display = "none";
+}
+
 /**
  * function to initialize the board page
  */

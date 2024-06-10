@@ -16,9 +16,7 @@
 
 /* DESKTOP VIEW */
 #modalAddTask {
-  display: flex;
-  margin: 80px 10px;
-  position: relative;
+  /*display: flex;*/
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
   width: 80vw;
@@ -26,6 +24,18 @@
   margin: 120px auto;
   background-color: white;
   border-radius: 30px;
+}
+
+
+#modalAddTask #closeButton {
+  font-size: larger;
+  text-align: right;
+  cursor: pointer;
+  padding: 30px;
+}
+
+#modalAddTask .addTaskBigContainer {
+display: flex;
 }
 
 @keyframes slideInFromRightDesktop {
