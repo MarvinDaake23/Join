@@ -358,13 +358,36 @@ function inputClear() {
 /**
  * function for bringing together all data from the input fields
  */
-async function addTask() {
+async function addTask(column) {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = prios[prioValue];
   let category = document.getElementById("category").value; //categorys[cat];
-  let data = generateDataForTask(title, description, date, prio, category);
+  let taskCategory = [];
+
+  switch (column) {
+    case 1:
+      taskCategory = "todo";
+      break;
+    case 2:
+      taskCategory = "progress";
+      break;
+    case 3:
+      taskCategory = "feedback";
+      break;
+    default:
+      taskCategory = "todo";
+  }
+
+  let data = generateDataForTask(
+    title,
+    description,
+    date,
+    prio,
+    category,
+    taskCategory
+  );
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
@@ -372,7 +395,14 @@ async function addTask() {
   visitBoard();
 }
 
-function generateDataForTask(title, description, date, prio, category) {
+function generateDataForTask(
+  title,
+  description,
+  date,
+  prio,
+  category,
+  taskCategory
+) {
   // Create JSON
   let data = {
     title: title,
@@ -383,7 +413,7 @@ function generateDataForTask(title, description, date, prio, category) {
     type: category,
     priority: prio,
     dueDate: date,
-    category: "todo",
+    category: taskCategory,
   };
 
   /*contacts!*/

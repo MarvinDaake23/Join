@@ -3,8 +3,12 @@ let boardTasks = [];
 
 let currentDraggedElement;
 
-function showAddTask() {
+function showAddTask(column) {
   document.getElementById("modalBackground").style.display = "block";
+  // update form
+  document
+    .getElementById("addTaskForm")
+    .setAttribute("onsubmit", `addTask(${column});return false;`);
 }
 
 /**
