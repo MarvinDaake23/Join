@@ -221,26 +221,6 @@
   cursor: pointer;
 }
 
-.subtask:hover .trashIcon {
-  background-image: url("../assets/img/trash.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-
-.subtask:hover .smallLine {
-  background-image: url("../assets/img/littleLineSubtask.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.subtask:hover .edit {
-  background-image: url("../assets/img/edit.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-
 .bigSubtaskContainer {
   background-color: transparent;
   border-radius: 10px;
@@ -254,19 +234,6 @@
 
 .bigSubtaskContainer:hover {
   background-color: #eeeeee;
-}
-
-.iconContainerSubtask {
-  height: 14px;
-  width: 14px;
-  cursor: pointer;
-}
-
-.subtask {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .openBorader {
