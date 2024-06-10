@@ -296,6 +296,7 @@ async function rendersubtask(i) {
   let dueDate = boardTasks[i]["dueDate"];
   loadData("contacts");
 
+  direction = 'edit'; /* Change the direction for rendering the subtask, not from "AddTask" but to "board" view */
   newTask.innerHTML = ``;
   newTask.innerHTML = rendersubtaskTemplate(title, description, dueDate, i);
   loadContacteditWrapper();

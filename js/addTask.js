@@ -5,6 +5,7 @@ let task = [];
 let prioValue = null;
 let cat;
 let selectedTaskContacts = [];
+let direction = 'add';
 
 /**
  * Onload Function for the Add Task page
@@ -158,7 +159,13 @@ function saveEditedSubtask(i) {
   } else {
     subtasks.splice(i, 1); // Remove the subtask if the edited value is empty
   }
-  renderSubtaskList();
+  if(direction == 'add'){
+    renderSubtaskList();
+  }
+  if(direction == 'edit'){
+    editrenderSubtaskList()
+  }
+  
 }
 
 function deleteSubtask(i) {
