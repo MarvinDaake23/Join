@@ -223,6 +223,8 @@ function allowDrop(ev) {
 async function moveTo(category) {
   boardTasks[currentDraggedElement]["category"] = category;
   updateHTML();
+  // clear input field
+  document.getElementById("findInput").value = "";
   // update Firebase!
   await putData("boardtasks", boardTasks);
 }
@@ -261,9 +263,13 @@ function searchTask() {
   if (search.length >= 3) {
     taskQuery(search, boardTaskClass);
   } else {
+    /*
     boardTaskClass.forEach((container) => {
       container.style.display = "flex";
-    });
+    }
+      );*/
+    // besser: neu rendern!
+    renderAllBoardTasks();
   }
 }
 
