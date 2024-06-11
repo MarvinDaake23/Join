@@ -24,7 +24,6 @@ async function init() {
   //loadWrapper(); // categorys anders!
   inputSelector();
   prioChoose(1); //pre-selected medium
-  document.getElementById("closeButton").style.display = "none";
 }
 
 /**
