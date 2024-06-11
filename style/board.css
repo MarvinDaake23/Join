@@ -497,22 +497,8 @@
   font-family: "Inter";
 }
 
-.prioChoose {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  cursor: pointer;
-}
 
 .prio {
-  gap: 8px;
-  border-radius: 10px;
-  height: 56px;
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
   border: solid 1px rgb(173, 173, 173);
 }
 

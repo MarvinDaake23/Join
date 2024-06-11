@@ -436,23 +436,36 @@ function prioChoose(i) {
   }
 }
 
-async function editTask(i) {
+async function editTask(i,column) {
   let edittitle = document.getElementById(`edittitle${i}`).value;
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
+  let prio = prios[prioValue];
+  let category = document.getElementById("category").value; //categorys[cat];
+  let taskCategory = [];
 
-  /*   let prio = prios[prioValue];
-  let category = categorys[cat];
- */
+  switch (column) {
+    case 1:
+      taskCategory = "todo";
+      break;
+    case 2:
+      taskCategory = "progress";
+      break;
+    case 3:
+      taskCategory = "feedback";
+      break;
+    default:
+      taskCategory = "todo";
+  }
 
   let data = generateDataForTask(
     edittitle,
     editdescription,
     editdate,
     prio,
-    category
+    category,
+    taskCategory
   );
-
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
