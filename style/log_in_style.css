@@ -229,6 +229,12 @@ input[type=email] {
     margin-bottom: 20px;
 }
 
+.logInUserButton:hover {
+    background-color: #29abe2;
+    border: 1px solid #29abe2;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .logInGuestButton {
     background-color: #FFFFFF;
     color: #000000;
@@ -236,6 +242,13 @@ input[type=email] {
     border-radius: 8px;
     font-size: 16px;
 }
+
+.logInGuestButton:hover {
+        color: #29abe2;
+        border: 2px solid #29abe2;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
 
 .logInInputSection {
     display: flex;
