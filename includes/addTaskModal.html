@@ -26,13 +26,18 @@
     ></textarea>
 
     <br />
-    <label for="contacts">Select contacts to assign</label>
-    <br />
-    <select id="contacts" name="contacts">
-      <option value="urgent">Urgent</option>
-      <option selected value="medium">Medium</option>
-      <option value="low">Low</option>
-    </select>
+    <label for="contacts">Assigned to</label>
+    <div class="selectBox" onclick="showCheckboxes()">
+      <select>
+        <option>Select contacts to assign</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxes">
+      <label><input type="checkbox" id="one" />First checkbox</label>
+      <label><input type="checkbox" id="two" />Second checkbox</label>
+      <label><input type="checkbox" id="three" />Third checkbox</label>
+    </div>
   </div>
 
   <div class="vertLine"></div>
@@ -54,6 +59,7 @@
 
     <!-- checkbox inside multiple select as dropdown
         https://codepen.io/thecel/pen/EVeGpB 
+        https://stackoverflow.com/questions/17714705/how-to-use-checkbox-inside-select-option
         -->
 
     <label for="prio">Prio:</label>
