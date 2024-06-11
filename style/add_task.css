@@ -15,9 +15,10 @@
   /*margin-bottom: 250px; - sieht bei mir doof aus (chr.)*/
 }
 
-
 .required {
   padding-left: 50px;
+  position: fixed;
+  bottom: 60px;
 }
 
 .headlineAddTask {
@@ -508,16 +509,16 @@
 }
 
 .checkoutContainer {
-  /*position: fixed;*/
-  bottom: 0px;
-  left: 232px;
-  right: 0px;
+  position: fixed;
+  bottom: 60px;
+  /*left: 232px;
+  right: 0px;*/
   display: flex;
   justify-content: flex-end;
   padding: 16px;
   gap: 16px;
   align-items: center;
-  background-color: #f6f7f8;
+  /*background-color: #f6f7f8;*/
   border: none;
 }
 
@@ -531,6 +532,24 @@
   background-color: #2a3647;
   padding: 12px 28px;
   color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+}
+
+.cancelTaskButton {
+  background-color: white;
+  color: #2a3647;
+  border: 1px solid #2a3647;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  height: 51px;
+  padding: 18px 10px 18px 10px;
   border-radius: 10px;
   font-weight: 700;
   font-size: 21px;

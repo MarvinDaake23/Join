@@ -266,8 +266,8 @@ function searchTask() {
     /*
     boardTaskClass.forEach((container) => {
       container.style.display = "flex";
-    }
-      );*/
+    });
+    */
     // besser: neu rendern!
     renderAllBoardTasks();
   }

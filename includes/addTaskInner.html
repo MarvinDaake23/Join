@@ -1,4 +1,3 @@
-
 <span onclick="closeModal()" id="closeButton">&times;</span>
 
 <h1 class="headlineAddTask">Add Task</h1>
@@ -155,12 +154,14 @@
       </div>
       <!-- onclick="checkCategory()" -->
       <div class="checkoutContainer">
-        <button type="reset" class="addTaskButton">Reset</button>
+        <button type="reset" class="cancelTaskButton">
+          Cancel<img src="./assets/img/cancel.svg" />
+        </button>
         <button type="submit" class="addTaskButton">
-          Create Task<img src="./assets/img/checkWhite.png" alt="" />
+          Create Task<img src="./assets/img/check.svg" alt="" />
         </button>
       </div>
     </div>
   </form>
 </div>
-<span><span class="red required">*</span>This field is required</span>
+<span class="required"><span class="red">*</span>This field is required</span>
