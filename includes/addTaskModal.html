@@ -1,8 +1,9 @@
-<span onclick="closeModal()" id="closeButton">&times;</span>
+<div class="headLine">
+  <h1>Add Task</h1>
+  <img src="./assets/img/close.svg" onclick="closeModal()" id="closeButton" />
+</div>
 
-<h1>Add Task</h1>
-
-<form onsubmit="addTaskNew(); return false;">
+<form id="addTaskForm" onsubmit="addTask(); return false;">
   <div class="left">
     <label for="title">Title<span class="required">*</span></label
     ><br />
@@ -71,10 +72,13 @@
       <option value="Technical Task">Technical Task</option>
     </select>
 
-    <br />
-    <div class="buttonPair">
-      <button class="leftButton" type="reset">Reset</button>
-      <button class="rightButton" type="submit">Create task</button>
+    <div class="checkoutContainer">
+      <button type="reset" class="cancelTaskButton">
+        Cancel<img src="./assets/img/cancel.svg" />
+      </button>
+      <button type="submit" class="addTaskButton">
+        Create Task<img src="./assets/img/check.svg" alt="" />
+      </button>
     </div>
   </div>
 </form>

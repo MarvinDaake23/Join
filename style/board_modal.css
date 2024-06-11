@@ -16,25 +16,104 @@
 
 /* DESKTOP VIEW */
 #modalAddTask {
-  /*display: flex;*/
+  padding: 0px;
+  margin: 70px auto;
+  position: relative;
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
-  width: 80vw;
-  height: 592px;
-  margin: 120px auto;
+  width: 90vw;
+  height: 85vh;
+  box-sizing: border-box;
+  align-items: stretch;
   background-color: white;
   border-radius: 30px;
+  box-sizing: border-box;
 }
 
-#modalAddTask #closeButton {
-  font-size: larger;
-  text-align: right;
-  cursor: pointer;
+#modalAddTask h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 61px;
+}
+
+.headLine {
+  padding: 64px 64px 0px 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  gap: 100px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.addTaskContainer {
   padding: 30px;
 }
 
-#modalAddTask .addTaskBigContainer form {
+form input,
+form textarea,
+form select {
+  width: 440px;
+  height: 48px;
+  padding: 12px 21px 12px 21px;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px 0px 0px 0px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+form textarea {
+  height: 120px;
+}
+
+.addTaskButton {
+  background-color: #2a3647;
+  padding: 12px 28px;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
   display: flex;
+  gap: 4px;
+}
+
+.cancelTaskButton {
+  background-color: white;
+  color: #2a3647;
+  border: 1px solid #2a3647;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  height: 51px;
+  padding: 18px 10px 18px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.checkoutContainer {
+  position: fixed;
+  bottom: 60px;
+  /*left: 232px;
+  right: 0px;*/
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 16px;
+  align-items: center;
+  /*background-color: #f6f7f8;*/
+  border: none;
 }
 
 @keyframes slideInFromRightDesktop {
