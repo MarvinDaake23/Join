@@ -1,3 +1,18 @@
+let expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+
+
+
 let doneBulian = false;
 let boardTasks = [];
 
@@ -9,6 +24,7 @@ function showAddTask(column) {
   document
     .getElementById("addTaskForm")
     .setAttribute("onsubmit", `addTask(${column});return false;`);
+    prioChoose(1);
 }
 
 function closeModal() {
@@ -266,8 +282,8 @@ function searchTask() {
     /*
     boardTaskClass.forEach((container) => {
       container.style.display = "flex";
-    }
-      );*/
+    });
+    */
     // besser: neu rendern!
     renderAllBoardTasks();
   }

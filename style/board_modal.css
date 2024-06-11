@@ -1,0 +1,175 @@
+/* The Modal (background) */
+#modalBackground {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
+
+/* DESKTOP VIEW */
+#modalAddTask {
+  padding: 0px;
+  margin: 70px auto;
+  position: relative;
+  animation-name: slideInFromRightDesktop;
+  animation-duration: 0.5s;
+  /*width: 90vw;*/
+  width: 1116px;
+  height: 85vh;
+  box-sizing: border-box;
+  align-items: stretch;
+  background-color: white;
+  border-radius: 30px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#modalAddTask h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 61px;
+}
+
+.vertLine {
+  height: 424px;
+  border-left: 1px solid #d1d1d1;
+}
+
+.headLine {
+  padding: 64px 64px 0px 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  gap: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.addTaskContainer {
+  padding: 30px;
+}
+
+form input,
+form textarea,
+form select {
+  width: 440px;
+  height: 48px;
+  padding: 12px 16px 12px 16px;
+  gap: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: white;
+  display: flex;
+  border: 1px solid #d1d1d1;
+}
+
+form textarea {
+  height: 120px;
+}
+
+.addTaskButton {
+  background-color: #2a3647;
+  padding: 12px 28px;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+}
+
+.cancelTaskButton {
+  background-color: white;
+  color: #2a3647;
+  border: 1px solid #2a3647;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  height: 51px;
+  padding: 18px 10px 18px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.red {
+  color: #ff8190;
+}
+
+.required {
+  padding-left: 50px;
+}
+
+.checkoutContainer {
+  position: absolute;
+  bottom: 60px;
+  /*left: 232px;
+  right: 0px;*/
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 16px;
+  align-items: center;
+  /*background-color: #f6f7f8;*/
+  border: none;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  /*width: 100%;
+  font-weight: bold;*/
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+  box-sizing: border-box;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+@keyframes slideInFromRightDesktop {
+  from {
+    right: -2000px;
+  }
+  to {
+    right: 0px;
+  }
+}
