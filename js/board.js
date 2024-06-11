@@ -72,9 +72,10 @@ function loadBoardBigContainer(i) {
   document.getElementById("boardBigContainer").classList.remove("d-none");
 }
 
-function removeboardBigContainer() {
+async function removeboardBigContainer() {
   document.getElementById("background").classList.add("d-none");
   document.getElementById("boardBigContainer").classList.add("d-none");
+  boardInit();
 }
 
 /**
@@ -436,41 +437,23 @@ function prioChoose(i) {
   }
 }
 
-async function editTask(i,column) {
+async function editTask(i) {
   let edittitle = document.getElementById(`edittitle${i}`).value;
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
   let prio = prios[prioValue];
   let category = document.getElementById("category").value; //categorys[cat];
-  let taskCategory = [];
 
-  switch (column) {
-    case 1:
-      taskCategory = "todo";
-      break;
-    case 2:
-      taskCategory = "progress";
-      break;
-    case 3:
-      taskCategory = "feedback";
-      break;
-    default:
-      taskCategory = "todo";
-  }
+  boardTasks[i].title = edittitle;
+  boardTasks[i].description = editdescription;
+  boardTasks[i].date = editdate;
+ 
+/*  boardTasks[i].prio = prio;
+ boardTasks[i].category = category; */
+ boardTasks[i].subtasks[3] = 
 
-  let data = generateDataForTask(
-    edittitle,
-    editdescription,
-    editdate,
-    prio,
-    category,
-    taskCategory
-  );
-  boardTasks.push(data);
-  // update firebase
-  await putData("boardtasks", boardTasks);
-  // zur board seite
-  visitBoard();
+ await putData("boardtasks", boardTasks);
+  boardInit();
 }
 
 function editInputFocus() {
@@ -493,11 +476,13 @@ function editInputBlur() {
   editimgContainerSubtask.classList.add("d-none");
 }
 
-function editloadSubtaskList() {
+async function editloadSubtaskList(i) {
   let subtask = document.getElementById("editsubtaskInput").value;
   if (subtask) {
     subtasks.push(subtask);
   }
+  boardTasks[i].subtasks = subtasks; //hier veruschen den lokaen subtask in den Api subtask zu krigen 
+  await putData("boardtasks", boardTasks);
   editrenderSubtaskList();
   editinputClear();
 }

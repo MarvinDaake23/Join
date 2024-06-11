@@ -210,7 +210,7 @@ function rendersubtaskTemplate(title, description, dueDate, i) {
                 <div id="editimgContainerSubtask" class="imgContainersubtask d-none">
                     <img onclick="editInputBlur()" src="../assets/img/close.png">
                     <div class="editseperator"></div>
-                    <img onclick="editloadSubtaskList()" src="../assets/img/check.png">
+                    <img onclick="editloadSubtaskList(${i})" src="../assets/img/check.png">
                 </div>
             </div>
             <ul class="subTaskContainer" id="editsubTasks"></ul>
