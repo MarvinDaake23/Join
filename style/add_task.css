@@ -486,10 +486,11 @@
   margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
+
 .categoryContainer {
   margin-bottom: 20px;
-=======
+}
+
 .prioChoose {
   display: flex;
   align-items: center;
@@ -498,15 +499,7 @@
 }
 
 .prio {
-  gap: 8px;
-  border-radius: 10px;
-  height: 56px;
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: white;
->>>>>>> 06d0d0dca04de1dbd3cf22878c26f8ed1a3488d5
 }
 
 .checkoutContainer {
