@@ -217,19 +217,19 @@ function checkRequiredInputs() {
   titleInput.addEventListener("input", checkRequiredInputs);
 }
 
-function checkCategory() {
-  let category = document.getElementById("placeholder");
-  let alert = document.getElementById("requiredCategory");
+// function checkCategory() {
+//   let category = document.getElementById("placeholder");
+//   let alert = document.getElementById("requiredCategory");
 
-  if (category.innerHTML === "Select task Category") {
-    alert.innerHTML = `
-    This field is required
-    `;
-  } else {
-    alert.innerHTML = "";
-    document.getElementById("wrapper").classList.add("blueOutlineInput");
-  }
-}
+//   if (category.innerHTML === "Select task Category") {
+//     alert.innerHTML = `
+//     This field is required
+//     `;
+//   } else {
+//     alert.innerHTML = "";
+//     document.getElementById("wrapper").classList.add("blueOutlineInput");
+//   }
+// }
 
 /**
  * function to block date in the past
