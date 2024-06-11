@@ -82,8 +82,8 @@
 }
 
 .progressInformationContainer span {
-  font-size: 12px; /*20px;*/
-  font-weight: 400; /*700;*/
+  font-size: 20px; /*20px;  12*/
+  font-weight: 700; /*700; 400*/
 }
 
 .emptyPlaceholder {
@@ -265,6 +265,11 @@
   width: 42px;
   height: 42px;
   font-size: 12px !important;
+}
+
+.initSmall span {
+  font-size: 12px !important;
+  font-weight: 400 !important;
 }
 
 .boardBigContainerHeader {

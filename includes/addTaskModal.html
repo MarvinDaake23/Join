@@ -26,17 +26,21 @@
     ></textarea>
 
     <br />
-    <label for="contacts">Assigned to</label>
-    <div class="selectBox" onclick="showCheckboxes()">
-      <select>
-        <option>Select contacts to assign</option>
-      </select>
-      <div class="overSelect"></div>
-    </div>
-    <div id="checkboxes">
-      <label><input type="checkbox" id="one" />First checkbox</label>
-      <label><input type="checkbox" id="two" />Second checkbox</label>
-      <label><input type="checkbox" id="three" />Third checkbox</label>
+
+    <div>
+      <span class="addTaskSpans">Assigned to</span>
+      <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
+        <span>Select contacts to assign</span>
+        <img id="arrowDownAt" src="./assets/img/arrow_down.png" alt="" />
+        <img
+          id="arrowUpAt"
+          class="dNone"
+          src="./assets/img/arrow_up.png"
+          alt=""
+        />
+      </div>
+      <ul id="wrapperListAt" class="wrapperList dNone"></ul>
+      <div id="selectedContacts"></div>
     </div>
   </div>
 
