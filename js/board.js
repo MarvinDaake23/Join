@@ -9,6 +9,7 @@ function showAddTask(column) {
   document
     .getElementById("addTaskForm")
     .setAttribute("onsubmit", `addTask(${column});return false;`);
+    prioChoose(1);
 }
 
 function closeModal() {

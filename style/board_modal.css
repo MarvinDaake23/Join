@@ -21,7 +21,8 @@
   position: relative;
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
-  width: 90vw;
+  /*width: 90vw;*/
+  width: 1116px;
   height: 85vh;
   box-sizing: border-box;
   align-items: stretch;
@@ -36,6 +37,11 @@
   font-size: 61px;
 }
 
+.vertLine {
+  height: 424px;
+  border-left: 1px solid #D1D1D1
+}
+
 .headLine {
   padding: 64px 64px 0px 64px;
   display: flex;
@@ -43,7 +49,7 @@
 }
 
 form {
-  gap: 100px;
+  gap: 30px;
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -102,8 +108,12 @@ form textarea {
   cursor: pointer;
 }
 
+.required {
+  color: #ff8190;
+}
+
 .checkoutContainer {
-  position: fixed;
+  position: absolute;
   bottom: 60px;
   /*left: 232px;
   right: 0px;*/
