@@ -1,18 +1,29 @@
 <div class="first">
-  <span onclick="closeAddOrEditContact()">&times;</span>
-  <img src="./assets/img/headerlogo.svg" />
-  <div class="headline">Add contact</div>
-  <div class="subheadline">Tasks are better with a team!</div>
+  <img
+    class="close"
+    src="./assets/img/close_white.svg"
+    onclick="closeAddOrEditContact()"
+  />
+  <img class="logo" src="./assets/img/headerlogo.svg" />
+  <div id="addContactHeadline" class="headline">Add contact</div>
+  <div id="addContactSubheadline" class="subheadline">
+    Tasks are better with a team!
+  </div>
   <hr />
 </div>
 
 <div class="second">
-  <img class="newContactPic" src="./assets/img/person.png" />
+  <img id="newContactPic" src="./assets/img/new_contact.svg" />
+  <div id="editInitials"></div>
 </div>
 
 <div class="third">
-  <span onclick="closeAddOrEditContact()">&times;</span>
-  <form onsubmit="createContact(); return false;">
+  <img
+    class="close"
+    src="./assets/img/close.svg"
+    onclick="closeAddOrEditContact()"
+  />
+  <form id="addOrEditForm" onsubmit="createContact(); return false;">
     <input
       required
       id="nameInput"
@@ -38,7 +49,13 @@
       pattern="([0-9]+)"
     />
     <div class="buttonPair">
-      <button id="createContactButton">
+      <button type="button" id="cancelButton" onclick="closeAddOrEditContact()">
+        Cancel<img src="assets/img/cancel.svg" />
+      </button>
+      <button type="button" id="deleteButton" onclick="deleteContact()">
+        Delete
+      </button>
+      <button id="rightButton">
         Create contact<img src="assets/img/check.svg" />
       </button>
     </div>

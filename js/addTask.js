@@ -5,6 +5,7 @@ let task = [];
 let prioValue = null;
 let cat;
 let selectedTaskContacts = [];
+let direction = 'add';
 
 /**
  * Onload Function for the Add Task page
@@ -13,6 +14,17 @@ async function onLoadAddTask() {
   await includeHTML();
   updateHeaderInitials();
   init();
+}
+
+async function init() {
+  contacts = await loadData("contacts");
+  boardTasks = await loadData("boardtasks");
+  //includeHTML();  -> edit christoph
+  loadContactWrapper();
+  //loadWrapper(); // categorys anders!
+  inputSelector();
+  prioChoose(1); //pre-selected medium
+  document.getElementById("closeButton").style.display = "none";
 }
 
 /**
@@ -36,7 +48,6 @@ function loadWrapper() {
  *  function to load the contact wrapper with all saved contacts
  */
 function loadContactWrapper() {
-
   // sort contacts by first name
   sortContacts();
 
@@ -100,7 +111,7 @@ function subtaskListInput(element, i) {
                   <div class="inputIconSmallLine"></div>
                   <div onclick="deleteSubtask(${i})" class="trashIcon iconContainerSubtask"></div>
                 </div>
-</div>
+              </div>
         </li>
   </div>
 `;
@@ -148,7 +159,13 @@ function saveEditedSubtask(i) {
   } else {
     subtasks.splice(i, 1); // Remove the subtask if the edited value is empty
   }
-  renderSubtaskList();
+  if(direction == 'add'){
+    renderSubtaskList();
+  }
+  if(direction == 'edit'){
+    editrenderSubtaskList()
+  }
+  
 }
 
 function deleteSubtask(i) {
@@ -234,10 +251,11 @@ function checkRequiredInputs() {
 /**
  * function to block date in the past
  */
-document.addEventListener("DOMContentLoaded", (event) => {
-  let today = new Date().toISOString().split("T")[0];
-  document.getElementById("date").min = today;
-});
+// edit by christoph
+//document.addEventListener("DOMContentLoaded", (event) => {
+//  let today = new Date().toISOString().split("T")[0];
+//  document.getElementById("date").min = today;
+//});
 
 // document.getElementById('addTaskForm').addEventListener('submit', function (event) {
 //   // Alle Fehlermeldungen entfernen
@@ -348,13 +366,36 @@ function inputClear() {
 /**
  * function for bringing together all data from the input fields
  */
-async function addTask() {
+async function addTask(column) {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = prios[prioValue];
-  let category = categorys[cat];
-  let data = generateDataForTask(title, description, date, prio, category);
+  let category = document.getElementById("category").value; //categorys[cat];
+  let taskCategory = [];
+
+  switch (column) {
+    case 1:
+      taskCategory = "todo";
+      break;
+    case 2:
+      taskCategory = "progress";
+      break;
+    case 3:
+      taskCategory = "feedback";
+      break;
+    default:
+      taskCategory = "todo";
+  }
+
+  let data = generateDataForTask(
+    title,
+    description,
+    date,
+    prio,
+    category,
+    taskCategory
+  );
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
@@ -362,7 +403,14 @@ async function addTask() {
   visitBoard();
 }
 
-function generateDataForTask(title, description, date, prio, category) {
+function generateDataForTask(
+  title,
+  description,
+  date,
+  prio,
+  category,
+  taskCategory
+) {
   // Create JSON
   let data = {
     title: title,
@@ -373,7 +421,7 @@ function generateDataForTask(title, description, date, prio, category) {
     type: category,
     priority: prio,
     dueDate: date,
-    category: "todo",
+    category: taskCategory,
   };
 
   /*contacts!*/

@@ -1,664 +1,641 @@
-.addTaskBigContainer{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    margin-top: 50px;
+.addTaskBigContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 50px;
 }
 
-.leftSideAddTaskPage, .rightSideAddTaskPage {
-    width: 45%;
+.leftSideAddTaskPage,
+.rightSideAddTaskPage {
+  width: 45%;
 }
 
 .rightSideAddTaskPage {
-    margin-bottom: 250px;
-}
-
-.headlineAddTask{
-    font-weight: 700;
-    font-size: 47px;
-}
-
-.addTaskForm{
-    width:90%;
-    display: flex;
-    flex-direction: row;
-    gap:16px;
-    position: relative;
-}
-
-.wrapper{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width:90%;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 12px 16px 12px 16px;
-    cursor: pointer;
-    border:1px solid #d1d1d1;
+  /*margin-bottom: 250px; - sieht bei mir doof aus (chr.)*/
 }
 
 
-.wrapperList{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 10px 10px 10px 10px;
-    list-style-type: none;
-    overflow-y: auto;
-    max-height: 150px;
-    z-index: 1000;
-    margin-top: 80px;
-    box-sizing: border-box;
-    padding-left: 0px;
+.required {
+  padding-left: 50px;
 }
 
-.wrapperContactList{
-    width:100%;
-    height:300px;
-    background-color: #2A3647;
+.headlineAddTask {
+  font-weight: 700;
+  font-size: 47px;
 }
 
-.contactWrapperItem{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    padding: 7px, 16px, 7px, 16px;
+.addTaskForm {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  position: relative;
 }
 
-.contactWrapperItem:hover{
-    background-color: #F5F5F5;
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  cursor: pointer;
+  border: 1px solid #d1d1d1;
 }
 
-.initials:hover{
-    color: white;
+.wrapperList {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px 10px 10px 10px;
+  list-style-type: none;
+  overflow-y: auto;
+  max-height: 150px;
+  z-index: 1000;
+  margin-top: 80px;
+  box-sizing: border-box;
+  padding-left: 0px;
 }
 
-.contactNameContainer{
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    gap:8px;
-    padding-left: 16px;
+.wrapperContactList {
+  width: 100%;
+  height: 300px;
+  background-color: #2a3647;
 }
 
-.imgContainer{
-    position: absolute;
-    top: 12px; 
-    right:12px;
-    width:50px;
-    height:20px;
+.contactWrapperItem {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 7px, 16px, 7px, 16px;
 }
 
-.imgContainerBackground{
-    background-repeat: no-repeat;
-    background-image: url("../assets/img/add.png");
-    background-position: right 8px center;
+.contactWrapperItem:hover {
+  background-color: #f5f5f5;
 }
 
-.subTaskContainer{
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
-    width: 100%;
-    border-radius: 10px;
+.initials:hover {
+  color: white;
 }
 
-.subtaskSettingContainer{
-    position: absolute;
-    top: 0px;
-    right: -3px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 2;
+.contactNameContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 8px;
+  padding-left: 16px;
+}
+
+.imgContainer {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 50px;
+  height: 20px;
+}
+
+.imgContainerBackground {
+  background-repeat: no-repeat;
+  background-image: url("../assets/img/add.png");
+  background-position: right 8px center;
+}
+
+.subTaskContainer {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.subtaskSettingContainer {
+  position: absolute;
+  top: 0px;
+  right: -3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
 }
 
 .relativeContainer {
-    position: relative;
-  }
-  
-  .editInput {
-    display: flex;
-    align-items: center;
-    border-right-width: 0px;
-    padding-right: 16px;
-    padding-top: 4px;
-    height: 20px;
-    padding-bottom: 4px;
-    padding-left: 16px;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-bottom: 1px solid #005DFF;
-    position: absolute;
-    left: -40px; /* vorher -15px */
-    right: -4px; /* vorher -60px */
-  }
-
-  .inputIconTrash{
-    background-image: url("../assets/img/trash.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .inputIconSmallLineEdit{
-    border: 1px solid #d1d1d1;
-    height: 15px;
-  }
-
-  .subtask:hover .inputIconSmallLine{
-    border: 1px solid #d1d1d1;
-    height: 15px;
-  }
-
-  .inputIconCheck{
-    background-image: url("../assets/img/check.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  
-  .noMarker {
-    list-style-type: none;
-  }
-  
-  .editBox {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-  }
-  
-  .editImgContainer {
-    cursor: pointer;
-    height: 16px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .editImgContainer img {
-    object-fit: cover;
-  }
-
-.seperator{
-    width:1px;
-    border-left:1px solid #D1D1D1;
-    height:20px;
+  position: relative;
 }
 
-.imgContainerSubtaskSubmit{
-    width:20px;
-    height:20px;
-    background-repeat: no-repeat;
-    background-image: url("../assets/img/check.png");
-    background-position: center;
-    cursor: pointer;
+.editInput {
+  display: flex;
+  align-items: center;
+  border-right-width: 0px;
+  padding-right: 16px;
+  padding-top: 4px;
+  height: 20px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-bottom: 1px solid #005dff;
+  position: absolute;
+  left: -40px; /* vorher -15px */
+  right: -4px; /* vorher -60px */
 }
 
-.imgContainerSubtaskCancle{
-    width:20px;
-    height:20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url("../assets/img/close.png");
-    cursor: pointer;
+.inputIconTrash {
+  background-image: url("../assets/img/trash.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.subtask:hover .trashIcon{
-    background-image: url("../assets/img/trash.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
+.inputIconSmallLineEdit {
+  border: 1px solid #d1d1d1;
+  height: 15px;
 }
 
-.subtask:hover .smallLine{
-    background-image: url("../assets/img/littleLineSubtask.png");
-    background-repeat: no-repeat;
-    background-size: contain;
+.subtask:hover .inputIconSmallLine {
+  border: 1px solid #d1d1d1;
+  height: 15px;
 }
 
-.subtask:hover .edit{
-    background-image: url("../assets/img/edit.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    cursor: pointer;
+.inputIconCheck {
+  background-image: url("../assets/img/check.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.bigSubtaskContainer{
-    background-color: transparent;
-    border-radius: 10px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    left: -8px;
+.noMarker {
+  list-style-type: none;
 }
 
-.bigSubtaskContainer:hover{
-    background-color: #EEEEEE;
+.editBox {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
-.iconContainerSubtask{
-    height: 14px;
-    width: 14px;
-    cursor: pointer;
+.editImgContainer {
+  cursor: pointer;
+  height: 16px;
+  display: flex;
+  align-items: center;
 }
 
-.subtask{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+.editImgContainer img {
+  object-fit: cover;
 }
 
-.openBorader{
-    border-radius: 10px 10px 0px 0px;
-    position: relative;
+.seperator {
+  width: 1px;
+  border-left: 1px solid #d1d1d1;
+  height: 20px;
 }
 
-.dNone{
-    display: none;
+.imgContainerSubtaskSubmit {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-image: url("../assets/img/check.png");
+  background-position: center;
+  cursor: pointer;
 }
 
-.addTaskSpans{
-    font-size: 20px;
-    font-weight: 400;
+.imgContainerSubtaskCancle {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../assets/img/close.png");
+  cursor: pointer;
 }
 
-.taskTitleContainer{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
-    height: 83px;
+.bigSubtaskContainer {
+  background-color: transparent;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  left: -8px;
 }
 
-
-.taskTitleInputContainer input{
-    width:90%;
-    border-radius:10px;
-    padding: 12px 16px 12px 16px;
-    border:1px solid #D1D1D1;
+.bigSubtaskContainer:hover {
+  background-color: #eeeeee;
 }
 
-.taskTitleInputContainer{
-    position: relative;
+.openBorader {
+  border-radius: 10px 10px 0px 0px;
+  position: relative;
 }
 
-.requiredInput:focus{
-    outline: none;
-    border: 1px solid #FF8190;
+.dNone {
+  display: none;
 }
 
-.blueOutlineInput:focus{
-    outline: none;
-    border: 1px solid #29ABE2;
-    border-radius: 10px;
+.addTaskSpans {
+  font-size: 20px;
+  font-weight: 400;
 }
 
-.blueOutlineInput{
-    outline: none;
-    border: 1px solid #29ABE2;
-    border-radius: 10px;
+.taskTitleContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  height: 83px;
 }
 
-.taskTitleInputContainer input::placeholder{
-    color:#D1D1D1;
-    font-size: 16px;
-    font-weight: 400;
+.taskTitleContainer select {
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  border: 1px solid #d1d1d1;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
 }
 
-.red{
-    color:#FF8190;
-    font-weight: bold;
+.taskTitleInputContainer input {
+  width: 90%;
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  border: 1px solid #d1d1d1;
 }
 
-.taskDescriptionContainer{
-    display: flex;
-    flex-direction: column;
-    gap:8px;
-    width:100%;
+.taskTitleInputContainer {
+  position: relative;
 }
 
-.taskDescriptionInputContainer input{
-    height:88px;
-    padding: 18px 16px 18px 16px;
-    border-radius: 10px;
-    width:90%;
-    border:1px solid #D1D1D1;
-    vertical-align: top;
+.requiredInput:focus {
+  outline: none;
+  border: 1px solid #ff8190;
 }
 
-.textareaDescription{
-    border-radius: 10px;
-    border: none;
-    height: 90px;
-    border: 1px solid #D1D1D1;
-    width: 90%;
-    padding: 8px 16px 18px 16px;
-    outline: none;
-    font-family: "Inter";
+.blueOutlineInput:focus {
+  outline: none;
+  border: 1px solid #29abe2;
+  border-radius: 10px;
 }
 
-.taskDescriptionInputContainer .textareaDescription::placeholder{
-    color:#D1D1D1;
-    font-size: 16px;
-    font-weight: 400;
-    display: flex;
-    text-align: left;
-    vertical-align: top;
-    padding-top: 4px;
+.blueOutlineInput {
+  outline: none;
+  border: 1px solid #29abe2;
+  border-radius: 10px;
 }
 
-.assignedTo{
-    gap:8px;
-    width:100%;
-    display: flex;
-    flex-direction: column;
+.taskTitleInputContainer input::placeholder {
+  color: #d1d1d1;
+  font-size: 16px;
+  font-weight: 400;
 }
 
-.assignedToInput{
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    justify-content: space-between;
-    width:100%;
-    height:48px;
-    padding: 0;
+.red {
+  color: #ff8190;
+  font-weight: bold;
 }
 
-.custom-select{
-    background-color: white;
-    height:40px;
-    width:100%;
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    display: flex;
-    justify-content: center;
+.taskDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
-.liCat{
-    position: relative;
-    left: 44px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    width: 100%;
+.taskDescriptionInputContainer input {
+  height: 88px;
+  padding: 18px 16px 18px 16px;
+  border-radius: 10px;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  vertical-align: top;
 }
 
-.editContainerSubtask{
-    position: absolute;
-    right: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    width: 50px;
+.textareaDescription {
+  border-radius: 10px;
+  border: none;
+  height: 90px;
+  border: 1px solid #d1d1d1;
+  width: 90%;
+  padding: 8px 16px 18px 16px;
+  outline: none;
+  font-family: "Inter";
 }
 
-.positionFinalEditContainer{
-    position: absolute;
-    right: -4px; /* vorher -60px*/
-    top: 7px;
+.taskDescriptionInputContainer .textareaDescription::placeholder {
+  color: #d1d1d1;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  text-align: left;
+  vertical-align: top;
+  padding-top: 4px;
 }
 
-.list:hover{
-    background-color: #d3d0d0;
+.assignedTo {
+  gap: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.grayLineAddTaskPage{
-    height: 425px;
-    border: 1px solid #D1D1D1;
+.assignedToInput {
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  justify-content: space-between;
+  width: 100%;
+  height: 48px;
+  padding: 0;
 }
 
-.placeholderClone{
-    color:#D1D1D1;
-    margin-left: 16px;
+.custom-select {
+  background-color: white;
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  display: flex;
+  justify-content: center;
 }
 
-.options{
-    display: none;
+.liCat {
+  position: relative;
+  left: 44px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  width: 100%;
 }
 
-.assignedToInput option{
-    color: #D1D1D1;
+.editContainerSubtask {
+  position: absolute;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 50px;
 }
 
-.dateCotainer{
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 30px;
+.positionFinalEditContainer {
+  position: absolute;
+  right: -4px; /* vorher -60px*/
+  top: 7px;
 }
 
-.dateCotainer input{
-    padding: 12px 16px 12px 16px;
-    border-radius: 10px;
-    width: 90%;
-    border: 1px solid #D1D1D1;
-    justify-content: space-between;
-    color:#D1D1D1;
-    font-family: "Inter";
-    font-size: 17px;
+.list:hover {
+  background-color: #d3d0d0;
 }
 
-#date::placeholder{
-    color:#D1D1D1;
-    font-size: 16px;
-    font-weight: 400;
-    padding-left: 16px;
+.grayLineAddTaskPage {
+  height: 425px;
+  border: 1px solid #d1d1d1;
+}
+
+.placeholderClone {
+  color: #d1d1d1;
+  margin-left: 16px;
+}
+
+.options {
+  display: none;
+}
+
+.assignedToInput option {
+  color: #d1d1d1;
+}
+
+.dateCotainer {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.dateCotainer input {
+  padding: 12px 16px 12px 16px;
+  border-radius: 10px;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  justify-content: space-between;
+  color: #d1d1d1;
+  font-family: "Inter";
+  font-size: 17px;
+}
+
+#date::placeholder {
+  color: #d1d1d1;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 16px;
 }
 
 .initials {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    width: 80px;
-    background-color: #ff7a00;
-    color: white;
-    border-radius: 80px;
-    font-size: 27px !important;
-    font-weight: 400 !important;
-    box-shadow: 0px 0px 4px 0px #0000001a;
-    border: 3px solid #ffffff;
-    box-sizing: border-box;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  background-color: #ff7a00;
+  color: white;
+  border-radius: 80px;
+  font-size: 27px !important;
+  font-weight: 400 !important;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  border: 3px solid #ffffff;
+  box-sizing: border-box;
+}
 
-  .initSmall {
-    width: 42px;
-    height: 42px;
-    font-size: 12px !important;
-  }
+.initSmall {
+  width: 42px;
+  height: 42px;
+  font-size: 12px !important;
+}
 
-  #requiredInputAddTask{
-    color: red;
-    font-size: 9px;
-    margin-top: -6px;
-  }
+#requiredInputAddTask {
+  color: red;
+  font-size: 9px;
+  margin-top: -6px;
+}
 
-  #requiredCategory{
-    color: red;
-    font-size: 9px;
-    margin-top: -6px;
-  }
-  
+#requiredCategory {
+  color: red;
+  font-size: 9px;
+  margin-top: -6px;
+}
 
-.prioContainer{
+.prioContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.prioChoose {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.prio {
+  gap: 8px;
+  border-radius: 10px;
+  height: 56px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.categoryContainer {
+  margin-bottom: 20px;
+}
+
+.checkoutContainer {
+  /*position: fixed;*/
+  bottom: 0px;
+  left: 232px;
+  right: 0px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 16px;
+  align-items: center;
+  background-color: #f6f7f8;
+  border: none;
+}
+
+.assignedToContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addTaskButton {
+  background-color: #2a3647;
+  padding: 12px 28px;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.addTaskButton:hover {
+  background-color: #29abe2;
+}
+
+#selectedContacts {
+  display: flex;
+  gap: 8px;
+}
+
+.prioContainerBorder {
+  border: 1px solid #d1d1d1;
+}
+
+.lowPrioImg {
+  background-image: url("../assets/img/prioLow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.medPrioImg {
+  background-image: url("../assets/img/prioMedium.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.highPrioImg {
+  background-image: url("../assets/img/prioHigh.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.high:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.low:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.med:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.highPrioBackground {
+  background-color: #ff3d00;
+  color: white;
+}
+
+.highPrioImageChange {
+  background-image: url("../assets/img/prioHighHighlight.png");
+}
+
+.medPrioBackground {
+  background-color: #ffa800;
+  color: white;
+}
+
+.medPrioImageChange {
+  background-image: url("../assets/img/prioMediumHighlight.png");
+}
+
+.lowPrioBackground {
+  background-color: #7ae229;
+  color: white;
+}
+
+.lowPrioImageChange {
+  background-image: url("../assets/img/prioLowHighlight.png");
+}
+
+@media (max-width: 1000px) {
+  .addTaskBigContainer {
+    flex-direction: column;
+  }
+  .grayLineAddTaskPage {
+    display: none;
+  }
+  .leftSideAddTaskPage {
+    width: 100%;
+  }
+  .rightSideAddTaskPage {
+    width: 100%;
+  }
+  .addTaskForm {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
+  }
 }
 
-.prioChoose{
-    display: flex;
-    align-items: center;
-    gap:16px;
-    cursor: pointer;
-}
-
-.prio{
-    gap:8px;
-    border-radius: 10px;
-    height:56px;
-    width:30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-}
-
-.categoryContainer{
-    margin-bottom: 20px;
-}
-
-
-.checkoutContainer{
-    position: fixed;
-    bottom: 0px;
-    left: 232px;
-    right: 0px;
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
-    gap:16px;
-    align-items: center;
-    background-color: #F6F7F8;
-    border:none;
-}
-
-.assignedToContainer{
-    display: flex;
-    flex-direction: column;
-    gap:8px;
-}
-
-.addTaskButton{
-    background-color: #2A3647;
-    padding: 12px 28px;
-    color:white;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 21px;
-    cursor: pointer;
-}
-
-.addTaskButton:hover{
-    background-color: #29ABE2;
-}
-
-#selectedContacts{
-    display: flex;
-    gap: 8px;
-}
-
-.prioContainerBorder{
-    border: 1px solid #D1D1D1;
-}
-
-.lowPrioImg{
-    background-image: url('../assets/img/prioLow.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 20px;
-    height:14px;
-}
-
-.medPrioImg{
-    background-image: url('../assets/img/prioMedium.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 20px;
-    height:14px;
-}
-
-.highPrioImg{
-    background-image: url('../assets/img/prioHigh.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 20px;
-    height:14px;
-}
-
-
-.high:hover{
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
-}
-
-.low:hover{
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
-}
-
-
-.med:hover{
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
-}
-
-.highPrioBackground{
-    background-color: #FF3D00;
-    color: white;
-}
-
-.highPrioImageChange{
-    background-image: url("../assets/img/prioHighHighlight.png");
-}
-
-.medPrioBackground{
-    background-color: #FFA800;
-    color: white;
-}
-
-.medPrioImageChange{
-    background-image: url("../assets/img/prioMediumHighlight.png");
-}
-
-.lowPrioBackground{
-    background-color: #7AE229;
-    color: white;
-}
-
-.lowPrioImageChange{
-    background-image: url("../assets/img/prioLowHighlight.png");
-}
-
-@media (max-width : 1000px) {
-    .addTaskBigContainer {
-        flex-direction: column;
-    }
-    .grayLineAddTaskPage {
-        display: none;
-    }
-    .leftSideAddTaskPage{
-        width: 100%; 
-    }
-    .rightSideAddTaskPage{
-        width: 100%; 
-    }
-    .addTaskForm{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-@media (max-width :620px) {
-    .checkoutContainer{
-        bottom: 70px;
-        left: 0px;
-    }    
+@media (max-width: 620px) {
+  .checkoutContainer {
+    bottom: 70px;
+    left: 0px;
+  }
 }

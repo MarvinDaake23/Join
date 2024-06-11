@@ -7,14 +7,25 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="./style/board.css" />
     <link rel="stylesheet" href="./style/style_general.css" />
+    <link rel="stylesheet" href="./style/subtasks.css" />
 
     <!-- general scripts -->
     <script src="./js/script.js"></script>
     <script src="./js/Templates.js"></script>
     <script src="./js/board.js"></script>
     <script src="./js/addTask.js"></script>
+    <script src="./js/contacts.js"></script>
   </head>
   <body class="board" id="body" onload="boardInit()">
+    <!-- Modal Background -->
+    <div id="modalBackground">
+      <!-- Modal content: Add task -->
+      <div
+        id="modalAddTask"
+        w3-include-html="./includes/addTaskInner.html"
+      ></div>
+    </div>
+
     <div
       onclick="removeboardBigContainer()"
       id="background"
@@ -41,6 +52,7 @@
               id="findInput"
               type="text"
               placeholder="Find Task"
+              oninput="searchTask()"
             />
             <div id="imgContainerSubtask" class="imgContainer">
               <div class="subtaskSettingContainer">
@@ -54,16 +66,20 @@
             </div>
           </div>
         </div>
-        <div class="addButtonBig addButton">
+        <div class="addButtonBig addButton" onclick="showAddTask()">
           <img class="blueplusButton" />
         </div>
       </div>
 
       <div class="progressInformationContainer">
-        <div class="progressContainer">
+
+        <div class="progressContainer toDoContainer">
           <div class="todoCheck">
             <span>To do</span>
-            <div class="addButtonSmall addButton"></div>
+            <div
+              class="addButtonSmall addButton"
+              onclick="showAddTask(1)"
+            ></div>
           </div>
           <div
             id="todo"
@@ -73,10 +89,13 @@
           ></div>
         </div>
 
-        <div id="toDoContainer" class="progressContainer">
+        <div class="progressContainer progressContainer">
           <div class="todoCheck">
             <span>In progress</span>
-            <div class="addButtonSmall addButton"></div>
+            <div
+              class="addButtonSmall addButton"
+              onclick="showAddTask(2)"
+            ></div>
           </div>
           <div
             id="progress"
@@ -86,10 +105,13 @@
           ></div>
         </div>
 
-        <div class="progressContainer">
+        <div class="progressContainer feedbackContainer">
           <div class="todoCheck">
             <span>Await Feedback</span>
-            <div class="addButtonSmall addButton"></div>
+            <div
+              class="addButtonSmall addButton"
+              onclick="showAddTask(3)"
+            ></div>
           </div>
           <div
             id="feedback"
@@ -99,7 +121,7 @@
           ></div>
         </div>
 
-        <div class="progressContainer">
+        <div class="progressContainer doneContainer">
           <div class="todoCheck">
             <span>Done</span>
           </div>

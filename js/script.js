@@ -29,15 +29,7 @@ function getRandomBackgroundColor() {
   return new_profileColor;
 }
 
-// muss diese funktion vielleicht in die addTask.js?
-async function init() {
-  contacts = await loadData("contacts");
-  boardTasks = await loadData("boardtasks");
-  //includeHTML();  -> edit christoph
-  loadContactWrapper();
-  loadWrapper();
-  inputSelector();
-}
+
 
 async function onLoadExtraPages() {
   await includeHTML();

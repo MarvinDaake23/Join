@@ -19,7 +19,7 @@ function renderContacts() {
 
   // Button
   container.innerHTML += `
-  <button onclick="showAddOrEditContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
+  <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
 
   // first shown contact: logged in user
   let idOfLoggedInUser = getIdOfLoggedInUser();
@@ -67,6 +67,8 @@ function singleContactView(id) {
     document.getElementById("contactContainerOuter").style.display = "none";
     document.getElementById("contactSingleViewMobile").innerHTML =
       renderSingleContactMobileHTML(id);
+    // buttons "tauschen"
+    document.getElementById("addContactButtonMobile").style.display = "none";
   }
 
   document.getElementById("contactSingleView").innerHTML =
@@ -82,23 +84,72 @@ function backToContactList() {
   document.getElementById("contactContainerOuter").style.display = "";
   document.getElementById("contactSingleViewMobile").innerHTML = "";
   renderContacts();
+  document.getElementById("addContactButtonMobile").style.display = "flex";
 }
 
-function showAddOrEditContact() {
+/* MODAL STUFF */
+function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
-  //document.getElementById("modalAddOrEditContact").style.display = "flex";
+  updateModalTemplateToAdd();
+  document.getElementById("addOrEditForm").reset();
+}
+
+function showEditContact(id) {
+  document.getElementById("modalBackground").style.display = "block";
+  updateModalTemplateToEdit(id);
+  renderValuesToEditContactFormular(id);
 }
 
 function closeAddOrEditContact() {
   document.getElementById("modalBackground").style.display = "none";
-  //document.getElementById("modalAddContact").style.display = "none";
 }
 
-function closeEditContact() {
-  document.getElementById("modalBackground").style.display = "none";
-  document.getElementById("modalEditContact").style.display = "none";
-  document.getElementById("moreButton").style.display = "none";
-  document.getElementById("contactSingleView").innerHTML = "";
+function updateModalTemplateToEdit(id) {
+  document.getElementById("addContactHeadline").innerHTML = "Edit contact";
+  document.getElementById("addContactSubheadline").innerHTML = "";
+  //document.getElementById("cancelButton").innerHTML = "Delete";
+  document.getElementById(
+    "rightButton"
+  ).innerHTML = `Save<img src="assets/img/check.svg">`;
+  // Form und linker Button
+  document
+    .getElementById("addOrEditForm")
+    .setAttribute(
+      "onsubmit",
+      `editContact(${id});closeAddOrEditContact();return false;`
+    );
+  document
+    .getElementById("cancelButton")
+    .setAttribute(
+      "onclick",
+      `deleteContact(${id});closeAddOrEditContact();return false;`
+    );
+  document.getElementById("newContactPic").style.display = "none";
+  document.getElementById("cancelButton").style.display = "none";
+  document.getElementById("editInitials").style.display = "flex";
+}
+
+function updateModalTemplateToAdd() {
+  document.getElementById("addContactHeadline").innerHTML = "Add contact";
+  document.getElementById("addContactSubheadline").innerHTML =
+    "Tasks are better in a team!";
+  document.getElementById(
+    "cancelButton"
+  ).innerHTML = `Cancel<img src="assets/img/cancel.svg" />`;
+  document.getElementById(
+    "rightButton"
+  ).innerHTML = `Create contact<img src="assets/img/check.svg">`;
+  // Form und linker Button
+  document
+    .getElementById("addOrEditForm")
+    .setAttribute("onsubmit", `createContact();return false;`);
+  document
+    .getElementById("cancelButton")
+    .setAttribute("onclick", "closeAddOrEditContact()");
+  document.getElementById("newContactPic").style.display = "flex";
+  document.getElementById("editInitials").style.display = "none";
+  document.getElementById("deleteButton").style.display = "none";
+
 }
 
 /**
@@ -150,6 +201,7 @@ async function deleteContact(id) {
   contacts.splice(id, 1);
   // neu hochladen
   await putData("contacts", contacts);
+  closeAddOrEditContact();
   backToContactList();
   renderContacts();
   document.getElementById("contactSingleView").innerHTML = "";
@@ -159,52 +211,35 @@ function showMore() {
   document.getElementById("moreButtonPopup").style.display = "flex";
 }
 
-function showEditContact(id) {
-  document.getElementById("modalBackground").style.display = "block";
-  document.getElementById("modalAddContact").style.display = "none";
-  document.getElementById("modalEditContact").style.display = "";
-  renderValuesToEditContactFormular(id);
-}
-
 function renderValuesToEditContactFormular(id) {
   document.getElementById(
-    "editNameInput"
+    "nameInput"
   ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
-  document.getElementById("editEmailInput").value = contacts[id].email;
-  document.getElementById("editPhoneInput").value = contacts[id].phoneNumber;
+  document.getElementById("emailInput").value = contacts[id].email;
+  document.getElementById("phoneInput").value = contacts[id].phoneNumber;
+
   document.getElementById(
     "editInitials"
   ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
   document.getElementById("editInitials").style.backgroundColor =
     contacts[id].profileColor;
-
-  document
-    .getElementById("editContactForm")
-    .setAttribute(
-      "onsubmit",
-      `editContact(${id});closeEditContact();return false;`
-    );
-
-  document
-    .getElementById("editContactDeleteButton")
-    .setAttribute(
-      "onclick",
-      `deleteContact(${id});closeEditContact();return false;`
-    );
 }
 
 async function editContact(id) {
   //update array and put to db
-  let nameInput = document.getElementById("editNameInput").value;
+  let nameInput = document.getElementById("nameInput").value;
   const nameArray = nameInput.split(" ");
   contacts[id].firstName = nameArray[0];
   contacts[id].lastName = nameArray[1];
-  contacts[id].email = document.getElementById("editEmailInput").value;
-  contacts[id].phoneNumber = document.getElementById("editPhoneInput").value;
+  contacts[id].email = document.getElementById("emailInput").value;
+  contacts[id].phoneNumber = document.getElementById("phoneInput").value;
 
   await putData("contacts", contacts);
 
-  closeEditContact();
+  closeAddOrEditContact();
+  // liste neu rendern
+  renderContacts();
+  // einzelansicht wieder
   document.getElementById("contactSingleView").innerHTML =
     renderSingleContactHTML(id);
 }

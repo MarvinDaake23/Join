@@ -3,6 +3,18 @@ let boardTasks = [];
 
 let currentDraggedElement;
 
+function showAddTask(column) {
+  document.getElementById("modalBackground").style.display = "block";
+  // update form
+  document
+    .getElementById("addTaskForm")
+    .setAttribute("onsubmit", `addTask(${column});return false;`);
+}
+
+function closeModal() {
+  document.getElementById("modalBackground").style.display = "none";
+}
+
 /**
  * function to initialize the board page
  */
@@ -10,7 +22,27 @@ async function boardInit() {
   await includeHTML(); //- edit christoph
   updateHeaderInitials(); // edit christoph
   boardTasks = await loadData("boardtasks");
+  contacts = await loadData("contacts");
   updateHTML();
+}
+
+function loadContacteditWrapper() {
+  // sort contacts by first name
+  sortContacts();
+
+  let contactWrapper = document.getElementById("editwrapperListAt");
+
+  for (let i = 0; i < contacts.length; i++) {
+    const element = contacts[i];
+    contactWrapper.innerHTML += renderContactWrapper(element, i);
+  }
+}
+
+function inputeditSelector() {
+  let subtaskInput = document.getElementById("editsubtaskInput");
+  subtaskInput.addEventListener("focus", function () {
+    inputFocus();
+  });
 }
 
 /**
@@ -33,8 +65,12 @@ function removeboardBigContainer() {
  * function to render the lists in the large view of the task
  */
 function loadBoardBigContainerLists(i) {
-  loadBoardBigContainerContacts(i);
-  loadBoardBigContainerSubtasks(i);
+  if (boardTasks[i].subtasks) {
+    loadBoardBigContainerSubtasks(i);
+  }
+  if (boardTasks[i].assignedTo) {
+    loadBoardBigContainerContacts(i);
+  }
 }
 
 /**
@@ -56,10 +92,10 @@ function loadBoardBigContainerContacts(i) {
  */
 function loadBoardBigContainerSubtasks(i) {
   let Subtasks = document.getElementById("boardBigContainerSubtasks");
-  for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
-    const element = boardTasks[i]["subtasks"][j];
+  for (let j = 0; j < boardTasks[i].subtasks.length; j++) {
+    const element = boardTasks[i].subtasks[j];
     let src = "";
-    if (element["complete"] == false) {
+    if (element.complete == false) {
       src = "../assets/img/Property 1=Default.png";
     } else {
       src = "../assets/img/Property 1=hover checked.png";
@@ -69,7 +105,7 @@ function loadBoardBigContainerSubtasks(i) {
 }
 
 /**
- *  function to render all boarTasks
+ *  function to render all boardTasks
  */
 function updateHTML() {
   renderAllBoardTasks();
@@ -89,7 +125,9 @@ function renderAllBoardTasks() {
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
     let finished = boardTask.finishedSubtasks;
-    let subtaskCount = boardTask.subtasks;
+    let subtasks = boardTask.subtasks;
+    let assignedTo = boardTask.assignedTo;
+
     if (boardTask.category == "todo") {
       document.getElementById("todo").innerHTML += renderBoardTask(
         boardTask,
@@ -120,11 +158,15 @@ function renderAllBoardTasks() {
       document.getElementById("donePlaceholder").style.display = "none";
     }
     //loadProgressbar(index, progressName, subtaskCount.length, finished);
-    if (subtaskCount.length != 0) {
-      loadProgressbar(index, subtaskCount.length, finished);
+    if (subtasks && subtasks.length != 0) {
+      loadProgressbar(index, subtasks.length, finished);
     }
-    loadPrioBoardTask(index);
-    loadContactInBoardTask(index);
+    //loadPrioBoardTask(index); -> christoph
+
+    if (assignedTo) {
+      // nur wenn kontakte zugeordnet sind, rendern
+      loadContactInBoardTask(index);
+    }
   }
 }
 
@@ -181,6 +223,8 @@ function allowDrop(ev) {
 async function moveTo(category) {
   boardTasks[currentDraggedElement]["category"] = category;
   updateHTML();
+  // clear input field
+  document.getElementById("findInput").value = "";
   // update Firebase!
   await putData("boardtasks", boardTasks);
 }
@@ -212,17 +256,20 @@ function loadProgressbar(index, subEndCount, finished) {
   );
 }
 
-//
 function searchTask() {
   let search = document.getElementById("findInput").value.toLowerCase();
   let boardTaskClass = document.querySelectorAll(".boardCard");
 
-  if (search.length > 3) {
+  if (search.length >= 3) {
     taskQuery(search, boardTaskClass);
   } else {
+    /*
     boardTaskClass.forEach((container) => {
       container.style.display = "flex";
-    });
+    }
+      );*/
+    // besser: neu rendern!
+    renderAllBoardTasks();
   }
 }
 
@@ -236,8 +283,53 @@ async function taskQuery(search, boardTaskClass) {
       container.style.display = "flex";
     } else {
       container.style.display = "none";
+      // wie viele sind noch drin
+      checkIfEmptyContainer1();
+      checkIfEmptyContainer2();
+      checkIfEmptyContainer3();
+      checkIfEmptyContainer4();
     }
   });
+}
+
+async function checkIfEmptyContainer1() {
+  let all = document.querySelectorAll("#todo > div").length;
+  let invisible = document.querySelectorAll(
+    '#todo > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("todoPlaceholder").style.display = "flex";
+  }
+}
+
+async function checkIfEmptyContainer2() {
+  let all = document.querySelectorAll("#progress > div").length;
+  let invisible = document.querySelectorAll(
+    '#progress > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("progressPlaceholder").style.display = "flex";
+  }
+}
+
+async function checkIfEmptyContainer3() {
+  let all = document.querySelectorAll("#feedback > div").length;
+  let invisible = document.querySelectorAll(
+    '#feedback > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("feedbackPlaceholder").style.display = "flex";
+  }
+}
+
+async function checkIfEmptyContainer4() {
+  let all = document.querySelectorAll("#done > div").length;
+  let invisible = document.querySelectorAll(
+    '#done > div[style*="display: none"]'
+  ).length;
+  if (all == invisible) {
+    document.getElementById("donePlaceholder").style.display = "flex";
+  }
 }
 
 async function deleteTask(i) {
@@ -248,29 +340,59 @@ async function deleteTask(i) {
   updateHTML();
 }
 
-function rendersubtask() {
-  let newTask = document.getElementById('boardBigContainer');
-  newTask.innerHTML =``; 
-  newTask.innerHTML = rendersubtaskTemplate();
+async function rendersubtask(i) {
+  let newTask = document.getElementById("boardBigContainer");
+  let title = boardTasks[i]["title"];
+  let description = boardTasks[i]["description"];
+  let dueDate = boardTasks[i]["dueDate"];
+  loadData("contacts");
+
+  direction =
+    "edit"; /* Change the direction for rendering the subtask, not from "AddTask" but to "board" view */
+  newTask.innerHTML = ``;
+  newTask.innerHTML = rendersubtaskTemplate(title, description, dueDate, i);
+  loadContacteditWrapper();
+  inputeditSelector();
+
+  subtasks.splice(0, subtasks.length);
+  for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
+    let response = await fetch(
+      `${BASE_URL}boardtasks/${i}/subtasks/${j}/subtaskText.json`
+    );
+    let responseJson = await response.json();
+    subtasks.push(responseJson);
+  }
+
+  let sContacts = document.getElementById("selectedContacts");
+  for (let x = 0; x < selectedTaskContacts.length; x++) {
+    const element = selectedTaskContacts[x];
+    sContacts.innerHTML += renderSelectedContacts(element);
+  }
+
+  editrenderSubtaskList();
 }
 
-function openWrapper(i) {
-  let wrapperList = document.getElementById(`wrapperList${i}`);
-  let wrapper = document.getElementById(`wrapper${i}`);
+function editopenWrapper(i) {
+  let wrapperList = document.getElementById(`editwrapperList${i}`);
+  let wrapper = document.getElementById(`editwrapper${i}`);
 
   if (wrapperList.classList.contains(`d-none`)) {
     wrapperList.classList.remove(`d-none`);
-    document.getElementById(`arrowUp${i}`).classList.remove(`d-none`);
-    document.getElementById(`arrowDown${i}`).classList.add(`d-none`);
+    document.getElementById(`editarrowUp${i}`).classList.remove(`d-none`);
+    document.getElementById(`editarrowDown${i}`).classList.add(`d-none`);
     wrapper.classList.add(`openBorader`);
     wrapperList.style.width = `${wrapper.offsetWidth}px`;
-    document.getElementById(`wrapper${i}`).classList.add("blueOutlineInput");
+    document
+      .getElementById(`editwrapper${i}`)
+      .classList.add("blueOutlineInput");
   } else {
     wrapperList.classList.add(`d-none`);
-    document.getElementById(`arrowUp${i}`).classList.add(`d-none`);
-    document.getElementById(`arrowDown${i}`).classList.remove(`d-none`);
+    document.getElementById(`editarrowUp${i}`).classList.add(`d-none`);
+    document.getElementById(`editarrowDown${i}`).classList.remove(`d-none`);
     wrapper.classList.remove(`openBorader`);
-    document.getElementById(`wrapper${i}`).classList.remove("blueOutlineInput");
+    document
+      .getElementById(`editwrapper${i}`)
+      .classList.remove("blueOutlineInput");
   }
 }
 
@@ -296,4 +418,72 @@ function prioChoose(i) {
       document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
     }
   }
+}
+
+async function editTask(i) {
+  let edittitle = document.getElementById(`edittitle${i}`).value;
+  let editdescription = document.getElementById(`editdescription${i}`).value;
+  let editdate = document.getElementById(`editdate${i}`).value;
+
+  /*   let prio = prios[prioValue];
+  let category = categorys[cat];
+ */
+
+  let data = generateDataForTask(
+    edittitle,
+    editdescription,
+    editdate,
+    prio,
+    category
+  );
+
+  boardTasks.push(data);
+  // update firebase
+  await putData("boardtasks", boardTasks);
+  // zur board seite
+  visitBoard();
+}
+
+function editInputFocus() {
+  let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
+  let editimgContainerSubtask = document.getElementById(
+    "editimgContainerSubtask"
+  );
+
+  editaddTaskinEditTask.classList.add("d-none");
+  editimgContainerSubtask.classList.remove("d-none");
+}
+
+function editInputBlur() {
+  let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
+  let editimgContainerSubtask = document.getElementById(
+    "editimgContainerSubtask"
+  );
+
+  editaddTaskinEditTask.classList.remove("d-none");
+  editimgContainerSubtask.classList.add("d-none");
+}
+
+function editloadSubtaskList() {
+  let subtask = document.getElementById("editsubtaskInput").value;
+  if (subtask) {
+    subtasks.push(subtask);
+  }
+  editrenderSubtaskList();
+  editinputClear();
+}
+
+function editrenderSubtaskList() {
+  let subtaskList = document.getElementById("editsubTasks");
+  subtaskList.innerHTML = ``;
+
+  for (let i = 0; i < subtasks.length; i++) {
+    if (subtasks[i]) {
+      subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
+    }
+  }
+}
+
+function editinputClear() {
+  document.getElementById("editsubtaskInput").value = "";
 }

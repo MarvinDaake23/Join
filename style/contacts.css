@@ -5,6 +5,7 @@ body {
     "sidebar  list   content";
 
   grid-template-columns: 232px 453px auto;
+  box-sizing: border-box;
 }
 
 list {
@@ -55,8 +56,8 @@ content {
 
 .singleContactContainerMobile {
   background-color: #f6f7f8;
-  height: 80vh;
-  padding: 48px 16px 0px 16px;
+  padding: 48px 16px 48px 16px;
+  margin-bottom: auto;
 }
 
 .singleContactContainer .initials {
@@ -100,15 +101,11 @@ content .headline h2 {
   font-size: 27px;
 }
 
-
-
 .singleContactContainer h3 {
   font-size: 20px;
   font-weight: 400;
   margin: 0px 0px 8px 0px;
 }
-
-
 
 .singleContactContainer h4 {
   font-size: 16px;
@@ -118,7 +115,21 @@ content .headline h2 {
 
 .contactsHeadline {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  border-right: none;
+}
+
+.contactsHeadline h2 {
+  margin: 0;
+  font-size: 47px;
+  font-weight: 700;
+}
+
+.contactsHeadlineBox h3 {
+  margin: 0px 0px 16px 0px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .contactsHeadlineBox hr {
@@ -223,9 +234,10 @@ content .headline h2 {
 
 #contactContainer {
   padding: 10px 40px;
-  margin-bottom: 80px;
+  /*margin-bottom: 80px;*/
 }
 
+/*
 .upperHalf hr {
   height: 3px;
   width: 90px;
@@ -235,6 +247,7 @@ content .headline h2 {
   align-self: flex-start;
   margin: 0;
 }
+*/
 
 #contactContainer hr {
   /*border: 2px solid #29abe2;
@@ -254,23 +267,6 @@ content .headline h2 {
   cursor: pointer;
   border-radius: 10px;
 }
-
-
-.newContactPic {
-  background-color: #d1d1d1;
-  width: 120px;
-  height: 120px;
-  border-radius: 100px;
-  margin-top: -60px;
-  border: 3px solid #ffffff;
-}
-
-
-
-
-
-
-
 
 #moreButtonPopup {
   display: none;
@@ -296,51 +292,8 @@ content .headline h2 {
   gap: 8px;
 }
 
-
-@keyframes slideInFromRight {
-  from {
-    right: -300px;
-    opacity: 0;
-  }
-  to {
-    right: 20px;
-    opacity: 1;
-  }
-}
-
 #moreButtonPopup a {
   cursor: pointer;
-}
-
-#editInitials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80px;
-  width: 80px;
-  color: white;
-  border-radius: 180px;
-  font-size: 27px !important;
-  font-weight: 400 !important;
-  box-shadow: 0px 0px 4px 0px #0000001a;
-  border: 3px solid #ffffff;
-  box-sizing: border-box;
-  margin-top: -40px;
-}
-
-#editInitialsDesktop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
-  width: 120px;
-  color: white;
-  border-radius: 180px;
-  font-size: 47px !important;
-  font-weight: 500 !important;
-  box-shadow: 0px 0px 4px 0px #0000001a;
-  border: 3px solid #ffffff;
-  box-sizing: border-box;
 }
 
 .seperatorLetter {
@@ -351,79 +304,8 @@ content .headline h2 {
   box-sizing: border-box;
 }
 
-#createContactButton {
-  background-color: #2a3647;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 202px;
-  height: 51px;
-  padding: 18px 10px 18px 10px;
-  border-radius: 10px;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 21px;
-  cursor: pointer;
-  border: none;
-}
-
-.cancelButton {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 202px;
-  height: 51px;
-  padding: 18px 10px 18px 10px;
-  border-radius: 10px;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 21px;
-  cursor: pointer;
-  border: none;
-}
-
-.upperHalf span {
-  text-align: right;
-  font-size: xx-large;
-  cursor: pointer;
-}
-
 a {
   cursor: pointer;
-}
-
-#editContactSaveButton {
-  width: 99px;
-  height: 51px;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
-  border: none;
-  background-color: #2a3647;
-  border-radius: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 16px;
-}
-
-#editContactDeleteButton, #editContactDeleteButtonDesktop {
-  width: 82px;
-  height: 51px;
-  background-color: white;
-  border: 1px solid #2a3647;
-  color: #2a3647;
-  border-radius: 10px;
-  padding: 18px, 10px, 18px, 10px;
-  font-size: 20px;
-  font-weight: 400;
-  cursor: pointer;
-}
-
-.buttonPair {
-  display: flex;
-  gap: 20px;
 }
 
 .active {
@@ -468,8 +350,6 @@ a {
 nav a:hover {
   background-color: #091931;
 }
-
-
 
 @media (max-width: 620px) {
   body {
@@ -547,5 +427,19 @@ nav a:hover {
 
   .moreButton {
     display: flex;
+  }
+
+  .contactInfos h3 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .contactInfos h4 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .singleContact {
+    gap: 20px;
   }
 }
