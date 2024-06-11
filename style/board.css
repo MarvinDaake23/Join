@@ -1,4 +1,3 @@
-
 .headlineContainer {
   display: flex;
   position: relative;
@@ -83,8 +82,8 @@
 }
 
 .progressInformationContainer span {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 12px; /*20px;*/
+  font-weight: 400; /*700;*/
 }
 
 .emptyPlaceholder {
