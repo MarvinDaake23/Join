@@ -39,18 +39,18 @@
   font-size: 61px;
 }
 
-.vertLine {
+#modalAddTask .vertLine {
   height: 424px;
   border-left: 1px solid #d1d1d1;
 }
 
-.headLine {
+#modalAddTask .headLine {
   padding: 64px 64px 0px 64px;
   display: flex;
   justify-content: space-between;
 }
 
-form {
+#modalAddTask form {
   gap: 30px;
   padding: 20px;
   display: flex;
@@ -60,13 +60,13 @@ form {
   flex-wrap: wrap;
 }
 
-.addTaskContainer {
+#modalAddTask .addTaskContainer {
   padding: 30px;
 }
 
-form input,
-form textarea,
-form select {
+#modalAddTask form input,
+#modalAddTask form textarea,
+#modalAddTask form select {
   width: 440px;
   height: 48px;
   padding: 12px 16px 12px 16px;
@@ -80,11 +80,11 @@ form select {
   border: 1px solid #d1d1d1;
 }
 
-form textarea {
+#modalAddTask form textarea {
   height: 120px;
 }
 
-.addTaskButton {
+#modalAddTask .addTaskButton {
   background-color: #2a3647;
   padding: 12px 28px;
   color: white;
@@ -96,7 +96,7 @@ form textarea {
   gap: 4px;
 }
 
-.cancelTaskButton {
+#modalAddTask .cancelTaskButton {
   background-color: white;
   color: #2a3647;
   border: 1px solid #2a3647;
@@ -112,15 +112,15 @@ form textarea {
   cursor: pointer;
 }
 
-.red {
+#modalAddTask .red {
   color: #ff8190;
 }
 
-.required {
+#modalAddTask .required {
   padding-left: 50px;
 }
 
-.checkoutContainer {
+#modalAddTask .checkoutContainer {
   position: absolute;
   bottom: 60px;
   /*left: 232px;
@@ -132,37 +132,6 @@ form textarea {
   align-items: center;
   /*background-color: #f6f7f8;*/
   border: none;
-}
-
-.selectBox {
-  position: relative;
-}
-
-.selectBox select {
-  /*width: 100%;
-  font-weight: bold;*/
-}
-
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-#checkboxes {
-  display: none;
-  border: 1px #dadada solid;
-  box-sizing: border-box;
-}
-
-#checkboxes label {
-  display: block;
-}
-
-#checkboxes label:hover {
-  background-color: #1e90ff;
 }
 
 @keyframes slideInFromRightDesktop {
