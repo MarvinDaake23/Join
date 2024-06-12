@@ -474,7 +474,7 @@ function editInputBlur() {
   editimgContainerSubtask.classList.add("d-none");
 }
 
-async function editloadSubtaskList(i) {
+async function editloadSubtaskList(i) { 
   let subtask = document.getElementById("editsubtaskInput").value;
   if (subtask) {
     subtasks.push(subtask);
@@ -499,3 +499,4 @@ function editrenderSubtaskList() {
 function editinputClear() {
   document.getElementById("editsubtaskInput").value = "";
 }
+
