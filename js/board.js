@@ -386,7 +386,7 @@ async function rendersubtask(i) {
     sContacts.innerHTML += renderSelectedContacts(element);
   }
 
-  editrenderSubtaskList();
+  editrenderSubtaskList(i);
 }
 
 function editopenWrapper(i) {
@@ -450,8 +450,9 @@ async function editTask(i) {
 
   /*  boardTasks[i].prio = prio;
  boardTasks[i].category = category; */
-  boardTasks[i].subtasks[3] = await putData("boardtasks", boardTasks);
+  await putData("boardtasks", boardTasks);
   boardInit();
+  
 }
 
 function editInputFocus() {
@@ -474,32 +475,32 @@ function editInputBlur() {
   editimgContainerSubtask.classList.add("d-none");
 }
 
-async function editloadSubtaskList(i) {
-  newSubtask = document.getElementById("editsubtaskInput").value;
+async function editloadSubtaskList(i) { 
+  subtask = document.getElementById("editsubtaskInput").value;
   let json = {
-    subtaskText: newSubtask,
+    subtaskText: subtask,
     complete: false,
   };
   if (json) {
-    subtasks.push(json);
+    boardTasks[i].subtasks.push(json)
   }
-  boardTasks[i].subtasks = subtasks; //hier veruschen den lokaen subtask in den Api subtask zu krigen
-  await putData("boardtasks", boardTasks);
-  editrenderSubtaskList();
+  editrenderSubtaskList(i);
   editinputClear();
+  
 }
 
-function editrenderSubtaskList() {
+function editrenderSubtaskList(i) {
   let subtaskList = document.getElementById("editsubTasks");
   subtaskList.innerHTML = ``;
 
-  for (let i = 0; i < subtasks.length; i++) {
-    if (subtasks[i]) {
-      subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
-    }
+  for (let j = 0; j < boardTasks[i].subtasks.length; j++) {
+
+      subtaskList.innerHTML += subtaskListInput(boardTasks[i].subtasks[j].subtaskText, j);
+    
   }
 }
 
 function editinputClear() {
   document.getElementById("editsubtaskInput").value = "";
 }
+
