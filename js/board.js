@@ -475,9 +475,13 @@ function editInputBlur() {
 }
 
 async function editloadSubtaskList(i) {
-  let subtask = document.getElementById("editsubtaskInput").value;
-  if (subtask) {
-    subtasks.push(subtask);
+  newSubtask = document.getElementById("editsubtaskInput").value;
+  let json = {
+    subtaskText: newSubtask,
+    complete: false,
+  };
+  if (json) {
+    subtasks.push(json);
   }
   boardTasks[i].subtasks = subtasks; //hier veruschen den lokaen subtask in den Api subtask zu krigen
   await putData("boardtasks", boardTasks);
