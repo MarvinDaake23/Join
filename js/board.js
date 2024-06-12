@@ -24,6 +24,7 @@ function showAddTask(column) {
     .setAttribute("onsubmit", `addTask(${column});return false;`);
   prioChoose(1);
   loadContactWrapper();
+  inputSelector(); // for the subtasks
 }
 
 function closeModal() {
