@@ -205,11 +205,11 @@
   background-position: right 8px center;
 }
 
-.taskTitleInputContainer {
+#modalAddTask .taskTitleInputContainer {
   position: relative;
 }
 
-.imgContainerSubtaskSubmit {
+#modalAddTask .imgContainerSubtaskSubmit {
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -218,7 +218,7 @@
   cursor: pointer;
 }
 
-.imgContainerSubtaskCancle {
+#modalAddTask .imgContainerSubtaskCancle {
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -227,7 +227,7 @@
   cursor: pointer;
 }
 
-.bigSubtaskContainer {
+#modalAddTask .bigSubtaskContainer {
   background-color: transparent;
   border-radius: 10px;
   width: 97%;
@@ -237,7 +237,7 @@
   position: relative;
 }
 
-.bigSubtaskContainer:hover {
+#modalAddTask .bigSubtaskContainer:hover {
   background-color: #eeeeee;
 }
 
