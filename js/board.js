@@ -11,8 +11,6 @@ function showCheckboxes() {
   }
 }
 
-
-
 let doneBulian = false;
 let boardTasks = [];
 
@@ -24,7 +22,8 @@ function showAddTask(column) {
   document
     .getElementById("addTaskForm")
     .setAttribute("onsubmit", `addTask(${column});return false;`);
-    prioChoose(1);
+  prioChoose(1);
+  loadContactWrapper();
 }
 
 function closeModal() {
@@ -447,12 +446,10 @@ async function editTask(i) {
   boardTasks[i].title = edittitle;
   boardTasks[i].description = editdescription;
   boardTasks[i].date = editdate;
- 
-/*  boardTasks[i].prio = prio;
- boardTasks[i].category = category; */
- boardTasks[i].subtasks[3] = 
 
- await putData("boardtasks", boardTasks);
+  /*  boardTasks[i].prio = prio;
+ boardTasks[i].category = category; */
+  boardTasks[i].subtasks[3] = await putData("boardtasks", boardTasks);
   boardInit();
 }
 
@@ -481,7 +478,7 @@ async function editloadSubtaskList(i) {
   if (subtask) {
     subtasks.push(subtask);
   }
-  boardTasks[i].subtasks = subtasks; //hier veruschen den lokaen subtask in den Api subtask zu krigen 
+  boardTasks[i].subtasks = subtasks; //hier veruschen den lokaen subtask in den Api subtask zu krigen
   await putData("boardtasks", boardTasks);
   editrenderSubtaskList();
   editinputClear();
