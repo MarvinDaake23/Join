@@ -118,6 +118,8 @@
 
 #modalAddTask .required {
   padding-left: 50px;
+  position: absolute;
+  bottom: 60px;
 }
 
 #modalAddTask .checkoutContainer {
