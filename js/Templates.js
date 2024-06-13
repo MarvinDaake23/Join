@@ -166,7 +166,7 @@ function renderSelectedContacts(element, i) {
 
 function rendersubtaskTemplate(title, description, dueDate, i) {
   return /*html */ `
-    <form onsubmit="editTask(${i})" class="editConatinerBackground">
+    <form onsubmit="editTask(${i}); return false;" class="editConatinerBackground">
     <div class="editContainer">
         <div class="textEditConatiner">Title</div>
             <input id="edittitle${i}" class="requiredInput" type="text" value="${title}">

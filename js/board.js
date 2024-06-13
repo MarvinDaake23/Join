@@ -482,7 +482,7 @@ async function editloadSubtaskList(i) {
     complete: false,
   };
   if (json) {
-    boardTasks[i].subtasks.push(json)
+    boardTasks[i].subtasks.push(json);
   }
   editrenderSubtaskList(i);
   editinputClear();
