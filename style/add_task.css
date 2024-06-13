@@ -1,3 +1,20 @@
+.error-message {
+  color: red;
+  display: none;
+  font-family: Arial, sans-serif;
+  margin-top: -10px; /* Abstand zum oberen Element reduzieren */
+  font-size: 1px;
+}
+.taskTitleInputContainer {
+  display: flex;
+  flex-direction: column;
+}
+.requiredInput,
+.textareaDescription,
+select {
+  margin-bottom: 10px; /* Abstand zwischen Eingabefeld und Fehlermeldung */
+}
+
 .addTaskBigContainer {
   display: flex;
   justify-content: center;
@@ -9,10 +26,6 @@
 .leftSideAddTaskPage,
 .rightSideAddTaskPage {
   width: 45%;
-}
-
-.rightSideAddTaskPage {
-  /*margin-bottom: 250px; - sieht bei mir doof aus (chr.)*/
 }
 
 .required {
@@ -121,12 +134,10 @@
 }
 
 .subtaskSettingContainer {
-  position: absolute;
   top: 0px;
   right: -3px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   z-index: 2;
 }
 

@@ -212,26 +212,66 @@ function chooseCategory(i) {
   cat = i;
 }
 
-/**
- * function to alert if required dield is empty
- */
-function checkRequiredInputs() {
-  let title = document.getElementById("title").value;
-  let alert = document.getElementById("requiredInputAddTask");
 
-  if (!title) {
-    alert.innerHTML = `
-    This field is required
-    `;
-  } else {
-    alert.innerHTML = "";
-    document.getElementById("title").classList.add("blueOutlineInput");
-  }
 
-  let titleInput = document.getElementById("title");
-  titleInput.addEventListener("blur", checkRequiredInputs);
-  titleInput.addEventListener("input", checkRequiredInputs);
-}
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('addTaskForm').addEventListener('submit', function(event) {
+      let isValid = true;
+
+      let nameInput = document.getElementById('title');
+      let nameError = document.getElementById('nameError');
+      if (!nameInput.value.trim()) {
+          nameError.style.display = 'inline';
+          isValid = false;
+      } else {
+          nameError.style.display = 'none';
+      }
+
+      let dateInput = document.getElementById('date');
+      let dateError = document.getElementById('dateError');
+      if (!dateInput.value.trim()) {
+          dateError.style.display = 'inline';
+          isValid = false;
+      } else {
+          dateError.style.display = 'none';
+      }
+
+      let categoryInput = document.getElementById('category');
+      let categoryError = document.getElementById('categoryError');
+      if (!categoryInput.value.trim()) {
+          categoryError.style.display = 'inline';
+          isValid = false;
+      } else {
+          categoryError.style.display = 'none';
+      }
+
+      if (!isValid) {
+          event.preventDefault();
+      }
+  });
+});
+
+
+// /**
+//  * function to alert if required dield is empty
+//  */
+// function checkRequiredInputs() {
+//   let title = document.getElementById("title").value;
+//   let alert = document.getElementById("requiredInputAddTask");
+
+//   if (!title) {
+//     alert.innerHTML = `
+//     This field is required
+//     `;
+//   } else {
+//     alert.innerHTML = "";
+//     document.getElementById("title").classList.add("blueOutlineInput");
+//   }
+
+//   let titleInput = document.getElementById("title");
+//   titleInput.addEventListener("blur", checkRequiredInputs);
+//   titleInput.addEventListener("input", checkRequiredInputs);
+// }
 
 // function checkCategory() {
 //   let category = document.getElementById("placeholder");
