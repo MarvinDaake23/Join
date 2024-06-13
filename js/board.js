@@ -11,8 +11,6 @@ function showCheckboxes() {
   }
 }
 
-
-
 let doneBulian = false;
 let boardTasks = [];
 
@@ -24,7 +22,9 @@ function showAddTask(column) {
   document
     .getElementById("addTaskForm")
     .setAttribute("onsubmit", `addTask(${column});return false;`);
-    prioChoose(1);
+  prioChoose(1);
+  loadContactWrapper();
+  inputSelector(); // for the subtasks
 }
 
 function closeModal() {
@@ -72,9 +72,10 @@ function loadBoardBigContainer(i) {
   document.getElementById("boardBigContainer").classList.remove("d-none");
 }
 
-function removeboardBigContainer() {
+async function removeboardBigContainer() {
   document.getElementById("background").classList.add("d-none");
   document.getElementById("boardBigContainer").classList.add("d-none");
+  boardInit();
 }
 
 /**
@@ -385,7 +386,7 @@ async function rendersubtask(i) {
     sContacts.innerHTML += renderSelectedContacts(element);
   }
 
-  editrenderSubtaskList();
+  editrenderSubtaskList(i);
 }
 
 function editopenWrapper(i) {
@@ -440,24 +441,18 @@ async function editTask(i) {
   let edittitle = document.getElementById(`edittitle${i}`).value;
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
+  let prio = prios[prioValue];
+  let category = document.getElementById("category").value; //categorys[cat];
 
-  /*   let prio = prios[prioValue];
-  let category = categorys[cat];
- */
+  boardTasks[i].title = edittitle;
+  boardTasks[i].description = editdescription;
+  boardTasks[i].date = editdate;
 
-  let data = generateDataForTask(
-    edittitle,
-    editdescription,
-    editdate,
-    prio,
-    category
-  );
-
-  boardTasks.push(data);
-  // update firebase
+  /*  boardTasks[i].prio = prio;
+ boardTasks[i].category = category; */
   await putData("boardtasks", boardTasks);
-  // zur board seite
-  visitBoard();
+  boardInit();
+  
 }
 
 function editInputFocus() {
@@ -480,26 +475,32 @@ function editInputBlur() {
   editimgContainerSubtask.classList.add("d-none");
 }
 
-function editloadSubtaskList() {
-  let subtask = document.getElementById("editsubtaskInput").value;
-  if (subtask) {
-    subtasks.push(subtask);
+async function editloadSubtaskList(i) { 
+  subtask = document.getElementById("editsubtaskInput").value;
+  let json = {
+    subtaskText: subtask,
+    complete: false,
+  };
+  if (json) {
+    boardTasks[i].subtasks.push(json)
   }
-  editrenderSubtaskList();
+  editrenderSubtaskList(i);
   editinputClear();
+  
 }
 
-function editrenderSubtaskList() {
+function editrenderSubtaskList(i) {
   let subtaskList = document.getElementById("editsubTasks");
   subtaskList.innerHTML = ``;
 
-  for (let i = 0; i < subtasks.length; i++) {
-    if (subtasks[i]) {
-      subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
-    }
+  for (let j = 0; j < boardTasks[i].subtasks.length; j++) {
+
+      subtaskList.innerHTML += subtaskListInput(boardTasks[i].subtasks[j].subtaskText, j);
+    
   }
 }
 
 function editinputClear() {
   document.getElementById("editsubtaskInput").value = "";
 }
+

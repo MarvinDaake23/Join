@@ -39,18 +39,18 @@
   font-size: 61px;
 }
 
-.vertLine {
+#modalAddTask .vertLine {
   height: 424px;
   border-left: 1px solid #d1d1d1;
 }
 
-.headLine {
+#modalAddTask .headLine {
   padding: 64px 64px 0px 64px;
   display: flex;
   justify-content: space-between;
 }
 
-form {
+#modalAddTask form {
   gap: 30px;
   padding: 20px;
   display: flex;
@@ -60,13 +60,13 @@ form {
   flex-wrap: wrap;
 }
 
-.addTaskContainer {
+#modalAddTask .addTaskContainer {
   padding: 30px;
 }
 
-form input,
-form textarea,
-form select {
+#modalAddTask form input,
+#modalAddTask form textarea,
+#modalAddTask form select {
   width: 440px;
   height: 48px;
   padding: 12px 16px 12px 16px;
@@ -80,11 +80,11 @@ form select {
   border: 1px solid #d1d1d1;
 }
 
-form textarea {
+#modalAddTask form textarea {
   height: 120px;
 }
 
-.addTaskButton {
+#modalAddTask .addTaskButton {
   background-color: #2a3647;
   padding: 12px 28px;
   color: white;
@@ -96,7 +96,7 @@ form textarea {
   gap: 4px;
 }
 
-.cancelTaskButton {
+#modalAddTask .cancelTaskButton {
   background-color: white;
   color: #2a3647;
   border: 1px solid #2a3647;
@@ -112,15 +112,17 @@ form textarea {
   cursor: pointer;
 }
 
-.red {
+#modalAddTask .red {
   color: #ff8190;
 }
 
-.required {
+#modalAddTask .required {
   padding-left: 50px;
+  position: absolute;
+  bottom: 60px;
 }
 
-.checkoutContainer {
+#modalAddTask .checkoutContainer {
   position: absolute;
   bottom: 60px;
   /*left: 232px;
@@ -134,35 +136,135 @@ form textarea {
   border: none;
 }
 
-.selectBox {
+#modalAddTask .wrapperList {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px 10px 10px 10px;
+  list-style-type: none;
+  overflow-y: auto;
+  max-height: 100px;
+  z-index: 1000;
+  margin-top: 5px;
+  box-sizing: border-box;
+  padding-left: 0px;
+  padding-right: 20px;
+}
+
+#modalAddTask form input[type="checkbox"] {
+  height: auto;
+}
+
+#modalAddTask .wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*width: 90%;*/
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  cursor: pointer;
+  border: 1px solid #d1d1d1;
+}
+
+#modalAddTask .openBorader {
+  border-radius: 10px 10px 0px 0px;
   position: relative;
 }
 
-.selectBox select {
-  /*width: 100%;
-  font-weight: bold;*/
+#modalAddTask .blueOutlineInput:focus {
+  outline: none;
+  border: 1px solid #29abe2;
+  border-radius: 10px;
 }
 
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+#modalAddTask .blueOutlineInput {
+  outline: none;
+  border: 1px solid #29abe2;
+  border-radius: 10px;
 }
 
-#checkboxes {
+#modalAddTask .dNone {
   display: none;
-  border: 1px #dadada solid;
-  box-sizing: border-box;
 }
 
-#checkboxes label {
-  display: block;
+#modalAddTask .contactWrapperItem {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 7px, 16px, 7px, 16px;
 }
 
-#checkboxes label:hover {
-  background-color: #1e90ff;
+#modalAddTask .wrapperContactList {
+  width: 100%;
+  height: 300px;
+  background-color: #2a3647;
+}
+
+#modalAddTask .contactWrapperItem:hover {
+  background-color: #f5f5f5;
+}
+
+#modalAddTask .imgContainer {
+  position: absolute;
+  top: 12px;
+  right: 17px;
+  width: 50px;
+  height: 20px;
+}
+
+#modalAddTask .imgContainerBackground {
+  background-repeat: no-repeat;
+  background-image: url("../assets/img/add.png");
+  background-position: right 8px center;
+}
+
+#modalAddTask .taskTitleInputContainer {
+  position: relative;
+}
+
+#modalAddTask .imgContainerSubtaskSubmit {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-image: url("../assets/img/check.png");
+  background-position: center;
+  cursor: pointer;
+}
+
+#modalAddTask .imgContainerSubtaskCancle {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../assets/img/close.png");
+  cursor: pointer;
+}
+
+#modalAddTask .bigSubtaskContainer {
+  background-color: transparent;
+  border-radius: 10px;
+  width: 97%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+#modalAddTask .bigSubtaskContainer:hover {
+  background-color: #eeeeee;
+}
+
+#modalAddTask .contactContainer {
+  width: 440px;
+  height: 100px;
 }
 
 @keyframes slideInFromRightDesktop {

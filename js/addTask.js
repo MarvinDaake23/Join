@@ -5,7 +5,7 @@ let task = [];
 let prioValue = null;
 let cat;
 let selectedTaskContacts = [];
-let direction = 'add';
+let direction = "add";
 
 /**
  * Onload Function for the Add Task page
@@ -158,13 +158,12 @@ function saveEditedSubtask(i) {
   } else {
     subtasks.splice(i, 1); // Remove the subtask if the edited value is empty
   }
-  if(direction == 'add'){
+  if (direction == "add") {
     renderSubtaskList();
   }
-  if(direction == 'edit'){
-    editrenderSubtaskList()
+  if (direction == "edit") {
+    editrenderSubtaskList();
   }
-  
 }
 
 function deleteSubtask(i) {
@@ -177,11 +176,8 @@ function inputClear() {
 }
 
 /**
- * function to open all Wrapper on "AddTask" side
+ * function to open all Wrapper on "AddTask" site
  */
-/**
- 
-function to open all Wrapper on "AddTask" side*/
 function openWrapper(i) {
   let wrapperList = document.getElementById(`wrapperList${i}`);
   let wrapper = document.getElementById(`wrapper${i}`);

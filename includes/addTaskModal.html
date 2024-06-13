@@ -27,7 +27,7 @@
 
     <br />
 
-    <div>
+    <div class="contactContainer">
       <span class="addTaskSpans">Assigned to</span>
       <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
         <span>Select contacts to assign</span>
@@ -111,6 +111,18 @@
       <option value="User Story">User Story</option>
       <option value="Technical Task">Technical Task</option>
     </select>
+
+    <div>
+      <span class="addTaskSpans">Subtasks</span>
+      <div class="taskTitleInputContainer">
+        <input id="subtaskInput" type="text" placeholder="Add new subtask" />
+        <div
+          id="imgContainerSubtask"
+          class="imgContainer imgContainerBackground"
+        ></div>
+      </div>
+      <ul class="subTaskContainer" id="subTasks"></ul>
+    </div>
 
     <div class="checkoutContainer">
       <button onclick="closeModal()" type="button" class="cancelTaskButton">

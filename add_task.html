@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join: Add task</title>
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="stylesheet" href="./style/add_task.css" />
     <link rel="stylesheet" href="./style/style_general.css" />
     <link rel="stylesheet" href="./style/subtasks.css" />
@@ -137,26 +137,32 @@
                     </div>
                 </div>
 
-                <div class="taskTitleContainer">
-                    <span class="addTaskSpans">Subtasks</span>
-                    <div class="taskTitleInputContainer">
-                        <input id="subtaskInput" type="text" placeholder="Add new subtask" />
-                        <div></div>
-                        <div
-                            id="imgContainerSubtask"
-                            class="imgContainer imgContainerBackground"
-                        ></div>
-                    </div>
-                    <ul class="subTaskContainer" id="subTasks"></ul>
-                </div>
+            <div class="taskTitleContainer">
+              <span class="addTaskSpans">Subtasks</span>
+              <div class="taskTitleInputContainer">
+                <input
+                  id="subtaskInput"
+                  type="text"
+                  placeholder="Add new subtask"
+                />
 
-                <div class="checkoutContainer">
-                    <button type="reset" class="addTaskButton">Reset</button>
-                    <button type="submit" class="addTaskButton">
-                        Create Task<img src="./assets/img/checkWhite.png" alt="" />
-                    </button>
-                </div>
+                <div
+                  id="imgContainerSubtask"
+                  class="imgContainer imgContainerBackground"
+                ></div>
+              </div>
+              <ul class="subTaskContainer" id="subTasks"></ul>
             </div>
+            <!-- onclick="checkCategory()" -->
+            <div class="checkoutContainer">
+              <button type="reset" class="cancelTaskButton">
+                Cancel<img src="./assets/img/cancel.svg" />
+              </button>
+              <button type="submit" class="addTaskButton">
+                Create Task<img src="./assets/img/check.svg" alt="" />
+              </button>
+            </div>
+          </div>
         </form>
     </div
       <span class="required"

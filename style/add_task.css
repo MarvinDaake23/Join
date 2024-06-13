@@ -497,6 +497,10 @@ select {
   margin-bottom: 20px;
 }
 
+.categoryContainer {
+  margin-bottom: 20px;
+}
+
 .prioChoose {
   display: flex;
   align-items: center;
@@ -505,13 +509,6 @@ select {
 }
 
 .prio {
-  gap: 8px;
-  border-radius: 10px;
-  height: 56px;
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: white;
 }
 
@@ -979,7 +976,6 @@ select {
     font-size: 14px;
   }
 }
-
 
 
 
