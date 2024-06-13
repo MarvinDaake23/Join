@@ -29,113 +29,120 @@
       <h1 class="headlineAddTask">Add Task</h1>
 
       <div class="addTaskBigContainer">
-        <form
-            id="addTaskForm"
-            class="addTaskForm"
-            action=""
-            novalidate
-        >
-            <div class="leftSideAddTaskPage">
-                <div class="taskTitleContainer">
-                    <span class="addTaskSpans">Title <span class="red">*</span></span>
-                    <div class="taskTitleInputContainer">
-                        <input
-                            class="requiredInput"
-                            id="title"
-                            required
-                            type="text"
-                            placeholder="Enter a title"
-                        />
-                        <span class="error-message" id="nameError">This field is required!</span>
-                    </div>
-                </div>
-
-                <div class="taskDescriptionContainer">
-                    <span class="addTaskSpans">Description</span>
-                    <div class="taskDescriptionInputContainer">
-                        <textarea
-                            placeholder="Enter a Description"
-                            class="textareaDescription blueOutlineInput"
-                            id="description"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <div class="taskTitleContainer">
-                    <span class="addTaskSpans">Assigned to</span>
-                    <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
-                        <span>Select contacts to assign</span>
-                        <img id="arrowDownAt" src="./assets/img/arrow_down.png" alt="" />
-                        <img
-                            id="arrowUpAt"
-                            class="dNone"
-                            src="./assets/img/arrow_up.png"
-                            alt=""
-                        />
-                    </div>
-                    <ul id="wrapperListAt" class="wrapperList dNone"></ul>
-                    <div id="selectedContacts"></div>
-                </div>
+        <form id="addTaskForm" class="addTaskForm" action="" novalidate>
+          <div class="leftSideAddTaskPage">
+            <div class="taskTitleContainer">
+              <span class="addTaskSpans">Title <span class="red">*</span></span>
+              <div class="taskTitleInputContainer">
+                <input
+                  class="requiredInput"
+                  id="title"
+                  required
+                  type="text"
+                  placeholder="Enter a title"
+                />
+                <span class="error-message" id="nameError"
+                  >This field is required!</span
+                >
+              </div>
             </div>
 
-            <div class="grayLineAddTaskPage"></div>
+            <div class="taskDescriptionContainer">
+              <span class="addTaskSpans">Description</span>
+              <div class="taskDescriptionInputContainer">
+                <textarea
+                  placeholder="Enter a Description"
+                  class="textareaDescription blueOutlineInput"
+                  id="description"
+                ></textarea>
+              </div>
+            </div>
 
-            <div class="rightSideAddTaskPage">
-                <div class="dateContainer">
-                    <span class="addTaskSpans">Due date <span class="red">*</span></span>
-                    <div class="taskTitleInputContainer">
-                        <input
-                            class="requiredInput"
-                            id="date"
-                            required
-                            type="date"
-                            placeholder="dd/mm/yyyy"
-                        />
-                        <span class="error-message" id="dateError">This field is required!</span>
-                    </div>
-                </div>
+            <div class="taskTitleContainer">
+              <span class="addTaskSpans">Assigned to</span>
+              <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
+                <span>Select contacts to assign</span>
+                <img
+                  id="arrowDownAt"
+                  src="./assets/img/arrow_down.png"
+                  alt=""
+                />
+                <img
+                  id="arrowUpAt"
+                  class="dNone"
+                  src="./assets/img/arrow_up.png"
+                  alt=""
+                />
+              </div>
+              <ul id="wrapperListAt" class="wrapperList dNone"></ul>
+              <div id="selectedContacts"></div>
+            </div>
+          </div>
 
-                <div class="prioContainer">
-                    <span class="addTaskSpans">Prio</span>
-                    <div class="prioChoose">
-                        <div
-                            onclick="prioChoose(2)"
-                            id="prio high"
-                            class="prio high prioContainerBorder"
-                        >
-                            <span>Urgent</span>
-                            <div id="highPrioImg" class="highPrioImg"></div>
-                        </div>
-                        <div
-                            onclick="prioChoose(1)"
-                            id="prio med"
-                            class="prio med prioContainerBorder"
-                        >
-                            <span>Medium</span>
-                            <div id="medPrioImg" class="medPrioImg"></div>
-                        </div>
-                        <div
-                            onclick="prioChoose(0)"
-                            id="prio low"
-                            class="prio low prioContainerBorder"
-                        >
-                            <span>Low</span>
-                            <div id="lowPrioImg" class="lowPrioImg"></div>
-                        </div>
-                    </div>
-                </div>
+          <div class="grayLineAddTaskPage"></div>
 
-                <div class="taskTitleContainer categoryContainer">
-                    <label for="category">Category<span class="red">*</span></label>
-                    <div class="taskTitleInputContainer">
-                        <select id="category" name="category" required>
-                            <option value="">Select task category</option>
-                            <option value="User Story">User Story</option>
-                            <option value="Technical Task">Technical Task</option>
-                        </select>
-                        <span class="error-message" id="categoryError">This field is required!</span>
-                    </div>
+          <div class="rightSideAddTaskPage">
+            <div class="dateContainer">
+              <span class="addTaskSpans"
+                >Due date <span class="red">*</span></span
+              >
+              <div class="taskTitleInputContainer">
+                <input
+                  class="requiredInput"
+                  id="date"
+                  required
+                  type="date"
+                  placeholder="dd/mm/yyyy"
+                />
+                <span class="error-message" id="dateError"
+                  >This field is required!</span
+                >
+              </div>
+            </div>
+
+            <div class="prioContainer">
+              <span class="addTaskSpans">Prio</span>
+              <div class="prioChoose">
+                <div
+                  onclick="prioChoose(2)"
+                  id="prio high"
+                  class="prio high prioContainerBorder"
+                >
+                  <span>Urgent</span>
+                  <div id="highPrioImg" class="highPrioImg"></div>
                 </div>
+                <div
+                  onclick="prioChoose(1)"
+                  id="prio med"
+                  class="prio med prioContainerBorder"
+                >
+                  <span>Medium</span>
+                  <div id="medPrioImg" class="medPrioImg"></div>
+                </div>
+                <div
+                  onclick="prioChoose(0)"
+                  id="prio low"
+                  class="prio low prioContainerBorder"
+                >
+                  <span>Low</span>
+                  <div id="lowPrioImg" class="lowPrioImg"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="taskTitleContainer categoryContainer">
+              <label for="category">Category<span class="red">*</span></label>
+              <div class="taskTitleInputContainer">
+                <select id="category" name="category" required>
+                  <option value="">Select task category</option>
+                  <option value="User Story">User Story</option>
+                  <option value="Technical Task">Technical Task</option>
+                </select>
+                <span class="error-message" id="categoryError"
+                  >This field is required!</span
+                >
+              </div>
+            </div>
 
             <div class="taskTitleContainer">
               <span class="addTaskSpans">Subtasks</span>
@@ -164,7 +171,7 @@
             </div>
           </div>
         </form>
-    </div
+      </div>
       <span class="required"
         ><span class="red">*</span>This field is required</span
       >
