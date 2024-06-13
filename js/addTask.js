@@ -209,7 +209,6 @@ function chooseCategory(i) {
 }
 
 
-/*
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('addTaskForm').addEventListener('submit', function(event) {
       let isValid = true;
@@ -246,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
-*/
+
 
 
 // /**
