@@ -19,7 +19,7 @@ body {
     "sidebar  header"
     "sidebar  content";
   grid-template-columns: 232px auto;
-  grid-auto-rows: 80px auto;
+  grid-auto-rows: 96px auto;
   justify-items: stretch;
   overflow-y: hidden; /*nicht scrollbar */
   height: 100vh;
@@ -225,6 +225,35 @@ content .headline {
   border-radius: 10px;
 }
 
+/************/
+
+content {
+  padding: 110px 0px 0px 96px;
+}
+
+content h2 {
+  margin: 0;
+  font-size: 61px;
+  font-weight: 700;
+}
+
+content h3 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+content .vertLine {
+  border-left: 3px solid #29ABE2;
+  height: 59px;
+}
+
+content .contentHeadline {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 @media (max-width: 620px) {
   body {
     grid-template-areas:
@@ -232,6 +261,7 @@ content .headline {
       "content"
       "mobile-footer";
     grid-template-columns: auto;
+    grid-auto-rows: 80px;
   }
 
   header,
