@@ -4,6 +4,10 @@
   src: url("../assets/fonts/Inter-VariableFont.ttf") format("truetype");
 }
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 mobile-footer,
 mobile-header {
   display: none;
@@ -26,6 +30,7 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   /*background-color: #f6f7f8; - content! */
+  box-sizing: border-box;
 }
 
 .inputContainer {
