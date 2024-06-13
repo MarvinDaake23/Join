@@ -208,7 +208,7 @@ function chooseCategory(i) {
   cat = i;
 }
 
-
+/*
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('addTaskForm').addEventListener('submit', function(event) {
       let isValid = true;
@@ -245,8 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
-
-
+*/
 
 // /**
 //  * function to alert if required dield is empty
