@@ -29,7 +29,13 @@
       <h1 class="headlineAddTask">Add Task</h1>
 
       <div class="addTaskBigContainer">
-        <form id="addTaskForm" class="addTaskForm" action="" novalidate>
+        <form
+          id="addTaskForm"
+          class="addTaskForm"
+          action=""
+          novalidate
+          onsubmit="addTask(); return false;"
+        >
           <div class="leftSideAddTaskPage">
             <div class="taskTitleContainer">
               <span class="addTaskSpans">Title <span class="red">*</span></span>
