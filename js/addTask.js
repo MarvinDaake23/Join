@@ -1,4 +1,4 @@
-let categorys = ["Technical Task", "User Story"];
+
 let prios = ["Low", "Medium", "Urgent"];
 let subtasks = [];
 let task = [];
@@ -13,18 +13,14 @@ let direction = "add";
 async function onLoadAddTask() {
   await includeHTML();
   updateHeaderInitials();
-  init();
-}
-
-async function init() {
   contacts = await loadData("contacts");
   boardTasks = await loadData("boardtasks");
-  //includeHTML();  -> edit christoph
   loadContactWrapper();
-  //loadWrapper(); // categorys anders!
   inputSelector();
   prioChoose(1); //pre-selected medium
 }
+
+
 
 /**
  *  function to load the category wrapper with all saved categorys
@@ -186,14 +182,14 @@ function openWrapper(i) {
     wrapperList.classList.remove(`dNone`);
     document.getElementById(`arrowUp${i}`).classList.remove(`dNone`);
     document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
-    wrapper.classList.add(`openBorader`);
+    wrapper.classList.add(`openBoarder`);
     wrapperList.style.width = `${wrapper.offsetWidth}px`;
     document.getElementById(`wrapper${i}`).classList.add("blueOutlineInput");
   } else {
     wrapperList.classList.add(`dNone`);
     document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
     document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
-    wrapper.classList.remove(`openBorader`);
+    wrapper.classList.remove(`openBoarder`);
     document.getElementById(`wrapper${i}`).classList.remove("blueOutlineInput");
   }
 }
