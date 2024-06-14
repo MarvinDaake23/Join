@@ -88,6 +88,14 @@ content .headline {
   gap: 30px;
 }
 
+.contactsHeadline {
+  font-weight: 700;
+  font-size: 61px;
+  margin: 0px;
+  border-right: 3px solid #29abe2;
+  padding-right: 30px;
+}
+
 content .headline h1 {
   font-weight: 700;
   font-size: 61px;

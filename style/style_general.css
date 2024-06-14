@@ -4,7 +4,9 @@
   src: url("../assets/fonts/Inter-VariableFont.ttf") format("truetype");
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -31,27 +33,17 @@ body {
   font-style: normal;
 }
 
-.inputContainer {
-  background-color: #f6f7f8;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 sidebar {
   grid-area: sidebar;
   padding: 64px 0px 64px 0px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #2a3647;
-  /*width: 232px; steht in grid defs ganz oben! */
-  height: 100vh;
 }
 
 .sidebarLinks {
   display: flex;
-  bottom: 100px;
   flex-direction: column;
   gap: 8px;
   position: absolute;
@@ -61,7 +53,6 @@ sidebar {
 .sidebarLinks a {
   text-decoration: none;
   color: #a8a8a8;
-  font-size: 16px;
   font-weight: 400;
   /*transition: transform 0.05s; /* Animation */
   padding: 8px 63px;
@@ -112,14 +103,11 @@ body.help a#helpIcon {
 
 header {
   grid-area: header;
-  padding-left: 100px;
-  padding-right: 50px;
+  padding: 20px 40px 20px 110px;
   display: flex;
   background-color: #ffffff;
   align-items: center;
   justify-content: space-between;
-  /*height: 80px; -> ganz oben*/
-  box-sizing: border-box;
   box-shadow: 0px 4px 4px 0px #0000001a;
   font-size: 20px;
   font-weight: 400;
@@ -188,7 +176,6 @@ header #headerInitials:hover {
   font-weight: 700 !important;
   box-shadow: 0px 0px 4px 0px #0000001a;
   border: 3px solid #2a3647;
-  box-sizing: border-box;
 }
 
 .headerinitials:hover {
@@ -201,14 +188,6 @@ content {
   overflow-y: scroll;
   background-color: #f6f7f8;
   margin-top: 5px;
-}
-
-.contactsHeadline {
-  font-weight: 700;
-  font-size: 61px;
-  margin: 0px;
-  border-right: 3px solid #29abe2;
-  padding-right: 30px;
 }
 
 content h2 {
@@ -247,7 +226,7 @@ content h3 {
 }
 
 content .vertLine {
-  border-left: 3px solid #29ABE2;
+  border-left: 3px solid #29abe2;
   height: 59px;
 }
 
@@ -264,7 +243,7 @@ content .contentHeadline {
       "content"
       "mobile-footer";
     grid-template-columns: auto;
-    grid-auto-rows: 80px;
+    grid-auto-rows: 80px auto;
   }
 
   header,
@@ -312,20 +291,35 @@ content .contentHeadline {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
-    height: 80px;
     padding: 20px 16px;
     background-color: white;
     box-shadow: 0px 4px 4px 0px #0000001a;
   }
-}
 
-@media (min-width: 1080px) {
+  .headerinitials {
+    height: 40px;
+    width: 40px;
+  }
+
+  content h2 {
+    font-size: 47px;
+  }
+
+  content h3 {
+    font-size: 20px;
+  }
+
+  content .contentHeadline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
   content {
-    grid-area: content;
-    /*padding-top: 80px;*/
-    overflow-y: scroll;
-    background-color: #f6f7f8;
-    margin-top: 5px;
+    padding: 48px 16px;
+  }
+
+  content .vertLine {
+    display: none;
   }
 }

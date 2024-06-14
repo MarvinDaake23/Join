@@ -44,31 +44,17 @@
     <header w3-include-html="./includes/header.html"></header>
 
     <content>
-      <div>
+      <div class="boardHeadline">
         <h2>Board</h2>
-        <div class="taskTitleContainer">
-          <div class="taskTitleInputContainer">
-            <input
-              class="findInput"
-              id="findInput"
-              type="text"
-              placeholder="Find Task"
-              oninput="searchTask()"
-            />
-            <div id="imgContainerSubtask" class="imgContainer">
-              <div class="subtaskSettingContainer">
-                <div class="seperator"></div>
-                <img
-                  src="../assets/img/search.png"
-                  class="imgContainerSearch"
-                  onclick="searchTask()"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="addButtonBig addButton" onclick="showAddTask()">
-          <img class="blueplusButton" />
+        <div>
+          <input
+            class="findInput"
+            id="findInput"
+            type="text"
+            placeholder="Find Task"
+            oninput="searchTask()"
+          />
+          <button onclick="showAddTask()">Add task</button>
         </div>
       </div>
 

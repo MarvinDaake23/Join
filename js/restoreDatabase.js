@@ -67,15 +67,15 @@ await putData("contacts", contacts2);
 let boardTasks2 = [
   {
     type: "User Story",
-    title: "Join Projekt",
-    description: "build a Kanban board",
+    title: "User registry",
+    description: "As a user I want to be able to register me",
     subtasks: [
       {
-        subtaskText: "header",
+        subtaskText: "Formular",
         complete: true,
       },
       {
-        subtaskText: "footer",
+        subtaskText: "Privacy Policy",
         complete: false,
       },
     ],
@@ -92,21 +92,21 @@ let boardTasks2 = [
         profileColor: "#9327FF",
       },
     ],
-    category: "feedback" /*todo -> feedback" */,
+    category: "feedback",
     priority: "Low",
     dueDate: "2024-09-23",
   },
   {
     type: "User Story",
-    title: "Rasen mähen",
-    description: "Kein Bock",
+    title: "Tasks on board",
+    description: "As a user I want to see my tasks on the board",
     subtasks: [
       {
-        subtaskText: "header",
+        subtaskText: "design",
         complete: false,
       },
       {
-        subtaskText: "footer",
+        subtaskText: "add tasks on board",
         complete: false,
       },
     ],
@@ -118,21 +118,21 @@ let boardTasks2 = [
         profileColor: "#FF7A00",
       },
     ],
-    category: "todo" /*todo -> feedback" */,
+    category: "todo",
     priority: "Urgent",
     dueDate: "2025-01-01",
   },
   {
     type: "Technical Task",
-    title: "Saufen",
-    description: "Das muss man immer machen",
+    title: "Responsiveness with CSS",
+    description: "Support for several viewports",
     subtasks: [
       {
-        subtaskText: "header",
+        subtaskText: "Desktop view",
         complete: false,
       },
       {
-        subtaskText: "footer",
+        subtaskText: "Mobile view",
         complete: true,
       },
     ],
@@ -149,21 +149,21 @@ let boardTasks2 = [
         profileColor: "#9327FF",
       },
     ],
-    category: "todo" /*todo -> feedback" */,
+    category: "todo",
     priority: "Urgent",
     dueDate: "2024-12-03",
   },
   {
-    type: "Technical Task",
-    title: "Join abgeben",
-    description: "fertig stellen",
+    type: "User Story",
+    title: "Contacts",
+    description: "As a user I want to see my contacts",
     subtasks: [
       {
-        subtaskText: "header",
+        subtaskText: "order alphabetically",
         complete: false,
       },
       {
-        subtaskText: "footer",
+        subtaskText: "add users to tasks",
         complete: false,
       },
     ],
@@ -180,7 +180,7 @@ let boardTasks2 = [
         profileColor: "#9327FF",
       },
     ],
-    category: "done" /*todo -> feedback" */,
+    category: "done",
     priority: "Medium",
     dueDate: "2024-08-04",
   },

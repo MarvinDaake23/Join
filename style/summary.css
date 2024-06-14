@@ -234,10 +234,6 @@
   gap: 50px;
 }
 
-.leftSide {
-  /*padding-left: 20px;*/
-}
-
 .rightSide {
   display: flex;
   flex-direction: column;
