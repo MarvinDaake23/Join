@@ -300,4 +300,26 @@ content .contentHeadline {
     height: 40px;
     width: 40px;
   }
+
+  content h2 {
+    font-size: 47px;
+  }
+
+  content h3 {
+    font-size: 20px;
+  }
+
+  content .contentHeadline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  content {
+    padding: 48px 16px;
+  }
+
+  content .vertLine {
+    display: none;
+  }
 }
