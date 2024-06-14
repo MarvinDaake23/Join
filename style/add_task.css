@@ -17,12 +17,15 @@ select {
 
 .addTaskBigContainer {
   margin-top: 50px;
+  font-size: 20px !important;
+  font-weight: 400;
 }
 
 .leftSideAddTaskPage,
 .rightSideAddTaskPage {
   /*width: 45%;*/
-  flex:1;
+  /*flex:1;*/
+  width: 440px;
 }
 
 .required {
@@ -40,7 +43,7 @@ select {
   /*width: 90%;*/
   display: flex;
   flex-direction: row;
-  /*ap: 16px;*/
+  gap: 50px;
   position: relative;
 }
 
@@ -274,7 +277,7 @@ select {
   border: 1px solid #d1d1d1;
   background-color: white;
   color: black;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -308,7 +311,7 @@ select {
 
 .taskTitleInputContainer input::placeholder {
   color: #d1d1d1;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -354,7 +357,7 @@ textarea {
 
 .taskDescriptionInputContainer .textareaDescription::placeholder {
   color: #d1d1d1;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   display: flex;
   text-align: left;
@@ -456,7 +459,7 @@ textarea {
 
 #date::placeholder {
   color: #d1d1d1;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   padding-left: 16px;
 }
@@ -643,6 +646,10 @@ textarea {
 
 #category{
   /*width: 97%;*/
+}
+
+select,input {
+  height: 48px;
 }
 
 @media (max-width: 1380px){
