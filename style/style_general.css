@@ -261,7 +261,7 @@ content .contentHeadline {
       "content"
       "mobile-footer";
     grid-template-columns: auto;
-    grid-auto-rows: 80px;
+    grid-auto-rows: 80px auto;
   }
 
   header,
@@ -310,7 +310,6 @@ content .contentHeadline {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    height: 80px;
     padding: 20px 16px;
     background-color: white;
     box-shadow: 0px 4px 4px 0px #0000001a;
