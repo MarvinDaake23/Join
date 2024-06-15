@@ -172,8 +172,8 @@ header #headerInitials:hover {
   background-color: white;
   color: #29abe2;
   border-radius: 80px;
-  font-size: 20px !important;
-  font-weight: 700 !important;
+  font-size: 20px;
+  font-weight: 700;
   box-shadow: 0px 0px 4px 0px #0000001a;
   border: 3px solid #2a3647;
 }
@@ -299,6 +299,7 @@ content .contentHeadline {
   .headerinitials {
     height: 40px;
     width: 40px;
+    font-size: 16px;
   }
 
   content h2 {
