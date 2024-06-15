@@ -27,7 +27,8 @@ body {
   grid-template-columns: 232px auto;
   grid-auto-rows: 96px auto;
   justify-items: stretch;
-  overflow-y: hidden; /*nicht scrollbar */
+  overflow-y: hidden;
+  /*nicht scrollbar */
   height: 100vh;
   font-optical-sizing: auto;
   font-style: normal;
@@ -94,7 +95,8 @@ body.contacts a.contacts,
 body.privacy a.privacy,
 body.legal a.legal {
   background-color: #091931;
-  pointer-events: none; /*not clickable */
+  pointer-events: none;
+  /*not clickable */
 }
 
 body.help a#helpIcon {
@@ -323,4 +325,13 @@ content .contentHeadline {
   content .vertLine {
     display: none;
   }
+
+  content .border {
+    border-left: none;
+    border-bottom: 3px solid #29abe2;
+    padding-left: 0px;
+
+
+  }
+
 }
