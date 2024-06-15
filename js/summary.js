@@ -1,72 +1,46 @@
 /**
- * function to load the actual logged in user from local storage (saved in login.html)
- */
-let userAsText = localStorage.getItem("user");
-let user = JSON.parse(userAsText);
-
-/**
  * onload function of the summary.html: renders actual data into the html page
  */
 async function onLoadSummary() {
   await includeHTML();
   boardTasks = await loadData("boardtasks");
+  greetUser();
+  fillSummaryFields()
+  await updateHeaderInitials();
+}
 
-  // actual greeting
-  let actGreeting = greetUser();
 
-  // wer ist eingeloggt?
-  let loggedInUserName = getLoggedInUserName();
-
-  if (loggedInUserName == "Guest") {
-    document.getElementById("greeting").innerHTML = actGreeting.slice(0, -1); // remove ","
-    document.getElementById("loggedInUserName").innerHTML = "";
-  } else {
-    document.getElementById("greeting").innerHTML = actGreeting;
-    document.getElementById("loggedInUserName").innerHTML = loggedInUserName;
-  }
-
-  // fill 6 fields
-  // total task amount
+function fillSummaryFields() {
   document.getElementById("totalTasksCounter").innerHTML = boardTasks.length;
+  document.getElementById("totalTasksInProgressCounter").innerHTML = countTasksByCategory("progress");
+  document.getElementById("totalTasksAwaitingFeedback").innerHTML = countTasksByCategory("feedback");
+  document.getElementById("doneCounter").innerHTML = countTasksByCategory("done");
+  document.getElementById("todoCounter").innerHTML = countTasksByCategory("todo");
+  document.getElementById("urgentCounter").innerHTML = countTasksByPriority("Urgent");
 
-  // 4 categories ... done,feedback,progress,todo
-  document.getElementById("totalTasksInProgressCounter").innerHTML =
-    countTasksByCategory("progress");
-  document.getElementById("totalTasksAwaitingFeedback").innerHTML =
-    countTasksByCategory("feedback");
-  document.getElementById("doneCounter").innerHTML =
-    countTasksByCategory("done");
-  document.getElementById("todoCounter").innerHTML =
-    countTasksByCategory("todo");
-
-  // urgent counter
-  document.getElementById("urgentCounter").innerHTML =
-    countTasksByPriority("Urgent");
-
-  // upcoming deadline
-  let monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
   let deadline = new Date(findUpcomingDeadline());
   document.getElementById("upcomingDeadLine").innerHTML = `
       ${monthNames[deadline.getMonth()]}
       ${deadline.getDate()},
       ${deadline.getFullYear()}
   `;
-
-  await updateHeaderInitials();
 }
+
+
+function greetUser() {
+  let greeting = actGreeting();
+  let loggedInUserName = getLoggedInUserName();
+
+  if (loggedInUserName == "Guest") {
+    document.getElementById("greeting").innerHTML = greeting.slice(0, -1); // remove ","
+    document.getElementById("loggedInUserName").innerHTML = "";
+  } else {
+    document.getElementById("greeting").innerHTML = greeting;
+    document.getElementById("loggedInUserName").innerHTML = loggedInUserName;
+  }
+}
+
 
 function countTasksByCategory(string) {
   let cnt = 0;
@@ -77,6 +51,7 @@ function countTasksByCategory(string) {
   }
   return cnt;
 }
+
 
 function countTasksByPriority(string) {
   let cnt = 0;
@@ -89,10 +64,10 @@ function countTasksByPriority(string) {
 }
 
 /**
- * function to get an adequate greeting for the actual time
- * @returns a greeting (string)
+ * Returns an adequate greeting for the actual time
+ * @returns {string}
  */
-function greetUser() {
+function actGreeting() {
   // create a new Date object
   let now = new Date();
   // get the current hour (from 0 to 23)
@@ -115,9 +90,11 @@ function greetUser() {
   return greeting;
 }
 
+
 function goToBoardPage() {
   window.location = "board.html";
 }
+
 
 /**
  * function to sort the due Dates, aufsteigend sortieren ab heute
