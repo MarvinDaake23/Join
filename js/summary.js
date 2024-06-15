@@ -10,8 +10,20 @@ let user = JSON.parse(userAsText);
 async function onLoadSummary() {
   await includeHTML();
   boardTasks = await loadData("boardtasks");
-  document.getElementById("greeting").innerHTML = greetUser();
-  document.getElementById("loggedInUserName").innerHTML = getLoggedInUserName();
+
+  // actual greeting
+  let actGreeting = greetUser();
+
+  // wer ist eingeloggt?
+  let loggedInUserName = getLoggedInUserName();
+
+  if (loggedInUserName == "Guest") {
+    document.getElementById("greeting").innerHTML = actGreeting.slice(0, -1); // remove ","
+    document.getElementById("loggedInUserName").innerHTML = "";
+  } else {
+    document.getElementById("greeting").innerHTML = actGreeting;
+    document.getElementById("loggedInUserName").innerHTML = loggedInUserName;
+  }
 
   // fill 6 fields
   // total task amount

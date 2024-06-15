@@ -26,7 +26,6 @@
         <h2>Join 360</h2>
         <div class="vertLine"></div>
         <h3 class="border">Key Metrics at a Glance</h3>
-
       </div>
 
       <div class="lowerHalf">
@@ -37,14 +36,14 @@
                 <div class="boxMediumSummary" onclick="goToBoardPage()">
                   <div class="iconsSummary iconPencil"></div>
                   <div class="numberAndTextBoxSummary">
-                    <span id="todoCounter" class="numbersSummary">1</span>
-                    <p class="textSummary">To-Do</p>
+                    <span id="todoCounter" class="numbersSummary"></span>
+                    <p class="textSummary">To-do</p>
                   </div>
                 </div>
                 <div class="boxMediumSummary" onclick="goToBoardPage()">
                   <div class="iconsSummary iconCheck"></div>
                   <div class="numberAndTextBoxSummary">
-                    <span id="doneCounter" class="numbersSummary">1</span>
+                    <span id="doneCounter" class="numbersSummary"></span>
                     <p class="textSummary">Done</p>
                   </div>
                 </div>
@@ -53,14 +52,12 @@
                 <div class="boxUrgent" onclick="goToBoardPage()">
                   <div class="iconsSummary iconArrows"></div>
                   <div class="numberAndTextBoxSummary">
-                    <span id="urgentCounter" class="numbersSummary">1</span>
-                    <p class="textSummary">Urgent</p>
+                    <span id="urgentCounter" class="numbersSummary"></span>
+                    <p class="textSummary"></p>
                   </div>
                   <div class="greyLineUrgentBox"></div>
                   <div>
-                    <p id="upcomingDeadLine" class="textSummaryUrgentDate">
-                      October 16, 2022
-                    </p>
+                    <p id="upcomingDeadLine" class="textSummaryUrgentDate"></p>
                     <p class="textSummary">Upcoming Deadline</p>
                   </div>
                 </div>
@@ -68,7 +65,7 @@
               <div class="thirdRowSummaryBoxes">
                 <div class="boxSmallSummary" onclick="goToBoardPage()">
                   <div class="numberAndTextBoxSummary">
-                    <span id="totalTasksCounter" class="numbersSummary">5</span>
+                    <span id="totalTasksCounter" class="numbersSummary"></span>
                     <p class="textSummary">
                       Tasks in<br />
                       Board
@@ -80,8 +77,7 @@
                     <span
                       id="totalTasksInProgressCounter"
                       class="numbersSummary"
-                      >2</span
-                    >
+                    ></span>
                     <p class="textSummary">
                       Tasks in<br />
                       Progress
@@ -90,9 +86,10 @@
                 </div>
                 <div class="boxSmallSummary" onclick="goToBoardPage()">
                   <div class="numberAndTextBoxSummary">
-                    <span id="totalTasksAwaitingFeedback" class="numbersSummary"
-                      >2</span
-                    >
+                    <span
+                      id="totalTasksAwaitingFeedback"
+                      class="numbersSummary"
+                    ></span>
                     <p class="textSummary">
                       Awaiting<br />
                       feedback
@@ -105,8 +102,8 @@
         </div>
 
         <div class="rightSide">
-          <span id="greeting"> Good morning </span>
-          <span id="loggedInUserName">User X</span>
+          <span id="greeting"></span>
+          <span id="loggedInUserName"></span>
         </div>
       </div>
     </content>

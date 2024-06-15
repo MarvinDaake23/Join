@@ -68,7 +68,7 @@ let boardTasks2 = [
   {
     type: "User Story",
     title: "User registry",
-    description: "As a user I want to be able to register me",
+    description: "As a user I want to be able to register myself",
     subtasks: [
       {
         subtaskText: "Formular",
@@ -183,6 +183,37 @@ let boardTasks2 = [
     category: "done",
     priority: "Medium",
     dueDate: "2024-08-04",
+  },
+  {
+    type: "User Story",
+    title: "Legal Notice etc.",
+    description: "As a user I want to know what happens with my data",
+    subtasks: [
+      {
+        subtaskText: "Legal notice",
+        complete: false,
+      },
+      {
+        subtaskText: "Privacy Policy",
+        complete: false,
+      },
+    ],
+    finishedSubtasks: 0,
+    assignedTo: [
+      {
+        firstName: "Anton",
+        lastName: "Mayer",
+        profileColor: "#FF7A00",
+      },
+      {
+        firstName: "Benedikt",
+        lastName: "Ziegler",
+        profileColor: "#9327FF",
+      },
+    ],
+    category: "progress",
+    priority: "Low",
+    dueDate: "2024-11-03",
   },
 ];
 

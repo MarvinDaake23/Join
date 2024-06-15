@@ -110,8 +110,8 @@
 .firstRowSummaryBoxes {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 30px;
+  gap: 32px;
+  margin-bottom: 28px;
   height: 168px;
 }
 
@@ -121,7 +121,7 @@
   align-items: center;
   box-shadow: 0px 4px 4px 0px #0000001a;
   border-radius: 20px;
-  width: 190px;
+  width: 264px;
   gap: 10px;
   background-color: white;
   transition: 0.3s ease;
@@ -140,12 +140,12 @@
 .secondRowSummaryBoxes {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
   height: 168px;
 }
 
 .boxUrgent {
-  width: 400px;
+  width: 560px;
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px #0000001a;
   display: flex;
@@ -179,12 +179,12 @@
 .thirdRowSummaryBoxes {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  height: 170px;
+  gap: 28px;
+  height: 168px;
 }
 
 .boxSmallSummary {
-  width: 120px;
+  width: 168px;
   box-shadow: 0px 4px 4px 0px #0000001a;
   border-radius: 20px;
   display: flex;
@@ -242,6 +242,11 @@
 
 .lowerHalf {
   margin-top: 56px;
+}
+
+#greeting {
+  font-weight: 500;
+  font-size: 47px;
 }
 
 /* Responsive Summary bis 320px */
