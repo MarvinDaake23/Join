@@ -326,12 +326,14 @@ content .contentHeadline {
     display: none;
   }
 
+ 
+
   content .border {
-    border-left: none;
-    border-bottom: 3px solid #29abe2;
-    padding-left: 0px;
-
-
+    border-left: 3px solid #29abe2;
+    height: 59px;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
   }
 
 }

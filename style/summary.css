@@ -273,105 +273,13 @@
   font-size: 47px;
 }
 
-content .border {
-  border-left: 3px solid #29abe2;
-  height: 59px;
-  padding-left: 30px;
-  display: flex;
-  align-items: center;
-}
 
-/* Responsive Summary bis 320px */
 
-@media (max-width: 430px) {
-  .boxMediumSummary {
-    width: 170px;
-  }
+/* Responsive */
 
-  .boxUrgent {
-    width: 360px;
-  }
-
-  .boxSmallSummary {
-    width: 110px;
-  }
-}
 
 @media (max-width: 670px) {
-  .boxMediumSummary {
-    width: 150px;
-  }
 
-  .boxUrgent {
-    width: 320px;
-  }
 
-  .boxSmallSummary {
-    width: 95px;
-  }
-
-  .lowerHalf {
-    justify-content: center;
-  }
-
-}
-
-@media (max-width: 405px) {
-  .boxMediumSummary {
-    width: 130px;
-  }
-
-  .boxUrgent {
-    width: 280px;
-  }
-
-  .boxSmallSummary {
-    width: 85px;
-  }
-
-  .summaryBoxContainer {
-    padding-left: 16px;
-  }
-
-  .join360HeadlineSummary {
-    padding-left: 16px;
-  }
-
-  .secondHeadlineSummary {
-    padding-left: 16px;
-  }
-}
-
-/* Responsive bis 1440px*/
-
-@media (min-width: 820px) {
-  .welcomeScreenSummaryDeskVersion {
-    display: flex;
-  }
-  .join360HeadlineSummaryContainerDesk {
-    display: flex;
-  }
-  .join360HeadlineSummaryContainerMobile {
-    display: none;
-  }
-}
-
-@media (max-width: 980px) {
-  .rightSide {
-    display: none;
-  }
-}
-
-@media (max-width: 720px) {
-  .summaryBoxContainer {
-    padding-left: 0px;
-  }
-
-  .join360HeadlineSummary {
-    padding-left: 20px;
-  }
-
-  .secondHeadlineSummary {
-    padding-left: 20px;
-  }
+  
 }
