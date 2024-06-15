@@ -20,19 +20,25 @@
 }
 
 .iconsSummary {
-  height: 40px;
-  width: 40px;
+  height: 69px;
+  width: 69px;
+  background-size: cover;
+}
+
+.iconsSummary2 {
+  height: 60px;
+  width: 60px;
   background-size: cover;
 }
 
 .numbersSummary {
-  font-size: 50px;
+  font-size: 64px;
   font-weight: 600;
 }
 
 .textSummary {
   margin: 0;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   word-wrap: break-word;
   white-space: normal;
@@ -41,7 +47,25 @@
 .textSummaryUrgentDate {
   font-weight: 700;
   margin: 0;
-  font-size: 17px;
+  font-size: 21px;
+}
+
+.urgency {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.urgency2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deadline {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
 }
 
 .numberAndTextBoxSummary {
@@ -100,8 +124,8 @@
 }
 
 .boxUrgent:hover .iconArrows {
-  height: 45px;
-  width: 45px;
+  height: 60px;
+  width: 60px;
   background-repeat: no-repeat;
 }
 
@@ -122,7 +146,7 @@
   box-shadow: 0px 4px 4px 0px #0000001a;
   border-radius: 20px;
   width: 264px;
-  gap: 10px;
+  gap: 18px;
   background-color: white;
   transition: 0.3s ease;
   cursor: pointer;
@@ -149,7 +173,7 @@
   border-radius: 20px;
   box-shadow: 0px 4px 4px 0px #0000001a;
   display: flex;
-  gap: 10px;
+  gap: 61px;
   justify-content: center;
   align-items: center;
   background-color: white;
