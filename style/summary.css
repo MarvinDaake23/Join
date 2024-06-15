@@ -133,7 +133,7 @@
 
 .firstRowSummaryBoxes {
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
   gap: 32px;
   margin-bottom: 28px;
   height: 168px;
@@ -278,8 +278,21 @@
 /* Responsive */
 
 
-@media (max-width: 670px) {
+@media (max-width: 620px) {
+  .boxMediumSummary {
+    width: 186px;
 
+  }
 
-  
+  .secondRowSummaryBoxes {
+    width: 396px;
+  }
+
+  .boxSmallSummary {
+    width: 116px;
+  }
+
+  .rightSide {
+    display: none;
+  }
 }

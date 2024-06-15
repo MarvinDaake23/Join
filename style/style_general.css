@@ -238,6 +238,14 @@ content .contentHeadline {
   gap: 30px;
 }
 
+content .border {
+  border-left: 3px solid #29abe2;
+  height: 59px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 620px) {
   body {
     grid-template-areas:
@@ -326,14 +334,16 @@ content .contentHeadline {
     display: none;
   }
 
- 
 
   content .border {
-    border-left: 3px solid #29abe2;
-    height: 59px;
-    padding-left: 30px;
-    display: flex;
-    align-items: center;
+    border-bottom: 3px solid #29abe2;
+    border-left: none;
+    padding-left: 0px;
+    padding-bottom: 16px;
+    height: auto;
+    width: 90px;
+
   }
+
 
 }
