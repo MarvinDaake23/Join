@@ -138,7 +138,7 @@ function fillWithPlaceholders() {
 }
 
 function renderAllBoardTasks() {
-  //fillWithPlaceholders();
+  fillWithPlaceholders();
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
     let finished = boardTask.finishedSubtasks;
