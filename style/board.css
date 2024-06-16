@@ -188,8 +188,8 @@
   display: flex;
   width: 98%;
   overflow-x: auto;
-  padding-top: 12px;
-  padding-left: 12px;
+  /*padding-top: 12px;*/
+  /*padding-left: 12px;*/
   scrollbar-width: none;
 }
 
@@ -731,7 +731,7 @@ content {
     width: 252px;
     height: 280px;
     margin-right: 15px;
-    margin-left: 15px;
+    /*margin-left: 15px;*/
   }
   .addButtonSmall {
     width: 24px;
