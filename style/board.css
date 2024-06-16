@@ -723,6 +723,7 @@ content {
   grid-template-areas: "todo progress feedback done";
   column-gap: 26px;
   row-gap: 16px;
+  margin-top: 32px;
 }
 
 .todo {

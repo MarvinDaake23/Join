@@ -59,10 +59,30 @@
       </div>
 
       <div class="taskGridContainer">
-        <div id="todo">To do</div>
-        <div id="progress">In progress</div>
-        <div id="feedback">Await feedback</div>
-        <div id="done">Done</div>
+        <div>To do</div>
+        <div>In progress</div>
+        <div>Await feedback</div>
+        <div>Done</div>
+        <div
+          id="todo"
+          ondrop="moveTo('todo')"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="progress"
+          ondrop="moveTo('progress')"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="feedback"
+          ondrop="moveTo('feedback')"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="done"
+          ondrop="moveTo('done')"
+          ondragover="allowDrop(event)"
+        ></div>
       </div>
 
       <!--
