@@ -3,13 +3,13 @@
 .headAreaHelpPrivacyPolicyLegalNotice {
   display: flex;
   justify-content: space-between;
-  padding-left: 50px;
-  padding-right: 10px;
+  /*padding-left: 50px;
+  padding-right: 10px;*/
 }
 
 .containerTextHelpPrivacyPolicyLegalNotice {
-  padding-left: 50px;
-  padding-right: 50px;
+  /*padding-left: 50px;
+  padding-right: 50px;*/
 }
 
 .headlineHelpPrivacyPolicyLegalNotice {
@@ -27,7 +27,7 @@
   width: 24px;
   /*padding-top: 30px;*/
   position: fixed;
-  top: 130px;
+  top: 225px;
   right: 40px;
 }
 
@@ -42,5 +42,5 @@
 
 /* padding wegen blauem pfeil */
 content {
-  padding-right: 100px;
+  padding-right: 70px;
 }

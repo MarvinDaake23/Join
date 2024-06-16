@@ -84,7 +84,7 @@ content {
 }
 
 content .headline {
-  margin-left: 58px;
+  /*margin-left: 58px;*/
   gap: 30px;
 }
 
@@ -358,6 +358,11 @@ a {
 nav a:hover {
   background-color: #091931;
 }
+
+content {
+  padding: 110px 0px 0px 55px !important;
+}
+
 
 @media (max-width: 620px) {
   body {

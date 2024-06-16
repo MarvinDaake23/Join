@@ -716,6 +716,10 @@
 
 
 
+content {
+  padding: 110px 0px 0px 64px !important;
+}
+
 
 
 @media (min-width: 1200px) {
