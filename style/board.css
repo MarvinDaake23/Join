@@ -760,6 +760,28 @@ content {
   font-weight: 700;
 }
 
+#findInput {
+  width: 312px;
+  height: 48px;
+  padding: 8px 16px 8px 16px;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px;
+}
+
+#addTaskButton {
+  width: 160px;
+  height: 48px;
+  padding: 8px 16px 8px 16px;
+  gap: 4px;
+  border-radius: 10px;
+  border: 1px;
+  color:white;
+  background-color: #2A3647;
+  font-size: 21px;
+  font-weight: 700;
+}
+
 @media (min-width: 1200px) {
   .progressInformationContainer {
     display: flex;
