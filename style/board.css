@@ -497,7 +497,6 @@
   font-family: "Inter";
 }
 
-
 .prio {
   border: solid 1px rgb(173, 173, 173);
 }
@@ -706,7 +705,6 @@
   cursor: pointer;
 }
 
-
 .boardHeadline {
   display: flex;
   justify-content: space-between;
@@ -714,13 +712,31 @@
   max-width: 1056px;
 }
 
-
-
 content {
   padding: 110px 0px 0px 64px !important;
 }
 
+.taskGridContainer {
+  display: grid;
+  grid-template-columns: 252px 252px 252px 252px;
+  grid-template-areas: "todo progress feedback done";
+}
 
+.todo {
+  grid-area: todo;
+}
+
+.progress {
+  grid-area: progress;
+}
+
+.feedback {
+  grid-area: feedback;
+}
+
+.done {
+  grid-area: done;
+}
 
 @media (min-width: 1200px) {
   .progressInformationContainer {
