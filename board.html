@@ -59,10 +59,22 @@
       </div>
 
       <div class="taskGridContainer">
-        <div><span>To do</span></div>
-        <div>In progress</div>
-        <div>Await feedback</div>
-        <div>Done</div>
+        <div class="gridHeader">
+          <span>To do</span>
+          <div class="addButton" onclick="showAddTask(1)"></div>
+        </div>
+        <div class="gridHeader">
+          <span>In progress</span>
+          <div class="addButton" onclick="showAddTask(2)"></div>
+        </div>
+        <div class="gridHeader">
+          <span>Await feedback</span>
+          <div class="addButton" onclick="showAddTask(3)"></div>
+        </div>
+        <div class="gridHeader">
+          <span>Done</span>
+          <div class="addButton" onclick="showAddTask(4)"></div>
+        </div>
         <div
           id="todo"
           ondrop="moveTo('todo')"
