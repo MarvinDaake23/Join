@@ -313,13 +313,13 @@
 }
 
 .boardBigContainerTitle {
-  font-size: 28px;
+  font-size: 61px;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .boardBigContainerDescription {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .boardBigContainerAssignedTo {
@@ -768,6 +768,6 @@ content {
 
 @media (min-width: 620px) {
   .boardBigContainer {
-    width: 464px;
+    width: 525px;
   }
 }

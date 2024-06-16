@@ -19,6 +19,8 @@ select {
   margin-top: 50px;
   font-size: 20px !important;
   font-weight: 400;
+  max-width: 950px;
+  justify-items: center;
 }
 
 .leftSideAddTaskPage,
@@ -29,7 +31,7 @@ select {
 }
 
 .required {
-  padding-left: 50px;
+  /*padding-left: 50px;*/
   /*position: fixed;*/
   bottom: 60px;
 }
@@ -42,7 +44,7 @@ select {
 .addTaskForm {
   /*width: 90%;*/
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 50px;
   position: relative;
 }
@@ -527,7 +529,7 @@ textarea {
   right: 0px;*/
   display: flex;
   justify-content: flex-end;
-  padding: 16px;
+  /*padding: 16px;*/
   gap: 16px;
   align-items: center;
   /*background-color: #f6f7f8;*/
@@ -651,6 +653,29 @@ textarea {
 select,input {
   height: 48px;
 }
+
+.marginbottom {
+  margin-bottom: 50px;
+}
+
+
+content {
+  padding-bottom: 50px !important;
+}
+
+
+.upper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.lower {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 @media (max-width: 1380px){
   .bigSubtaskContainer{
