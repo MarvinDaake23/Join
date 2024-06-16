@@ -256,6 +256,8 @@
   display: flex;
   flex-direction: row;
   gap: 50px;
+  margin-top: 56px;
+  flex-wrap: wrap;
 }
 
 .rightSide {
@@ -264,9 +266,6 @@
   justify-content: center;
 }
 
-.lowerHalf {
-  margin-top: 56px;
-}
 
 #greeting {
   font-weight: 500;
@@ -281,18 +280,56 @@ content {
 /* Responsive */
 
 
-@media (max-width: 620px) {
-  .boxMediumSummary {
-    width: 186px;
+@media (max-width: 960px) {
 
+
+  .boxMediumSummary {
+    max-width: 186px;
+    height: 110px;
+  }
+
+  .firstRowSummaryBoxes {
+    height: 110px;
+  }
+
+  .iconsSummary,
+  .iconArrows {
+    height: 40px;
+    width: 40px;
+  }
+
+
+  .numbersSummary {
+    font-size: 47px;
+  }
+
+  .textSummary {
+    font-size: 14px;
+  }
+
+
+  .boxUrgent {
+    height: 110px;
+    max-width: 396px;
+    gap: 20px;
+  }
+
+  .textSummaryUrgentDate {
+    font-size: 16px;
   }
 
   .secondRowSummaryBoxes {
-    width: 396px;
+    width: auto;
+    height: auto;
   }
 
   .boxSmallSummary {
-    width: 116px;
+    max-width: 116px;
+    height: 116px;
+  }
+
+  .thirdRowSummaryBoxes {
+    height: auto;
   }
 
   .rightSide {
