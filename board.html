@@ -46,15 +46,17 @@
     <content>
       <div class="boardHeadline">
         <h2>Board</h2>
-        <div>
+        <div class="headlineRight">
           <input
-            class="findInput"
+            class="searchIcon"
             id="findInput"
             type="text"
             placeholder="Find Task"
             oninput="searchTask()"
           />
-          <button id="addTaskButton" onclick="showAddTask()">Add task</button>
+          <button id="addTaskButton" onclick="showAddTask()">
+            Add task<img src="./assets/img/add.svg" />
+          </button>
         </div>
       </div>
 

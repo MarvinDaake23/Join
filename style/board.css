@@ -766,7 +766,15 @@ content {
   padding: 8px 16px 8px 16px;
   gap: 10px;
   border-radius: 10px;
-  border: 1px;
+  border: 1px solid #a8a8a8;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 400;
+  color: #d1d1d1;
+}
+
+.searchIcon {
+  background: url("../assets/img/searchBorder.svg") no-repeat right;
 }
 
 #addTaskButton {
@@ -776,10 +784,16 @@ content {
   gap: 4px;
   border-radius: 10px;
   border: 1px;
-  color:white;
-  background-color: #2A3647;
+  color: white;
+  background-color: #2a3647;
   font-size: 21px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+.headlineRight {
+  display: flex;
+  gap: 32px;
 }
 
 @media (min-width: 1200px) {
