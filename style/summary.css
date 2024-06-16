@@ -273,6 +273,9 @@
   font-size: 47px;
 }
 
+content {
+  padding-bottom: 70px !important;
+}
 
 
 /* Responsive */
