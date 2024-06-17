@@ -52,7 +52,7 @@ function signUp() {
 
         <div class="logInSection">
             <div class="inputfield">
-                <input required id="user" title="first and last name needed (first letters big)" type="text" placeholder="Name" pattern="[A-Z][a-z]+\s[A-Z][a-z]+">
+                <input required id="user" title="first and last name needed (first letters big)" type="text" placeholder="Name" pattern="[A-Z][a-z]+\\s[A-Z][a-z]+">
                 <div class="inputIcons">
                     <img class="personIcon hover" src="../assets/img/person_small.png">
                 </div>
@@ -95,6 +95,7 @@ function signUp() {
     `;
   document.getElementById("headline").style.marginTop = "0px";
   document.getElementById("signUpSection").style.display = "none";
+  //document.getElementById("user").pattern = "[A-Z][a-z]\s[A-Z][a-z]+";
 }
 
 function remember() {
