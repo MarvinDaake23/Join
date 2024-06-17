@@ -1,11 +1,23 @@
 nav {
-    display: none;
+  display: none;
 }
 
 header .headerImages {
-    display: none;
+  display: none;
 }
 
 .arrowLeftBlue {
-    display: none;
+  /*display: none;*/
+}
+
+.headerinitials {
+  display: none;
+}
+
+mobile-footer {
+  display: none;
+}
+
+body {
+  height: auto;
 }

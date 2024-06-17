@@ -8,6 +8,11 @@ let responsetoJsonUsers = [];
 function onloadfunction() {
   iconWhiteToBlue();
   loadUserData();
+  // depending on vw set the link targets
+  if (window.innerWidth < vwBreak) {
+    document.getElementById("privacyLink").setAttribute("target", "_self");
+    document.getElementById("legalLink").setAttribute("target", "_self");
+  }
 }
 
 async function loadUserData() {
@@ -162,7 +167,7 @@ async function signUpSuccessful() {
     `;
 
     // add newly registered user to contacts and update firebase
-    addUserToContacts(user,email);
+    addUserToContacts(user, email);
 
     await fetch(BASE_URL + "users.json", {
       method: "POST",
@@ -236,7 +241,7 @@ function guestLogIn() {
         `;
 }
 
-async function addUserToContacts(user,email) {
+async function addUserToContacts(user, email) {
   let contacts = await loadData("contacts");
   // split username
   let nameArray = user.split(" ");
