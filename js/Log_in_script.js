@@ -52,7 +52,7 @@ function signUp() {
 
         <div class="logInSection">
             <div class="inputfield">
-                <input id="user" type="text" placeholder="Name" required>
+                <input required id="user" title="first and last name needed" type="text" placeholder="Name" pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)">
                 <div class="inputIcons">
                     <img class="personIcon hover" src="../assets/img/person_small.png">
                 </div>
