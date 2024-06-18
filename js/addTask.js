@@ -1,4 +1,3 @@
-
 let prios = ["Low", "Medium", "Urgent"];
 let subtasks = [];
 let task = [];
@@ -19,8 +18,6 @@ async function onLoadAddTask() {
   inputSelector();
   prioChoose(1); //pre-selected medium
 }
-
-
 
 /**
  *  function to load the category wrapper with all saved categorys
@@ -203,117 +200,6 @@ function chooseCategory(i) {
   placeholder.innerHTML = choose;
   cat = i;
 }
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('addTaskForm').addEventListener('submit', function(event) {
-      let isValid = true;
-
-      let nameInput = document.getElementById('title');
-      let nameError = document.getElementById('nameError');
-      if (!nameInput.value.trim()) {
-          nameError.style.display = 'inline';
-          isValid = false;
-      } else {
-          nameError.style.display = 'none';
-      }
-
-      let dateInput = document.getElementById('date');
-      let dateError = document.getElementById('dateError');
-      if (!dateInput.value.trim()) {
-          dateError.style.display = 'inline';
-          isValid = false;
-      } else {
-          dateError.style.display = 'none';
-      }
-
-      let categoryInput = document.getElementById('category');
-      let categoryError = document.getElementById('categoryError');
-      if (!categoryInput.value.trim()) {
-          categoryError.style.display = 'inline';
-          isValid = false;
-      } else {
-          categoryError.style.display = 'none';
-      }
-
-      if (!isValid) {
-          event.preventDefault();
-      }
-  });
-});
-*/
-
-// /**
-//  * function to alert if required dield is empty
-//  */
-// function checkRequiredInputs() {
-//   let title = document.getElementById("title").value;
-//   let alert = document.getElementById("requiredInputAddTask");
-
-//   if (!title) {
-//     alert.innerHTML = `
-//     This field is required
-//     `;
-//   } else {
-//     alert.innerHTML = "";
-//     document.getElementById("title").classList.add("blueOutlineInput");
-//   }
-
-//   let titleInput = document.getElementById("title");
-//   titleInput.addEventListener("blur", checkRequiredInputs);
-//   titleInput.addEventListener("input", checkRequiredInputs);
-// }
-
-// function checkCategory() {
-//   let category = document.getElementById("placeholder");
-//   let alert = document.getElementById("requiredCategory");
-
-//   if (category.innerHTML === "Select task Category") {
-//     alert.innerHTML = `
-//     This field is required
-//     `;
-//   } else {
-//     alert.innerHTML = "";
-//     document.getElementById("wrapper").classList.add("blueOutlineInput");
-//   }
-// }
-
-/**
- * function to block date in the past
- */
-// edit by christoph
-//document.addEventListener("DOMContentLoaded", (event) => {
-//  let today = new Date().toISOString().split("T")[0];
-//  document.getElementById("date").min = today;
-//});
-
-// document.getElementById('addTaskForm').addEventListener('submit', function (event) {
-//   // Alle Fehlermeldungen entfernen
-//   let errorMessages = document.querySelectorAll('.error-message');
-//   errorMessages.forEach(function (message) {
-//     message.textContent = '';
-//   });
-
-//   // Überprüfen, ob die Felder gültig sind
-//   let isValid = true;
-//   let fields = event.target.elements;
-//   for (let i = 0; i < fields.length; i++) {
-//     if (fields[i].hasAttribute('required') && !fields[i].validity.valid) {
-//       let errorMessage = fields[i].nextElementSibling;
-//       if (fields[i].validity.valueMissing) {
-//         errorMessage.textContent = 'Dieses Feld ist erforderlich.';
-//       } else if (fields[i].type === 'email' && fields[i].validity.typeMismatch) {
-//         errorMessage.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
-//       }
-//       isValid = false;
-//     }
-//   }
-
-//   // Wenn das Formular nicht gültig ist, verhindern wir das Absenden
-//   if (!isValid) {
-//     event.preventDefault();
-//   }
-// });
 
 /**
  * Function to select the priority
