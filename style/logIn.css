@@ -79,6 +79,10 @@ body {
   font-size: 16px;
 }
 
+#registerButton {
+  opacity: 0.5;
+}
+
 .logIn {
   display: flex;
   justify-content: center;
@@ -141,9 +145,12 @@ h1 {
 
 input {
   border-radius: 10px;
-  width: 100%;
   border: none;
   outline: none;
+}
+
+.logInSection input {
+  width: 100%;
 }
 
 input[type="text"] {
@@ -307,6 +314,13 @@ button {
   border-radius: 20px;
   line-height: 74px;
   animation: moveSuccessful 0.7s forwards;
+}
+
+.acceptPolicyCheckbox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 @keyframes moveSuccessful {

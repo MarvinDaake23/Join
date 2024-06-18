@@ -1,4 +1,5 @@
-rememberBulian = true;
+let rememberBulian = true;
+let acceptedPolicy = false;
 
 //const BASE_URL =
 //  "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -70,19 +71,31 @@ function signUp() {
                 </div>
             </div>
             <div class="inputfield" id="inputfieldPasswordConfirm">
-                <input id="confirmPassword" type="password" placeholder="Confirm Password" required onkeyup="checkSamePassword()";>
+                <input id="confirmPassword" type="password" placeholder="Confirm Password" required onkeyup="checkSamePassword();checkEnableButton()";>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
             </div>
         </div>
 
+        <!--
         <div class="acceptPolicy">
-            <img src="../assets/img/Property 1=Default.png" id="checkButton" class="checkButton hover" onclick="remember()"></button>
+            <img src="../assets/img/Property 1=Default.png" id="checkButton" class="checkButton hover" onclick="toggleAcceptedPolicy()"></button>
             <span>I accept the <a target="_blank" href="privacyPolicyExternal.html" class="blueText">Privacy policy</a></span>
         </div>
+        -->
+
+
+        <div class="acceptPolicyCheckbox">
+        <input onclick="checkEnableButton()" type="checkbox" id="acceptPolicy" name="acceptPolicy">
+        <label for="acceptPolicy">I accept the <a target="_blank" href="privacyPolicyExternal.html" class="blueText">Privacy policy</a></label>
+        </div>
+
+
+
+
         <div class="signInButtonSection">
-            <button class="signInButton hover" type="submit">Sign up</button>
+            <button id="registerButton" class="signInButton hover" type="submit" disabled>Sign up</button>
         </div>
         </div>
 
@@ -95,19 +108,31 @@ function signUp() {
     `;
   document.getElementById("headline").style.marginTop = "0px";
   document.getElementById("signUpSection").style.display = "none";
-  //document.getElementById("user").pattern = "[A-Z][a-z]\s[A-Z][a-z]+";
 }
 
 function checkSamePassword() {
   if (
-    document.getElementById("password").value ==
-    document.getElementById("confirmPassword").value
+    (document.getElementById("password").value ==
+      document.getElementById("confirmPassword").value) &
+    (document.getElementById("password").value.length > 0)
   ) {
-    //document.getElementById("inputfieldPassword").style.border.color = "green";
-    document.getElementById("inputfieldPasswordConfirm").style.border = "1px solid black";
+    document.getElementById("inputfieldPasswordConfirm").style.border =
+      "1px solid black";
+    return true;
   } else {
-    document.getElementById("inputfieldPasswordConfirm").style.border = "1px solid red";
-    //document.getElementById("message").innerHTML = "not matching";
+    document.getElementById("inputfieldPasswordConfirm").style.border =
+      "1px solid red";
+    return false;
+  }
+}
+
+function checkEnableButton() {
+  if (document.getElementById("acceptPolicy").checked & checkSamePassword()) {
+    document.getElementById("registerButton").disabled = false;
+    document.getElementById("registerButton").style.opacity = "1";
+  } else {
+    document.getElementById("registerButton").disabled = true;
+    document.getElementById("registerButton").style.opacity = "0.5";
   }
 }
 
@@ -173,10 +198,10 @@ async function signUpSuccessful() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let user = document.getElementById("user").value;
-  let regsiter = document.getElementById("registerSection");
+  let register = document.getElementById("registerSection");
 
   if (rememberBulian == false) {
-    regsiter.innerHTML += /*HTML*/ `
+    register.innerHTML += /*HTML*/ `
         <div id="signInSuccessful" class="feedback">You Signed Up successful</div>
     `;
 
@@ -213,7 +238,7 @@ function logIn() {
   );
 
   if (user) {
-    regsiter.innerHTML += /*HTML*/ `
+    register.innerHTML += /*HTML*/ `
         <div id="signInNoSuccessful" class="feedback">Sign in successful</div>
         `;
     // akt. user ins local storage speichern
