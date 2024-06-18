@@ -123,7 +123,7 @@ h1 {
 }
 
 .logInSection {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -323,6 +323,12 @@ button {
   margin-bottom: 20px;
 }
 
+.rememberMe {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
 @keyframes moveSuccessful {
   from {
     bottom: 0%;
@@ -428,7 +434,7 @@ button {
   }
 
   .logInSection {
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     margin-left: 115px;
     margin-right: 115px;
   }
