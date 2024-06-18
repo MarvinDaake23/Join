@@ -1,4 +1,4 @@
-let responsetoJsonUsers = [];
+//let responsetoJsonUsers = [];
 
 function checkForLocalStorageCookie() {
   // check local storage
@@ -88,7 +88,7 @@ async function signUpSuccessful() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let user = document.getElementById("user").value;
-  let register = document.getElementById("registerSection");
+  let register = document.getElementById("middleSection");
 
   // add newly registered user to contacts and update firebase
   addUserToContacts(user, email);
@@ -128,7 +128,7 @@ function logIn() {
 
   let email = document.getElementById("email");
   let password = document.getElementById("password");
-  let register = document.getElementById("registerSection");
+  let register = document.getElementById("middleSection");
   let user = objectInToArray.find(
     (u) => u.email == email.value && u.password == password.value
   );
