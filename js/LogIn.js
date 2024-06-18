@@ -79,7 +79,7 @@ function signUp() {
 
         <div class="acceptPolicy">
             <img src="../assets/img/Property 1=Default.png" id="checkButton" class="checkButton hover" onclick="remember()"></button>
-            <span> I Accept the <a target="_blank" href="privacyPolicyExternal.html" class="blueText">Privacy policy</a></span>
+            <span>I accept the <a target="_blank" href="privacyPolicyExternal.html" class="blueText">Privacy policy</a></span>
         </div>
         <div class="signInButtonSection">
             <button class="signInButton hover" type="submit">Sign up</button>
