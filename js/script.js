@@ -172,7 +172,7 @@ function sleep(ms) {
  */
 function logOutUser() {
   localStorage.removeItem("user");
-  localStorage.getItem("cred");
+  localStorage.removeItem("cred");
   window.location = "index.html";
 }
 
