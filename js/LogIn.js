@@ -200,39 +200,31 @@ async function signUpSuccessful() {
   let user = document.getElementById("user").value;
   let register = document.getElementById("registerSection");
 
-  if (rememberBulian == false) {
-    register.innerHTML += /*HTML*/ `
-        <div id="signInSuccessful" class="feedback">You Signed Up successful</div>
-    `;
+  // add newly registered user to contacts and update firebase
+  addUserToContacts(user, email);
 
-    // add newly registered user to contacts and update firebase
-    addUserToContacts(user, email);
+  await fetch(BASE_URL + "users.json", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      User: user,
+      email: email,
+      password: password,
+    }),
+  });
+  loadUserData();
 
-    await fetch(BASE_URL + "users.json", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        User: user,
-        email: email,
-        password: password,
-      }),
-    });
-    loadUserData();
-    setTimeout(backToLogIn, 1600);
-  } else {
-    regsiter.innerHTML += /*HTML*/ `
-        <div id="signInNoSuccessful" class="feedback">you must accept the Privacy policy</div>
-        `;
-    setTimeout(removeNoSuccessfullSignUp, 4000);
-  }
+  register.innerHTML += `<div id="signInSuccessful" class="feedback">You Signed Up successful</div>`;
+
+  setTimeout(backToLogIn, 1600);
 }
 
 function logIn() {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
-  let regsiter = document.getElementById("registerSection");
+  let register = document.getElementById("registerSection");
   let user = objectInToArray.find(
     (u) => u.email == email.value && u.password == password.value
   );
@@ -251,7 +243,7 @@ function logIn() {
 
     setTimeout(openSummary, 2000);
   } else {
-    regsiter.innerHTML += /*HTML*/ `
+    register.innerHTML += /*HTML*/ `
         <div id="signInNoSuccessful" class="feedback">email or passowrd are false</div>
         `;
     setTimeout(removeNoSuccessfullSignUp, 2000);
