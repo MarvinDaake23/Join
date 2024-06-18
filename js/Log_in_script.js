@@ -63,14 +63,14 @@ function signUp() {
                     <img class="mailIcon hover" src="../assets/img/mail.png">
                 </div>
             </div>
-            <div class="inputfield">
+            <div class="inputfield" id="inputfieldPassword">
                 <input id="password" type="password" placeholder="Password" required>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
             </div>
-            <div class="inputfield">
-                <input type="password" placeholder="Confirm Password" required>
+            <div class="inputfield" id="inputfieldPasswordConfirm">
+                <input id="confirmPassword" type="password" placeholder="Confirm Password" required onkeyup="checkSamePassword()";>
                 <div class="inputIcons">
                     <img class="lockIcon hover" src="../assets/img/lock.png">
                 </div>
@@ -79,7 +79,7 @@ function signUp() {
 
         <div class="acceptPolicy">
             <img src="../assets/img/Property 1=Default.png" id="checkButton" class="checkButton hover" onclick="remember()"></button>
-            <span> I Accept the <a href="../html/privacy_policy.html" class="blueText">Privacy policy</a></span>
+            <span> I Accept the <a target="_blank" href="privacyPolicyExternal.html" class="blueText">Privacy policy</a></span>
         </div>
         <div class="signInButtonSection">
             <button class="signInButton hover" type="submit">Sign up</button>
@@ -96,6 +96,19 @@ function signUp() {
   document.getElementById("headline").style.marginTop = "0px";
   document.getElementById("signUpSection").style.display = "none";
   //document.getElementById("user").pattern = "[A-Z][a-z]\s[A-Z][a-z]+";
+}
+
+function checkSamePassword() {
+  if (
+    document.getElementById("password").value ==
+    document.getElementById("confirmPassword").value
+  ) {
+    //document.getElementById("inputfieldPassword").style.border.color = "green";
+    document.getElementById("inputfieldPasswordConfirm").style.border = "1px solid black";
+  } else {
+    document.getElementById("inputfieldPasswordConfirm").style.border = "1px solid red";
+    //document.getElementById("message").innerHTML = "not matching";
+  }
 }
 
 function remember() {
