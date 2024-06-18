@@ -1,3 +1,8 @@
+/* GENERAL FUNCTIONS */
+
+// critical breakpoint of viewport width
+let vwBreak = 620;
+
 const BASE_URL =
   "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -27,21 +32,6 @@ function getRandomBackgroundColor() {
       Math.floor(Math.random() * backgroundProfileColors.length)
     ];
   return new_profileColor;
-}
-
-async function onLoadExtraPages() {
-  await includeHTML();
-  updateHeaderInitials();
-}
-
-async function onLoadExtraPagesExternal() {
-  await includeHTML();
-  updateLinksExternalPage();
-}
-
-async function updateLinksExternalPage() {
-  document.getElementById("privacyLink").href = "privacyPolicyExternal.html";
-  document.getElementById("legalNoticeLink").href = "legalNoticeExternal.html";
 }
 
 // database functions
@@ -76,10 +66,7 @@ async function includeHTML() {
   }
 }
 
-/* GENERAL FUNCTIONS */
 
-// breakpoint of viewport width
-let vwBreak = 620;
 
 function getLoggedInUserName() {
   let user = [];
