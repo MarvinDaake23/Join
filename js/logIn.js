@@ -14,6 +14,7 @@ function checkForLocalStorageCookie() {
 
 function onloadfunction() {
   iconWhiteToBlue();
+  showLogIn();
   loadUserData();
   checkForLocalStorageCookie();
   // depending on vw set the link targets
@@ -46,74 +47,9 @@ function zIndexChange() {
   document.getElementById("whiteB").style.zIndex = "-1";
 }
 
-function signUp() {
-  let logIn = document.getElementById("registerSection");
-  logIn.innerHTML = ``;
-  logIn.innerHTML += /*HTML*/ `
-
-    <form onsubmit="signUpSuccessful(); return false;" class="logIn">
-        <img onclick="backToLogIn()" class="backArrow hover" src="../assets/img/arrow-left-line.png">
-        <div id="headline" class="headline">
-            <h1>Sign up</h1>
-            <div class="line"></div>
-        </div>
-
-        <div class="logInSection">
-            <div class="inputfield">
-                <input required id="user" title="first and last name needed (first letters big)" type="text" placeholder="Name" pattern="[A-Z][a-z]+\\s[A-Z][a-z]+">
-                <div class="inputIcons">
-                    <img class="personIcon hover" src="../assets/img/person_small.png">
-                </div>
-            </div>
-            <div class="inputfield">
-                <input id="email" type="email" placeholder="Email" required>
-                <div class="inputIcons">
-                    <img class="mailIcon hover" src="../assets/img/mail.png">
-                </div>
-            </div>
-            <div class="inputfield" id="inputfieldPassword">
-                <input id="password" type="password" placeholder="Password" required>
-                <div class="inputIcons">
-                    <img class="lockIcon hover" src="../assets/img/lock.png">
-                </div>
-            </div>
-            <div class="inputfield" id="inputfieldPasswordConfirm">
-                <input id="confirmPassword" type="password" placeholder="Confirm Password" required onkeyup="checkSamePassword();checkEnableButton()";>
-                <div class="inputIcons">
-                    <img class="lockIcon hover" src="../assets/img/lock.png">
-                </div>
-            </div>
-        </div>
-
-        <!--
-        <div class="acceptPolicy">
-            <img src="../assets/img/Property 1=Default.png" id="checkButton" class="checkButton hover" onclick="toggleAcceptedPolicy()"></button>
-            <span>I accept the <a target="_blank" href="privacyPolicyExternal.html" class="blueText">Privacy policy</a></span>
-        </div>
-        -->
-
-
-        <div class="acceptPolicyCheckbox">
-        <input onclick="checkEnableButton()" type="checkbox" id="acceptPolicy" name="acceptPolicy">
-        <label for="acceptPolicy">I accept the <a target="_blank" href="privacyPolicyExternal.html" class="blueText">Privacy policy</a></label>
-        </div>
-
-
-
-
-        <div class="signInButtonSection">
-            <button id="registerButton" class="signInButton hover" type="submit" disabled>Sign up</button>
-        </div>
-        </div>
-
-        <div class="informationSection">
-            <span class="hover">Privacy Policy</span>
-            <span class="hover">Legal notice</span>
-        </div>
-    </form>
-
-    `;
-  document.getElementById("headline").style.marginTop = "0px";
+function showSignUp() {
+  document.getElementById("middleSection").innerHTML = renderSignUpHTML();
+  //document.getElementById("headline").style.marginTop = "0px";
   document.getElementById("signUpSection").style.display = "none";
 }
 
@@ -143,49 +79,8 @@ function checkEnableButton() {
   }
 }
 
-function backToLogIn() {
-  let logIn = document.getElementById("registerSection");
-  logIn.innerHTML = ``;
-  logIn.innerHTML += /*HTML*/ `
-    <div id="registerSection">
-    <form onsubmit="logIn(); return false;" id="logIn" class="logIn">
-        <div class="headline">
-            <h1>Log in</h1>
-            <div class="line"></div>
-        </div>
-
-        <div class="logInSection">
-            <div class="inputfield">
-                <input id="email" type="email" placeholder="Email" required>
-                <div class="inputIcons">
-                    <img class="mailIcon hover" src="../assets/img/mail.png">
-                </div>
-            </div>
-            <div class="inputfield">
-                <input id="password" type="password" placeholder="Password" required>
-                <div class="inputIcons">
-                    <img class="lockIcon hover" src="../assets/img/lock.png">
-                </div>
-            </div>
-            <div class="rememberSection">
-                <img src="../assets/img/Property 1=Default.png" id="checkButton" class="checkButton hover" onclick="remember()"></button>
-                <span>Remember me</span>
-            </div>
-        </div>
-
-        <div class="logInButtonSection">
-            <button type="submit" class="logInUserButton hover">Log in</button>
-            <button type="button" onclick="guestLogIn()" class="logInGuestButton hover">Guest Log in</button>
-        </div>
-    </form>
-    </div>
-
-    <div class="informationSection">
-        <span class="hover">Privacy Policy</span>
-        <span class="hover">Legal notice</span>
-    </div>
-
-    `;
+function showLogIn() {
+  document.getElementById("middleSection").innerHTML = renderLogInHTML();
   document.getElementById("signUpSection").style.display = "block";
 }
 
@@ -253,7 +148,7 @@ function logIn() {
     setTimeout(openSummary, 2000);
   } else {
     register.innerHTML += /*HTML*/ `
-        <div id="signInNoSuccessful" class="feedback">email or passowrd are false</div>
+        <div id="signInNoSuccessful" class="feedback">wrong email/password</div>
         `;
     setTimeout(removeNoSuccessfullSignUp, 2000);
   }
