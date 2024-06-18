@@ -13,7 +13,7 @@ function checkForLocalStorageCookie() {
 }
 
 function onloadfunction() {
-  iconWhiteToBlue();
+  startAnimation();
   showLogIn();
   loadUserData();
   checkForLocalStorageCookie();
@@ -30,7 +30,7 @@ async function loadUserData() {
   objectInToArray = Object.values(responseAsJson);
 }
 
-function iconWhiteToBlue() {
+function startAnimation() {
   let icon = document.getElementById("icon");
   if (window.innerWidth < 750) {
     icon.src = "../assets/img/join-icon-white.png";
@@ -108,7 +108,7 @@ async function signUpSuccessful() {
 
   register.innerHTML += `<div id="signInSuccessful" class="feedback">You Signed Up successful</div>`;
 
-  setTimeout(backToLogIn, 1600);
+  setTimeout(showLogIn(), 1600);
 }
 
 function saveCredentialsToLocalStorage() {
