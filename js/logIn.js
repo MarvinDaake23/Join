@@ -1,3 +1,5 @@
+let userArray = [];
+
 function onloadFunction() {
   startAnimation();
   showLogIn();
@@ -25,7 +27,7 @@ function checkForLocalStorageCookie() {
 async function loadUserData() {
   let response = await fetch(BASE_URL + "users.json");
   responseAsJson = await response.json();
-  objectInToArray = Object.values(responseAsJson);
+  userArray = Object.values(responseAsJson);
 }
 
 function startAnimation() {
@@ -127,7 +129,7 @@ function logIn() {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
   let register = document.getElementById("middleSection");
-  let user = objectInToArray.find(
+  let user = userArray.find(
     (u) => u.email == email.value && u.password == password.value
   );
 
