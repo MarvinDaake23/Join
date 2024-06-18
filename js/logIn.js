@@ -1,4 +1,14 @@
-//let responsetoJsonUsers = [];
+function onloadFunction() {
+  startAnimation();
+  showLogIn();
+  loadUserData();
+  checkForLocalStorageCookie();
+  // depending on vw set the link targets
+  if (window.innerWidth < vwBreak) {
+    document.getElementById("privacyLink").setAttribute("target", "_self");
+    document.getElementById("legalLink").setAttribute("target", "_self");
+  }
+}
 
 function checkForLocalStorageCookie() {
   // check local storage
@@ -9,18 +19,6 @@ function checkForLocalStorageCookie() {
     document.getElementById("email").value = cred[0];
     document.getElementById("password").value = cred[1];
     document.getElementById("rememberMe").checked = true;
-  }
-}
-
-function onloadfunction() {
-  startAnimation();
-  showLogIn();
-  loadUserData();
-  checkForLocalStorageCookie();
-  // depending on vw set the link targets
-  if (window.innerWidth < vwBreak) {
-    document.getElementById("privacyLink").setAttribute("target", "_self");
-    document.getElementById("legalLink").setAttribute("target", "_self");
   }
 }
 
@@ -140,10 +138,6 @@ function logIn() {
     // akt. user ins local storage speichern
     let userAsText = JSON.stringify(user);
     localStorage.setItem("user", userAsText);
-
-    /* was passiert hier?
-    document.getElementById("inputfieldPassword").classList.add("outlineBlue");
-    */
 
     setTimeout(openSummary, 2000);
   } else {
