@@ -1,8 +1,21 @@
 let responsetoJsonUsers = [];
 
+function checkForLocalStorageCookie() {
+  // check local storage
+  let credAsText = localStorage.getItem("cred");
+
+  if (credAsText) {
+    cred = JSON.parse(credAsText);
+    document.getElementById("email").value = cred[0];
+    document.getElementById("password").value = cred[1];
+    document.getElementById("rememberMe").checked = true;
+  }
+}
+
 function onloadfunction() {
   iconWhiteToBlue();
   loadUserData();
+  checkForLocalStorageCookie();
   // depending on vw set the link targets
   if (window.innerWidth < vwBreak) {
     document.getElementById("privacyLink").setAttribute("target", "_self");
@@ -130,18 +143,6 @@ function checkEnableButton() {
   }
 }
 
-function remember() {
-  if (rememberBulian == true) {
-    document.getElementById("checkButton").src =
-      "../assets/img/Property 1=hover checked.png";
-    rememberBulian = false;
-  } else {
-    document.getElementById("checkButton").src =
-      "../assets/img/Property 1=Default.png";
-    rememberBulian = true;
-  }
-}
-
 function backToLogIn() {
   let logIn = document.getElementById("registerSection");
   logIn.innerHTML = ``;
@@ -215,7 +216,21 @@ async function signUpSuccessful() {
   setTimeout(backToLogIn, 1600);
 }
 
+function saveCredentialsToLocalStorage() {
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let cred = [email, password];
+  let credAsText = JSON.stringify(cred);
+  localStorage.setItem("cred", credAsText);
+}
+
 function logIn() {
+  if (document.getElementById("rememberMe").checked) {
+    saveCredentialsToLocalStorage();
+  } else {
+    localStorage.removeItem("cred");
+  }
+
   let email = document.getElementById("email");
   let password = document.getElementById("password");
   let register = document.getElementById("registerSection");
