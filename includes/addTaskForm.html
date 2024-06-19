@@ -1,33 +1,50 @@
 <h2>Add task</h2>
 
-<form>
+<form onsubmit="addTask(); return false;">
   <div class="upper">
     <div class="left">
       <h4>Title<span class="red">*</span></h4>
-      <input placeholder="Enter a title" />
+      <input required placeholder="Enter a title" />
 
       <h4>Description</h4>
       <textarea placeholder="Enter a description"></textarea>
 
       <h4>Assigned to</h4>
-      <select>
-        <option>dsffds</option>
-        <option>dsffds1</option>
-        <option>dsffds2</option>
-      </select>
+      <div class="multiselect">
+        <div class="selectBox" onclick="showCheckboxes()">
+          <select>
+            <option>Select contacts to assign</option>
+          </select>
+          <div class="overSelect"></div>
+        </div>
+        <div id="checkboxes">
+          <div class="contactEntry">
+            <label for="1">Peter</label>
+            <input type="checkbox" id="1" />
+          </div>
+          <div class="contactEntry">
+            <label for="2">Martha</label>
+            <input type="checkbox" id="2" />
+          </div>
+          <div class="contactEntry">
+            <label for="3">Ulf</label>
+            <input type="checkbox" id="3" />
+          </div>
+        </div>
+      </div>
     </div>
     <div class="formVertLine"></div>
     <div class="right">
       <h4>Due date<span class="red">*</span></h4>
-      <input type="date" />
+      <input required type="date" id="dueDate" max="2030-12-31" />
 
       <h4>Prio</h4>
 
       <h4>Category<span class="red">*</span></h4>
-      <select>
-        <option>dsffds</option>
-        <option>dsffds1</option>
-        <option>dsffds2</option>
+      <select id="category" name="category" required>
+        <option value="">Select task category</option>
+        <option value="User Story">User Story</option>
+        <option value="Technical Task">Technical Task</option>
       </select>
 
       <h4>Subtasks</h4>
@@ -36,7 +53,9 @@
   </div>
   <div class="lower">
     <span><span class="red">*</span>This field is required</span>
-    <button>Clear</button>
-    <button>Create task</button>
+    <div>
+      <button type="reset">Clear</button>
+      <button type="submit">Create task</button>
+    </div>
   </div>
 </form>

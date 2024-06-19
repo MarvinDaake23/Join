@@ -2,11 +2,14 @@ form {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
+  max-width: 981px;
 }
 
 form .upper {
   display: flex;
-  gap: 50px;
+  /*gap: 50px;*/
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 form .lower {
@@ -31,7 +34,8 @@ form .formVertLine {
 }
 
 form input,
-form textarea {
+form textarea,
+form select {
   width: 440px;
   padding: 12px 21px 12px 21px;
   gap: 10px;
@@ -40,6 +44,7 @@ form textarea {
   margin-bottom: 16px;
   font-size: 20px;
   font-weight: 400;
+  background-color: white;
 }
 
 form input {
@@ -50,3 +55,51 @@ form textarea {
   height: 120px;
 }
 
+/* SELECT CONTACTS */
+
+.multiselect {
+  width: 440px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+  flex-direction: column;
+  height: 100px;
+  
+
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+#checkboxes input {
+  width: auto;
+}
+
+.contactEntry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
