@@ -71,6 +71,8 @@ form textarea {
     max-height: 150px;
     overflow-y: auto;
     margin-top: -16px;
+    position: fixed;
+    width: 440px;
 }
 
 #contactList input {
