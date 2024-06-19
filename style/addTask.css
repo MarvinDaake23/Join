@@ -57,49 +57,16 @@ form textarea {
 
 /* SELECT CONTACTS */
 
-.multiselect {
-  width: 440px;
+#contactList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.selectBox {
-  position: relative;
+#contactList input {
+    width: auto;
 }
 
-.selectBox select {
-  width: 100%;
-}
-
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-#checkboxes {
-  display: none;
-  border: 1px #dadada solid;
-  flex-direction: column;
-  height: 100px;
-  
-
-}
-
-#checkboxes label {
-  display: block;
-}
-
-#checkboxes label:hover {
-  background-color: #1e90ff;
-}
-
-#checkboxes input {
-  width: auto;
-}
-
-.contactEntry {
+li {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 }

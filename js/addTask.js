@@ -1,15 +1,4 @@
-let expanded = false;
 
-function showCheckboxes() {
-  let checkboxes = document.getElementById("checkboxes");
-  if (!expanded) {
-    checkboxes.style.display = "flex";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
 
 let prios = ["Low", "Medium", "Urgent"];
 let subtasks = [];
@@ -27,27 +16,12 @@ async function onLoadAddTask() {
   updateHeaderInitials();
   contacts = await loadData("contacts");
   boardTasks = await loadData("boardtasks");
-  //loadContactWrapper();
-  //inputSelector();
+  loadContactWrapper();
+
   //prioChoose(1); //pre-selected medium
 }
 
-/**
- *  function to load the category wrapper with all saved categorys
- */
-function loadWrapper() {
-  let wrapperList = document.getElementById("wrapperList");
 
-  for (let i = 0; i < categorys.length; i++) {
-    wrapperList.innerHTML += /*html */ `
-          <li onclick="chooseCategory(${i})"  class ="list">
-              <span id="category${i}">
-                  <div>${categorys[i]}</div>
-              </span>
-          </li>
-          `;
-  }
-}
 
 /**
  *  function to load the contact wrapper with all saved contacts
@@ -56,7 +30,7 @@ function loadContactWrapper() {
   // sort contacts by first name
   sortContacts();
 
-  let contactWrapper = document.getElementById("wrapperListAt");
+  let contactWrapper = document.getElementById("contactList");
 
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
@@ -204,15 +178,7 @@ function openWrapper(i) {
   }
 }
 
-/**
- * function to select the category
- */
-function chooseCategory(i) {
-  let placeholder = document.getElementById("placeholder");
-  let choose = document.getElementById(`category${i}`).innerHTML;
-  placeholder.innerHTML = choose;
-  cat = i;
-}
+
 
 /**
  * Function to select the priority

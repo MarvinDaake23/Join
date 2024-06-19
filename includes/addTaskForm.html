@@ -10,28 +10,9 @@
       <textarea placeholder="Enter a description"></textarea>
 
       <h4>Assigned to</h4>
-      <div class="multiselect">
-        <div class="selectBox" onclick="showCheckboxes()">
-          <select>
-            <option>Select contacts to assign</option>
-          </select>
-          <div class="overSelect"></div>
-        </div>
-        <div id="checkboxes">
-          <div class="contactEntry">
-            <label for="1">Peter</label>
-            <input type="checkbox" id="1" />
-          </div>
-          <div class="contactEntry">
-            <label for="2">Martha</label>
-            <input type="checkbox" id="2" />
-          </div>
-          <div class="contactEntry">
-            <label for="3">Ulf</label>
-            <input type="checkbox" id="3" />
-          </div>
-        </div>
-      </div>
+
+      <input placeholder="Select contacts to assign" onclick="showContactList()"/>
+      <ul id="contactList"></ul>
     </div>
     <div class="formVertLine"></div>
     <div class="right">
