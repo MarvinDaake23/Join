@@ -35,8 +35,8 @@ function closeModal() {
  * function to initialize the board page
  */
 async function boardInit() {
-  await includeHTML(); //- edit christoph
-  updateHeaderInitials(); // edit christoph
+  await includeHTML();
+  updateHeaderInitials();
   boardTasks = await loadData("boardtasks");
   contacts = await loadData("contacts");
   updateHTML();
