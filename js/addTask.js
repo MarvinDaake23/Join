@@ -22,6 +22,11 @@ async function onLoadAddTask() {
 }
 
 
+function toggleContactList(){
+  document.getElementById("contactList").classList.toggle("dNone");
+}
+
+
 
 /**
  *  function to load the contact wrapper with all saved contacts

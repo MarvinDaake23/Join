@@ -57,10 +57,19 @@ form textarea {
 
 /* SELECT CONTACTS */
 
+.dNone {
+    display: none;
+}
+
 #contactList {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    max-height: 150px;
+    overflow-y: auto;
 }
 
 #contactList input {
@@ -92,6 +101,14 @@ li {
     background-color: #f5f5f5;
   }
   
+  .contactNameContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 8px;
+    padding-left: 16px;
+  }
+
   .initials:hover {
     color: white;
   }
