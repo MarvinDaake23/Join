@@ -14,9 +14,9 @@ async function onLoadAddTask() {
   updateHeaderInitials();
   contacts = await loadData("contacts");
   boardTasks = await loadData("boardtasks");
-  loadContactWrapper();
-  inputSelector();
-  prioChoose(1); //pre-selected medium
+  //loadContactWrapper();
+  //inputSelector();
+  //prioChoose(1); //pre-selected medium
 }
 
 /**

@@ -337,7 +337,7 @@ select {
 }
 
 textarea {
-  flex:1;
+  flex: 1;
 }
 
 .taskDescriptionInputContainer input {
@@ -649,11 +649,12 @@ textarea {
   background-image: url("../assets/img/prioLowHighlight.png");
 }
 
-#category{
+#category {
   /*width: 97%;*/
 }
 
-select,input {
+select,
+input {
   height: 48px;
 }
 
@@ -661,96 +662,94 @@ select,input {
   /*margin-bottom: 50px;*/
 }
 
-
 content {
   padding-bottom: 50px !important;
 }
 
-
 .upper {
   display: flex;
   justify-content: space-between;
+  gap: 50px;
   flex-wrap: wrap;
 }
 
 .lower {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-
-@media (max-width: 1380px){
-  .bigSubtaskContainer{
+@media (max-width: 1380px) {
+  .bigSubtaskContainer {
     width: 98%;
   }
-  .editInput{
+  .editInput {
     right: 53px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 53px;
   }
 }
 
-@media (max-width: 1300px){
-  #category{
+@media (max-width: 1300px) {
+  #category {
     width: 98%;
   }
 }
 
-@media (max-width: 1230px){
-  #category{
+@media (max-width: 1230px) {
+  #category {
     width: 99%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 99%;
   }
-  .imgContainer{
+  .imgContainer {
     right: 8px;
   }
-  .editInput{
+  .editInput {
     right: 50px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 50px;
   }
 }
 
-@media (max-width: 1180px){
-  #category{
+@media (max-width: 1180px) {
+  #category {
     width: 101%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 101%;
   }
 }
 
-@media (max-width: 1120px){
-  #category{
+@media (max-width: 1120px) {
+  #category {
     width: 100%;
   }
-  .editInput{
+  .editInput {
     right: 44px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 44px;
   }
 }
 
-@media (max-width: 1090px){
-  #category{
+@media (max-width: 1090px) {
+  #category {
     width: 100%;
   }
-  .prio{
+  .prio {
     font-size: 17px;
   }
-  .imgContainer{
+  .imgContainer {
     right: 0px;
   }
-  .editInput{
+  .editInput {
     right: 40px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 40px;
   }
 }
@@ -776,248 +775,246 @@ content {
   .imgContainer {
     right: 47px;
   }
-  #category{
+  #category {
     width: 95%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 95%;
   }
-  .editInput{
+  .editInput {
     right: 82px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 82px;
   }
 }
 
-@media (max-width: 940px){
-  .imgContainer{
+@media (max-width: 940px) {
+  .imgContainer {
     right: 35px;
   }
-  .editInput{
+  .editInput {
     right: 75px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 75px;
   }
 }
 
-@media (max-width: 900px){
-  .imgContainer{
+@media (max-width: 900px) {
+  .imgContainer {
     right: 40px;
   }
-  #category{
+  #category {
     width: 96%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 96%;
   }
-  .editInput{
+  .editInput {
     right: 70px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 70px;
   }
 }
-@media (max-width: 890px){
-  .imgContainer{
+@media (max-width: 890px) {
+  .imgContainer {
     right: 35px;
   }
 }
 
-@media (max-width: 870px){
-  .imgContainer{
+@media (max-width: 870px) {
+  .imgContainer {
     right: 30px;
   }
 }
 
-@media (max-width: 830px){
-  .imgContainer{
+@media (max-width: 830px) {
+  .imgContainer {
     right: 20px;
   }
-  .editInput{
+  .editInput {
     right: 66px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 66px;
   }
 }
 
-@media (max-width: 800px){
-  .imgContainer{
+@media (max-width: 800px) {
+  .imgContainer {
     right: 25px;
   }
-  #category{
+  #category {
     width: 97%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 97%;
   }
 }
 
-@media (max-width: 770px){
-  .imgContainer{
+@media (max-width: 770px) {
+  .imgContainer {
     right: 20px;
   }
-  .editInput{
+  .editInput {
     right: 60px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 60px;
   }
 }
 
-@media (max-width: 700px){
-  .imgContainer{
+@media (max-width: 700px) {
+  .imgContainer {
     right: 20px;
   }
-  #category{
+  #category {
     width: 98%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 98%;
   }
-  .editInput{
+  .editInput {
     right: 55px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 55px;
   }
 }
 
-@media (max-width: 670px){
-  .imgContainer{
+@media (max-width: 670px) {
+  .imgContainer {
     right: 5px;
   }
-  .editInput{
+  .editInput {
     right: 50px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 50px;
   }
 }
 
-@media (max-width: 650px){
-  #category{
+@media (max-width: 650px) {
+  #category {
     width: 99%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 99%;
   }
-  .imgContainer{
+  .imgContainer {
     right: 10px;
   }
 }
 
-@media (max-width: 620px){
-  #category{
+@media (max-width: 620px) {
+  #category {
     width: 96%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 96%;
   }
-  .imgContainer{
+  .imgContainer {
     right: 22px;
   }
-  .editInput{
+  .editInput {
     right: 67px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 67px;
   }
 }
 
-@media (max-width: 540px){
-  #category{
+@media (max-width: 540px) {
+  #category {
     width: 97%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 97%;
   }
-  .imgContainer{
+  .imgContainer {
     right: 16px;
   }
-  .editInput{
+  .editInput {
     right: 60px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 60px;
   }
 }
 
-@media (max-width: 500px){
-  .imgContainer{
+@media (max-width: 500px) {
+  .imgContainer {
     right: 10px;
   }
-  #category{
+  #category {
     width: 98%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 98%;
   }
-  .editInput{
+  .editInput {
     right: 55px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 55px;
   }
 }
 
-@media (max-width: 420px){
-  #category{
+@media (max-width: 420px) {
+  #category {
     width: 99%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 99%;
   }
-  .imgContainer{
+  .imgContainer {
     right: 5px;
   }
-  .editInput{
+  .editInput {
     right: 47px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 47px;
   }
 }
 
-@media (max-width: 390px){
-  .imgContainer{
+@media (max-width: 390px) {
+  .imgContainer {
     right: 0px;
   }
-  #category{
+  #category {
     width: 100%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 100%;
   }
-  .prio{
+  .prio {
     font-size: 16px;
   }
-  .editInput{
+  .editInput {
     right: 44px;
   }
-  .positionFinalEditContainer{
+  .positionFinalEditContainer {
     right: 44px;
   }
 }
 
-@media (max-width: 370px){
-  #category{
+@media (max-width: 370px) {
+  #category {
     width: 101%;
   }
-  .bigSubtaskContainer{
+  .bigSubtaskContainer {
     width: 101%;
   }
 }
 
-@media (max-width: 340px){
-  .prio{
+@media (max-width: 340px) {
+  .prio {
     font-size: 14px;
   }
 }
-
-
 
 @media (max-width: 620px) {
   .checkoutContainer {

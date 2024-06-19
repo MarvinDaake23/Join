@@ -1,0 +1,52 @@
+form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+form .upper {
+  display: flex;
+  gap: 50px;
+}
+
+form .lower {
+  display: flex;
+  justify-content: space-between;
+}
+
+form .red {
+  color: #ff8190;
+}
+
+form h4 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  margin-top: 0px;
+}
+
+form .formVertLine {
+  border-left: 1px solid #d1d1d1;
+  height: 424px;
+}
+
+form input,
+form textarea {
+  width: 440px;
+  padding: 12px 21px 12px 21px;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+form input {
+  height: 48px;
+}
+
+form textarea {
+  height: 120px;
+}
+
