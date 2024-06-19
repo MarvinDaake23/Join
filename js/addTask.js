@@ -1,5 +1,3 @@
-
-
 let prios = ["Low", "Medium", "Urgent"];
 let subtasks = [];
 let task = [];
@@ -21,12 +19,9 @@ async function onLoadAddTask() {
   //prioChoose(1); //pre-selected medium
 }
 
-
-function toggleContactList(){
+function toggleContactList() {
   document.getElementById("contactList").classList.toggle("dNone");
 }
-
-
 
 /**
  *  function to load the contact wrapper with all saved contacts
@@ -34,12 +29,26 @@ function toggleContactList(){
 function loadContactWrapper() {
   // sort contacts by first name
   sortContacts();
-
   let contactWrapper = document.getElementById("contactList");
 
+  // first shown contact: logged in user
+  let idOfLoggedInUser = getIdOfLoggedInUser();
+
+  // nur wenns kein Gast ist
+  if (idOfLoggedInUser !== undefined) {
+    contactWrapper.innerHTML += renderContactWrapper(
+      contacts[idOfLoggedInUser],
+      idOfLoggedInUser
+    );
+    // add: ME
+    document.getElementById("userNameInList").innerHTML += " (Me)";
+  }
+
   for (let i = 0; i < contacts.length; i++) {
-    const element = contacts[i];
-    contactWrapper.innerHTML += renderContactWrapper(element, i);
+    if (i != idOfLoggedInUser) {
+      const element = contacts[i];
+      contactWrapper.innerHTML += renderContactWrapper(element, i);
+    }
   }
 }
 
@@ -182,8 +191,6 @@ function openWrapper(i) {
     document.getElementById(`wrapper${i}`).classList.remove("blueOutlineInput");
   }
 }
-
-
 
 /**
  * Function to select the priority

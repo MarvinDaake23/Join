@@ -14,7 +14,7 @@ function renderContactWrapper(element, i) {
                 <label class="contactWrapperItem">
                     <input type="checkbox" onchange="selectContacts(${i})">
                     <div class="contactNameContainer">
-                        <span>${element.firstName} ${element.lastName}</span>
+                        <span id="userNameInList">${element.firstName} ${element.lastName}</span>
                         <div class="initials initSmall" style="background-color:${element.profileColor}">
                             ${element.firstName[0]}${element.lastName[0]}
                         </div>
