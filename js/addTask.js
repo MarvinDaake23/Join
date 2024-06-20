@@ -32,9 +32,9 @@ function listenToEnterButtonAtSubtaskInputField() {
       document.getElementById("subtaskList").innerHTML += `
       <li id="subtask${subtaskCounter}">
         <div class="listEntry">
-          <span>${inputValue}</span>
+          <span id="listEntry${subtaskCounter}">${inputValue}</span>
           <div>
-            <img src="./assets/img/subtaskPen.svg">
+            <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${subtaskCounter})">
             <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${subtaskCounter})">
           </div>
         </div>
@@ -49,6 +49,13 @@ function listenToEnterButtonAtSubtaskInputField() {
 function deleteSubtaskCVO(id) {
   let subtask = document.getElementById(`subtask${id}`);
   document.getElementById("subtaskList").removeChild(subtask);
+}
+
+function editSubtaskCVO(id) {
+  let value = document.getElementById(`listEntry${id}`).innerHTML;
+  document.getElementById(`subtask${id}`).innerHTML = `
+              <input value="${value}" form="" class="subtaskEdit">
+              `;
 }
 
 function toggleContactList() {

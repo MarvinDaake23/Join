@@ -251,3 +251,12 @@ button {
 .listEntry img {
   cursor: pointer;
 }
+
+.subtaskEdit {
+  border:none;
+  width: 400px;
+  font-size: 16px;
+  height:40px;
+  padding:0px;
+  margin: 0px;
+}
