@@ -21,7 +21,7 @@
     <div class="formVertLine"></div>
     <div class="right">
       <h4>Due date<span class="red">*</span></h4>
-      <input required type="date" id="date" max="2030-12-31"/>
+      <input required type="date" id="date" max="2030-12-31" />
 
       <h4>Prio</h4>
 
@@ -48,8 +48,10 @@
       </select>
 
       <h4>Subtasks</h4>
-      <input placeholder="Add new subtask" />
+
+      <input placeholder="Add new subtask" onsubmit="sdffds()" form=""/>
     </div>
+    <ul id="subtaskList"></ul>
   </div>
   <div class="lower">
     <span><span class="red">*</span>This field is required</span>
