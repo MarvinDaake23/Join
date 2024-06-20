@@ -5,7 +5,6 @@ let prioValue = null;
 let cat;
 let selectedTaskContacts = [];
 let direction = "add";
-
 let subtaskCounter = 0;
 
 /**
@@ -29,8 +28,19 @@ function listenToEnterButtonAtSubtaskInputField() {
     if (event.key === "Enter") {
       // Do work
       let inputValue = inputField.value;
-      document.getElementById("subtaskList").innerHTML += `
-      <li id="subtask${subtaskCounter}">
+      document.getElementById("subtaskList").innerHTML +=
+        renderSubtaskListEntry(inputValue);
+
+      // clean up
+      inputField.value = "";
+      subtaskCounter++;
+    }
+  });
+}
+
+function renderSubtaskListEntry(inputValue) {
+  return `
+        <li id="subtask${subtaskCounter}">
         <div class="listEntry">
           <span id="listEntry${subtaskCounter}">${inputValue}</span>
           <div>
@@ -39,11 +49,6 @@ function listenToEnterButtonAtSubtaskInputField() {
           </div>
         </div>
       </li>`;
-      // clean up
-      inputField.value = "";
-      subtaskCounter++;
-    }
-  });
 }
 
 function deleteSubtaskCVO(id) {
@@ -51,7 +56,7 @@ function deleteSubtaskCVO(id) {
   document.getElementById("subtaskList").removeChild(subtask);
 }
 
-async function editSubtaskCVO(id) {
+function editSubtaskCVO(id) {
   let value = document.getElementById(`listEntry${id}`).innerHTML;
   document.getElementById(`subtask${id}`).innerHTML = `
               <div class="subtaskInputField">
@@ -62,21 +67,14 @@ async function editSubtaskCVO(id) {
                 </div>
               </div>
               `;
-  document.getElementById(`subtask${id}`).focus();
+
+  document.getElementById(`subtaskInput${id}`).focus();
 }
 
 function saveSubtaskCVO(id) {
-  let value = document.getElementById(`subtaskInput${id}`).value;
-  document.getElementById(`subtask${id}`).innerHTML = `
-      <li id="subtask${id}">
-        <div class="listEntry">
-          <span id="listEntry${id}">${value}</span>
-          <div>
-            <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
-            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
-          </div>
-        </div>
-      </li>`;
+  let inputValue = document.getElementById(`subtaskInput${id}`).value;
+  document.getElementById(`subtask${id}`).innerHTML =
+    renderSubtaskListEntry(inputValue);
 }
 
 function toggleContactList() {
