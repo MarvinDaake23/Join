@@ -51,11 +51,32 @@ function deleteSubtaskCVO(id) {
   document.getElementById("subtaskList").removeChild(subtask);
 }
 
-function editSubtaskCVO(id) {
+async function editSubtaskCVO(id) {
   let value = document.getElementById(`listEntry${id}`).innerHTML;
   document.getElementById(`subtask${id}`).innerHTML = `
-              <input value="${value}" form="" class="subtaskEdit">
+              <div class="subtaskInputField">
+                <input id="subtaskInput${id}" value="${value}" form="" class="subtaskEdit" onblur="saveSubtaskCVO(${id})">
+                <div>
+                  <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
+                  <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
+                </div>
+              </div>
               `;
+  document.getElementById(`subtask${id}`).focus();
+}
+
+function saveSubtaskCVO(id) {
+  let value = document.getElementById(`subtaskInput${id}`).value;
+  document.getElementById(`subtask${id}`).innerHTML = `
+      <li id="subtask${id}">
+        <div class="listEntry">
+          <span id="listEntry${id}">${value}</span>
+          <div>
+            <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
+            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
+          </div>
+        </div>
+      </li>`;
 }
 
 function toggleContactList() {

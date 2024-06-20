@@ -240,7 +240,7 @@ button {
 .listEntry {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 }
 
 #subtaskList {
@@ -253,10 +253,16 @@ button {
 }
 
 .subtaskEdit {
-  border:none;
-  width: 400px;
+  border: none;
+  width: 85%;
   font-size: 16px;
-  height:40px;
-  padding:0px;
+  height: 28px;
+  padding: 0px;
   margin: 0px;
+}
+
+.subtaskInputField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
