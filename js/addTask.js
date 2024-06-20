@@ -14,9 +14,10 @@ async function onLoadAddTask() {
   updateHeaderInitials();
   contacts = await loadData("contacts");
   boardTasks = await loadData("boardtasks");
-  loadContactWrapper();
-
-  //prioChoose(1); //pre-selected medium
+  loadContactList();
+  prioChoose(1); //pre-selected medium
+  // minimum date for new tasks is today
+  document.getElementById("dueDate").min = new Date().toLocaleDateString("fr-ca");
 }
 
 function toggleContactList() {
@@ -24,9 +25,9 @@ function toggleContactList() {
 }
 
 /**
- *  function to load the contact wrapper with all saved contacts
+ *  function to load the contact list with all saved contacts
  */
-function loadContactWrapper() {
+function loadContactList() {
   // sort contacts by first name
   sortContacts();
   let contactWrapper = document.getElementById("contactList");
