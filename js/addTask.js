@@ -6,6 +6,8 @@ let cat;
 let selectedTaskContacts = [];
 let direction = "add";
 
+let subtaskCounter = 0;
+
 /**
  * Onload Function for the Add Task page
  */
@@ -27,13 +29,26 @@ function listenToEnterButtonAtSubtaskInputField() {
     if (event.key === "Enter") {
       // Do work
       let inputValue = inputField.value;
-      document.getElementById(
-        "subtaskList"
-      ).innerHTML += `<li>${inputValue}</li>`;
+      document.getElementById("subtaskList").innerHTML += `
+      <li id="subtask${subtaskCounter}">
+        <div class="listEntry">
+          <span>${inputValue}</span>
+          <div>
+            <img src="./assets/img/subtaskPen.svg">
+            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${subtaskCounter})">
+          </div>
+        </div>
+      </li>`;
       // clean up
       inputField.value = "";
+      subtaskCounter++;
     }
   });
+}
+
+function deleteSubtaskCVO(id) {
+  let subtask = document.getElementById(`subtask${id}`);
+  document.getElementById("subtaskList").removeChild(subtask);
 }
 
 function toggleContactList() {
