@@ -18,6 +18,22 @@ async function onLoadAddTask() {
   prioChoose(1); //pre-selected medium
   // minimum date for new tasks is today
   document.getElementById("date").min = new Date().toLocaleDateString("fr-ca");
+  listenToEnterButtonAtSubtaskInputField();
+}
+
+function listenToEnterButtonAtSubtaskInputField() {
+  let inputField = document.getElementById("subtaskInput");
+  inputField.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      // Do work
+      let inputValue = inputField.value;
+      document.getElementById(
+        "subtaskList"
+      ).innerHTML += `<li>${inputValue}</li>`;
+      // clean up
+      inputField.value = "";
+    }
+  });
 }
 
 function toggleContactList() {
