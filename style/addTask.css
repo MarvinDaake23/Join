@@ -243,8 +243,11 @@ button {
   align-items: baseline;
 }
 
-
 #subtaskList {
-  margin:0;
-  margin-top: -8px;  
+  margin: 0;
+  margin-top: -8px;
+}
+
+.listEntry img {
+  cursor: pointer;
 }
