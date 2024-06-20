@@ -117,6 +117,11 @@ li {
   color: white;
 }
 
+#selectedContacts {
+  display: flex;
+  gap: 4px;
+}
+
 /* PRIO STUFF */
 
 .prioContainer {

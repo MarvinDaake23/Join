@@ -17,7 +17,7 @@ async function onLoadAddTask() {
   loadContactList();
   prioChoose(1); //pre-selected medium
   // minimum date for new tasks is today
-  document.getElementById("dueDate").min = new Date().toLocaleDateString("fr-ca");
+  document.getElementById("date").min = new Date().toLocaleDateString("fr-ca");
 }
 
 function toggleContactList() {
