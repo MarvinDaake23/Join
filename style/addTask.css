@@ -115,3 +115,26 @@ li {
   .initials:hover {
     color: white;
   }
+
+
+  /* PRIO STUFF */
+
+  .prioContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .prioChoose {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+  }
+  
+  .prio {
+    background-color: white;
+  }
+  
