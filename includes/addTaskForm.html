@@ -24,27 +24,15 @@
       <h4>Prio</h4>
 
       <div class="prioChoose">
-        <div
-          onclick="prioChoose(2)"
-          id="prio high"
-          class="high prioContainer"
-        >
+        <div onclick="prioChoose(2)" id="prio high" class="high prioContainer">
           <span>Urgent</span>
           <div id="highPrioImg" class="highPrioImg"></div>
         </div>
-        <div
-          onclick="prioChoose(1)"
-          id="prio med"
-          class="med prioContainer"
-        >
+        <div onclick="prioChoose(1)" id="prio med" class="med prioContainer">
           <span>Medium</span>
           <div id="medPrioImg" class="medPrioImg"></div>
         </div>
-        <div
-          onclick="prioChoose(0)"
-          id="prio low"
-          class="low prioContainer"
-        >
+        <div onclick="prioChoose(0)" id="prio low" class="low prioContainer">
           <span>Low</span>
           <div id="lowPrioImg" class="lowPrioImg"></div>
         </div>
@@ -58,14 +46,18 @@
       </select>
 
       <h4>Subtasks</h4>
-      <input placeholder="Add new subtask"/>
+      <input placeholder="Add new subtask" />
     </div>
   </div>
   <div class="lower">
     <span><span class="red">*</span>This field is required</span>
-    <div>
-      <button type="reset">Clear</button>
-      <button type="submit">Create task</button>
+    <div class="buttonPair">
+      <button class="clearButton" type="reset">
+        Clear<img src="./assets/img/cancel.svg" />
+      </button>
+      <button class="createButton" type="submit">
+        Create task<img src="./assets/img/check.svg" />
+      </button>
     </div>
   </div>
 </form>

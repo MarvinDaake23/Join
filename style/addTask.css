@@ -15,6 +15,7 @@ form .upper {
 form .lower {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 form .red {
@@ -199,4 +200,36 @@ li {
 
 .lowPrioImageChange {
   background-image: url("../assets/img/prioLowHighlight.png");
+}
+
+/* button unten */
+button {
+  height: 56px;
+  padding: 16px;
+  gap: 4px;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 1px solid #2a3647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.clearButton {
+  width: 110px;
+  font-weight: 400;
+  background-color: #f6f7f8;
+}
+
+.createButton {
+  width: 183px;
+  background-color: #2a3647;
+  font-weight: 700;
+  color: white;
+}
+
+.buttonPair {
+  display: flex;
+  gap: 16px;
 }
