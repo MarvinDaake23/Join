@@ -57,8 +57,8 @@ async function editSubtaskCVO(id) {
               <div class="subtaskInputField">
                 <input id="subtaskInput${id}" value="${value}" form="" class="subtaskEdit" onblur="saveSubtaskCVO(${id})">
                 <div>
-                  <img src="../assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
-                  <img src="../assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
+                  <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
+                  <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
                 </div>
               </div>
               `;
@@ -72,8 +72,8 @@ function saveSubtaskCVO(id) {
         <div class="listEntry">
           <span id="listEntry${id}">${value}</span>
           <div>
-            <img src="../assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
-            <img src="../assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
+            <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
+            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
           </div>
         </div>
       </li>`;
