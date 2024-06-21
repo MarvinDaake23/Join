@@ -1,11 +1,11 @@
-let prios = ["Low", "Medium", "Urgent"];
-let subtasks = [];
 let task = [];
-let prioValue = null;
-let cat;
-let selectedTaskContacts = [];
-let direction = "add";
+let subtasks = [];
 let subtaskCounter = 0;
+
+let prios = ["Low", "Medium", "Urgent"];
+let prioValue = null;
+
+let selectedTaskContacts = [];
 
 /**
  * Onload Function for the Add Task page
@@ -47,7 +47,7 @@ function listenToEnterButtonAtSubtaskInputEditField(subtaskCounter) {
   inputField.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
       // Do work
-      saveEdittedSubtaskCVO(subtaskCounter);
+      saveEdittedSubtask(subtaskCounter);
     }
   });
 }
@@ -58,23 +58,23 @@ function renderSubtaskListEntry(inputValue, subtaskCounter) {
         <div class="listEntry">
           <span class="listEntrySpan" id="listEntry${subtaskCounter}">${inputValue}</span>
           <div>
-            <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtaskCVO(${subtaskCounter})">
-            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${subtaskCounter})">
+            <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtask(${subtaskCounter})">
+            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtask(${subtaskCounter})">
           </div>
         </div>
       </li>`;
 }
 
-function deleteSubtaskCVO(i) {
+function deleteSubtask(i) {
   let subtask = document.getElementById(`subtask${i}`);
   document.getElementById("subtaskList").removeChild(subtask);
 }
 
-function showEditSubtaskCVO(subtaskCounter) {
+function showEditSubtask(subtaskCounter) {
   let value = document.getElementById(`listEntry${subtaskCounter}`).innerHTML;
   document.getElementById(`subtask${subtaskCounter}`).innerHTML = `
               <div class="subtaskInputField">
-                <input id="subtaskInput${subtaskCounter}" value="${value}" form="" class="subtaskEdit" onblur="saveEdittedSubtaskCVO(${subtaskCounter})">
+                <input id="subtaskInput${subtaskCounter}" value="${value}" form="" class="subtaskEdit" onblur="saveEdittedSubtask(${subtaskCounter})">
               </div>
               `;
 
@@ -88,7 +88,7 @@ function showEditSubtaskCVO(subtaskCounter) {
   listenToEnterButtonAtSubtaskInputEditField(subtaskCounter);
 }
 
-function saveEdittedSubtaskCVO(subtaskCounter) {
+function saveEdittedSubtask(subtaskCounter) {
   let inputValue = document.getElementById(
     `subtaskInput${subtaskCounter}`
   ).value;
@@ -98,14 +98,14 @@ function saveEdittedSubtaskCVO(subtaskCounter) {
         <div class="listEntry">
           <span class="listEntrySpan" id="listEntry${subtaskCounter}">${inputValue}</span>
           <div>
-            <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtaskCVO(${subtaskCounter})">
-            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${subtaskCounter})">
+            <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtask(${subtaskCounter})">
+            <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtask(${subtaskCounter})">
           </div>
         </div>
 `;
   } else {
     // emptry string
-    deleteSubtaskCVO(subtaskCounter);
+    deleteSubtask(subtaskCounter);
   }
 }
 
@@ -185,117 +185,6 @@ function loadContacts() {
 }
 
 /**
- * function to load all added subtasks
- */
-function loadSubtaskList() {
-  let subtask = document.getElementById("subtaskInput").value;
-  if (subtask) {
-    subtasks.push(subtask);
-  }
-  renderSubtaskList();
-  inputClear();
-}
-
-function subtaskListInput(element, i) {
-  return /* html*/ `
-  <div id="bigSubtaskContainer${i}" class="bigSubtaskContainer">
-        <li class="liCat">
-            <div id="subtask" class="subtask">
-                <div id="subtaskField${i}">${element}</div>
-                <div class="editContainerSubtask">
-                  <div onclick="editSubtaskList('${element}', ${i})" class="edit iconContainerSubtask"></div>
-                  <div class="inputIconSmallLine"></div>
-                  <div onclick="deleteSubtask(${i})" class="trashIcon iconContainerSubtask"></div>
-                </div>
-              </div>
-        </li>
-  </div>
-`;
-}
-
-function renderSubtaskList() {
-  let subtaskList = document.getElementById("subTasks");
-  subtaskList.innerHTML = ``;
-  for (let i = 0; i < subtasks.length; i++) {
-    if (subtasks[i]) {
-      subtaskList.innerHTML += subtaskListInput(subtasks[i], i);
-    }
-  }
-}
-
-function editSubtaskList(element, i) {
-  let bigSubtaskContainer = document.getElementById(`bigSubtaskContainer${i}`);
-
-  bigSubtaskContainer.innerHTML = `
-    <li class="liCat" id="liCat${i}">
-      <div class="relativeContainer">
-        <input type="text" id="editSubtaskInput${i}" value="${element}" class="editInput">
-        <div class="editContainerSubtask positionFinalEditContainer">
-          <div class="iconContainerSubtask inputIconTrash" onclick="deleteSubtask(${i})">
-          </div>
-          <div class="inputIconSmallLineEdit">
-          </div>
-          <div class="iconContainerSubtask inputIconCheck" onclick="saveEditedSubtask(${i})">
-          </div>
-        </div>
-      </div>
-    </li>
-  `;
-
-  document.getElementById(`liCat${i}`).classList.add(`noMarker`);
-  document
-    .getElementById(`bigSubtaskContainer${i}`)
-    .classList.remove(`bigSubtaskContainer`);
-}
-
-function saveEditedSubtask(i) {
-  let editedValue = document.getElementById(`editSubtaskInput${i}`).value;
-  if (editedValue) {
-    subtasks[i] = editedValue;
-  } else {
-    subtasks.splice(i, 1); // Remove the subtask if the edited value is empty
-  }
-  if (direction == "add") {
-    renderSubtaskList();
-  }
-  if (direction == "edit") {
-    editrenderSubtaskList();
-  }
-}
-
-function deleteSubtask(i) {
-  subtasks.splice(i, 1);
-  renderSubtaskList();
-}
-
-function inputClear() {
-  document.getElementById("subtaskInput").value = "";
-}
-
-/**
- * function to open all Wrapper on "AddTask" site
- */
-function openWrapper(i) {
-  let wrapperList = document.getElementById(`wrapperList${i}`);
-  let wrapper = document.getElementById(`wrapper${i}`);
-
-  if (wrapperList.classList.contains(`dNone`)) {
-    wrapperList.classList.remove(`dNone`);
-    document.getElementById(`arrowUp${i}`).classList.remove(`dNone`);
-    document.getElementById(`arrowDown${i}`).classList.add(`dNone`);
-    wrapper.classList.add(`openBoarder`);
-    wrapperList.style.width = `${wrapper.offsetWidth}px`;
-    document.getElementById(`wrapper${i}`).classList.add("blueOutlineInput");
-  } else {
-    wrapperList.classList.add(`dNone`);
-    document.getElementById(`arrowUp${i}`).classList.add(`dNone`);
-    document.getElementById(`arrowDown${i}`).classList.remove(`dNone`);
-    wrapper.classList.remove(`openBoarder`);
-    document.getElementById(`wrapper${i}`).classList.remove("blueOutlineInput");
-  }
-}
-
-/**
  * Function to select the priority
  */
 function prioChoose(i) {
@@ -337,51 +226,15 @@ function resetPrioContainers() {
 }
 
 /**
- * function to check whether the input field subtask is selected
- */
-function inputSelector() {
-  let subtaskInput = document.getElementById("subtaskInput");
-  subtaskInput.addEventListener("focus", function () {
-    inputFocus();
-  });
-}
-
-/**
- * function for changing the icons when the input field is selected
- */
-function inputFocus() {
-  let imgContainer = document.getElementById("imgContainerSubtask");
-  imgContainer.classList.remove("imgContainerBackground");
-  imgContainer.innerHTML = inputFocusInput();
-}
-
-/**
- * function to change the icon if the input field is not selected
- */
-function inputBlur() {
-  let imgContainer = document.getElementById("imgContainerSubtask");
-  imgContainer.classList.add("imgContainerBackground");
-  imgContainer.innerHTML = ``;
-}
-
-/**
- * function to clear the input field
- */
-function inputClear() {
-  let subtaskInput = document.getElementById("subtaskInput");
-  subtaskInput.value = ``;
-  inputBlur();
-}
-
-/**
  * function for bringing together all data from the input fields
  */
 async function addTask(column) {
+  subtasks = extractSubtasksForTask();
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
   let prio = prios[prioValue];
-  let category = document.getElementById("category").value; //categorys[cat];
+  let category = document.getElementById("category").value;
   let taskCategory = [];
 
   switch (column) {
