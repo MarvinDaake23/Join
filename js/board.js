@@ -1,4 +1,20 @@
 let expanded = false;
+let doneBulian = false;
+let boardTasks = [];
+let currentDraggedElement;
+
+
+/**
+ * function to initialize the board page
+ */
+async function boardInit() {
+  await includeHTML();
+  updateHeaderInitials();
+  boardTasks = await loadData("boardtasks");
+  contacts = await loadData("contacts");
+  renderAllBoardTasks();
+}
+
 
 function showCheckboxes() {
   var checkboxes = document.getElementById("checkboxes");
@@ -11,10 +27,6 @@ function showCheckboxes() {
   }
 }
 
-let doneBulian = false;
-let boardTasks = [];
-
-let currentDraggedElement;
 
 function showAddTask(column) {
   document.getElementById("modalBackground").style.display = "block";
@@ -30,17 +42,6 @@ function showAddTask(column) {
 
 function closeModal() {
   document.getElementById("modalBackground").style.display = "none";
-}
-
-/**
- * function to initialize the board page
- */
-async function boardInit() {
-  await includeHTML();
-  updateHeaderInitials();
-  boardTasks = await loadData("boardtasks");
-  contacts = await loadData("contacts");
-  updateHTML();
 }
 
 function loadContacteditWrapper() {
@@ -120,13 +121,6 @@ function loadBoardBigContainerSubtasks(i) {
     }
     Subtasks.innerHTML += renderBoardBigContainerSubtasks(element, j, i, src);
   }
-}
-
-/**
- *  function to render all boardTasks
- */
-function updateHTML() {
-  renderAllBoardTasks();
 }
 
 function fillWithPlaceholders() {
