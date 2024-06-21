@@ -143,6 +143,10 @@ function toggleContactList() {
   document.getElementById("contactList").classList.toggle("dNone");
 }
 
+function showContactList() {
+  document.getElementById("contactList").classList.remove("dNone");
+}
+
 function extractSubtasksForTask() {
   let subtasks = [];
   let list = document.querySelectorAll(".listEntrySpan");
