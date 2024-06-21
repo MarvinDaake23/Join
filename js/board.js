@@ -23,8 +23,7 @@ function showAddTask(column) {
     .getElementById("addTaskForm")
     .setAttribute("onsubmit", `addTask(${column});return false;`);
   prioChoose(1);
-  loadContactWrapper();
-  inputSelector(); // for the subtasks
+  loadContactList();
 }
 
 function closeModal() {
@@ -452,7 +451,6 @@ async function editTask(i) {
  boardTasks[i].category = category; */
   await putData("boardtasks", boardTasks);
   boardInit();
-  
 }
 
 function editInputFocus() {
@@ -475,7 +473,7 @@ function editInputBlur() {
   editimgContainerSubtask.classList.add("d-none");
 }
 
-async function editloadSubtaskList(i) { 
+async function editloadSubtaskList(i) {
   subtask = document.getElementById("editsubtaskInput").value;
   let json = {
     subtaskText: subtask,
@@ -486,7 +484,6 @@ async function editloadSubtaskList(i) {
   }
   editrenderSubtaskList(i);
   editinputClear();
-  
 }
 
 function editrenderSubtaskList(i) {
@@ -494,13 +491,13 @@ function editrenderSubtaskList(i) {
   subtaskList.innerHTML = ``;
 
   for (let j = 0; j < boardTasks[i].subtasks.length; j++) {
-
-      subtaskList.innerHTML += subtaskListInput(boardTasks[i].subtasks[j].subtaskText, j);
-    
+    subtaskList.innerHTML += subtaskListInput(
+      boardTasks[i].subtasks[j].subtaskText,
+      j
+    );
   }
 }
 
 function editinputClear() {
   document.getElementById("editsubtaskInput").value = "";
 }
-
