@@ -760,6 +760,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1056px;
+  flex-wrap: wrap;
 }
 
 content {
@@ -769,7 +770,9 @@ content {
 .taskGridContainer {
   display: grid;
   grid-template-columns: 252px 252px 252px 252px;
-  grid-template-areas: "todo progress feedback done";
+  grid-template-areas:
+    "todoHeader progressHeader feedbackHeader doneHeader"
+    "todo progress feedback done";
   column-gap: 26px;
   row-gap: 16px;
   margin-top: 32px;
@@ -789,6 +792,19 @@ content {
 
 .done {
   grid-area: done;
+}
+
+#gridHeader1 {
+  grid-area: todoHeader;
+}
+#gridHeader2 {
+  grid-area: progressHeader;
+}
+#gridHeader3 {
+  grid-area: feedbackHeader;
+}
+#gridHeader4 {
+  grid-area: doneHeader;
 }
 
 .gridHeader {
@@ -838,6 +854,21 @@ content {
 .headlineRight {
   display: flex;
   gap: 32px;
+}
+
+@media (max-width: 1200px) {
+  .taskGridContainer {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "todoHeader"
+      "todo"
+      "progressHeader"
+      "progress"
+      "feedbackHeader"
+      "feedback"
+      "doneHeader"
+      "done";
+  }
 }
 
 @media (min-width: 1200px) {
