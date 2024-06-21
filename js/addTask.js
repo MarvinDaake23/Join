@@ -34,6 +34,17 @@ function listenToEnterButtonAtSubtaskInputField() {
       // clean up
       inputField.value = "";
       subtaskCounter++;
+      console.log(subtaskCounter);
+    }
+  });
+}
+
+function listenToEnterButtonAtSubtaskInputEditField(subtaskCounter) {
+  let inputField = document.getElementById(`subtaskInput${subtaskCounter}`);
+  inputField.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      // Do work
+      saveSubtaskCVO(subtaskCounter);
     }
   });
 }
@@ -51,29 +62,32 @@ function renderSubtaskListEntry(inputValue) {
       </li>`;
 }
 
-function deleteSubtaskCVO(id) {
-  let subtask = document.getElementById(`subtask${id}`);
+function deleteSubtaskCVO(subtaskCounter) {
+  let subtask = document.getElementById(`subtask${subtaskCounter}`);
   document.getElementById("subtaskList").removeChild(subtask);
 }
 
-function editSubtaskCVO(id) {
-  let value = document.getElementById(`listEntry${id}`).innerHTML;
-  document.getElementById(`subtask${id}`).innerHTML = `
+function editSubtaskCVO(subtaskCounter) {
+  let value = document.getElementById(`listEntry${subtaskCounter}`).innerHTML;
+  document.getElementById(`subtask${subtaskCounter}`).innerHTML = `
               <div class="subtaskInputField">
-                <input id="subtaskInput${id}" value="${value}" form="" class="subtaskEdit" onblur="saveSubtaskCVO(${id})">
+                <input id="subtaskInput${subtaskCounter}" value="${value}" form="" class="subtaskEdit" onblur="saveSubtaskCVO(${subtaskCounter})">
                 <div>
-                  <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${id})">
-                  <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${id})">
+                  <!-- <img src="./assets/img/subtaskPen.svg" onclick="editSubtaskCVO(${subtaskCounter})">
+                  <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${subtaskCounter})"> -->
                 </div>
               </div>
               `;
 
-  document.getElementById(`subtaskInput${id}`).focus();
+  document.getElementById(`subtaskInput${subtaskCounter}`).focus();
+  listenToEnterButtonAtSubtaskInputEditField(subtaskCounter);
 }
 
-function saveSubtaskCVO(id) {
-  let inputValue = document.getElementById(`subtaskInput${id}`).value;
-  document.getElementById(`subtask${id}`).innerHTML =
+function saveSubtaskCVO(subtaskCounter) {
+  let inputValue = document.getElementById(
+    `subtaskInput${subtaskCounter}`
+  ).value;
+  document.getElementById(`subtask${subtaskCounter}`).innerHTML =
     renderSubtaskListEntry(inputValue);
 }
 
