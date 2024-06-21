@@ -778,20 +778,28 @@ content {
   margin-top: 32px;
 }
 
-.todo {
+#todo {
   grid-area: todo;
+  display: flex;
+  flex-direction: column;
 }
 
-.progress {
+#progress {
   grid-area: progress;
+  display: flex;
+  flex-direction: column;
 }
 
-.feedback {
+#feedback {
   grid-area: feedback;
+  display: flex;
+  flex-direction: column;
 }
 
-.done {
+#done {
   grid-area: done;
+  display: flex;
+  flex-direction: column;
 }
 
 #gridHeader1 {
@@ -858,16 +866,42 @@ content {
 
 @media (max-width: 1200px) {
   .taskGridContainer {
-    grid-template-columns: auto;
+    grid-template-columns: 396px auto;
     grid-template-areas:
-      "todoHeader"
-      "todo"
-      "progressHeader"
-      "progress"
-      "feedbackHeader"
-      "feedback"
-      "doneHeader"
-      "done";
+      "todoHeader ."
+      "todo todo"
+      "progressHeader ."
+      "progress progress"
+      "feedbackHeader ."
+      "feedback feedback"
+      "doneHeader ."
+      "done done";
+  }
+
+  #todo {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  #progress {
+    flex-direction: row;
+    gap: 16px;
+    width: 400px;
+  }
+
+  #feedback {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  #done {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .boardCard {
+    width: 252px;
+    height: 244px;
   }
 }
 
