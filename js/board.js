@@ -234,7 +234,7 @@ function allowDrop(ev) {
  */
 async function moveTo(category) {
   boardTasks[currentDraggedElement]["category"] = category;
-  updateHTML();
+  renderAllBoardTasks();
   // clear input field
   document.getElementById("findInput").value = "";
   // update Firebase!
@@ -254,7 +254,7 @@ async function done(j, i) {
     boardTasks[i]["finishedSubtasks"]--;
   }
   await putData("boardtasks", boardTasks);
-  updateHTML();
+  renderAllBoardTasks();
 }
 
 function loadProgressbar(index, subEndCount, finished) {
@@ -349,7 +349,7 @@ async function deleteTask(i) {
   // neu hochladen
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
-  updateHTML();
+  renderAllBoardTasks();
 }
 
 async function rendersubtask(i) {
