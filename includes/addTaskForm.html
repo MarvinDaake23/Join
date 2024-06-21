@@ -14,8 +14,8 @@
 
       <h4>Assigned to</h4>
       <input
-        placeholder="Select contacts to assign"
-        onclick="toggleContactList()"
+        placeholder="Select contacts to assign" id="assignedContactsInputField"
+        onclick="toggleContactList()" oninput="searchContacts()"
       />
       <ul class="dNone" id="contactList"></ul>
 

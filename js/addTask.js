@@ -23,6 +23,35 @@ async function onLoadAddTask() {
   listenToEnterButtonAtSubtaskInputField();
 }
 
+function searchContacts() {
+  let search = document
+    .getElementById("assignedContactsInputField")
+    .value.toLowerCase();
+  let allContacts = document.querySelectorAll(".contactWrapperItem");
+
+  if (search.length >= 1) {
+    //filter
+    contactQuery(search, allContacts);
+  } else {
+    // show all
+    loadContactList();
+  }
+}
+
+async function contactQuery(search, allContacts) {
+  allContacts.forEach((container) => {
+    let username = container
+      .querySelector("#userNameInList")
+      .innerText.toLowerCase();
+
+    if (username.includes(search)) {
+      container.style.display = "flex";
+    } else {
+      container.style.display = "none";
+    }
+  });
+}
+
 function listenToEnterButtonAtSubtaskInputField() {
   let inputField = document.getElementById("subtaskInput");
   inputField.addEventListener("keyup", function (event) {
@@ -134,6 +163,7 @@ function loadContactList() {
   // sort contacts by first name
   sortContacts();
   let contactWrapper = document.getElementById("contactList");
+  contactWrapper.innerHTML = "";
 
   // first shown contact: logged in user
   let idOfLoggedInUser = getIdOfLoggedInUser();
