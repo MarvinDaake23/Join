@@ -28,12 +28,16 @@ function listenToEnterButtonAtSubtaskInputField() {
     if (event.key === "Enter") {
       // Do work
       let inputValue = inputField.value;
-      document.getElementById("subtaskList").innerHTML +=
-        renderSubtaskListEntry(inputValue, subtaskCounter);
 
-      // clean up
-      inputField.value = "";
-      subtaskCounter++;
+      if (inputValue) {
+        // nur wenn was drinsteht
+        document.getElementById("subtaskList").innerHTML +=
+          renderSubtaskListEntry(inputValue, subtaskCounter);
+
+        // clean up
+        inputField.value = "";
+        subtaskCounter++;
+      }
     }
   });
 }
@@ -52,7 +56,7 @@ function renderSubtaskListEntry(inputValue, subtaskCounter) {
   return `
         <li id="subtask${subtaskCounter}">
         <div class="listEntry">
-          <span id="listEntry${subtaskCounter}">${inputValue}</span>
+          <span class="listEntrySpan" id="listEntry${subtaskCounter}">${inputValue}</span>
           <div>
             <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtaskCVO(${subtaskCounter})">
             <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${subtaskCounter})">
@@ -75,6 +79,12 @@ function showEditSubtaskCVO(subtaskCounter) {
               `;
 
   document.getElementById(`subtaskInput${subtaskCounter}`).focus();
+  // set cursor correct
+  document.getElementById(`subtaskInput${subtaskCounter}`).selectionStart =
+    document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
+  document.getElementById(`subtaskInput${subtaskCounter}`).selectionEnd =
+    document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
+
   listenToEnterButtonAtSubtaskInputEditField(subtaskCounter);
 }
 
@@ -82,19 +92,38 @@ function saveEdittedSubtaskCVO(subtaskCounter) {
   let inputValue = document.getElementById(
     `subtaskInput${subtaskCounter}`
   ).value;
-  document.getElementById(`subtask${subtaskCounter}`).innerHTML = `
+
+  if (inputValue) {
+    document.getElementById(`subtask${subtaskCounter}`).innerHTML = `
         <div class="listEntry">
-          <span id="listEntry${subtaskCounter}">${inputValue}</span>
+          <span class="listEntrySpan" id="listEntry${subtaskCounter}">${inputValue}</span>
           <div>
             <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtaskCVO(${subtaskCounter})">
             <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskCVO(${subtaskCounter})">
           </div>
         </div>
 `;
+  } else {
+    // emptry string
+    deleteSubtaskCVO(subtaskCounter);
+  }
 }
 
 function toggleContactList() {
   document.getElementById("contactList").classList.toggle("dNone");
+}
+
+function extractSubtasksForTask() {
+  let subtasks = [];
+  let list = document.querySelectorAll(".listEntrySpan");
+
+  for (let index = 0; index < list.length; index++) {
+    const element = list[index];
+
+    subtasks.push(element.innerHTML);
+  }
+
+  return subtasks;
 }
 
 /**
