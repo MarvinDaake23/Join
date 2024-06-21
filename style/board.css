@@ -12,17 +12,18 @@
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   animation-name: fadeIn;
   animation-duration: 0.4s;
+  align-items: center;
+  justify-content: center;
 }
 
 /* DESKTOP VIEW */
 #modalAddTask {
   padding: 50px;
-  margin: 70px auto;
+  margin: 0px auto;
   position: relative;
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
   box-sizing: border-box;
-  align-items: stretch;
   background-color: white;
   border-radius: 30px;
   box-sizing: border-box;
@@ -35,7 +36,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
 
 .headlineContainer {
   display: flex;

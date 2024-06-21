@@ -29,7 +29,7 @@ function showCheckboxes() {
 
 
 function showAddTask(column) {
-  document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalBackground").style.display = "flex";
   // update form
   document
     .getElementById("addTaskForm")
