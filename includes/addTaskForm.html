@@ -1,6 +1,6 @@
-<div>
-  <h2>Add task</h2>
-  <span
+<div class="headLine">
+  <h2>Add Task</h2>
+  <img src="./assets/img/close.svg" onclick="closeModal()" id="closeButton" />
 </div>
 
 <form id="addTaskForm" onsubmit="addTask(); return false;">
@@ -54,8 +54,7 @@
 
       <input id="subtaskInput" placeholder="Add new subtask" class form="" />
 
-      <ul id="subtaskList">
-      </ul>
+      <ul id="subtaskList"></ul>
     </div>
   </div>
   <div class="lower">

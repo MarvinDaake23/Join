@@ -30,6 +30,13 @@
   font-weight: 400;
 }
 
+#modalAddTask .headLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
 .headlineContainer {
   display: flex;
   position: relative;

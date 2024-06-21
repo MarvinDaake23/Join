@@ -13,6 +13,7 @@ let selectedTaskContacts = [];
 async function onLoadAddTask() {
   await includeHTML();
   updateHeaderInitials();
+  document.getElementById("closeButton").style.display = "none";
   contacts = await loadData("contacts");
   boardTasks = await loadData("boardtasks");
   loadContactList();
