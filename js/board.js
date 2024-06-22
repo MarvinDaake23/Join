@@ -81,6 +81,8 @@ function loadBoardBigContainer(i) {
 async function removeboardBigContainer() {
   document.getElementById("background").classList.add("d-none");
   document.getElementById("boardBigContainer").classList.add("d-none");
+  document.getElementById("modalShowTask").classList.remove("d-none");
+  document.getElementById("modalEditTask").classList.add("d-none");
   boardInit();
 }
 
@@ -436,11 +438,18 @@ function prioChoose(i) {
   }
 }
 
-async function showEditTask(id) {
+function showEditTask(id) {
   document.getElementById("modalShowTask").classList.add("d-none");
   document.getElementById("modalEditTask").classList.remove("d-none");
   document.getElementsByClassName("formVertLine")[1].classList.add("d-none");
   document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
+  document.getElementsByClassName("headLine")[1].style.display = "flex";
+  document.getElementsByClassName("headLine")[1].style.justifyContent = "flex-end"; 
+  document.getElementsByClassName("lowerSpans")[1].style.display = "none";
+
+  document.getElementsByClassName("inputTitle")[1].value = boardTasks[id].title;
+  document.getElementsByClassName("inputDescription")[1].value =
+    boardTasks[id].description;
 }
 
 async function editTaskOld(i) {
