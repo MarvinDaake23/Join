@@ -3,7 +3,6 @@ let doneBulian = false;
 let boardTasks = [];
 let currentDraggedElement;
 
-
 /**
  * function to initialize the board page
  */
@@ -14,7 +13,6 @@ async function boardInit() {
   contacts = await loadData("contacts");
   renderAllBoardTasks();
 }
-
 
 function showCheckboxes() {
   var checkboxes = document.getElementById("checkboxes");
@@ -27,17 +25,25 @@ function showCheckboxes() {
   }
 }
 
-
 function showAddTask(column) {
-  document.getElementById("modalBackground").style.display = "flex";
-  // update form
-  document
-    .getElementById("addTaskForm")
-    .setAttribute("onsubmit", `addTask(${column});return false;`);
-  prioChoose(1);
-  loadContactList();
-  document.getElementById("date").min = new Date().toLocaleDateString("fr-ca");
-  listenToEnterButtonAtSubtaskInputField();
+  // if in mobile view - switch page!
+  if (window.innerWidth < vwBreak) {
+    window.location.replace(
+      "addTask.html"
+    );
+  } else {
+    document.getElementById("modalBackground").style.display = "flex";
+    // update form
+    document
+      .getElementById("addTaskForm")
+      .setAttribute("onsubmit", `addTask(${column});return false;`);
+    prioChoose(1);
+    loadContactList();
+    document.getElementById("date").min = new Date().toLocaleDateString(
+      "fr-ca"
+    );
+    listenToEnterButtonAtSubtaskInputField();
+  }
 }
 
 function closeModal() {
@@ -295,7 +301,7 @@ async function taskQuery(search, boardTaskClass) {
       container.style.display = "flex";
     } else {
       container.style.display = "none";
-      // wie viele sind noch drin
+      // wie viele sind noch drin?
       checkIfEmptyContainer1();
       checkIfEmptyContainer2();
       checkIfEmptyContainer3();

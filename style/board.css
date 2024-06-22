@@ -16,6 +16,15 @@
   justify-content: center;
 }
 
+@keyframes slideInFromRightDesktop {
+  from {
+    right: -2000px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
 /* DESKTOP VIEW */
 #modalAddTask {
   padding: 50px;
@@ -876,6 +885,16 @@ content {
 }
 
 @media (max-width: 620px) {
+  #modalAddTask {
+    height: 80vh;
+    width: 80vw;
+    margin: 50px 0px;
+  }
+
+  .formVertLine {
+    display: none;
+  }
+
   #addButtonMobile {
     display: flex;
     width: 40px;
