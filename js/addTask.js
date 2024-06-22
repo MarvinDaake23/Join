@@ -196,10 +196,10 @@ function loadContactList() {
 function selectContacts(i) {
   if (selectedTaskContacts.indexOf(contacts[i]) == -1) {
     selectedTaskContacts.push(contacts[i]);
-    console.log(selectedTaskContacts);
+    //console.log(selectedTaskContacts);
   } else {
     selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
-    console.log(selectedTaskContacts);
+    //console.log(selectedTaskContacts);
   }
   loadContacts();
 }

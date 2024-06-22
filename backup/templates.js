@@ -8,21 +8,6 @@ function inputFocusInput() {
       `;
 }
 
-function renderContactWrapper(element, i) {
-  return /*html */ `
-            <li>
-                <label class="contactWrapperItem">
-                    <input type="checkbox" onchange="selectContacts(${i})">
-                    <div class="contactNameContainer">
-                        <span id="userNameInList">${element.firstName} ${element.lastName}</span>
-                        <div class="initials initSmall" style="background-color:${element.profileColor}">
-                            ${element.firstName[0]}${element.lastName[0]}
-                        </div>
-                    </div>
-                </label>
-            </li>
-    `;
-}
 
 
 function rendersubtaskTemplate(title, description, dueDate, i) {

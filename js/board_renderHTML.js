@@ -131,8 +131,4 @@ function renderBoardTaskPlaceholderDone() {
       `;
 }
 
-function renderSelectedContacts(element, i) {
-  return /*html */ `
-          <div style="background-color:${element["profileColor"]}" class="initials initSmall">${element["firstName"][0]}${element["lastName"][0]}</div>
-      `;
-}
+
