@@ -34,7 +34,7 @@ function searchContacts() {
     contactQuery(search, allContacts);
   } else {
     // show all
-    loadContactList();
+    //loadContactList(); > entfernt damit die checks nicht verschwinden
   }
 }
 
