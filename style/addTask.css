@@ -7,7 +7,7 @@ form {
 
 form .upper {
   display: flex;
-  gap: 50px;
+  /*gap: 50px;*/
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -17,6 +17,7 @@ form .lower {
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
+  flex-wrap: wrap;
 }
 
 form .red {
@@ -38,6 +39,7 @@ form .formVertLine {
 form input,
 form textarea,
 form select {
+  /*width: 440px;*/
   width: 440px;
   padding: 12px 21px 12px 21px;
   gap: 10px;
@@ -267,4 +269,14 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+  form .formVertLine {
+    display: none;
+  }
+
+  form .clearButton {
+    display: none;
+  }
 }
