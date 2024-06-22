@@ -358,86 +358,6 @@ async function deleteTask(i) {
   renderAllBoardTasks();
 }
 
-async function rendersubtask(i) {
-  let newTask = document.getElementById("boardBigContainer");
-  let title = boardTasks[i]["title"];
-  let description = boardTasks[i]["description"];
-  let dueDate = boardTasks[i]["dueDate"];
-  loadData("contacts");
-
-  direction =
-    "edit"; /* Change the direction for rendering the subtask, not from "AddTask" but to "board" view */
-  newTask.innerHTML = ``;
-  newTask.innerHTML = rendersubtaskTemplate(title, description, dueDate, i);
-  loadContacteditWrapper();
-  inputeditSelector();
-
-  subtasks.splice(0, subtasks.length);
-  for (let j = 0; j < boardTasks[i]["subtasks"].length; j++) {
-    let response = await fetch(
-      `${BASE_URL}boardtasks/${i}/subtasks/${j}/subtaskText.json`
-    );
-    let responseJson = await response.json();
-    subtasks.push(responseJson);
-  }
-
-  let sContacts = document.getElementById("selectedContacts");
-  for (let x = 0; x < selectedTaskContacts.length; x++) {
-    const element = selectedTaskContacts[x];
-    sContacts.innerHTML += renderSelectedContacts(element);
-  }
-
-  editrenderSubtaskList(i);
-}
-
-function editopenWrapper(i) {
-  let wrapperList = document.getElementById(`editwrapperList${i}`);
-  let wrapper = document.getElementById(`editwrapper${i}`);
-
-  if (wrapperList.classList.contains(`d-none`)) {
-    wrapperList.classList.remove(`d-none`);
-    document.getElementById(`editarrowUp${i}`).classList.remove(`d-none`);
-    document.getElementById(`editarrowDown${i}`).classList.add(`d-none`);
-    wrapper.classList.add(`openBorader`);
-    wrapperList.style.width = `${wrapper.offsetWidth}px`;
-    document
-      .getElementById(`editwrapper${i}`)
-      .classList.add("blueOutlineInput");
-  } else {
-    wrapperList.classList.add(`d-none`);
-    document.getElementById(`editarrowUp${i}`).classList.add(`d-none`);
-    document.getElementById(`editarrowDown${i}`).classList.remove(`d-none`);
-    wrapper.classList.remove(`openBorader`);
-    document
-      .getElementById(`editwrapper${i}`)
-      .classList.remove("blueOutlineInput");
-  }
-}
-
-function prioChoose(i) {
-  if (prioValue === i) {
-    prioValue = null;
-    resetPrioContainers();
-  } else {
-    prioValue = i;
-    resetPrioContainers();
-    if (prioValue === 2) {
-      document.getElementById("prio high").classList.add("highPrioBackground");
-      document
-        .getElementById("highPrioImg")
-        .classList.add("highPrioImageChange");
-    }
-    if (prioValue === 1) {
-      document.getElementById("prio med").classList.add("medPrioBackground");
-      document.getElementById("medPrioImg").classList.add("medPrioImageChange");
-    }
-    if (prioValue === 0) {
-      document.getElementById("prio low").classList.add("lowPrioBackground");
-      document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
-    }
-  }
-}
-
 function showEditTask(id) {
   document.getElementById("modalShowTask").classList.add("d-none");
   document.getElementById("modalEditTask").classList.remove("d-none");
@@ -468,72 +388,9 @@ async function editTask(id) {
   boardTasks[id].title = document.getElementsByClassName("titleId")[1].value;
   boardTasks[id].description =
     document.getElementsByClassName("descriptionId")[1].value;
+  boardTasks[id].dueDate = document.getElementsByClassName("dateId")[1].value;
+  boardTasks[id].type = document.getElementsByClassName("categoryId")[1].value;
+
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
-}
-
-async function editTaskOld(i) {
-  let edittitle = document.getElementById(`edittitle${i}`).value;
-  let editdescription = document.getElementById(`editdescription${i}`).value;
-  let editdate = document.getElementById(`editdate${i}`).value;
-  let prio = prios[prioValue];
-  let category = document.getElementById("category").value; //categorys[cat];
-
-  boardTasks[i].title = edittitle;
-  boardTasks[i].description = editdescription;
-  boardTasks[i].date = editdate;
-
-  /*  boardTasks[i].prio = prio;
- boardTasks[i].category = category; */
-  await putData("boardtasks", boardTasks);
-  boardInit();
-}
-
-function editInputFocus() {
-  let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
-  let editimgContainerSubtask = document.getElementById(
-    "editimgContainerSubtask"
-  );
-
-  editaddTaskinEditTask.classList.add("d-none");
-  editimgContainerSubtask.classList.remove("d-none");
-}
-
-function editInputBlur() {
-  let editaddTaskinEditTask = document.getElementById("editaddTaskinEditTask");
-  let editimgContainerSubtask = document.getElementById(
-    "editimgContainerSubtask"
-  );
-
-  editaddTaskinEditTask.classList.remove("d-none");
-  editimgContainerSubtask.classList.add("d-none");
-}
-
-async function editloadSubtaskList(i) {
-  subtask = document.getElementById("editsubtaskInput").value;
-  let json = {
-    subtaskText: subtask,
-    complete: false,
-  };
-  if (json) {
-    boardTasks[i].subtasks.push(json);
-  }
-  editrenderSubtaskList(i);
-  editinputClear();
-}
-
-function editrenderSubtaskList(i) {
-  let subtaskList = document.getElementById("editsubTasks");
-  subtaskList.innerHTML = ``;
-
-  for (let j = 0; j < boardTasks[i].subtasks.length; j++) {
-    subtaskList.innerHTML += subtaskListInput(
-      boardTasks[i].subtasks[j].subtaskText,
-      j
-    );
-  }
-}
-
-function editinputClear() {
-  document.getElementById("editsubtaskInput").value = "";
 }
