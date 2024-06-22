@@ -864,7 +864,24 @@ content {
   gap: 32px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 620px) {
+  content {
+    padding: 48px 16px !important;
+  }
+
+  .emptyPlaceholder {
+    width: 392px;
+  }
+
+  #addTaskButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  #addTaskButton span {
+    display: none;
+  }
+
   .taskGridContainer {
     grid-template-columns: 396px auto;
     grid-template-areas:
