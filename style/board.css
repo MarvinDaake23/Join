@@ -859,27 +859,49 @@ content {
   display: flex;
   align-items: center;
 }
+
 .headlineRight {
   display: flex;
   gap: 32px;
 }
 
+#addButtonMobile {
+  display: none;
+}
+
+.boardHeadLineMobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media (max-width: 620px) {
+  #addButtonMobile {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #2a3647;
+  }
+
+  #findInput {
+    width: 396px;
+    margin-top: 50px;
+  }
+
+  .boardHeadline {
+    display: block;
+  }
+
+  #addTaskButton {
+    display: none;
+  }
+
   content {
     padding: 48px 16px !important;
   }
 
   .emptyPlaceholder {
     width: 392px;
-  }
-
-  #addTaskButton {
-    width: 40px;
-    height: 40px;
-  }
-
-  #addTaskButton span {
-    display: none;
   }
 
   .taskGridContainer {
