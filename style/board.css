@@ -28,7 +28,7 @@
 /* DESKTOP VIEW */
 #modalAddTask {
   padding: 50px;
-  margin: 0px auto;
+  margin: 80px auto;
   position: relative;
   animation-name: slideInFromRightDesktop;
   animation-duration: 0.5s;
