@@ -28,9 +28,7 @@ function showCheckboxes() {
 function showAddTask(column) {
   // if in mobile view - switch page!
   if (window.innerWidth < vwBreak) {
-    window.location.replace(
-      "addTask.html"
-    );
+    window.location.replace("addTask.html");
   } else {
     document.getElementById("modalBackground").style.display = "flex";
     // update form
@@ -438,7 +436,16 @@ function prioChoose(i) {
   }
 }
 
-async function editTask(i) {
+async function editTask(id) {
+  document.getElementById("boardBigContainer").innerHTML = `
+        <div w3-include-html="./includes/addTaskForm.html"></div>
+  `;
+  await includeHTML();
+  document.getElementById("formVertLine").style.display = "none";
+
+}
+
+async function editTaskOld(i) {
   let edittitle = document.getElementById(`edittitle${i}`).value;
   let editdescription = document.getElementById(`editdescription${i}`).value;
   let editdate = document.getElementById(`editdate${i}`).value;
