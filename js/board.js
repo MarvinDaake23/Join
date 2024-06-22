@@ -441,15 +441,35 @@ function prioChoose(i) {
 function showEditTask(id) {
   document.getElementById("modalShowTask").classList.add("d-none");
   document.getElementById("modalEditTask").classList.remove("d-none");
-  document.getElementsByClassName("formVertLine")[1].classList.add("d-none");
+  document.getElementsByClassName("formVertLineId")[1].classList.add("d-none");
   document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
   document.getElementsByClassName("headLine")[1].style.display = "flex";
-  document.getElementsByClassName("headLine")[1].style.justifyContent = "flex-end"; 
+  document.getElementsByClassName("headLine")[1].style.justifyContent =
+    "flex-end";
+  document.getElementsByClassName("lower")[1].style.justifyContent = "flex-end";
+  document.getElementsByClassName("upper")[1].style.gap = "0px";
+  ("flex-end");
   document.getElementsByClassName("lowerSpans")[1].style.display = "none";
+  document.getElementsByClassName("clearButton")[1].style.display = "none";
+  document.getElementsByClassName("createButton")[1].innerHTML = "Edit Task";
 
-  document.getElementsByClassName("inputTitle")[1].value = boardTasks[id].title;
-  document.getElementsByClassName("inputDescription")[1].value =
+  document
+    .getElementsByClassName("addTaskFormId")[1]
+    .setAttribute("onsubmit", `editTask(${id});return false;`);
+
+  document.getElementsByClassName("titleId")[1].value = boardTasks[id].title;
+  document.getElementsByClassName("descriptionId")[1].value =
     boardTasks[id].description;
+  document.getElementsByClassName("dateId")[1].value = boardTasks[id].dueDate;
+  document.getElementsByClassName("categoryId")[1].value = boardTasks[id].type;
+}
+
+async function editTask(id) {
+  boardTasks[id].title = document.getElementsByClassName("titleId")[1].value;
+  boardTasks[id].description =
+    document.getElementsByClassName("descriptionId")[1].value;
+  await putData("boardtasks", boardTasks);
+  removeboardBigContainer();
 }
 
 async function editTaskOld(i) {

@@ -1,9 +1,9 @@
 <div class="headLine">
   <h2 class="addTaskHeadline">Add Task</h2>
-  <img src="./assets/img/close.svg" onclick="closeModal()" id="closeButton" />
+  <img src="./assets/img/close.svg" onclick="closeModal()" id="closeButton" class="closeButtonId"/>
 </div>
 
-<form id="addTaskForm" onsubmit="addTask(); return false;">
+<form id="addTaskForm" class="addTaskFormId" onsubmit="addTask(); return false;">
   <div class="upper">
     <div class="left">
       <h4>Title<span class="red">*</span></h4>
@@ -11,12 +11,12 @@
         required
         placeholder="Enter a title"
         id="title"
-        class="inputTitle"
+        class="titleId"
       />
 
       <h4>Description</h4>
       <textarea
-        class="inputDescription"
+        class="descriptionId"
         id="description"
         placeholder="Enter a description"
       ></textarea>
@@ -25,37 +25,38 @@
       <input
         placeholder="Select contacts to assign"
         id="assignedContactsInputField"
+        class="assignedContactsInputFieldId"
         onclick="toggleContactList()"
         oninput="showContactList();searchContacts()"
       />
-      <ul class="dNone" id="contactList"></ul>
+      <ul class="dNone contactListId" id="contactList"></ul>
 
-      <div id="selectedContacts"></div>
+      <div class="selectedContactsId" id="selectedContacts"></div>
     </div>
-    <div id="formVertLine" class="formVertLine"></div>
+    <div id="formVertLine" class="formVertLineId"></div>
     <div class="right">
       <h4>Due date<span class="red">*</span></h4>
-      <input required type="date" id="date" max="2030-12-31" />
+      <input required type="date" id="date" class="dateId" max="2030-12-31" />
 
       <h4>Prio</h4>
 
       <div class="prioChoose">
         <div onclick="prioChoose(2)" id="prio high" class="high prioContainer">
           <span>Urgent</span>
-          <div id="highPrioImg" class="highPrioImg"></div>
+          <div id="highPrioImg" class="highPrioImg highPrioImgId"></div>
         </div>
         <div onclick="prioChoose(1)" id="prio med" class="med prioContainer">
           <span>Medium</span>
-          <div id="medPrioImg" class="medPrioImg"></div>
+          <div id="medPrioImg" class="medPrioImg medPrioImgId"></div>
         </div>
         <div onclick="prioChoose(0)" id="prio low" class="low prioContainer">
           <span>Low</span>
-          <div id="lowPrioImg" class="lowPrioImg"></div>
+          <div id="lowPrioImg" class="lowPrioImg lowPrioImgId"></div>
         </div>
       </div>
 
       <h4>Category<span class="red">*</span></h4>
-      <select id="category" name="category" required>
+      <select id="category" name="category" class="categoryId" required>
         <option value="">Select task category</option>
         <option value="User Story">User Story</option>
         <option value="Technical Task">Technical Task</option>
@@ -63,9 +64,9 @@
 
       <h4>Subtasks</h4>
 
-      <input id="subtaskInput" placeholder="Add new subtask" class form="" />
+      <input id="subtaskInput" class="subtaskInputId" placeholder="Add new subtask" class form="" />
 
-      <ul id="subtaskList"></ul>
+      <ul id="subtaskList" class="subtaskListId"></ul>
     </div>
   </div>
   <div class="lower">
