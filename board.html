@@ -18,7 +18,6 @@
     <script src="./js/addTask.js"></script>
     <script src="./js/addTask_renderHTML.js"></script>
     <script src="./js/contacts.js"></script>
-    
   </head>
   <body class="board" id="body" onload="boardInit()">
     <!-- Modal Background -->
@@ -108,7 +107,11 @@
         ></div>
       </div>
 
-      <div class="boardBigContainer d-none" id="boardBigContainer"></div>
+      <div id="boardBigContainer" class="boardBigContainer d-none">
+        <div id="modalShowTask"></div>
+        <div id="modalEditTask" class="d-none" w3-include-html="./includes/addTaskForm.html"
+        ></div>
+      </div>
     </content>
 
     <mobile-footer

@@ -39,6 +39,7 @@ function renderBoardTaskContacts(element) {
 
 function renderBoardBigContainer(i) {
   return /*html */ `
+                <div id="showBigTask">
               <div class="boardBigContainerHeader">
                   <div class="boardBigContainerType ${boardTasks[i]["type"]
                     .split(" ")
@@ -83,9 +84,10 @@ function renderBoardBigContainer(i) {
               <div class="boardBigContainerFooter">
                   <div onclick="deleteTask(${i})"><img src="./assets/img/delete.png">Delete</div>
                   <div class="seperator"></div>
-                  <div onclick="editTask(${i})"><img src="./assets/img/edit.png">Edit</div>
+                  <div onclick="showEditTask(${i})"><img src="./assets/img/edit.png">Edit</div>
                   <div>
               </div>
+                        </div>
       `;
 }
 
@@ -130,5 +132,3 @@ function renderBoardTaskPlaceholderDone() {
           <div id="donePlaceholder" class="emptyPlaceholder">No Task done</div>
       `;
 }
-
-

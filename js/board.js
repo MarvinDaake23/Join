@@ -71,7 +71,7 @@ function inputeditSelector() {
  * function to render the large view of the task
  */
 function loadBoardBigContainer(i) {
-  let bigContainer = document.getElementById("boardBigContainer");
+  let bigContainer = document.getElementById("modalShowTask");
   bigContainer.innerHTML = renderBoardBigContainer(i);
   loadBoardBigContainerLists(i);
   document.getElementById("background").classList.remove("d-none");
@@ -436,16 +436,11 @@ function prioChoose(i) {
   }
 }
 
-async function editTask(id) {
-  document.getElementById("boardBigContainer").innerHTML = `
-        <div w3-include-html="./includes/addTaskForm.html"></div>
-  `;
-  await includeHTML();
-  sleep(500).then(() => {
-    document.getElementById("formVertLine").style.display = "none";
-    document.getElementById("addTaskHeadline").style.display = "none";
-    console.log("dsg");
-  });
+async function showEditTask(id) {
+  document.getElementById("modalShowTask").classList.add("d-none");
+  document.getElementById("modalEditTask").classList.remove("d-none");
+  document.getElementsByClassName("formVertLine")[1].classList.add("d-none");
+  document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
 }
 
 async function editTaskOld(i) {
