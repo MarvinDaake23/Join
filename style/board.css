@@ -354,16 +354,16 @@
 
 .boardBigContainerType {
   color: white;
-  font-size: 12px;
+  font-size: 23px;
   font-weight: 400;
-  width: 65px;
+  /*width: 65px;*/
   border-radius: 8px;
   padding: 4px 16px 4px 16px;
 }
 
 .boardBigContainerClose {
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   padding: 5px;
 }
 
@@ -467,8 +467,8 @@
 }
 
 .editConatiner img {
-  width: 16px;
-  height: 16px;
+  width: 24x;
+  height: 24px;
   padding: 4px;
 }
 
