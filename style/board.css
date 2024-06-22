@@ -457,24 +457,28 @@
   height: 20px;
 }
 
-.editConatiner {
+.boardBigContainerFooter {
   display: flex;
-  flex-direction: row;
   justify-content: end;
+  gap: 4px;
   font-size: 16px;
   align-items: center;
-  padding-top: 12px;
+  align-items: center;
 }
 
-.editConatiner img {
-  width: 24x;
-  height: 24px;
-  padding: 4px;
+.boardBigContainerFooter div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
 }
 
-.editText {
-  margin-right: 8px;
+.boardBigContainerFooter img {
+  width: 14x;
+  height: 14px;
 }
+
+
 
 .contactName {
   padding-left: 8px;
@@ -734,10 +738,8 @@
   border-radius: 10px;
 }
 
-.editContainer {
-  height: 500px;
-  overflow-y: auto;
-}
+
+
 
 .editConatinerBackground {
   padding-bottom: 70px;
