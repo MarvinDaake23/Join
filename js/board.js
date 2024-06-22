@@ -441,8 +441,11 @@ async function editTask(id) {
         <div w3-include-html="./includes/addTaskForm.html"></div>
   `;
   await includeHTML();
-  document.getElementById("formVertLine").style.display = "none";
-
+  sleep(500).then(() => {
+    document.getElementById("formVertLine").style.display = "none";
+    document.getElementById("addTaskHeadline").style.display = "none";
+    console.log("dsg");
+  });
 }
 
 async function editTaskOld(i) {
