@@ -441,6 +441,7 @@ function showEditTask(id) {
   updateAddTaskFormToEditTask(id);
   document.getElementsByClassName("dateId")[1].min = new Date().toLocaleDateString("fr-ca");
   fillEditTaskFormWithValues(id);
+  listenToEnterButtonAtSubtaskInputFieldEditTask();
 }
 
 async function editTask(id) {
@@ -530,3 +531,21 @@ function loadContactListForEditTask() {
 }
 
 /* SUBTASKS */
+function listenToEnterButtonAtSubtaskInputFieldEditTask() {
+  let inputField = document.getElementsByClassName("subtaskInputId")[1];
+  inputField.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      // Do work
+      let inputValue = inputField.value;
+
+      if (inputValue) {
+        // nur wenn was drinsteht
+        document.getElementsByClassName("subtaskListId")[1].innerHTML += renderSubtaskListEntry(inputValue, subtaskCounter);
+
+        // clean up
+        inputField.value = "";
+        subtaskCounter++;
+      }
+    }
+  });
+}
