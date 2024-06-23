@@ -471,7 +471,6 @@ function loadContactListForEditTask() {
   // nur wenns kein Gast ist
   if (idOfLoggedInUser !== undefined) {
     let checked = checkIfContactIsSelected(idOfLoggedInUser);
-    console.log(checked);
     contactWrapper.innerHTML += renderContactWrapperForEditTask(contacts[idOfLoggedInUser], idOfLoggedInUser, checked);
     // add: ME
     document.getElementById("userNameInList").innerHTML += " (Me)";
