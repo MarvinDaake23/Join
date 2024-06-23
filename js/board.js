@@ -348,7 +348,6 @@ function showContactListForEditTask() {
   document.getElementsByClassName("contactListId")[1].classList.remove("dNone");
 }
 
-
 function prioChooseForEditTask(i) {
   resetPrioContainersForEditTask();
   if (i === 2) {
@@ -401,7 +400,10 @@ function fillEditTaskFormWithValues(id) {
   prioSelectForEditTask(prio);
 
   selectedTaskContacts = boardTasks[id].assignedTo;
-  showSelectedContactsForEditTask();
+
+  if (selectedTaskContacts !== undefined) {
+    showSelectedContactsForEditTask();
+  }
 
   // contact list reinladen mit bereits angeklickten!
   loadContactListForEditTask();
@@ -431,6 +433,11 @@ function selectContactsForEditTask(i) {
   let firstName = contacts[i].firstName;
   let lastName = contacts[i].lastName;
 
+  /* wenn undefined leer anlegen */
+  if (selectedTaskContacts === undefined) {
+    selectedTaskContacts = [];
+  }
+
   let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
 
   if (index == -1) {
@@ -438,19 +445,21 @@ function selectContactsForEditTask(i) {
     selectedTaskContacts.push(contacts[i]);
   } else {
     //selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
-    selectedTaskContacts.splice(index,1);
+    selectedTaskContacts.splice(index, 1);
   }
   showSelectedContactsForEditTask(); // render them!
 }
 
 function checkIfContactIsSelected(id) {
-  let firstName = contacts[id].firstName;
-  let lastName = contacts[id].lastName;
-  let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
-  if (index == -1) {
-    return "";
-  } else {
-    return "checked";
+  if (selectedTaskContacts !== undefined) {
+    let firstName = contacts[id].firstName;
+    let lastName = contacts[id].lastName;
+    let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
+    if (index == -1) {
+      return "";
+    } else {
+      return "checked";
+    }
   }
 }
 
@@ -459,9 +468,12 @@ function showSelectedContactsForEditTask() {
 
   sContacts.innerHTML = "";
 
-  for (let i = 0; i < selectedTaskContacts.length; i++) {
-    const element = selectedTaskContacts[i];
-    sContacts.innerHTML += renderSelectedContacts(element);
+  if (selectedTaskContacts !== undefined) {
+    // only when some are there
+    for (let i = 0; i < selectedTaskContacts.length; i++) {
+      const element = selectedTaskContacts[i];
+      sContacts.innerHTML += renderSelectedContacts(element);
+    }
   }
 }
 
