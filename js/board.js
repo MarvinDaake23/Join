@@ -31,6 +31,7 @@ function showAddTask(column) {
     document.getElementById("modalBackground").style.display = "flex";
     // update form
     document.getElementById("addTaskForm").setAttribute("onsubmit", `addTask(${column});return false;`);
+    selectedTaskContacts = [];
     prioChoose(1);
     loadContactList();
     document.getElementById("date").min = new Date().toLocaleDateString("fr-ca");
@@ -319,6 +320,33 @@ async function deleteTask(i) {
   renderAllBoardTasks();
 }
 
+
+function loadContactListForEditTask() {
+  // sort contacts by first name
+  sortContacts();
+  let contactWrapper = document.getElementsByClassName("contactListId")[1];
+  contactWrapper.innerHTML = "";
+
+  // first shown contact: logged in user
+  let idOfLoggedInUser = getIdOfLoggedInUser();
+
+  // nur wenns kein Gast ist
+  if (idOfLoggedInUser !== undefined) {
+    contactWrapper.innerHTML += renderContactWrapper(contacts[idOfLoggedInUser], idOfLoggedInUser);
+    // add: ME
+    document.getElementById("userNameInList").innerHTML += " (Me)";
+  }
+
+  for (let i = 0; i < contacts.length; i++) {
+    if (i != idOfLoggedInUser) {
+      const element = contacts[i];
+      contactWrapper.innerHTML += renderContactWrapper(element, i);
+    }
+  }
+}
+
+
+
 function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("formVertLineId")[1].classList.add("d-none");
   document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
@@ -329,12 +357,17 @@ function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("lowerSpans")[1].style.display = "none";
   document.getElementsByClassName("clearButton")[1].style.display = "none";
   document.getElementsByClassName("lower")[1].style.justifyContent = "flex-end";
-  document.getElementsByClassName("upper")[1].style.gap = "0px";
+  document.getElementsByClassName("upper")[1].style.gap = "20px"; // instead of 50px
   document.getElementsByClassName("closeButtonId")[1].setAttribute("onclick", "removeboardBigContainer()");
+  document.getElementsByClassName("assignedContactsInputFieldId")[1].setAttribute("onclick", "toggleContactListForEditTask()");
 
   document.getElementsByClassName("prioLowId")[1].setAttribute("onclick", "prioChooseForEditTask(0)");
   document.getElementsByClassName("prioMedId")[1].setAttribute("onclick", "prioChooseForEditTask(1)");
   document.getElementsByClassName("prioHighId")[1].setAttribute("onclick", "prioChooseForEditTask(2)");
+}
+
+function toggleContactListForEditTask() {
+  document.getElementsByClassName("contactListId")[1].classList.toggle("dNone");
 }
 
 function prioChooseForEditTask(i) {
@@ -387,6 +420,19 @@ function fillEditTaskFormWithValues(id) {
 
   let prio = boardTasks[id].priority;
   prioSelectForEditTask(prio);
+
+  selectedTaskContacts = boardTasks[id].assignedTo;
+  renderSelectedContactsForEditTask();
+  loadContactListForEditTask();
+}
+
+function renderSelectedContactsForEditTask() {
+  let sContacts = document.getElementsByClassName("selectedContactsId")[1];
+  sContacts.innerHTML = "";
+  for (let i = 0; i < selectedTaskContacts.length; i++) {
+    const element = selectedTaskContacts[i];
+    sContacts.innerHTML += renderSelectedContacts(element);
+  }
 }
 
 function showEditTask(id) {
