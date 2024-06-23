@@ -14,11 +14,11 @@ function renderContactWrapper(element, i) {
       `;
 }
 
-function renderContactWrapperForEditTask(element, i) {
+function renderContactWrapperForEditTask(element, i, checked) {
     return /*html */ `
                 <li>
                     <label class="contactWrapperItem">
-                        <input type="checkbox" onchange="selectContactsForEditTask(${i})">
+                        <input type="checkbox" ${ checked } onchange="selectContactsForEditTask(${i})">
                         <div class="contactNameContainer">
                             <span id="userNameInList">${element.firstName} ${element.lastName}</span>
                             <div class="initials initSmall" style="background-color:${element.profileColor}">

@@ -437,10 +437,14 @@ function selectContactsForEditTask(i) {
 }
 
 function checkIfContactIsSelected(id) {
-  let firstName = contacts[i].firstName;
-  let lastName = contacts[i].lastName;
+  let firstName = contacts[id].firstName;
+  let lastName = contacts[id].lastName;
   let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
-  return index;
+  if (index == -1) {
+    return "";
+  } else {
+    return "checked";
+  }
 }
 
 function showSelectedContactsForEditTask() {
@@ -465,7 +469,9 @@ function loadContactListForEditTask() {
 
   // nur wenns kein Gast ist
   if (idOfLoggedInUser !== undefined) {
-    contactWrapper.innerHTML += renderContactWrapperForEditTask(contacts[idOfLoggedInUser], idOfLoggedInUser);
+    let checked = checkIfContactIsSelected(idOfLoggedInUser);
+    console.log(checked);
+    contactWrapper.innerHTML += renderContactWrapperForEditTask(contacts[idOfLoggedInUser], idOfLoggedInUser, checked);
     // add: ME
     document.getElementById("userNameInList").innerHTML += " (Me)";
   }
@@ -473,7 +479,8 @@ function loadContactListForEditTask() {
   for (let i = 0; i < contacts.length; i++) {
     if (i != idOfLoggedInUser) {
       const element = contacts[i];
-      contactWrapper.innerHTML += renderContactWrapperForEditTask(element, i);
+      let checked = checkIfContactIsSelected(i);
+      contactWrapper.innerHTML += renderContactWrapperForEditTask(element, i, checked);
     }
   }
 }
