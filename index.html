@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join: Log-in</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="stylesheet" href="./style/logIn.css" />
+    <script src="./js/script.js"></script>
+    <script src="./js/logIn.js"></script>
+    <script src="./js/logIn_renderHTML.js"></script>
+  </head>
+
+  <body onload="onloadFunction()">
+    <div id="whiteB" class="whiteBackground"></div>
+    <img id="icon" class="icon" src="../assets/img/join-icon-blue.png" />
+
+    <div id="signUpSection" class="signUpSection">
+      <span class="noUser">Not a Join user?</span>
+      <button class="signInButton hover" onclick="showSignUp()">Sign up</button>
+    </div>
+
+    <div id="middleSection"></div>
+
+    <div class="informationSection">
+      <a
+        id="privacyLink"
+        href="privacyPolicyExternal.html"
+        target="_blank"
+        class="hover"
+        >Privacy Policy</a
+      >
+      <a
+        id="legalLink"
+        href="legalNoticeExternal.html"
+        target="_blank"
+        class="hover"
+        >Legal notice</a
+      >
+    </div>
+  </body>
+</html>

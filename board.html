@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join: Board</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="./style/board.css" />
+    <link rel="stylesheet" href="./style/style_general.css" />
+    <link rel="stylesheet" href="./style/addTask.css" />
+
+    <!-- scripts -->
+    <script src="./js/script.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/board_renderHTML.js"></script>
+    <script src="./js/addTask.js"></script>
+    <script src="./js/addTask_renderHTML.js"></script>
+    <script src="./js/contacts.js"></script>
+  </head>
+  <body class="board" id="body" onload="boardInit()">
+    <!-- Modal Background -->
+    <div id="modalBackground">
+      <!-- Modal content: Add task -->
+      <div
+        id="modalAddTask"
+        w3-include-html="./includes/addTaskForm.html"
+      ></div>
+    </div>
+
+    <div
+      onclick="removeboardBigContainer()"
+      id="background"
+      class="background d-none"
+    ></div>
+
+    <sidebar
+      class="sidebar"
+      w3-include-html="./includes/sidebar.html"
+    ></sidebar>
+
+    <mobile-header
+      w3-include-html="./includes/mobile-header.html"
+    ></mobile-header>
+
+    <header w3-include-html="./includes/header.html"></header>
+
+    <content>
+      <div class="boardHeadline">
+        <div class="boardHeadLineMobile">
+          <h2>Board</h2>
+          <button onclick="showAddTask()" id="addButtonMobile">
+            <img src="./assets/img/add.svg" />
+          </button>
+        </div>
+        <div class="headlineRight">
+          <input
+            class="searchIcon"
+            id="findInput"
+            type="text"
+            placeholder="Find Task"
+            oninput="searchTask()"
+          />
+          <button id="addTaskButton" onclick="showAddTask()">
+            <span>Add task</span><img src="./assets/img/add.svg" />
+          </button>
+        </div>
+      </div>
+
+      <div class="taskGridContainer">
+        <div id="gridHeader1" class="gridHeader">
+          <span>To do</span>
+          <div class="addButton" onclick="showAddTask(1)"></div>
+        </div>
+        <div id="gridHeader2" class="gridHeader">
+          <span>In progress</span>
+          <div class="addButton" onclick="showAddTask(2)"></div>
+        </div>
+        <div id="gridHeader3" class="gridHeader">
+          <span>Await feedback</span>
+          <div class="addButton" onclick="showAddTask(3)"></div>
+        </div>
+        <div id="gridHeader4" class="gridHeader">
+          <span>Done</span>
+          <div class="addButton" onclick="showAddTask(4)"></div>
+        </div>
+        <div
+          id="todo"
+          ondrop="moveTo('todo')"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="progress"
+          ondrop="moveTo('progress')"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="feedback"
+          ondrop="moveTo('feedback')"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="done"
+          ondrop="moveTo('done')"
+          ondragover="allowDrop(event)"
+        ></div>
+      </div>
+
+      <div id="boardBigContainer" class="boardBigContainer d-none">
+        <div id="modalShowTask"></div>
+        <div id="modalEditTask" class="d-none" w3-include-html="./includes/addTaskForm.html"
+        ></div>
+      </div>
+    </content>
+
+    <mobile-footer
+      w3-include-html="./includes/mobile-footer.html"
+    ></mobile-footer>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join: Contacts</title>
+    <!-- general style + favicon -->
+    <link rel="stylesheet" href="./style/style_general.css" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- general Scripts -->
+    <script src="./js/script.js"></script>
+    <!-- style for this page-->
+    <link rel="stylesheet" href="./style/contacts.css" />
+    <link rel="stylesheet" href="./style/contacts_modal.css" />
+    <!-- scripts for this page -->
+    <script src="./js/contacts.js"></script>
+    <script src="./js/contacts_renderHTML.js"></script>
+  </head>
+
+  <body class="contacts" id="body" onload="onLoadFunc()">
+    <!-- Modal Background -->
+    <div id="modalBackground">
+      <!-- Modal content: Add/Edit contact -->
+      <div
+        id="modalAddOrEditContact"
+        w3-include-html="./includes/modalAddOrEditContact.html"
+      ></div>
+    </div>
+
+    <sidebar w3-include-html="./includes/sidebar.html"></sidebar>
+
+    <mobile-header
+      w3-include-html="./includes/mobile-header.html"
+    ></mobile-header>
+
+    <header w3-include-html="/includes/header.html"></header>
+
+    <list>
+      <!-- zunächst display:none -->
+      <div id="contactSingleViewMobile"></div>
+
+      <div id="contactContainerOuter">
+        <div id="contactContainer"></div>
+      </div>
+
+      <img
+        onclick="showAddContact()"
+        class="moreButton"
+        id="addContactButtonMobile"
+        src="./assets/img/addcontact1.png"
+      />
+    </list>
+
+    <content>
+      <div class="headline">
+        <h1>Contacts</h1>
+        <h2>Better with a team</h2>
+      </div>
+
+      <div id="contactSingleView"></div>
+    </content>
+
+    <mobile-footer
+      w3-include-html="/includes/mobile-footer.html"
+    ></mobile-footer>
+  </body>
+</html>

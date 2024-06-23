@@ -1,0 +1,282 @@
+form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  max-width: 981px;
+}
+
+form .upper {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+form .lower {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+form .red {
+  color: #ff8190;
+}
+
+form h4 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 8px;
+  margin-top: 0px;
+}
+
+form .formVertLine {
+  border-left: 1px solid #d1d1d1;
+  height: 424px;
+}
+
+form input,
+form textarea,
+form select {
+  /*width: 440px;*/
+  width: 440px;
+  padding: 12px 21px 12px 21px;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: white;
+}
+
+form input {
+  height: 48px;
+}
+
+form textarea {
+  height: 120px;
+}
+
+/* SELECT CONTACTS */
+
+.dNone {
+  display: none;
+}
+
+#contactList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: -16px;
+  /*position: fixed;*/
+  width: 440px;
+}
+
+#contactList input {
+  width: auto;
+}
+
+.wrapperContactList {
+  width: 100%;
+  height: 300px;
+  background-color: #2a3647;
+}
+
+.contactWrapperItem {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 7px 16px 7px 0px;
+}
+
+.contactWrapperItem:hover {
+  background-color: #f5f5f5;
+}
+
+.contactNameContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 8px;
+  padding-left: 16px;
+}
+
+.initials:hover {
+  color: white;
+}
+
+#selectedContacts {
+  display: flex;
+  gap: 4px;
+}
+
+/* PRIO STUFF */
+
+.prioContainer {
+  width: 136px;
+  height: 56px;
+  padding: 16px 10px 16px 10px;
+  gap: 8px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  background-color: white;
+}
+
+.prioChoose {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.lowPrioImg {
+  background-image: url("../assets/img/prioLow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.medPrioImg {
+  background-image: url("../assets/img/prioMedium.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.highPrioImg {
+  background-image: url("../assets/img/prioHigh.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 14px;
+}
+
+.high:hover,
+.low:hover,
+.med:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.highPrioBackground {
+  background-color: #ff3d00;
+  color: white;
+  font-weight: 700;
+}
+
+.highPrioImageChange {
+  background-image: url("../assets/img/prioHighHighlight.png");
+}
+
+.medPrioBackground {
+  background-color: #ffa800;
+  color: white;
+  font-weight: 700;
+}
+
+.medPrioImageChange {
+  background-image: url("../assets/img/prioMediumHighlight.png");
+}
+
+.lowPrioBackground {
+  background-color: #7ae229;
+  color: white;
+  font-weight: 700;
+}
+
+.lowPrioImageChange {
+  background-image: url("../assets/img/prioLowHighlight.png");
+}
+
+/* button unten */
+button {
+  height: 56px;
+  padding: 16px;
+  gap: 4px;
+  border-radius: 10px;
+  font-size: 20px;
+  border: 1px solid #2a3647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.clearButton {
+  width: 110px;
+  font-weight: 400;
+  background-color: #f6f7f8;
+}
+
+.createButton {
+  width: 183px;
+  background-color: #2a3647;
+  font-weight: 700;
+  color: white;
+}
+
+.buttonPair {
+  display: flex;
+  gap: 16px;
+}
+
+/* subtask stuff */
+
+.listEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#subtaskList {
+  margin: 0;
+  margin-top: -8px;
+}
+
+.listEntry img {
+  cursor: pointer;
+}
+
+.subtaskEdit {
+  border: none;
+  width: 85%;
+  font-size: 16px;
+  height: 28px;
+  padding: 0px;
+  padding-left: 8px;
+  margin: 0px;
+}
+
+.subtaskInputField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+  form .formVertLine {
+    display: none;
+  }
+
+  form .clearButton {
+    display: none;
+  }
+}

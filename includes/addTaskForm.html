@@ -1,0 +1,96 @@
+<div class="headLine">
+  <h2 class="addTaskHeadline">Add Task</h2>
+  <img
+    src="./assets/img/close.svg"
+    onclick="closeModal()"
+    id="closeButton"
+    class="closeButtonId"
+  />
+</div>
+
+<form
+  id="addTaskForm"
+  class="addTaskFormId"
+  onsubmit="addTask(); return false;"
+>
+  <div class="upper">
+    <div class="left">
+      <h4>Title<span class="red">*</span></h4>
+      <input required placeholder="Enter a title" id="title" class="titleId" />
+
+      <h4>Description</h4>
+      <textarea
+        class="descriptionId"
+        id="description"
+        placeholder="Enter a description"
+      ></textarea>
+
+      <h4>Assigned to</h4>
+      <input
+        placeholder="Select contacts to assign"
+        id="assignedContactsInputField"
+        class="assignedContactsInputFieldId"
+        onclick="toggleContactList()"
+        oninput="showContactList();searchContacts()"
+      />
+      <ul class="dNone contactListId" id="contactList"></ul>
+
+      <div class="selectedContactsId" id="selectedContacts"></div>
+    </div>
+    <div id="formVertLine" class="formVertLineId"></div>
+    <div class="right">
+      <h4>Due date<span class="red">*</span></h4>
+      <input required type="date" id="date" class="dateId" max="2030-12-31" />
+
+      <h4>Prio</h4>
+
+      <div class="prioChoose">
+        <div
+          onclick="prioChoose(2)" id="prioHigh" class="high prioContainer prioHighId">
+          <span>Urgent</span>
+          <div id="highPrioImg" class="highPrioImg highPrioImgId"></div>
+        </div>
+        <div onclick="prioChoose(1)" id="prioMed" class="med prioContainer prioMedId">
+          <span>Medium</span>
+          <div id="medPrioImg" class="medPrioImg medPrioImgId"></div>
+        </div>
+        <div onclick="prioChoose(0)" id="prioLow" class="low prioContainer prioLowId">
+          <span>Low</span>
+          <div id="lowPrioImg" class="lowPrioImg lowPrioImgId"></div>
+        </div>
+      </div>
+
+      <h4>Category<span class="red">*</span></h4>
+      <select id="category" name="category" class="categoryId" required>
+        <option value="">Select task category</option>
+        <option value="User Story">User Story</option>
+        <option value="Technical Task">Technical Task</option>
+      </select>
+
+      <h4>Subtasks</h4>
+
+      <input
+        id="subtaskInput"
+        class="subtaskInputId"
+        placeholder="Add new subtask"
+        class
+        form=""
+      />
+
+      <ul id="subtaskList" class="subtaskListId"></ul>
+    </div>
+  </div>
+  <div class="lower">
+    <span class="lowerSpans"
+      ><span class="red">*</span>This field is required</span
+    >
+    <div class="buttonPair">
+      <button class="clearButton" type="reset">
+        Clear<img src="./assets/img/cancel.svg" />
+      </button>
+      <button class="createButton" type="submit">
+        Create task<img src="./assets/img/check.svg" />
+      </button>
+    </div>
+  </div>
+</form>

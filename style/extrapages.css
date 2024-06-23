@@ -1,0 +1,46 @@
+/* head CSS für den head bereich Help, Privacy Policy, Legal Notice und Home-Button*/
+
+.headAreaHelpPrivacyPolicyLegalNotice {
+  display: flex;
+  justify-content: space-between;
+  /*padding-left: 50px;
+  padding-right: 10px;*/
+}
+
+.containerTextHelpPrivacyPolicyLegalNotice {
+  /*padding-left: 50px;
+  padding-right: 50px;*/
+}
+
+.headlineHelpPrivacyPolicyLegalNotice {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.secondHeadlineHelpPrivacyPolicyLegalNotice {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.arrowLeftBlue {
+  height: 24px;
+  width: 24px;
+  /*padding-top: 30px;*/
+  position: fixed;
+  top: 225px;
+  right: 40px;
+}
+
+.lightblue {
+  color: #29abe2;
+}
+
+.headAreaHelpPrivacyPolicyLegalNotice img {
+  cursor: pointer;
+}
+
+
+/* padding wegen blauem pfeil */
+content {
+  padding-right: 70px;
+}
