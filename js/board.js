@@ -439,6 +439,7 @@ function showEditTask(id) {
   document.getElementById("modalShowTask").classList.add("d-none");
   document.getElementById("modalEditTask").classList.remove("d-none");
   updateAddTaskFormToEditTask(id);
+  document.getElementsByClassName("dateId")[1].min = new Date().toLocaleDateString("fr-ca");
   fillEditTaskFormWithValues(id);
 }
 
