@@ -421,18 +421,26 @@ async function editTask(id) {
 
 /* CONTACTS !!! */
 
-/**
- * function to load all selected Contacts for new task
- */
 function selectContactsForEditTask(i) {
-  if (selectedTaskContacts.indexOf(contacts[i]) == -1) {
+  let firstName = contacts[i].firstName;
+  let lastName = contacts[i].lastName;
+
+  let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
+
+  if (index == -1) {
+    // not found
     selectedTaskContacts.push(contacts[i]);
-    console.log(selectedTaskContacts);
   } else {
     selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
-    console.log(selectedTaskContacts);
   }
-  showSelectedContactsForEditTask(); // renders them!
+  showSelectedContactsForEditTask(); // render them!
+}
+
+function checkIfContactIsSelected(id) {
+  let firstName = contacts[i].firstName;
+  let lastName = contacts[i].lastName;
+  let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
+  return index;
 }
 
 function showSelectedContactsForEditTask() {

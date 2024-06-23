@@ -295,8 +295,6 @@ function generateDataForTask(title, description, date, prio, category, taskCateg
       firstName: contact.firstName,
       lastName: contact.lastName,
       profileColor: contact.profileColor,
-      email: contact.email, // muss leider wegen indexof
-      phoneNumber: contact.phoneNumber, // muss leider wegen indexof
     };
     data.assignedTo.push(json);
   }
