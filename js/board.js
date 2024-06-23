@@ -358,30 +358,35 @@ async function deleteTask(i) {
   renderAllBoardTasks();
 }
 
-function showEditTask(id) {
-  document.getElementById("modalShowTask").classList.add("d-none");
-  document.getElementById("modalEditTask").classList.remove("d-none");
+function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("formVertLineId")[1].classList.add("d-none");
   document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
   document.getElementsByClassName("headLine")[1].style.display = "flex";
   document.getElementsByClassName("headLine")[1].style.justifyContent =
     "flex-end";
-  document.getElementsByClassName("lower")[1].style.justifyContent = "flex-end";
-  document.getElementsByClassName("upper")[1].style.gap = "0px";
-  ("flex-end");
-  document.getElementsByClassName("lowerSpans")[1].style.display = "none";
-  document.getElementsByClassName("clearButton")[1].style.display = "none";
-  document.getElementsByClassName("createButton")[1].innerHTML = "Edit Task";
-
   document
     .getElementsByClassName("addTaskFormId")[1]
     .setAttribute("onsubmit", `editTask(${id});return false;`);
+  document.getElementsByClassName("createButton")[1].innerHTML = "Edit Task";
+  document.getElementsByClassName("lowerSpans")[1].style.display = "none";
+  document.getElementsByClassName("clearButton")[1].style.display = "none";
+  document.getElementsByClassName("lower")[1].style.justifyContent = "flex-end";
+  document.getElementsByClassName("upper")[1].style.gap = "0px";
+}
 
+function fillEditTaskFormWithValues(id) {
   document.getElementsByClassName("titleId")[1].value = boardTasks[id].title;
   document.getElementsByClassName("descriptionId")[1].value =
     boardTasks[id].description;
   document.getElementsByClassName("dateId")[1].value = boardTasks[id].dueDate;
   document.getElementsByClassName("categoryId")[1].value = boardTasks[id].type;
+}
+
+function showEditTask(id) {
+  document.getElementById("modalShowTask").classList.add("d-none");
+  document.getElementById("modalEditTask").classList.remove("d-none");
+  updateAddTaskFormToEditTask(id);
+  fillEditTaskFormWithValues(id);
 }
 
 async function editTask(id) {

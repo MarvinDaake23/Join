@@ -3,7 +3,7 @@ let subtasks = [];
 let subtaskCounter = 0;
 
 let prios = ["Low", "Medium", "Urgent"];
-let prioValue = null;
+let prioIndex = 0;
 
 let selectedTaskContacts = [];
 
@@ -223,26 +223,20 @@ function loadContacts() {
  * Function to select the priority
  */
 function prioChoose(i) {
-  if (prioValue === i) {
-    prioValue = null;
-    resetPrioContainers();
-  } else {
-    prioValue = i;
-    resetPrioContainers();
-    if (prioValue === 2) {
-      document.getElementById("prio high").classList.add("highPrioBackground");
-      document
-        .getElementById("highPrioImg")
-        .classList.add("highPrioImageChange");
-    }
-    if (prioValue === 1) {
-      document.getElementById("prio med").classList.add("medPrioBackground");
-      document.getElementById("medPrioImg").classList.add("medPrioImageChange");
-    }
-    if (prioValue === 0) {
-      document.getElementById("prio low").classList.add("lowPrioBackground");
-      document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
-    }
+  //de-select all
+  resetPrioContainers();
+  if (i === 2) {
+    document.getElementById("prioHigh").classList.add("highPrioBackground");
+    document.getElementById("highPrioImg").classList.add("highPrioImageChange");
+    prioIndex = 2;
+  } else if (i === 1) {
+    document.getElementById("prioMed").classList.add("medPrioBackground");
+    document.getElementById("medPrioImg").classList.add("medPrioImageChange");
+    prioIndex = 1;
+  } else if (i === 0) {
+    document.getElementById("prioLow").classList.add("lowPrioBackground");
+    document.getElementById("lowPrioImg").classList.add("lowPrioImageChange");
+    prioIndex = 0;
   }
 }
 
@@ -250,13 +244,13 @@ function prioChoose(i) {
  * Function to reset the priority
  */
 function resetPrioContainers() {
-  document.getElementById("prio high").classList.remove("highPrioBackground");
+  document.getElementById("prioHigh").classList.remove("highPrioBackground");
   document
     .getElementById("highPrioImg")
     .classList.remove("highPrioImageChange");
-  document.getElementById("prio med").classList.remove("medPrioBackground");
+  document.getElementById("prioMed").classList.remove("medPrioBackground");
   document.getElementById("medPrioImg").classList.remove("medPrioImageChange");
-  document.getElementById("prio low").classList.remove("lowPrioBackground");
+  document.getElementById("prioLow").classList.remove("lowPrioBackground");
   document.getElementById("lowPrioImg").classList.remove("lowPrioImageChange");
 }
 
@@ -268,7 +262,7 @@ async function addTask(column) {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date").value;
-  let prio = prios[prioValue];
+  let prio = prios[prioIndex];
   let category = document.getElementById("category").value;
   let taskCategory = [];
 
