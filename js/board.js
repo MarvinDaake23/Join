@@ -333,6 +333,7 @@ function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("upper")[1].style.gap = "20px"; // instead of 50px
   document.getElementsByClassName("closeButtonId")[1].setAttribute("onclick", "removeboardBigContainer()");
   document.getElementsByClassName("assignedContactsInputFieldId")[1].setAttribute("onclick", "toggleContactListForEditTask()");
+  document.getElementsByClassName("assignedContactsInputFieldId")[1].setAttribute("oninput", "searchContactsForEditTask()");
 
   document.getElementsByClassName("prioLowId")[1].setAttribute("onclick", "prioChooseForEditTask(0)");
   document.getElementsByClassName("prioMedId")[1].setAttribute("onclick", "prioChooseForEditTask(1)");

@@ -36,6 +36,20 @@ function searchContacts() {
   }
 }
 
+function searchContactsForEditTask() {
+  let search = document.getElementsByClassName("assignedContactsInputFieldId")[1].value.toLowerCase();
+  let allContacts = document.querySelectorAll(".contactWrapperItem");
+
+  if (search.length >= 1) {
+    //filter
+    contactQuery(search, allContacts);
+  } else {
+    // show all
+    //loadContactList(); > entfernt damit die checks nicht verschwinden
+  }
+}
+
+
 async function contactQuery(search, allContacts) {
   allContacts.forEach((container) => {
     let username = container.querySelector("#userNameInList").innerText.toLowerCase();
