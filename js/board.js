@@ -431,7 +431,8 @@ function selectContactsForEditTask(i) {
     // not found
     selectedTaskContacts.push(contacts[i]);
   } else {
-    selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
+    //selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
+    selectedTaskContacts.splice(index);
   }
   showSelectedContactsForEditTask(); // render them!
 }
