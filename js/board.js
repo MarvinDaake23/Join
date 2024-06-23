@@ -372,26 +372,95 @@ function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("clearButton")[1].style.display = "none";
   document.getElementsByClassName("lower")[1].style.justifyContent = "flex-end";
   document.getElementsByClassName("upper")[1].style.gap = "0px";
+  document
+    .getElementsByClassName("closeButtonId")[1]
+    .setAttribute("onclick", "removeboardBigContainer()");
 
-  document.getElementsByClassName("prioLowId")[1].setAttribute("onclick","prioChooseForEditTask(0)");
-  document.getElementsByClassName("prioMedId")[1].setAttribute("onclick","prioChooseForEditTask(1)");
-  document.getElementsByClassName("prioHighId")[1].setAttribute("onclick","prioChooseForEditTask(2)");
+  document
+    .getElementsByClassName("prioLowId")[1]
+    .setAttribute("onclick", "prioChooseForEditTask(0)");
+  document
+    .getElementsByClassName("prioMedId")[1]
+    .setAttribute("onclick", "prioChooseForEditTask(1)");
+  document
+    .getElementsByClassName("prioHighId")[1]
+    .setAttribute("onclick", "prioChooseForEditTask(2)");
+}
 
+function prioChooseForEditTask(i) {
+  resetPrioContainersForEditTask();
+  if (i === 2) {
+    document
+      .getElementsByClassName("prioHighId")[1]
+      .classList.add("highPrioBackground");
+    document
+      .getElementsByClassName("highPrioImgId")[1]
+      .classList.add("highPrioImageChange");
+    prioIndex = 2;
+  } else if (i === 1) {
+    document
+      .getElementsByClassName("prioMedId")[1]
+      .classList.add("medPrioBackground");
+    document
+      .getElementsByClassName("medPrioImgId")[1]
+      .classList.add("medPrioImageChange");
+    prioIndex = 1;
+  } else if (i === 0) {
+    document
+      .getElementsByClassName("prioLowId")[1]
+      .classList.add("lowPrioBackground");
+    document
+      .getElementsByClassName("lowPrioImgId")[1]
+      .classList.add("lowPrioImageChange");
+    prioIndex = 0;
+  }
+}
 
+function resetPrioContainersForEditTask() {
+  document
+    .getElementsByClassName("prioHighId")[1]
+    .classList.remove("highPrioBackground");
+  document
+    .getElementsByClassName("highPrioImgId")[1]
+    .classList.remove("highPrioImageChange");
+  document
+    .getElementsByClassName("prioMedId")[1]
+    .classList.remove("medPrioBackground");
+  document
+    .getElementsByClassName("medPrioImgId")[1]
+    .classList.remove("medPrioImageChange");
+  document
+    .getElementsByClassName("prioLowId")[1]
+    .classList.remove("lowPrioBackground");
+  document
+    .getElementsByClassName("lowPrioImgId")[1]
+    .classList.remove("lowPrioImageChange");
 }
 
 function prioSelectForEditTask(prio) {
   if (prio === "Urgent") {
-    document.getElementsByClassName("prioHighId")[1].classList.add("highPrioBackground");
-    document.getElementsByClassName("highPrioImgId")[1].classList.add("highPrioImageChange");
+    document
+      .getElementsByClassName("prioHighId")[1]
+      .classList.add("highPrioBackground");
+    document
+      .getElementsByClassName("highPrioImgId")[1]
+      .classList.add("highPrioImageChange");
     prioIndex = 2;
   } else if (prio === "Medium") {
-    document.getElementsByClassName("prioMedId")[1].classList.add("medPrioBackground");
-    document.getElementsByClassName("medPrioImgId")[1].classList.add("medPrioImageChange");
+    document
+      .getElementsByClassName("prioMedId")[1]
+      .classList.add("medPrioBackground");
+    document
+      .getElementsByClassName("medPrioImgId")[1]
+      .classList.add("medPrioImageChange");
     prioIndex = 1;
   } else if (prio === "Low") {
-    document.getElementsByClassName("prioLowId")[1].classList.add("lowPrioBackground");
-    document.getElementsByClassName("lowPrioImgId")[1].classList.add("lowPrioImageChange");
+    document
+      .getElementsByClassName("prioLowId")[1]
+      .classList.add("lowPrioBackground");
+    document
+      .getElementsByClassName("lowPrioImgId")[1]
+      .classList.add("lowPrioImageChange");
     prioIndex = 0;
   }
 }
@@ -420,6 +489,7 @@ async function editTask(id) {
     document.getElementsByClassName("descriptionId")[1].value;
   boardTasks[id].dueDate = document.getElementsByClassName("dateId")[1].value;
   boardTasks[id].type = document.getElementsByClassName("categoryId")[1].value;
+  boardTasks[id].priority = prios[prioIndex];
 
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
