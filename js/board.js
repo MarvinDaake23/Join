@@ -404,9 +404,35 @@ function fillEditTaskFormWithValues(id) {
   if (selectedTaskContacts !== undefined) {
     showSelectedContactsForEditTask();
   }
-
   // contact list reinladen mit bereits angeklickten!
   loadContactListForEditTask();
+
+  //load subtasks
+  let subtasks = [];
+  let subtaskList = boardTasks[id].subtasks;
+
+  if (subtaskList !== undefined) {
+    for (let index = 0; index < subtaskList.length; index++) {
+      const element = subtaskList[index];
+      subtasks.push(element.subtaskText);
+    }
+  }
+
+  let subtaskUL = document.getElementsByClassName("subtaskListId")[1];
+
+  for (let index = 0; index < subtasks.length; index++) {
+    const element = subtasks[index];
+    subtaskUL.innerHTML += `
+    <li id="subtask${index}">
+    <div class="listEntry">
+      <span class="listEntrySpan" id="listEntry${index}">${element}</span>
+      <div>
+        <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtask(${index})">
+        <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtask(${index})">
+      </div>
+    </div>
+  </li>`;
+  }
 }
 
 function showEditTask(id) {
@@ -428,7 +454,6 @@ async function editTask(id) {
 }
 
 /* CONTACTS !!! */
-
 function selectContactsForEditTask(i) {
   let firstName = contacts[i].firstName;
   let lastName = contacts[i].lastName;
@@ -502,3 +527,5 @@ function loadContactListForEditTask() {
     }
   }
 }
+
+/* SUBTASKS */
