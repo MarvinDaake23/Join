@@ -372,6 +372,28 @@ function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("clearButton")[1].style.display = "none";
   document.getElementsByClassName("lower")[1].style.justifyContent = "flex-end";
   document.getElementsByClassName("upper")[1].style.gap = "0px";
+
+  document.getElementsByClassName("prioLowId")[1].setAttribute("onclick","prioChooseForEditTask(0)");
+  document.getElementsByClassName("prioMedId")[1].setAttribute("onclick","prioChooseForEditTask(1)");
+  document.getElementsByClassName("prioHighId")[1].setAttribute("onclick","prioChooseForEditTask(2)");
+
+
+}
+
+function prioSelectForEditTask(prio) {
+  if (prio === "Urgent") {
+    document.getElementsByClassName("prioHighId")[1].classList.add("highPrioBackground");
+    document.getElementsByClassName("highPrioImgId")[1].classList.add("highPrioImageChange");
+    prioIndex = 2;
+  } else if (prio === "Medium") {
+    document.getElementsByClassName("prioMedId")[1].classList.add("medPrioBackground");
+    document.getElementsByClassName("medPrioImgId")[1].classList.add("medPrioImageChange");
+    prioIndex = 1;
+  } else if (prio === "Low") {
+    document.getElementsByClassName("prioLowId")[1].classList.add("lowPrioBackground");
+    document.getElementsByClassName("lowPrioImgId")[1].classList.add("lowPrioImageChange");
+    prioIndex = 0;
+  }
 }
 
 function fillEditTaskFormWithValues(id) {
@@ -380,6 +402,9 @@ function fillEditTaskFormWithValues(id) {
     boardTasks[id].description;
   document.getElementsByClassName("dateId")[1].value = boardTasks[id].dueDate;
   document.getElementsByClassName("categoryId")[1].value = boardTasks[id].type;
+
+  let prio = boardTasks[id].priority;
+  prioSelectForEditTask(prio);
 }
 
 function showEditTask(id) {
