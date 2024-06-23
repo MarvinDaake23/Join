@@ -1,5 +1,3 @@
-let expanded = false;
-let doneBulian = false;
 let boardTasks = [];
 let currentDraggedElement;
 
@@ -32,14 +30,10 @@ function showAddTask(column) {
   } else {
     document.getElementById("modalBackground").style.display = "flex";
     // update form
-    document
-      .getElementById("addTaskForm")
-      .setAttribute("onsubmit", `addTask(${column});return false;`);
+    document.getElementById("addTaskForm").setAttribute("onsubmit", `addTask(${column});return false;`);
     prioChoose(1);
     loadContactList();
-    document.getElementById("date").min = new Date().toLocaleDateString(
-      "fr-ca"
-    );
+    document.getElementById("date").min = new Date().toLocaleDateString("fr-ca");
     listenToEnterButtonAtSubtaskInputField();
   }
 }
@@ -102,13 +96,10 @@ function loadBoardBigContainerLists(i) {
  * function to render the priority of each task in the big large view
  */
 function loadBoardBigContainerContacts(i) {
-  let assignedToContactsInput = document.getElementById(
-    "boardBigContainerAssignedToContactsInput"
-  );
+  let assignedToContactsInput = document.getElementById("boardBigContainerAssignedToContactsInput");
   for (let j = 0; j < boardTasks[i]["assignedTo"].length; j++) {
     const element = boardTasks[i]["assignedTo"][j];
-    assignedToContactsInput.innerHTML +=
-      renderBoardBigContainerContacts(element);
+    assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
   }
 }
 
@@ -131,10 +122,8 @@ function loadBoardBigContainerSubtasks(i) {
 
 function fillWithPlaceholders() {
   document.getElementById("todo").innerHTML = renderBoardTaskPlaceholderTodo();
-  document.getElementById("progress").innerHTML =
-    renderBoardTaskPlaceholderProgress();
-  document.getElementById("feedback").innerHTML =
-    renderBoardTaskPlaceholderFeedback();
+  document.getElementById("progress").innerHTML = renderBoardTaskPlaceholderProgress();
+  document.getElementById("feedback").innerHTML = renderBoardTaskPlaceholderFeedback();
   document.getElementById("done").innerHTML = renderBoardTaskPlaceholderDone();
 }
 
@@ -147,31 +136,19 @@ function renderAllBoardTasks() {
     let assignedTo = boardTask.assignedTo;
 
     if (boardTask.category == "todo") {
-      document.getElementById("todo").innerHTML += renderBoardTask(
-        boardTask,
-        index
-      );
+      document.getElementById("todo").innerHTML += renderBoardTask(boardTask, index);
       //placeholder unsichtbar machen
       document.getElementById("todoPlaceholder").style.display = "none";
     } else if (boardTask.category == "progress") {
-      document.getElementById("progress").innerHTML += renderBoardTask(
-        boardTask,
-        index
-      );
+      document.getElementById("progress").innerHTML += renderBoardTask(boardTask, index);
       //placeholder unsichtbar machen
       document.getElementById("progressPlaceholder").style.display = "none";
     } else if (boardTask.category == "feedback") {
-      document.getElementById("feedback").innerHTML += renderBoardTask(
-        boardTask,
-        index
-      );
+      document.getElementById("feedback").innerHTML += renderBoardTask(boardTask, index);
       //placeholder unsichtbar machen
       document.getElementById("feedbackPlaceholder").style.display = "none";
     } else if (boardTask.category == "done") {
-      document.getElementById("done").innerHTML += renderBoardTask(
-        boardTask,
-        index
-      );
+      document.getElementById("done").innerHTML += renderBoardTask(boardTask, index);
       //placeholder unsichtbar machen
       document.getElementById("donePlaceholder").style.display = "none";
     }
@@ -249,13 +226,11 @@ async function moveTo(category) {
 
 async function done(j, i) {
   if (boardTasks[i]["subtasks"][j]["complete"] == false) {
-    document.getElementById(`${i}checkBox${j}`).src =
-      "../assets/img/Property 1=hover checked.png";
+    document.getElementById(`${i}checkBox${j}`).src = "../assets/img/Property 1=hover checked.png";
     boardTasks[i]["subtasks"][j]["complete"] = true;
     boardTasks[i]["finishedSubtasks"]++;
   } else {
-    document.getElementById(`${i}checkBox${j}`).src =
-      "../assets/img/Property 1=Default.png";
+    document.getElementById(`${i}checkBox${j}`).src = "../assets/img/Property 1=Default.png";
     boardTasks[i]["subtasks"][j]["complete"] = false;
     boardTasks[i]["finishedSubtasks"]--;
   }
@@ -267,11 +242,7 @@ function loadProgressbar(index, subEndCount, finished) {
   let currentProgressbar = document.getElementById(`progressBar${index}`);
   let progress = finished / subEndCount;
   let width = progress * 100;
-  currentProgressbar.innerHTML = renderProgressbar(
-    subEndCount,
-    finished,
-    width
-  );
+  currentProgressbar.innerHTML = renderProgressbar(subEndCount, finished, width);
 }
 
 function searchTask() {
@@ -294,9 +265,7 @@ function searchTask() {
 async function taskQuery(search, boardTaskClass) {
   boardTaskClass.forEach((container) => {
     let title = container.querySelector("#title").innerText.toLowerCase();
-    let description = container
-      .querySelector("#description")
-      .innerText.toLowerCase();
+    let description = container.querySelector("#description").innerText.toLowerCase();
     if (title.includes(search) || description.includes(search)) {
       container.style.display = "flex";
     } else {
@@ -312,9 +281,7 @@ async function taskQuery(search, boardTaskClass) {
 
 async function checkIfEmptyContainer1() {
   let all = document.querySelectorAll("#todo > div").length;
-  let invisible = document.querySelectorAll(
-    '#todo > div[style*="display: none"]'
-  ).length;
+  let invisible = document.querySelectorAll('#todo > div[style*="display: none"]').length;
   if (all == invisible) {
     document.getElementById("todoPlaceholder").style.display = "flex";
   }
@@ -322,9 +289,7 @@ async function checkIfEmptyContainer1() {
 
 async function checkIfEmptyContainer2() {
   let all = document.querySelectorAll("#progress > div").length;
-  let invisible = document.querySelectorAll(
-    '#progress > div[style*="display: none"]'
-  ).length;
+  let invisible = document.querySelectorAll('#progress > div[style*="display: none"]').length;
   if (all == invisible) {
     document.getElementById("progressPlaceholder").style.display = "flex";
   }
@@ -332,9 +297,7 @@ async function checkIfEmptyContainer2() {
 
 async function checkIfEmptyContainer3() {
   let all = document.querySelectorAll("#feedback > div").length;
-  let invisible = document.querySelectorAll(
-    '#feedback > div[style*="display: none"]'
-  ).length;
+  let invisible = document.querySelectorAll('#feedback > div[style*="display: none"]').length;
   if (all == invisible) {
     document.getElementById("feedbackPlaceholder").style.display = "flex";
   }
@@ -342,9 +305,7 @@ async function checkIfEmptyContainer3() {
 
 async function checkIfEmptyContainer4() {
   let all = document.querySelectorAll("#done > div").length;
-  let invisible = document.querySelectorAll(
-    '#done > div[style*="display: none"]'
-  ).length;
+  let invisible = document.querySelectorAll('#done > div[style*="display: none"]').length;
   if (all == invisible) {
     document.getElementById("donePlaceholder").style.display = "flex";
   }
@@ -362,113 +323,65 @@ function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("formVertLineId")[1].classList.add("d-none");
   document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
   document.getElementsByClassName("headLine")[1].style.display = "flex";
-  document.getElementsByClassName("headLine")[1].style.justifyContent =
-    "flex-end";
-  document
-    .getElementsByClassName("addTaskFormId")[1]
-    .setAttribute("onsubmit", `editTask(${id});return false;`);
+  document.getElementsByClassName("headLine")[1].style.justifyContent = "flex-end";
+  document.getElementsByClassName("addTaskFormId")[1].setAttribute("onsubmit", `editTask(${id});return false;`);
   document.getElementsByClassName("createButton")[1].innerHTML = "Edit Task";
   document.getElementsByClassName("lowerSpans")[1].style.display = "none";
   document.getElementsByClassName("clearButton")[1].style.display = "none";
   document.getElementsByClassName("lower")[1].style.justifyContent = "flex-end";
   document.getElementsByClassName("upper")[1].style.gap = "0px";
-  document
-    .getElementsByClassName("closeButtonId")[1]
-    .setAttribute("onclick", "removeboardBigContainer()");
+  document.getElementsByClassName("closeButtonId")[1].setAttribute("onclick", "removeboardBigContainer()");
 
-  document
-    .getElementsByClassName("prioLowId")[1]
-    .setAttribute("onclick", "prioChooseForEditTask(0)");
-  document
-    .getElementsByClassName("prioMedId")[1]
-    .setAttribute("onclick", "prioChooseForEditTask(1)");
-  document
-    .getElementsByClassName("prioHighId")[1]
-    .setAttribute("onclick", "prioChooseForEditTask(2)");
+  document.getElementsByClassName("prioLowId")[1].setAttribute("onclick", "prioChooseForEditTask(0)");
+  document.getElementsByClassName("prioMedId")[1].setAttribute("onclick", "prioChooseForEditTask(1)");
+  document.getElementsByClassName("prioHighId")[1].setAttribute("onclick", "prioChooseForEditTask(2)");
 }
 
 function prioChooseForEditTask(i) {
   resetPrioContainersForEditTask();
   if (i === 2) {
-    document
-      .getElementsByClassName("prioHighId")[1]
-      .classList.add("highPrioBackground");
-    document
-      .getElementsByClassName("highPrioImgId")[1]
-      .classList.add("highPrioImageChange");
+    document.getElementsByClassName("prioHighId")[1].classList.add("highPrioBackground");
+    document.getElementsByClassName("highPrioImgId")[1].classList.add("highPrioImageChange");
     prioIndex = 2;
   } else if (i === 1) {
-    document
-      .getElementsByClassName("prioMedId")[1]
-      .classList.add("medPrioBackground");
-    document
-      .getElementsByClassName("medPrioImgId")[1]
-      .classList.add("medPrioImageChange");
+    document.getElementsByClassName("prioMedId")[1].classList.add("medPrioBackground");
+    document.getElementsByClassName("medPrioImgId")[1].classList.add("medPrioImageChange");
     prioIndex = 1;
   } else if (i === 0) {
-    document
-      .getElementsByClassName("prioLowId")[1]
-      .classList.add("lowPrioBackground");
-    document
-      .getElementsByClassName("lowPrioImgId")[1]
-      .classList.add("lowPrioImageChange");
+    document.getElementsByClassName("prioLowId")[1].classList.add("lowPrioBackground");
+    document.getElementsByClassName("lowPrioImgId")[1].classList.add("lowPrioImageChange");
     prioIndex = 0;
   }
 }
 
 function resetPrioContainersForEditTask() {
-  document
-    .getElementsByClassName("prioHighId")[1]
-    .classList.remove("highPrioBackground");
-  document
-    .getElementsByClassName("highPrioImgId")[1]
-    .classList.remove("highPrioImageChange");
-  document
-    .getElementsByClassName("prioMedId")[1]
-    .classList.remove("medPrioBackground");
-  document
-    .getElementsByClassName("medPrioImgId")[1]
-    .classList.remove("medPrioImageChange");
-  document
-    .getElementsByClassName("prioLowId")[1]
-    .classList.remove("lowPrioBackground");
-  document
-    .getElementsByClassName("lowPrioImgId")[1]
-    .classList.remove("lowPrioImageChange");
+  document.getElementsByClassName("prioHighId")[1].classList.remove("highPrioBackground");
+  document.getElementsByClassName("highPrioImgId")[1].classList.remove("highPrioImageChange");
+  document.getElementsByClassName("prioMedId")[1].classList.remove("medPrioBackground");
+  document.getElementsByClassName("medPrioImgId")[1].classList.remove("medPrioImageChange");
+  document.getElementsByClassName("prioLowId")[1].classList.remove("lowPrioBackground");
+  document.getElementsByClassName("lowPrioImgId")[1].classList.remove("lowPrioImageChange");
 }
 
 function prioSelectForEditTask(prio) {
   if (prio === "Urgent") {
-    document
-      .getElementsByClassName("prioHighId")[1]
-      .classList.add("highPrioBackground");
-    document
-      .getElementsByClassName("highPrioImgId")[1]
-      .classList.add("highPrioImageChange");
+    document.getElementsByClassName("prioHighId")[1].classList.add("highPrioBackground");
+    document.getElementsByClassName("highPrioImgId")[1].classList.add("highPrioImageChange");
     prioIndex = 2;
   } else if (prio === "Medium") {
-    document
-      .getElementsByClassName("prioMedId")[1]
-      .classList.add("medPrioBackground");
-    document
-      .getElementsByClassName("medPrioImgId")[1]
-      .classList.add("medPrioImageChange");
+    document.getElementsByClassName("prioMedId")[1].classList.add("medPrioBackground");
+    document.getElementsByClassName("medPrioImgId")[1].classList.add("medPrioImageChange");
     prioIndex = 1;
   } else if (prio === "Low") {
-    document
-      .getElementsByClassName("prioLowId")[1]
-      .classList.add("lowPrioBackground");
-    document
-      .getElementsByClassName("lowPrioImgId")[1]
-      .classList.add("lowPrioImageChange");
+    document.getElementsByClassName("prioLowId")[1].classList.add("lowPrioBackground");
+    document.getElementsByClassName("lowPrioImgId")[1].classList.add("lowPrioImageChange");
     prioIndex = 0;
   }
 }
 
 function fillEditTaskFormWithValues(id) {
   document.getElementsByClassName("titleId")[1].value = boardTasks[id].title;
-  document.getElementsByClassName("descriptionId")[1].value =
-    boardTasks[id].description;
+  document.getElementsByClassName("descriptionId")[1].value = boardTasks[id].description;
   document.getElementsByClassName("dateId")[1].value = boardTasks[id].dueDate;
   document.getElementsByClassName("categoryId")[1].value = boardTasks[id].type;
 
@@ -485,8 +398,7 @@ function showEditTask(id) {
 
 async function editTask(id) {
   boardTasks[id].title = document.getElementsByClassName("titleId")[1].value;
-  boardTasks[id].description =
-    document.getElementsByClassName("descriptionId")[1].value;
+  boardTasks[id].description = document.getElementsByClassName("descriptionId")[1].value;
   boardTasks[id].dueDate = document.getElementsByClassName("dateId")[1].value;
   boardTasks[id].type = document.getElementsByClassName("categoryId")[1].value;
   boardTasks[id].priority = prios[prioIndex];

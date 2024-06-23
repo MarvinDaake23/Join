@@ -24,9 +24,7 @@ async function onLoadAddTask() {
 }
 
 function searchContacts() {
-  let search = document
-    .getElementById("assignedContactsInputField")
-    .value.toLowerCase();
+  let search = document.getElementById("assignedContactsInputField").value.toLowerCase();
   let allContacts = document.querySelectorAll(".contactWrapperItem");
 
   if (search.length >= 1) {
@@ -40,9 +38,7 @@ function searchContacts() {
 
 async function contactQuery(search, allContacts) {
   allContacts.forEach((container) => {
-    let username = container
-      .querySelector("#userNameInList")
-      .innerText.toLowerCase();
+    let username = container.querySelector("#userNameInList").innerText.toLowerCase();
 
     if (username.includes(search)) {
       container.style.display = "flex";
@@ -61,8 +57,7 @@ function listenToEnterButtonAtSubtaskInputField() {
 
       if (inputValue) {
         // nur wenn was drinsteht
-        document.getElementById("subtaskList").innerHTML +=
-          renderSubtaskListEntry(inputValue, subtaskCounter);
+        document.getElementById("subtaskList").innerHTML += renderSubtaskListEntry(inputValue, subtaskCounter);
 
         // clean up
         inputField.value = "";
@@ -110,18 +105,14 @@ function showEditSubtask(subtaskCounter) {
 
   document.getElementById(`subtaskInput${subtaskCounter}`).focus();
   // set cursor correct
-  document.getElementById(`subtaskInput${subtaskCounter}`).selectionStart =
-    document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
-  document.getElementById(`subtaskInput${subtaskCounter}`).selectionEnd =
-    document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
+  document.getElementById(`subtaskInput${subtaskCounter}`).selectionStart = document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
+  document.getElementById(`subtaskInput${subtaskCounter}`).selectionEnd = document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
 
   listenToEnterButtonAtSubtaskInputEditField(subtaskCounter);
 }
 
 function saveEdittedSubtask(subtaskCounter) {
-  let inputValue = document.getElementById(
-    `subtaskInput${subtaskCounter}`
-  ).value;
+  let inputValue = document.getElementById(`subtaskInput${subtaskCounter}`).value;
 
   if (inputValue) {
     document.getElementById(`subtask${subtaskCounter}`).innerHTML = `
@@ -174,10 +165,7 @@ function loadContactList() {
 
   // nur wenns kein Gast ist
   if (idOfLoggedInUser !== undefined) {
-    contactWrapper.innerHTML += renderContactWrapper(
-      contacts[idOfLoggedInUser],
-      idOfLoggedInUser
-    );
+    contactWrapper.innerHTML += renderContactWrapper(contacts[idOfLoggedInUser], idOfLoggedInUser);
     // add: ME
     document.getElementById("userNameInList").innerHTML += " (Me)";
   }
@@ -245,9 +233,7 @@ function prioChoose(i) {
  */
 function resetPrioContainers() {
   document.getElementById("prioHigh").classList.remove("highPrioBackground");
-  document
-    .getElementById("highPrioImg")
-    .classList.remove("highPrioImageChange");
+  document.getElementById("highPrioImg").classList.remove("highPrioImageChange");
   document.getElementById("prioMed").classList.remove("medPrioBackground");
   document.getElementById("medPrioImg").classList.remove("medPrioImageChange");
   document.getElementById("prioLow").classList.remove("lowPrioBackground");
@@ -280,14 +266,7 @@ async function addTask(column) {
       taskCategory = "todo";
   }
 
-  let data = generateDataForTask(
-    title,
-    description,
-    date,
-    prio,
-    category,
-    taskCategory
-  );
+  let data = generateDataForTask(title, description, date, prio, category, taskCategory);
   boardTasks.push(data);
   // update firebase
   await putData("boardtasks", boardTasks);
@@ -295,14 +274,7 @@ async function addTask(column) {
   visitBoard();
 }
 
-function generateDataForTask(
-  title,
-  description,
-  date,
-  prio,
-  category,
-  taskCategory
-) {
+function generateDataForTask(title, description, date, prio, category, taskCategory) {
   // Create JSON
   let data = {
     title: title,

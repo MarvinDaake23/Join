@@ -1,15 +1,14 @@
-
 async function onLoadExtraPages() {
-    await includeHTML();
-    updateHeaderInitials();
+  await includeHTML();
+  updateHeaderInitials();
 }
 
 async function onLoadExtraPagesExternal() {
-    await includeHTML();
-    updateLinksExternalPage();
+  await includeHTML();
+  updateLinksExternalPage();
 }
 
 async function updateLinksExternalPage() {
-    document.getElementById("privacyLink").href = "privacyPolicyExternal.html";
-    document.getElementById("legalNoticeLink").href = "legalNoticeExternal.html";
+  document.getElementById("privacyLink").href = "privacyPolicyExternal.html";
+  document.getElementById("legalNoticeLink").href = "legalNoticeExternal.html";
 }

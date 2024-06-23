@@ -5,10 +5,9 @@ async function onLoadSummary() {
   await includeHTML();
   boardTasks = await loadData("boardtasks");
   greetUser();
-  fillSummaryFields()
+  fillSummaryFields();
   await updateHeaderInitials();
 }
-
 
 function fillSummaryFields() {
   document.getElementById("totalTasksCounter").innerHTML = boardTasks.length;
@@ -18,7 +17,7 @@ function fillSummaryFields() {
   document.getElementById("todoCounter").innerHTML = countTasksByCategory("todo");
   document.getElementById("urgentCounter").innerHTML = countTasksByPriority("Urgent");
 
-  let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
+  let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let deadline = new Date(findUpcomingDeadline());
   document.getElementById("upcomingDeadLine").innerHTML = `
       ${monthNames[deadline.getMonth()]}
@@ -26,7 +25,6 @@ function fillSummaryFields() {
       ${deadline.getFullYear()}
   `;
 }
-
 
 function greetUser() {
   let greeting = actGreeting();
@@ -41,7 +39,6 @@ function greetUser() {
   }
 }
 
-
 function countTasksByCategory(string) {
   let cnt = 0;
   for (let index = 0; index < boardTasks.length; index++) {
@@ -51,7 +48,6 @@ function countTasksByCategory(string) {
   }
   return cnt;
 }
-
 
 function countTasksByPriority(string) {
   let cnt = 0;
@@ -90,11 +86,9 @@ function actGreeting() {
   return greeting;
 }
 
-
 function goToBoardPage() {
   window.location = "board.html";
 }
-
 
 /**
  * function to sort the due Dates, aufsteigend sortieren ab heute

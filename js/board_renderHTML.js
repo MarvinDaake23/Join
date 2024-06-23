@@ -1,13 +1,9 @@
 function renderBoardTask(element, index) {
   return /* html*/ `
           <div id="boardTask${index}" draggable="true" ondragstart="startDragging(${index})" class="boardCard" onclick="loadBoardBigContainer(${index})">
-              <div id="" class="boardType ${element["type"]
-                .split(" ")
-                .join("")}">${element["type"]}</div>
+              <div id="" class="boardType ${element["type"].split(" ").join("")}">${element["type"]}</div>
               <div id="title" class="boardTitle">${element["title"]}</div>
-              <div id="description" class="boardDescription">${
-                element["description"]
-              }</div>
+              <div id="description" class="boardDescription">${element["description"]}</div>
               <div id="progressBar${index}" class="progress">
               
               </div>
@@ -41,32 +37,20 @@ function renderBoardBigContainer(i) {
   return /*html */ `
                 <div id="showBigTask">
               <div class="boardBigContainerHeader">
-                  <div class="boardBigContainerType ${boardTasks[i]["type"]
-                    .split(" ")
-                    .join("")}" id="boardBigContainerType">${
-    boardTasks[i]["type"]
-  }</div>
+                  <div class="boardBigContainerType ${boardTasks[i]["type"].split(" ").join("")}" id="boardBigContainerType">${boardTasks[i]["type"]}</div>
                   <img src="./assets/img/close.png" onclick="removeboardBigContainer()"  class="boardBigContainerClose">
               </div>
-              <div class="boardBigContainerTitle" id="boardBigContainerTitle">${
-                boardTasks[i]["title"]
-              }</div>
-              <div class="boardBigContainerDescription" id="boardBigContainerDescription">${
-                boardTasks[i]["description"]
-              }</div>
+              <div class="boardBigContainerTitle" id="boardBigContainerTitle">${boardTasks[i]["title"]}</div>
+              <div class="boardBigContainerDescription" id="boardBigContainerDescription">${boardTasks[i]["description"]}</div>
               <div class="boardContainerStatus">
                   <div class="boardBigContainerdate">
                       <span>Due date:</span>
-                      <div class="boardBigContainerDateInput" id="boardBigContainerDateInput">${
-                        boardTasks[i]["dueDate"]
-                      }</div>
+                      <div class="boardBigContainerDateInput" id="boardBigContainerDateInput">${boardTasks[i]["dueDate"]}</div>
                   </div>
                   <div class="boardBigContainerPrio">
                       <span>Priority:</span>
                       <div>
-                          <div class="boardBigContainerPrioInput" id="boardBigContainerPrioInput">${
-                            boardTasks[i]["priority"]
-                          }</div>
+                          <div class="boardBigContainerPrioInput" id="boardBigContainerPrioInput">${boardTasks[i]["priority"]}</div>
                           <div class="boardBigContainerPrioInputImg"></div>
                       </div>
               </div>

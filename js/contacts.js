@@ -26,10 +26,7 @@ function renderContacts() {
 
   // nur wenns kein Gast ist
   if (idOfLoggedInUser !== undefined) {
-    container.innerHTML += renderSingleContactEntryHTML(
-      contacts[idOfLoggedInUser],
-      idOfLoggedInUser
-    );
+    container.innerHTML += renderSingleContactEntryHTML(contacts[idOfLoggedInUser], idOfLoggedInUser);
     // add: ME
     document.getElementById("userNameInList").innerHTML += " (Me)";
   }
@@ -65,14 +62,12 @@ function singleContactView(id) {
   // falls mobil
   if (window.innerWidth <= vwBreak) {
     document.getElementById("contactContainerOuter").style.display = "none";
-    document.getElementById("contactSingleViewMobile").innerHTML =
-      renderSingleContactMobileHTML(id);
+    document.getElementById("contactSingleViewMobile").innerHTML = renderSingleContactMobileHTML(id);
     // buttons "tauschen"
     document.getElementById("addContactButtonMobile").style.display = "none";
   }
 
-  document.getElementById("contactSingleView").innerHTML =
-    renderSingleContactHTML(id);
+  document.getElementById("contactSingleView").innerHTML = renderSingleContactHTML(id);
 
   //x-scrollbar nach gewisser Zeit wieder aktivieren
   sleep(500).then(() => {
@@ -108,22 +103,10 @@ function updateModalTemplateToEdit(id) {
   document.getElementById("addContactHeadline").innerHTML = "Edit contact";
   document.getElementById("addContactSubheadline").innerHTML = "";
   //document.getElementById("cancelButton").innerHTML = "Delete";
-  document.getElementById(
-    "rightButton"
-  ).innerHTML = `Save<img src="assets/img/check.svg">`;
+  document.getElementById("rightButton").innerHTML = `Save<img src="assets/img/check.svg">`;
   // Form und linker Button
-  document
-    .getElementById("addOrEditForm")
-    .setAttribute(
-      "onsubmit",
-      `editContact(${id});closeAddOrEditContact();return false;`
-    );
-  document
-    .getElementById("cancelButton")
-    .setAttribute(
-      "onclick",
-      `deleteContact(${id});closeAddOrEditContact();return false;`
-    );
+  document.getElementById("addOrEditForm").setAttribute("onsubmit", `editContact(${id});closeAddOrEditContact();return false;`);
+  document.getElementById("cancelButton").setAttribute("onclick", `deleteContact(${id});closeAddOrEditContact();return false;`);
   document.getElementById("newContactPic").style.display = "none";
   document.getElementById("cancelButton").style.display = "none";
   document.getElementById("editInitials").style.display = "flex";
@@ -131,25 +114,15 @@ function updateModalTemplateToEdit(id) {
 
 function updateModalTemplateToAdd() {
   document.getElementById("addContactHeadline").innerHTML = "Add contact";
-  document.getElementById("addContactSubheadline").innerHTML =
-    "Tasks are better in a team!";
-  document.getElementById(
-    "cancelButton"
-  ).innerHTML = `Cancel<img src="assets/img/cancel.svg" />`;
-  document.getElementById(
-    "rightButton"
-  ).innerHTML = `Create contact<img src="assets/img/check.svg">`;
+  document.getElementById("addContactSubheadline").innerHTML = "Tasks are better in a team!";
+  document.getElementById("cancelButton").innerHTML = `Cancel<img src="assets/img/cancel.svg" />`;
+  document.getElementById("rightButton").innerHTML = `Create contact<img src="assets/img/check.svg">`;
   // Form und linker Button
-  document
-    .getElementById("addOrEditForm")
-    .setAttribute("onsubmit", `createContact();return false;`);
-  document
-    .getElementById("cancelButton")
-    .setAttribute("onclick", "closeAddOrEditContact()");
+  document.getElementById("addOrEditForm").setAttribute("onsubmit", `createContact();return false;`);
+  document.getElementById("cancelButton").setAttribute("onclick", "closeAddOrEditContact()");
   document.getElementById("newContactPic").style.display = "flex";
   document.getElementById("editInitials").style.display = "none";
   document.getElementById("deleteButton").style.display = "none";
-
 }
 
 /**
@@ -212,17 +185,12 @@ function showMore() {
 }
 
 function renderValuesToEditContactFormular(id) {
-  document.getElementById(
-    "nameInput"
-  ).value = `${contacts[id].firstName} ${contacts[id].lastName}`;
+  document.getElementById("nameInput").value = `${contacts[id].firstName} ${contacts[id].lastName}`;
   document.getElementById("emailInput").value = contacts[id].email;
   document.getElementById("phoneInput").value = contacts[id].phoneNumber;
 
-  document.getElementById(
-    "editInitials"
-  ).innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
-  document.getElementById("editInitials").style.backgroundColor =
-    contacts[id].profileColor;
+  document.getElementById("editInitials").innerHTML = `${contacts[id].firstName[0]}${contacts[id].lastName[0]} `;
+  document.getElementById("editInitials").style.backgroundColor = contacts[id].profileColor;
 }
 
 async function editContact(id) {
@@ -240,8 +208,7 @@ async function editContact(id) {
   // liste neu rendern
   renderContacts();
   // einzelansicht wieder
-  document.getElementById("contactSingleView").innerHTML =
-    renderSingleContactHTML(id);
+  document.getElementById("contactSingleView").innerHTML = renderSingleContactHTML(id);
 }
 
 async function editContactDesktop(id) {
@@ -251,9 +218,7 @@ async function editContactDesktop(id) {
   contacts[id].firstName = nameArray[0];
   contacts[id].lastName = nameArray[1];
   contacts[id].email = document.getElementById("editEmailInputDesktop").value;
-  contacts[id].phoneNumber = document.getElementById(
-    "editPhoneInputDesktop"
-  ).value;
+  contacts[id].phoneNumber = document.getElementById("editPhoneInputDesktop").value;
 
   await putData("contacts", contacts);
 
@@ -267,38 +232,21 @@ function setActive(newId) {
   // muss nur in der Desktopansicht gemacht werden
   if (window.innerWidth > vwBreak) {
     // beim neuen setzen
-    document
-      .getElementById(`singleContactEntry${newId}`)
-      .classList.add("active");
-    document
-      .getElementById(`singleContactEntry${newId}`)
-      .classList.remove("hover");
+    document.getElementById(`singleContactEntry${newId}`).classList.add("active");
+    document.getElementById(`singleContactEntry${newId}`).classList.remove("hover");
     // onclick deaktivieren
-    document
-      .getElementById(`singleContactEntry${newId}`)
-      .setAttribute("onclick", ``);
+    document.getElementById(`singleContactEntry${newId}`).setAttribute("onclick", ``);
     // cursor ändern
-    document.getElementById(`singleContactEntry${newId}`).style.cursor =
-      "default";
+    document.getElementById(`singleContactEntry${newId}`).style.cursor = "default";
 
     // beim alten alles wieder rückgängig machen
     if (!isNaN(currentId)) {
-      document
-        .getElementById(`singleContactEntry${currentId}`)
-        .classList.remove("active");
-      document
-        .getElementById(`singleContactEntry${currentId}`)
-        .classList.add("hover");
+      document.getElementById(`singleContactEntry${currentId}`).classList.remove("active");
+      document.getElementById(`singleContactEntry${currentId}`).classList.add("hover");
       // onclick aktivieren
-      document
-        .getElementById(`singleContactEntry${currentId}`)
-        .setAttribute(
-          "onclick",
-          `setActive(${currentId});singleContactView(${currentId})`
-        );
+      document.getElementById(`singleContactEntry${currentId}`).setAttribute("onclick", `setActive(${currentId});singleContactView(${currentId})`);
       // cursor ändern
-      document.getElementById(`singleContactEntry${currentId}`).style.cursor =
-        "pointer";
+      document.getElementById(`singleContactEntry${currentId}`).style.cursor = "pointer";
     }
     // speichern
     currentId = newId;
@@ -310,10 +258,7 @@ function getIdOfLoggedInUser() {
   //split name
   let nameArray = user.split(" ");
   for (x in contacts) {
-    if (
-      contacts[x].firstName == nameArray[0] &&
-      contacts[x].lastName == nameArray[1]
-    ) {
+    if (contacts[x].firstName == nameArray[0] && contacts[x].lastName == nameArray[1]) {
       return x;
     }
   }

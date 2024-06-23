@@ -54,17 +54,11 @@ function showSignUp() {
 }
 
 function checkSamePassword() {
-  if (
-    (document.getElementById("password").value ==
-      document.getElementById("confirmPassword").value) &
-    (document.getElementById("password").value.length > 0)
-  ) {
-    document.getElementById("inputfieldPasswordConfirm").style.border =
-      "1px solid black";
+  if ((document.getElementById("password").value == document.getElementById("confirmPassword").value) & (document.getElementById("password").value.length > 0)) {
+    document.getElementById("inputfieldPasswordConfirm").style.border = "1px solid black";
     return true;
   } else {
-    document.getElementById("inputfieldPasswordConfirm").style.border =
-      "1px solid red";
+    document.getElementById("inputfieldPasswordConfirm").style.border = "1px solid red";
     return false;
   }
 }
@@ -129,9 +123,7 @@ function logIn() {
   let email = document.getElementById("email");
   let password = document.getElementById("password");
   let register = document.getElementById("middleSection");
-  let user = userArray.find(
-    (u) => u.email == email.value && u.password == password.value
-  );
+  let user = userArray.find((u) => u.email == email.value && u.password == password.value);
 
   if (user) {
     register.innerHTML += /*HTML*/ `

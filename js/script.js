@@ -3,8 +3,7 @@
 // critical breakpoint of viewport width
 let vwBreak = 620;
 
-const BASE_URL =
-  "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /* Background colors for profile initials */
 let backgroundProfileColors = [
@@ -27,10 +26,7 @@ let backgroundProfileColors = [
 
 function getRandomBackgroundColor() {
   // random color from list
-  let new_profileColor =
-    backgroundProfileColors[
-      Math.floor(Math.random() * backgroundProfileColors.length)
-    ];
+  let new_profileColor = backgroundProfileColors[Math.floor(Math.random() * backgroundProfileColors.length)];
   return new_profileColor;
 }
 
@@ -66,8 +62,6 @@ async function includeHTML() {
   }
 }
 
-
-
 function getLoggedInUserName() {
   let user = [];
 
@@ -92,12 +86,8 @@ function updateHeaderInitials() {
   } else {
     //normal user
     let nameArray = user.split(" ");
-    document.getElementById(
-      "headerInitialsMobile"
-    ).innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
-    document.getElementById(
-      "headerInitialsDesktop"
-    ).innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
+    document.getElementById("headerInitialsMobile").innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
+    document.getElementById("headerInitialsDesktop").innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
   }
 }
 
@@ -111,9 +101,7 @@ function showHeaderPopup() {
   document.getElementById("headerPopup").style.display = "flex";
   // set onclick function after delay
   sleep(0).then(() => {
-    document
-      .getElementById("body")
-      .setAttribute("onclick", "closeHeaderPopup()");
+    document.getElementById("body").setAttribute("onclick", "closeHeaderPopup()");
   });
 }
 
@@ -127,9 +115,7 @@ function showHeaderPopupMobile() {
   document.getElementById("headerPopupMobile").style.display = "flex";
   // set onclick function after delay
   sleep(0).then(() => {
-    document
-      .getElementById("body")
-      .setAttribute("onclick", "closeHeaderPopupMobile()");
+    document.getElementById("body").setAttribute("onclick", "closeHeaderPopupMobile()");
   });
 }
 
