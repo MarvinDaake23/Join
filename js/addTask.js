@@ -189,14 +189,14 @@ function selectContacts(i) {
     selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
     //console.log(selectedTaskContacts);
   }
-  loadContacts();
+  showSelectedContacts(); // renders them!
 }
 
 function visitBoard() {
   window.location = "board.html";
 }
 
-function loadContacts() {
+function showSelectedContacts() {
   let sContacts = document.getElementById("selectedContacts");
 
   sContacts.innerHTML = "";

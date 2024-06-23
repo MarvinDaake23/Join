@@ -320,33 +320,6 @@ async function deleteTask(i) {
   renderAllBoardTasks();
 }
 
-
-function loadContactListForEditTask() {
-  // sort contacts by first name
-  sortContacts();
-  let contactWrapper = document.getElementsByClassName("contactListId")[1];
-  contactWrapper.innerHTML = "";
-
-  // first shown contact: logged in user
-  let idOfLoggedInUser = getIdOfLoggedInUser();
-
-  // nur wenns kein Gast ist
-  if (idOfLoggedInUser !== undefined) {
-    contactWrapper.innerHTML += renderContactWrapper(contacts[idOfLoggedInUser], idOfLoggedInUser);
-    // add: ME
-    document.getElementById("userNameInList").innerHTML += " (Me)";
-  }
-
-  for (let i = 0; i < contacts.length; i++) {
-    if (i != idOfLoggedInUser) {
-      const element = contacts[i];
-      contactWrapper.innerHTML += renderContactWrapper(element, i);
-    }
-  }
-}
-
-
-
 function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("formVertLineId")[1].classList.add("d-none");
   document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
@@ -422,17 +395,10 @@ function fillEditTaskFormWithValues(id) {
   prioSelectForEditTask(prio);
 
   selectedTaskContacts = boardTasks[id].assignedTo;
-  renderSelectedContactsForEditTask();
-  loadContactListForEditTask();
-}
+  showSelectedContactsForEditTask();
 
-function renderSelectedContactsForEditTask() {
-  let sContacts = document.getElementsByClassName("selectedContactsId")[1];
-  sContacts.innerHTML = "";
-  for (let i = 0; i < selectedTaskContacts.length; i++) {
-    const element = selectedTaskContacts[i];
-    sContacts.innerHTML += renderSelectedContacts(element);
-  }
+  // contact list reinladen mit bereits angeklickten!
+  loadContactListForEditTask();
 }
 
 function showEditTask(id) {
@@ -451,4 +417,55 @@ async function editTask(id) {
 
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
+}
+
+/* CONTACTS !!! */
+
+/**
+ * function to load all selected Contacts for new task
+ */
+function selectContactsForEditTask(i) {
+  if (selectedTaskContacts.indexOf(contacts[i]) == -1) {
+    selectedTaskContacts.push(contacts[i]);
+    console.log(selectedTaskContacts);
+  } else {
+    selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
+    console.log(selectedTaskContacts);
+  }
+  showSelectedContactsForEditTask(); // renders them!
+}
+
+function showSelectedContactsForEditTask() {
+  let sContacts = document.getElementsByClassName("selectedContactsId")[1];
+
+  sContacts.innerHTML = "";
+
+  for (let i = 0; i < selectedTaskContacts.length; i++) {
+    const element = selectedTaskContacts[i];
+    sContacts.innerHTML += renderSelectedContacts(element);
+  }
+}
+
+function loadContactListForEditTask() {
+  // sort contacts by first name
+  sortContacts();
+  let contactWrapper = document.getElementsByClassName("contactListId")[1];
+  contactWrapper.innerHTML = "";
+
+  // first shown contact: logged in user
+  let idOfLoggedInUser = getIdOfLoggedInUser();
+
+  // nur wenns kein Gast ist
+  if (idOfLoggedInUser !== undefined) {
+    contactWrapper.innerHTML += renderContactWrapperForEditTask(contacts[idOfLoggedInUser], idOfLoggedInUser);
+    // add: ME
+    document.getElementById("userNameInList").innerHTML += " (Me)";
+  }
+
+  for (let i = 0; i < contacts.length; i++) {
+    if (i != idOfLoggedInUser) {
+      const element = contacts[i];
+      contactWrapper.innerHTML += renderContactWrapperForEditTask(element, i);
+    }
+  }
 }
