@@ -2,7 +2,8 @@
 
 // critical breakpoint of viewport width
 // other functions are used ...
-let vwBreak = 760;
+//let vwBreak = 760;
+let vwBreak = 1350;
 
 const BASE_URL = "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
 
