@@ -354,7 +354,6 @@
   width: 230px;
   border-radius: 30px;
   padding: 30px;
-  height: 90vh;
   /*overflow-y: scroll; - außen verbieten - nur innen*/
   overflow: hidden;
 }
