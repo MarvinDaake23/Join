@@ -942,26 +942,22 @@ content {
   #todo {
     flex-direction: row;
     gap: 16px;
-    overflow-x: auto;
   }
 
   #progress {
     flex-direction: row;
     gap: 16px;
     width: 400px;
-    overflow-x: auto;
   }
 
   #feedback {
     flex-direction: row;
     gap: 16px;
-    overflow-x: auto;
   }
 
   #done {
     flex-direction: row;
     gap: 16px;
-    overflow-x: auto;
   }
 
   .boardCard {
