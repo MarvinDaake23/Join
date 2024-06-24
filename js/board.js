@@ -428,7 +428,7 @@ function fillEditTaskFormWithValues(id) {
       <span class="listEntrySpan" id="listEntry${index}">${element}</span>
       <div>
         <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtask(${index})">
-        <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtask(${index})">
+        <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskinEditTask(${index})">
       </div>
     </div>
   </li>`;
@@ -565,4 +565,10 @@ function generateJSONFromSubtasks() {
   }
 
   return subtasks;
+}
+
+
+function deleteSubtaskinEditTask(i) {
+  let subtask = document.getElementById(`subtask${i}`);
+  document.getElementsByClassName("subtaskListId")[1].removeChild(subtask);
 }
