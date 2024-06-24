@@ -927,6 +927,7 @@ content {
   }
 
   .taskGridContainer {
+    overflow-y: hidden;
     grid-template-columns: 396px auto;
     grid-template-areas:
       "todoHeader ."
@@ -942,22 +943,25 @@ content {
   #todo {
     flex-direction: row;
     gap: 16px;
+    overflow-y: scroll;
   }
 
   #progress {
     flex-direction: row;
     gap: 16px;
-    width: 400px;
+    overflow-y: scroll;
   }
 
   #feedback {
     flex-direction: row;
     gap: 16px;
+    overflow-y: scroll;
   }
 
   #done {
     flex-direction: row;
     gap: 16px;
+    overflow-y: scroll;
   }
 
   .boardCard {
