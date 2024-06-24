@@ -342,7 +342,7 @@ button {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 830px) {
   .lower {
     margin-bottom: 80px;
     left: auto;
