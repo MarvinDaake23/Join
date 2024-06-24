@@ -311,12 +311,18 @@ button {
   }
 }
 
-
 @media (max-width: 485px) {
   form input,
   form textarea,
   form select {
     width: 300px;
   }
-}
 
+  .prioContainer {
+    width: auto;
+  }
+
+  .prioContainer span {
+    display: none;
+  }
+}
