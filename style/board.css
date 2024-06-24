@@ -888,7 +888,9 @@ content {
   align-items: center;
 }
 
-@media (max-width: 620px) {
+
+
+@media (max-width: 1400px) {
   #modalAddTask {
     height: 80vh;
     width: 80vw;

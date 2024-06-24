@@ -262,7 +262,7 @@ content .contentHeadline {
   gap: 30px;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 760px) {
   body {
     grid-template-areas:
       "mobile-header"
