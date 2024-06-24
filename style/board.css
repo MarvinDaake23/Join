@@ -149,7 +149,7 @@
 }
 
 .emptyPlaceholder {
-  width: 252px;
+  width: 100%;
   background-color: #e7e7e7;
   border-radius: 10px;
   height: 48px;
@@ -929,7 +929,7 @@ content {
   }
 
   .emptyPlaceholder {
-    width: 392px;
+    /*width: 392px;*/
   }
 
   .taskGridContainer {
