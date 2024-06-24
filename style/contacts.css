@@ -176,8 +176,6 @@ content .headline h2 {
   font-weight: 400;
 }
 
-
-
 .emailAdress {
   color: #007cee;
   font-weight: 400;
@@ -219,7 +217,6 @@ content .headline h2 {
   flex-direction: column;
   gap: 5px;
 }
-
 
 #contactContainer {
   padding: 10px 40px;
@@ -344,7 +341,6 @@ content {
   padding: 110px 0px 0px 55px !important;
 }
 
-
 @media (max-width: 1240px) {
   body {
     grid-template-areas:
@@ -435,5 +431,15 @@ content {
 
   .singleContact {
     gap: 20px;
+  }
+}
+
+@media (max-width: 330px) {
+  .innerContactEntry {
+    padding: 8px 0px;
+  }
+
+  #contactContainer {
+    padding: 10px 0px;
   }
 }
