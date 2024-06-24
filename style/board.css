@@ -927,46 +927,51 @@ content {
   }
 
   .taskGridContainer {
-    overflow-x: hidden;
-    grid-template-columns: 396px auto;
+    grid-template-columns: auto;
     grid-template-areas:
-      "todoHeader ."
-      "todo todo"
-      "progressHeader ."
-      "progress progress"
-      "feedbackHeader ."
-      "feedback feedback"
-      "doneHeader ."
-      "done done";
+      "todoHeader "
+      "todo "
+      "progressHeader "
+      "progress "
+      "feedbackHeader "
+      "feedback "
+      "doneHeader "
+      "done ";
   }
 
   #todo {
     flex-direction: row;
     gap: 16px;
     overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   #progress {
     flex-direction: row;
     gap: 16px;
     overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   #feedback {
     flex-direction: row;
     gap: 16px;
     overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   #done {
     flex-direction: row;
     gap: 16px;
     overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   .boardCard {
-    width: 252px;
-    height: 244px;
+    min-width: 252px;
+    min-height: 244px;
+    max-width: 252px;
+    max-height: 244px;
   }
 }
 
