@@ -49,7 +49,6 @@ function searchContactsForEditTask() {
   }
 }
 
-
 async function contactQuery(search, allContacts) {
   allContacts.forEach((container) => {
     let username = container.querySelector("#userNameInList").innerText.toLowerCase();
@@ -95,7 +94,7 @@ function renderSubtaskListEntry(inputValue, subtaskCounter) {
   return `
         <li id="subtask${subtaskCounter}">
         <div class="listEntry">
-          <span class="listEntrySpan" id="listEntry${subtaskCounter}">${inputValue}</span>
+          <span class="listEntrySpan" id="listEntry${subtaskCounter}">${inputValue}</span><span class="listEntryCheckSpan" style="display:none;">false</span>
           <div>
             <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtask(${subtaskCounter})">
             <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtask(${subtaskCounter})">
@@ -163,6 +162,23 @@ function extractSubtasksForTask() {
   }
 
   return subtasks;
+}
+
+function extractSubtasksCheckForTask() {
+  let checks = [];
+  let list = document.querySelectorAll(".listEntryCheckSpan");
+
+  for (let index = 0; index < list.length; index++) {
+    const element = list[index];
+
+    if (element.innerHTML == "true") {
+      checks.push(true);
+    } else {
+      checks.push(false);
+    }
+  }
+
+  return checks;
 }
 
 /**

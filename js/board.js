@@ -426,12 +426,14 @@ function fillEditTaskFormWithValues(id) {
 
   //load subtasks
   let subtasks = [];
+  let subtasksCheck = [];
   let subtaskList = boardTasks[id].subtasks;
 
   if (subtaskList !== undefined) {
     for (let index = 0; index < subtaskList.length; index++) {
       const element = subtaskList[index];
       subtasks.push(element.subtaskText);
+      subtasksCheck.push(element.complete);
     }
   }
 
@@ -439,10 +441,11 @@ function fillEditTaskFormWithValues(id) {
 
   for (let index = 0; index < subtasks.length; index++) {
     const element = subtasks[index];
+    const elementChecked = subtasksCheck[index];
     subtaskUL.innerHTML += `
     <li id="subtask${index}">
     <div class="listEntry">
-      <span class="listEntrySpan" id="listEntry${index}">${element}</span>
+      <span class="listEntrySpan" id="listEntry${index}">${element}</span><span class="listEntryCheckSpan" style="display:none;">${elementChecked}</span>
       <div>
         <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtask(${index})">
         <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskinEditTask(${index})">
@@ -572,11 +575,13 @@ function listenToEnterButtonAtSubtaskInputFieldEditTask() {
 function generateJSONFromSubtasks() {
   let subtasks = [];
   let subtasksText = extractSubtasksForTask();
+  let subtasksChecks = extractSubtasksCheckForTask();
   for (let index = 0; index < subtasksText.length; index++) {
     const subtask = subtasksText[index];
+    const check = subtasksChecks[index];
     let json = {
       subtaskText: subtask,
-      complete: false,
+      complete: check,
     };
     subtasks.push(json);
   }
