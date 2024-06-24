@@ -128,11 +128,28 @@ function fillWithPlaceholders() {
   document.getElementById("done").innerHTML = renderBoardTaskPlaceholderDone();
 }
 
+function countFinishedSubtasks(id) {
+  let counter = 0;
+  for (let index = 0; index < boardTasks[id].subtasks.length; index++) {
+    const element = boardTasks[id].subtasks[index];
+    if (element.complete == true) {
+      counter++;
+    }
+  }
+  return counter;
+}
+
 function renderAllBoardTasks() {
   fillWithPlaceholders();
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
-    let finished = boardTask.finishedSubtasks;
+    //let finished = boardTask.finishedSubtasks;
+
+    let finished = 0;
+    if (boardTasks[index].subtasks !== undefined) {
+      finished = countFinishedSubtasks(index);
+    }
+
     let subtasks = boardTask.subtasks;
     let assignedTo = boardTask.assignedTo;
 
@@ -225,15 +242,15 @@ async function moveTo(category) {
   await putData("boardtasks", boardTasks);
 }
 
-async function done(j, i) {
-  if (boardTasks[i]["subtasks"][j]["complete"] == false) {
+async function toggleCheckSubtask(j, i) {
+  if (boardTasks[i].subtasks[j].complete == false) {
     document.getElementById(`${i}checkBox${j}`).src = "../assets/img/Property 1=hover checked.png";
-    boardTasks[i]["subtasks"][j]["complete"] = true;
-    boardTasks[i]["finishedSubtasks"]++;
+    boardTasks[i].subtasks[j].complete = true;
+    boardTasks[i].finishedSubtasks++;
   } else {
     document.getElementById(`${i}checkBox${j}`).src = "../assets/img/Property 1=Default.png";
-    boardTasks[i]["subtasks"][j]["complete"] = false;
-    boardTasks[i]["finishedSubtasks"]--;
+    boardTasks[i].subtasks[j].complete = false;
+    boardTasks[i].finishedSubtasks--;
   }
   await putData("boardtasks", boardTasks);
   renderAllBoardTasks();
@@ -559,14 +576,13 @@ function generateJSONFromSubtasks() {
     const subtask = subtasksText[index];
     let json = {
       subtaskText: subtask,
-      //complete: false,
+      complete: false,
     };
     subtasks.push(json);
   }
 
   return subtasks;
 }
-
 
 function deleteSubtaskinEditTask(i) {
   let subtask = document.getElementById(`subtask${i}`);
