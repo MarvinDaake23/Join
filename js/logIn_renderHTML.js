@@ -1,5 +1,5 @@
 function renderLogInHTML() {
-  return `
+  return /*html */ `
 <form onsubmit="logIn(); return false;" id="logIn" class="logIn">
 <div class="headline">
   <h1>Log in</h1>
@@ -45,7 +45,7 @@ function renderLogInHTML() {
 }
 
 function renderSignUpHTML() {
-  return `
+  return /*html */ `
     <form onsubmit="signUpSuccessful(); return false;" class="logIn">
         <img onclick="showLogIn()" class="backArrow hover" src="../assets/img/arrow-left-line.png">
         <div id="headline" class="headline">
