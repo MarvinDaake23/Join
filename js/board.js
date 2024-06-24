@@ -128,11 +128,28 @@ function fillWithPlaceholders() {
   document.getElementById("done").innerHTML = renderBoardTaskPlaceholderDone();
 }
 
+function countFinishedSubtasks(id) {
+  let counter = 0;
+  for (let index = 0; index < boardTasks[id].subtasks.length; index++) {
+    const element = boardTasks[id].subtasks[index];
+    if (element.complete == true) {
+      counter++;
+    }
+  }
+  return counter;
+}
+
 function renderAllBoardTasks() {
   fillWithPlaceholders();
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
-    let finished = boardTask.finishedSubtasks;
+    //let finished = boardTask.finishedSubtasks;
+
+    let finished = 0;
+    if (boardTasks[index].subtasks !== undefined) {
+      finished = countFinishedSubtasks(index);
+    }
+
     let subtasks = boardTask.subtasks;
     let assignedTo = boardTask.assignedTo;
 
@@ -225,15 +242,15 @@ async function moveTo(category) {
   await putData("boardtasks", boardTasks);
 }
 
-async function done(j, i) {
-  if (boardTasks[i]["subtasks"][j]["complete"] == false) {
+async function toggleCheckSubtask(j, i) {
+  if (boardTasks[i].subtasks[j].complete == false) {
     document.getElementById(`${i}checkBox${j}`).src = "../assets/img/Property 1=hover checked.png";
-    boardTasks[i]["subtasks"][j]["complete"] = true;
-    boardTasks[i]["finishedSubtasks"]++;
+    boardTasks[i].subtasks[j].complete = true;
+    boardTasks[i].finishedSubtasks++;
   } else {
     document.getElementById(`${i}checkBox${j}`).src = "../assets/img/Property 1=Default.png";
-    boardTasks[i]["subtasks"][j]["complete"] = false;
-    boardTasks[i]["finishedSubtasks"]--;
+    boardTasks[i].subtasks[j].complete = false;
+    boardTasks[i].finishedSubtasks--;
   }
   await putData("boardtasks", boardTasks);
   renderAllBoardTasks();
@@ -348,7 +365,6 @@ function showContactListForEditTask() {
   document.getElementsByClassName("contactListId")[1].classList.remove("dNone");
 }
 
-
 function prioChooseForEditTask(i) {
   resetPrioContainersForEditTask();
   if (i === 2) {
@@ -401,17 +417,48 @@ function fillEditTaskFormWithValues(id) {
   prioSelectForEditTask(prio);
 
   selectedTaskContacts = boardTasks[id].assignedTo;
-  showSelectedContactsForEditTask();
 
+  if (selectedTaskContacts !== undefined) {
+    showSelectedContactsForEditTask();
+  }
   // contact list reinladen mit bereits angeklickten!
   loadContactListForEditTask();
+
+  //load subtasks
+  let subtasks = [];
+  let subtaskList = boardTasks[id].subtasks;
+
+  if (subtaskList !== undefined) {
+    for (let index = 0; index < subtaskList.length; index++) {
+      const element = subtaskList[index];
+      subtasks.push(element.subtaskText);
+    }
+  }
+
+  let subtaskUL = document.getElementsByClassName("subtaskListId")[1];
+
+  for (let index = 0; index < subtasks.length; index++) {
+    const element = subtasks[index];
+    subtaskUL.innerHTML += `
+    <li id="subtask${index}">
+    <div class="listEntry">
+      <span class="listEntrySpan" id="listEntry${index}">${element}</span>
+      <div>
+        <img src="./assets/img/subtaskPen.svg" onclick="showEditSubtask(${index})">
+        <img src="./assets/img/subtaskBasket.svg" onclick="deleteSubtaskinEditTask(${index})">
+      </div>
+    </div>
+  </li>`;
+  }
 }
 
 function showEditTask(id) {
   document.getElementById("modalShowTask").classList.add("d-none");
   document.getElementById("modalEditTask").classList.remove("d-none");
   updateAddTaskFormToEditTask(id);
+  document.getElementsByClassName("dateId")[1].min = new Date().toLocaleDateString("fr-ca");
   fillEditTaskFormWithValues(id);
+  listenToEnterButtonAtSubtaskInputFieldEditTask();
 }
 
 async function editTask(id) {
@@ -420,16 +467,22 @@ async function editTask(id) {
   boardTasks[id].dueDate = document.getElementsByClassName("dateId")[1].value;
   boardTasks[id].type = document.getElementsByClassName("categoryId")[1].value;
   boardTasks[id].priority = prios[prioIndex];
+  boardTasks[id].assignedTo = selectedTaskContacts;
+  boardTasks[id].subtasks = generateJSONFromSubtasks();
 
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
 }
 
 /* CONTACTS !!! */
-
 function selectContactsForEditTask(i) {
   let firstName = contacts[i].firstName;
   let lastName = contacts[i].lastName;
+
+  /* wenn undefined leer anlegen */
+  if (selectedTaskContacts === undefined) {
+    selectedTaskContacts = [];
+  }
 
   let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
 
@@ -438,19 +491,21 @@ function selectContactsForEditTask(i) {
     selectedTaskContacts.push(contacts[i]);
   } else {
     //selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
-    selectedTaskContacts.splice(index,1);
+    selectedTaskContacts.splice(index, 1);
   }
   showSelectedContactsForEditTask(); // render them!
 }
 
 function checkIfContactIsSelected(id) {
-  let firstName = contacts[id].firstName;
-  let lastName = contacts[id].lastName;
-  let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
-  if (index == -1) {
-    return "";
-  } else {
-    return "checked";
+  if (selectedTaskContacts !== undefined) {
+    let firstName = contacts[id].firstName;
+    let lastName = contacts[id].lastName;
+    let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
+    if (index == -1) {
+      return "";
+    } else {
+      return "checked";
+    }
   }
 }
 
@@ -459,9 +514,12 @@ function showSelectedContactsForEditTask() {
 
   sContacts.innerHTML = "";
 
-  for (let i = 0; i < selectedTaskContacts.length; i++) {
-    const element = selectedTaskContacts[i];
-    sContacts.innerHTML += renderSelectedContacts(element);
+  if (selectedTaskContacts !== undefined) {
+    // only when some are there
+    for (let i = 0; i < selectedTaskContacts.length; i++) {
+      const element = selectedTaskContacts[i];
+      sContacts.innerHTML += renderSelectedContacts(element);
+    }
   }
 }
 
@@ -489,4 +547,44 @@ function loadContactListForEditTask() {
       contactWrapper.innerHTML += renderContactWrapperForEditTask(element, i, checked);
     }
   }
+}
+
+/* SUBTASKS */
+function listenToEnterButtonAtSubtaskInputFieldEditTask() {
+  let inputField = document.getElementsByClassName("subtaskInputId")[1];
+  inputField.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      // Do work
+      let inputValue = inputField.value;
+
+      if (inputValue) {
+        // nur wenn was drinsteht
+        document.getElementsByClassName("subtaskListId")[1].innerHTML += renderSubtaskListEntry(inputValue, subtaskCounter);
+
+        // clean up
+        inputField.value = "";
+        subtaskCounter++;
+      }
+    }
+  });
+}
+
+function generateJSONFromSubtasks() {
+  let subtasks = [];
+  let subtasksText = extractSubtasksForTask();
+  for (let index = 0; index < subtasksText.length; index++) {
+    const subtask = subtasksText[index];
+    let json = {
+      subtaskText: subtask,
+      complete: false,
+    };
+    subtasks.push(json);
+  }
+
+  return subtasks;
+}
+
+function deleteSubtaskinEditTask(i) {
+  let subtask = document.getElementById(`subtask${i}`);
+  document.getElementsByClassName("subtaskListId")[1].removeChild(subtask);
 }
