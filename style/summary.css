@@ -363,13 +363,12 @@ content {
   .thirdRowSummaryBoxes {
     gap: 8px;
   }
-  
+
   .boxSmallSummary {
     width: 88px;
   }
 
   .firstRowSummaryBoxes {
-justify-content: center;
+    justify-content: center;
   }
-
 }

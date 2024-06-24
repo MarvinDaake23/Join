@@ -345,5 +345,7 @@ button {
 @media (max-width: 760px) {
   .lower {
     margin-bottom: 80px;
+    left: auto;
+    right: auto;
   }
 }
