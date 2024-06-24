@@ -451,6 +451,7 @@ async function editTask(id) {
   boardTasks[id].type = document.getElementsByClassName("categoryId")[1].value;
   boardTasks[id].priority = prios[prioIndex];
   boardTasks[id].assignedTo = selectedTaskContacts;
+  boardTasks[id].subtasks = generateJSONFromSubtasks();
 
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
@@ -549,4 +550,19 @@ function listenToEnterButtonAtSubtaskInputFieldEditTask() {
       }
     }
   });
+}
+
+function generateJSONFromSubtasks() {
+  let subtasks = [];
+  let subtasksText = extractSubtasksForTask();
+  for (let index = 0; index < subtasksText.length; index++) {
+    const subtask = subtasksText[index];
+    let json = {
+      subtaskText: subtask,
+      //complete: false,
+    };
+    subtasks.push(json);
+  }
+
+  return subtasks;
 }
