@@ -302,9 +302,12 @@ button {
     position: fixed;
     bottom: 0;
     background: #f6f7f8;
-    width: 53%;
     height: 88px;
-    width: 90%;
+    /*width: 90%;*/
+    gap: 122px;
+    left:232px;
+    right: 15px;
+    padding: 0px 20px 0px 90px;
   }
   .upper {
     margin-bottom: 88px;
