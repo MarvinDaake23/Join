@@ -325,6 +325,14 @@ button {
   .prioContainer span {
     display: none;
   }
+
+  .lowerSpans {
+    display: none;
+  }
+
+  form .lower {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 760px) {
