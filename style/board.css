@@ -40,6 +40,10 @@
   font-weight: 400;
 }
 
+#modalEditTask {
+  overflow-y: auto;
+}
+
 #modalAddTask .headLine {
   display: flex;
   align-items: center;
