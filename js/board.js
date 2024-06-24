@@ -450,6 +450,7 @@ async function editTask(id) {
   boardTasks[id].dueDate = document.getElementsByClassName("dateId")[1].value;
   boardTasks[id].type = document.getElementsByClassName("categoryId")[1].value;
   boardTasks[id].priority = prios[prioIndex];
+  boardTasks[id].assignedTo = selectedTaskContacts;
 
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
