@@ -350,6 +350,6 @@ button {
   }
 
   .upper {
-    justify-content: center;
+    justify-content: center !important;
   }
 }
