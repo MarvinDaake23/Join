@@ -355,7 +355,8 @@
   border-radius: 30px;
   padding: 30px;
   height: 90vh;
-  overflow-y: scroll;
+  /*overflow-y: scroll; - außen verbieten - nur innen*/
+  overflow: hidden;
 }
 
 .boardBigContainerType {
@@ -483,8 +484,6 @@
   width: 14x;
   height: 14px;
 }
-
-
 
 .contactName {
   padding-left: 8px;
@@ -743,9 +742,6 @@
   border: 1px solid #29abe2;
   border-radius: 10px;
 }
-
-
-
 
 .editConatinerBackground {
   padding-bottom: 70px;
