@@ -305,7 +305,7 @@ button {
     height: 88px;
     /*width: 90%;*/
     gap: 122px;
-    left:232px;
+    left: 232px;
     right: 15px;
     padding: 0px 20px 0px 90px;
   }
@@ -347,5 +347,9 @@ button {
     margin-bottom: 80px;
     left: auto;
     right: auto;
+  }
+
+  .upper {
+    justify-content: center;
   }
 }
