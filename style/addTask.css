@@ -333,6 +333,10 @@ button {
   form .lower {
     justify-content: center;
   }
+
+  form .upper {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 760px) {
