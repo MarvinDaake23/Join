@@ -297,7 +297,7 @@ button {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1325px) {
   .lower {
     position: fixed;
     bottom: 0;
@@ -310,3 +310,6 @@ button {
     margin-bottom: 88px;
   }
 }
+
+
+
