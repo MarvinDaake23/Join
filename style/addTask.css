@@ -373,9 +373,14 @@ button {
   form select {
     width: 100%;
   }
+
+  .prioChoose {
+    width: 100%;
+  }
 }
 
 /* KLEINER ALS 485 */
+/*
 @media (max-width: 485px) {
   form input,
   form textarea,
@@ -403,3 +408,4 @@ button {
     justify-content: center;
   }
 }
+  */
