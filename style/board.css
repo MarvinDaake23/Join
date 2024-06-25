@@ -40,6 +40,12 @@
   font-weight: 400;
   width: 80vw;
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#modalAddTask::-webkit-scrollbar {
+  display: none; /* Für Chrome, Safari und Opera */
 }
 
 #modalEditTask {
