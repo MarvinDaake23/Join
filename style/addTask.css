@@ -367,6 +367,12 @@ button {
   .upper {
     justify-content: center !important;
   }
+
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+  }
 }
 
 /* KLEINER ALS 485 */
