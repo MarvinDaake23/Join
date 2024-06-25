@@ -356,11 +356,11 @@ button {
 
 /* KLEINER ALS 830 HANDYANSICHT!*/
 @media (max-width: 830px) {
-  .lower {
+  form .lower {
     margin-bottom: 80px;
     left: auto;
     right: auto;
-    width: 90%;
+    width: 100%;
     padding: 0px;
   }
 
@@ -379,7 +379,7 @@ button {
   }
 }
 
-/* KLEINER ALS 485 */
+/* KLEINER ALS 415 */
 /*
 @media (max-width: 485px) {
   form input,
@@ -409,3 +409,9 @@ button {
   }
 }
   */
+
+@media (max-width: 400px) {
+  .lowerSpans span {
+    display: none;
+  }
+}
