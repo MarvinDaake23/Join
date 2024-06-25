@@ -357,7 +357,7 @@ button {
 /* KLEINER ALS 830 HANDYANSICHT!*/
 @media (max-width: 830px) {
   form .lower {
-    margin-bottom: 80px;
+    /*margin-bottom: 80px;*/
     left: auto;
     right: auto;
     width: 100%;
@@ -411,7 +411,13 @@ button {
   */
 
 @media (max-width: 400px) {
-  .lowerSpans span {
+  .lowerSpans {
     display: none;
   }
+
+
+  .createButton {
+    width: 100%;
+  }
+
 }
