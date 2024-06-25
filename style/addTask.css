@@ -7,8 +7,8 @@ form {
 
 form .upper {
   display: flex;
-  gap: 50px;
-  flex-wrap: wrap;
+  /*gap: 50px;*/
+  /*flex-wrap: wrap; -später! */
   justify-content: space-between;
 }
 
@@ -122,7 +122,6 @@ form textarea {
 }
 
 /* PRIO STUFF */
-
 .prioContainer {
   width: 136px;
   height: 56px;
@@ -239,7 +238,6 @@ button {
 }
 
 /* subtask stuff */
-
 .listEntry {
   display: flex;
   justify-content: space-between;
@@ -287,33 +285,48 @@ button {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* KLEINER ALS 1325 */
 @media (max-width: 1325px) {
   form .formVertLineId {
     /*display: none;*/
   }
 
   form .clearButton {
-    display: none;
+    /*display: none;*/
   }
-}
 
-@media (max-width: 1325px) {
   .lower {
-    position: fixed;
+    /*  position: fixed;
     bottom: 0;
     background: #f6f7f8;
     height: 88px;
     /*width: 90%;*/
-    gap: 122px;
+    /*  gap: 122px;
     left: 232px;
     right: 15px;
-    padding: 0px 20px 0px 90px;
+    padding: 0px 20px 0px 90px;*/
   }
   .upper {
-    margin-bottom: 88px;
+    /*  margin-bottom: 88px;*/
   }
 }
 
+/* KLEINER ALS 830 */
+@media (max-width: 830px) {
+  .lower {
+    margin-bottom: 80px;
+    left: auto;
+    right: auto;
+    width: 90%;
+    padding: 0px;
+  }
+
+  .upper {
+    justify-content: center !important;
+  }
+}
+
+/* KLEINER ALS 485 */
 @media (max-width: 485px) {
   form input,
   form textarea,
@@ -339,19 +352,5 @@ button {
 
   form .upper {
     justify-content: center;
-  }
-}
-
-@media (max-width: 830px) {
-  .lower {
-    margin-bottom: 80px;
-    left: auto;
-    right: auto;
-    width: 90%;
-    padding: 0px;
-  }
-
-  .upper {
-    justify-content: center !important;
   }
 }
