@@ -190,6 +190,12 @@ content {
   overflow-y: scroll;
   background-color: #f6f7f8;
   margin-top: 5px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+content::-webkit-scrollbar {
+  display: none; /* Für Chrome, Safari und Opera */
 }
 
 content h2 {
