@@ -377,6 +377,11 @@ button {
   .prioChoose {
     width: 100%;
   }
+
+  .buttonPair {
+    width: 100%;
+  }
+
 }
 
 /* KLEINER ALS 415 */
