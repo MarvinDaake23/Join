@@ -19,5 +19,5 @@ mobile-footer {
 }
 
 body {
-  height: auto;
+  /*height: auto; /* bei auto kann man nicht scrollen! */
 }

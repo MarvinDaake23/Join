@@ -38,7 +38,54 @@
   box-sizing: border-box;
   font-size: 20px;
   font-weight: 400;
+  width: 80vw;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+#modalAddTask::-webkit-scrollbar {
+  display: none; /* Für Chrome, Safari und Opera */
+}
+
+#modalEditTask {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#modalEditTask::-webkit-scrollbar {
+  display: none; /* Für Chrome, Safari und Opera */
+}
+
+/************/
+
+#modalEditTask form .upper {
+  flex-direction: column;
+}
+
+#modalEditTask #formVertLine {
+  display: none;
+}
+
+#modalEditTask form .left,
+#modalEditTask form .right {
+  width: 100%;
+}
+
+#modalEditTask form .right {
+  align-items: flex-start;
+}
+
+#modalEditTask form .clearButton {
+  display: none;
+}
+
+.boardBigContainer {
+  max-width: 554px;
+}
+
+/************/
 
 #modalAddTask .headLine {
   display: flex;
@@ -145,7 +192,7 @@
 }
 
 .emptyPlaceholder {
-  width: 252px;
+  width: 100%;
   background-color: #e7e7e7;
   border-radius: 10px;
   height: 48px;
@@ -350,8 +397,10 @@
   width: 230px;
   border-radius: 30px;
   padding: 30px;
+  /*overflow-y: scroll; - außen verbieten - nur innen*/
+  overflow: hidden;
   height: 90vh;
-  overflow-y: scroll;
+  width: 90vw;
 }
 
 .boardBigContainerType {
@@ -479,8 +528,6 @@
   width: 14x;
   height: 14px;
 }
-
-
 
 .contactName {
   padding-left: 8px;
@@ -740,9 +787,6 @@
   border-radius: 10px;
 }
 
-
-
-
 .editConatinerBackground {
   padding-bottom: 70px;
 }
@@ -882,15 +926,14 @@ content {
   display: none;
 }
 
-.boardHeadLineMobile {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/*
 
-@media (max-width: 620px) {
+  */
+
+/* VOR-HANDY ANSICHT */
+@media (max-width: 1400px) {
   #modalAddTask {
-    height: 80vh;
+    /*height: 80vh;*/
     width: 80vw;
     margin: 50px 0px;
   }
@@ -899,24 +942,13 @@ content {
     display: none;
   }
 
-  #addButtonMobile {
-    display: flex;
-    width: 40px;
-    height: 40px;
-    background-color: #2a3647;
-  }
-
   #findInput {
-    width: 396px;
-    margin-top: 50px;
+    /*width: 396px;*/
+    /*margin-top: 50px;*/
   }
 
   .boardHeadline {
-    display: block;
-  }
-
-  #addTaskButton {
-    display: none;
+    /*display: block;*/
   }
 
   content {
@@ -924,95 +956,84 @@ content {
   }
 
   .emptyPlaceholder {
-    width: 392px;
+    /*width: 392px;*/
   }
 
   .taskGridContainer {
-    grid-template-columns: 396px auto;
+    grid-template-columns: auto;
     grid-template-areas:
-      "todoHeader ."
-      "todo todo"
-      "progressHeader ."
-      "progress progress"
-      "feedbackHeader ."
-      "feedback feedback"
-      "doneHeader ."
-      "done done";
+      "todoHeader "
+      "todo "
+      "progressHeader "
+      "progress "
+      "feedbackHeader "
+      "feedback "
+      "doneHeader "
+      "done ";
   }
 
   #todo {
     flex-direction: row;
     gap: 16px;
+    overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   #progress {
     flex-direction: row;
     gap: 16px;
-    width: 400px;
+    overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   #feedback {
     flex-direction: row;
     gap: 16px;
+    overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   #done {
     flex-direction: row;
     gap: 16px;
+    overflow-x: scroll;
+    scrollbar-width: none;
   }
 
   .boardCard {
-    width: 252px;
-    height: 244px;
+    min-width: 252px;
+    min-height: 244px;
+    max-width: 252px;
+    max-height: 244px;
   }
 }
 
-@media (min-width: 1200px) {
-  .progressInformationContainer {
-    display: flex;
-    flex-direction: row;
-  }
-  .progressContainer {
-    width: 252px;
-    height: 280px;
-    margin-right: 15px;
-    /*margin-left: 15px;*/
-  }
-  .addButtonSmall {
-    width: 24px;
-    height: 24px;
-  }
-  .taskrow {
+/* HANDY ANSICHT */
+@media (max-width: 830px) {
+  .boardHeadline {
     flex-direction: column;
-    overflow-x: visible;
-    padding-top: 0px;
   }
-  .taskTitleContainer {
-    position: absolute;
+
+  #addTaskButton {
+    display: none;
+  }
+
+  .headlineRight,
+  #findInput {
+    width: 100%;
+  }
+
+  .boardHeadLineMobile {
     display: flex;
-    flex-direction: column;
-    width: 312px;
-    right: 250px;
-    top: unset;
-    left: unset;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
-  .progressInformationContainer {
-    margin-top: 56px;
-  }
-  .addButtonBig {
-    background-image: url("../assets/img/Secondary-plus.svg");
-    width: 160px;
-  }
-}
 
-@media (min-width: 450px) {
-  .boardBigContainer {
-    width: 366px;
-  }
-}
-
-@media (min-width: 620px) {
-  .boardBigContainer {
-    width: 525px;
+  #addButtonMobile {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #2a3647;
   }
 }

@@ -266,7 +266,6 @@
   justify-content: center;
 }
 
-
 #greeting {
   font-weight: 500;
   font-size: 47px;
@@ -276,13 +275,9 @@ content {
   padding-bottom: 70px !important;
 }
 
-
 /* Responsive */
 
-
 @media (max-width: 960px) {
-
-
   .boxMediumSummary {
     max-width: 186px;
     height: 110px;
@@ -298,7 +293,6 @@ content {
     width: 40px;
   }
 
-
   .numbersSummary {
     font-size: 47px;
   }
@@ -306,7 +300,6 @@ content {
   .textSummary {
     font-size: 14px;
   }
-
 
   .boxUrgent {
     height: 110px;
@@ -334,5 +327,48 @@ content {
 
   .rightSide {
     display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .boxMediumSummary {
+    width: 140px;
+  }
+
+  .firstRowSummaryBoxes {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .deadline {
+    display: none;
+  }
+
+  .greyLineUrgentBox {
+    display: none;
+  }
+
+  .boxUrgent {
+    width: 288px;
+  }
+
+  .lowerHalf {
+    display: block;
+  }
+
+  .summaryBoxContainer {
+    display: block;
+  }
+
+  .thirdRowSummaryBoxes {
+    gap: 8px;
+  }
+
+  .boxSmallSummary {
+    width: 88px;
+  }
+
+  .firstRowSummaryBoxes {
+    justify-content: center;
   }
 }

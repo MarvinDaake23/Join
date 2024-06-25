@@ -2,14 +2,14 @@ form {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  max-width: 981px;
+  /*max-width: 981px;*/
 }
 
 form .upper {
   display: flex;
-  gap: 50px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  /*gap: 50px;*/
+  /*flex-wrap: wrap; -später! */
+  /*justify-content: space-between;*/
 }
 
 form .lower {
@@ -18,6 +18,18 @@ form .lower {
   align-items: center;
   margin-top: 50px;
   flex-wrap: wrap;
+  width: 90%;
+}
+
+form .left,
+form .right {
+  width: 45%;
+}
+
+form .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 form .red {
@@ -29,9 +41,10 @@ form h4 {
   font-weight: 400;
   margin-bottom: 8px;
   margin-top: 0px;
+  width: 90%;
 }
 
-form .formVertLine {
+form .formVertLineId {
   border-left: 1px solid #d1d1d1;
   height: 424px;
 }
@@ -40,7 +53,7 @@ form input,
 form textarea,
 form select {
   /*width: 440px;*/
-  width: 440px;
+  width: 90%;
   padding: 12px 21px 12px 21px;
   gap: 10px;
   border-radius: 10px;
@@ -49,6 +62,7 @@ form select {
   font-size: 20px;
   font-weight: 400;
   background-color: white;
+  font-family: "Inter";
 }
 
 form input {
@@ -122,7 +136,6 @@ form textarea {
 }
 
 /* PRIO STUFF */
-
 .prioContainer {
   width: 136px;
   height: 56px;
@@ -142,8 +155,10 @@ form textarea {
 .prioChoose {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 6.5%;
   margin-bottom: 16px;
+  width: 90%;
+  justify-content: space-between;
 }
 
 .lowPrioImg {
@@ -226,6 +241,22 @@ button {
   background-color: #f6f7f8;
 }
 
+.clearButtonImage {
+  background-image: url(../assets/img/cancel.svg);
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+}
+
+.clearButton:hover .clearButtonImage {
+  background-image: url(../assets/img/cancelBlue.svg);
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+}
+
 .createButton {
   width: 183px;
   background-color: #2a3647;
@@ -239,7 +270,6 @@ button {
 }
 
 /* subtask stuff */
-
 .listEntry {
   display: flex;
   justify-content: space-between;
@@ -249,6 +279,7 @@ button {
 #subtaskList {
   margin: 0;
   margin-top: -8px;
+  width: 90%;
 }
 
 .listEntry img {
@@ -271,12 +302,92 @@ button {
   justify-content: space-between;
 }
 
-@media (max-width: 1200px) {
-  form .formVertLine {
+.listEntry:hover {
+  background-color: #eeeeee;
+}
+
+.clearButton:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #29abe2;
+  color: #29abe2;
+}
+
+.createButton:hover {
+  background-color: #29abe2;
+  border: 1px solid #29abe2;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* KLEINER ALS 1325 */
+@media (max-width: 1325px) {
+  .prioChoose span {
     display: none;
+  }
+}
+
+/* noch vor der Handyansicht alles in einer Spalte */
+@media (max-width: 1000px) {
+  form .upper {
+    flex-direction: column;
+  }
+
+  #formVertLine {
+    display: none;
+  }
+
+  form .left,
+  form .right {
+    width: 100%;
+  }
+
+  form .right {
+    align-items: flex-start;
   }
 
   form .clearButton {
     display: none;
+  }
+}
+
+/* KLEINER ALS 830 - HANDYANSICHT!*/
+@media (max-width: 830px) {
+  form .lower {
+    /*margin-bottom: 80px;*/
+    left: auto;
+    right: auto;
+    width: 100%;
+    padding: 0px;
+  }
+
+  .upper {
+    justify-content: center !important;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+  }
+
+  .prioChoose {
+    width: 100%;
+  }
+
+  #subtaskList {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .lowerSpans {
+    display: none;
+  }
+
+  .buttonPair {
+    width: 100%;
+  }
+
+  .createButton {
+    width: 100%;
   }
 }
