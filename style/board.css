@@ -50,7 +50,15 @@
 
 #modalEditTask {
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+#modalEditTask::-webkit-scrollbar {
+  display: none; /* Für Chrome, Safari und Opera */
+}
+
+
 /************/
 
 #modalEditTask form .upper {
