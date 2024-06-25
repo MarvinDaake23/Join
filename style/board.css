@@ -1055,6 +1055,6 @@ content {
 
 @media (min-width: 450px) {
   .boardBigContainer {
-    width: 366px;
+    /*width: 366px;*/
   }
 }
