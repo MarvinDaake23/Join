@@ -377,11 +377,6 @@ button {
   .prioChoose {
     width: 100%;
   }
-
-  .buttonPair {
-    width: 100%;
-  }
-
 }
 
 /* KLEINER ALS 415 */
@@ -420,9 +415,11 @@ button {
     display: none;
   }
 
+  .buttonPair {
+    width: 100%;
+  }
 
   .createButton {
     width: 100%;
   }
-
 }
