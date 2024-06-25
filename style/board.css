@@ -948,7 +948,7 @@ content {
   }
 
   content {
-    /*padding: 48px 16px !important;  -später */
+    padding: 48px 16px !important;
   }
 
   .emptyPlaceholder {
@@ -1014,7 +1014,8 @@ content {
     display: none;
   }
 
-  .headlineRight, #findInput {
+  .headlineRight,
+  #findInput {
     width: 100%;
   }
 
