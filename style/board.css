@@ -81,6 +81,10 @@
   display: none;
 }
 
+.boardBigContainer {
+  max-width: 554px;
+}
+
 /************/
 
 #modalAddTask .headLine {
