@@ -262,6 +262,7 @@ button {
 #subtaskList {
   margin: 0;
   margin-top: -8px;
+  width: 90%;
 }
 
 .listEntry img {
@@ -352,6 +353,10 @@ button {
   }
 
   .prioChoose {
+    width: 100%;
+  }
+
+  #subtaskList {
     width: 100%;
   }
 }

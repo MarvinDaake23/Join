@@ -897,7 +897,7 @@ content {
 
 @media (max-width: 1400px) {
   #modalAddTask {
-    height: 80vh;
+    /*height: 80vh;*/
     width: 80vw;
     margin: 50px 0px;
   }
