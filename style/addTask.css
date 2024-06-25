@@ -305,32 +305,9 @@ button {
   .prioChoose span {
     display: none;
   }
-
-  form .formVertLineId {
-    /*display: none;*/
-  }
-
-  form .clearButton {
-    /*display: none;*/
-  }
-
-  .lower {
-    /*  position: fixed;
-    bottom: 0;
-    background: #f6f7f8;
-    height: 88px;
-    /*width: 90%;*/
-    /*  gap: 122px;
-    left: 232px;
-    right: 15px;
-    padding: 0px 20px 0px 90px;*/
-  }
-  .upper {
-    /*  margin-bottom: 88px;*/
-  }
 }
 
-/* vor der Handyansicht alles in einer Spalte */
+/* noch vor der Handyansicht alles in einer Spalte */
 @media (max-width: 1000px) {
   form .upper {
     flex-direction: column;
@@ -354,7 +331,7 @@ button {
   }
 }
 
-/* KLEINER ALS 830 HANDYANSICHT!*/
+/* KLEINER ALS 830 - HANDYANSICHT!*/
 @media (max-width: 830px) {
   form .lower {
     /*margin-bottom: 80px;*/
@@ -378,37 +355,6 @@ button {
     width: 100%;
   }
 }
-
-/* KLEINER ALS 415 */
-/*
-@media (max-width: 485px) {
-  form input,
-  form textarea,
-  form select {
-    width: 280px;
-  }
-
-  .prioContainer {
-    width: 90%;
-  }
-
-  .prioContainer span {
-    display: none;
-  }
-
-  .lowerSpans {
-    display: none;
-  }
-
-  form .lower {
-    justify-content: center;
-  }
-
-  form .upper {
-    justify-content: center;
-  }
-}
-  */
 
 @media (max-width: 400px) {
   .lowerSpans {
