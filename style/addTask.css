@@ -342,13 +342,16 @@ button {
 
   form .left,
   form .right {
-    width: 90%;
+    width: 100%;
   }
 
   form .right {
     align-items: flex-start;
   }
 
+  form .clearButton {
+    display: none;
+  }
 }
 
 /* KLEINER ALS 830 HANDYANSICHT!*/
