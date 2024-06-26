@@ -283,8 +283,8 @@ button {
   width: 90%;
   max-height: 100px;
   overflow-y: scroll;
-  border: 1px solid lightgray;
-  border-radius: 10px;
+  /*border: 1px solid lightgray;
+  border-radius: 10px;*/
 }
 
 .listEntry img {
