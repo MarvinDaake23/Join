@@ -12,6 +12,8 @@
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   animation-name: fadeIn;
   animation-duration: 0.4s;
+  justify-content: center;
+  align-items: center;
 }
 
 /* DESKTOP VIEW */

@@ -84,7 +84,7 @@ function backToContactList() {
 
 /* MODAL STUFF */
 function showAddContact() {
-  document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalBackground").style.display = "flex";
   updateModalTemplateToAdd();
   document.getElementById("addOrEditForm").reset();
   document.getElementById("modalBackground").setAttribute("onclick", "closeAddOrEditContact()");
@@ -92,7 +92,7 @@ function showAddContact() {
 }
 
 function showEditContact(id) {
-  document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalBackground").style.display = "flex";
   document.getElementById("modalBackground").setAttribute("onclick", "closeAddOrEditContact()");
   document.getElementById("modalAddOrEditContact").setAttribute("onclick", "event.stopPropagation();");
   updateModalTemplateToEdit(id);
