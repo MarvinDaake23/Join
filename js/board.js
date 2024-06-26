@@ -239,43 +239,19 @@ async function taskQuery(search, boardTaskClass) {
       container.style.display = "flex";
     } else {
       container.style.display = "none";
-      checkIfEmptyContainer1();
-      checkIfEmptyContainer2();
-      checkIfEmptyContainer3();
-      checkIfEmptyContainer4();
+      checkIfEmptyContainer("todo");
+      checkIfEmptyContainer("progress");
+      checkIfEmptyContainer("feedback");
+      checkIfEmptyContainer("done");
     }
   });
 }
 
-async function checkIfEmptyContainer1() {
-  let all = document.querySelectorAll("#todo > div").length;
-  let invisible = document.querySelectorAll('#todo > div[style*="display: none"]').length;
+async function checkIfEmptyContainer(column) {
+  let all = document.querySelectorAll(`#${column} > div`).length;
+  let invisible = document.querySelectorAll(`#${column} > div[style*="display: none]'`).length;
   if (all == invisible) {
-    document.getElementById("todoPlaceholder").style.display = "flex";
-  }
-}
-
-async function checkIfEmptyContainer2() {
-  let all = document.querySelectorAll("#progress > div").length;
-  let invisible = document.querySelectorAll('#progress > div[style*="display: none"]').length;
-  if (all == invisible) {
-    document.getElementById("progressPlaceholder").style.display = "flex";
-  }
-}
-
-async function checkIfEmptyContainer3() {
-  let all = document.querySelectorAll("#feedback > div").length;
-  let invisible = document.querySelectorAll('#feedback > div[style*="display: none"]').length;
-  if (all == invisible) {
-    document.getElementById("feedbackPlaceholder").style.display = "flex";
-  }
-}
-
-async function checkIfEmptyContainer4() {
-  let all = document.querySelectorAll("#done > div").length;
-  let invisible = document.querySelectorAll('#done > div[style*="display: none"]').length;
-  if (all == invisible) {
-    document.getElementById("donePlaceholder").style.display = "flex";
+    document.getElementById(`${column}Placeholder`).style.display = "flex";
   }
 }
 
