@@ -44,3 +44,9 @@
 content {
   padding-right: 70px;
 }
+
+@media (max-width: 830px){
+  .arrowLeftBlue{
+    top: 130px;
+  }
+}

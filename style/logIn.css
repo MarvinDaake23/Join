@@ -194,8 +194,8 @@ input[type="email"] {
 }
 
 .personIcon {
-  height: 16px;
-  width: 17px;
+  height: 27px;
+  width: 27px;
 }
 
 .lockIcon {
@@ -367,6 +367,16 @@ button {
     position: relative;
     left: -140px;
     top: 45px;
+  }
+}
+
+@media (max-width: 750px){
+  .signUpSection{
+    bottom: 80px;
+  }
+
+  .informationSection{
+    bottom: 40px;
   }
 }
 
