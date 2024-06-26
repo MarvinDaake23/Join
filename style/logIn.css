@@ -371,11 +371,6 @@ button {
 }
 
 @media (max-width: 750px){
-  .signInButton{
-    height: 35px;
-    width: 85px;
-  }
-
   .signUpSection{
     bottom: 80px;
   }
