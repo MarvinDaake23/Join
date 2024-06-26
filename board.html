@@ -65,10 +65,10 @@
           <span>Done</span>
           <div class="addButton" onclick="showAddTask(4)"></div>
         </div>
-        <div id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
-        <div id="progress" ondrop="moveTo('progress')" ondragover="allowDrop(event)"></div>
-        <div id="feedback" ondrop="moveTo('feedback')" ondragover="allowDrop(event)"></div>
-        <div id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+        <div id="todo" ondrop="moveTo('todo'); removeAllHighlights()" ondragover="addHighlightTodo(); allowDrop(event)" ondragleave="removeHighlightTodo()"></div>
+        <div id="progress" ondrop="moveTo('progress')" ondragover="addHighlightProgress(); allowDrop(event)" ondragleave="removeHighlightProgress()"></div>
+        <div id="feedback" ondrop="moveTo('feedback')" ondragover="addHighlightFeedback(); allowDrop(event)" ondragleave="removeHighlightFeedback()"></div>
+        <div id="done" ondrop="moveTo('done')" ondragover="addHighlightDone(); allowDrop(event)" ondragleave="removeHighlightDone()"></div>
       </div>
 
       <div id="boardBigContainer" class="boardBigContainer d-none">

@@ -253,6 +253,45 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
+function addHighlightTodo() {
+  document.getElementById("todo").classList.add("highlightBorder");
+}
+
+function removeHighlightTodo() {
+  document.getElementById("todo").classList.remove("highlightBorder");
+}
+
+function addHighlightProgress() {
+  document.getElementById("progress").classList.add("highlightBorder");
+}
+
+function removeHighlightProgress() {
+  document.getElementById("progress").classList.remove("highlightBorder");
+}
+
+function addHighlightFeedback() {
+  document.getElementById("feedback").classList.add("highlightBorder");
+}
+
+function removeHighlightFeedback() {
+  document.getElementById("feedback").classList.remove("highlightBorder");
+}
+
+function addHighlightDone() {
+  document.getElementById("done").classList.add("highlightBorder");
+}
+
+function removeHighlightDone() {
+  document.getElementById("done").classList.remove("highlightBorder");
+}
+
+function removeAllHighlights() {
+  document.getElementById("todo").classList.remove("highlightBorder");
+  document.getElementById("progress").classList.remove("highlightBorder");
+  document.getElementById("feedback").classList.remove("highlightBorder");
+  document.getElementById("done").classList.remove("highlightBorder");
+}
+
 /**
  * function to change the category so that the container is loaded correctly when reloaded
  */

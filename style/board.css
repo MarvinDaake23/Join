@@ -936,9 +936,9 @@ content {
   display: none;
 }
 
-/*
-
-  */
+.highlightBorder {
+  border: 1px dashed black;
+}
 
 /* VOR-HANDY ANSICHT */
 @media (max-width: 1400px) {
