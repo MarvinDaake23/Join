@@ -98,7 +98,7 @@ function loadBoardBigContainerLists(i) {
  */
 function loadBoardBigContainerContacts(i) {
   let assignedToContactsInput = document.getElementById("boardBigContainerAssignedToContactsInput");
-  let maxAmount = 4;
+  let maxAmount = 3;
   let amount = boardTasks[i]["assignedTo"].length;
   let more = amount - maxAmount;
   if (amount <= maxAmount) {
@@ -542,9 +542,21 @@ function showSelectedContactsForEditTask() {
 
   if (selectedTaskContacts !== undefined) {
     // only when some are there
-    for (let i = 0; i < selectedTaskContacts.length; i++) {
-      const element = selectedTaskContacts[i];
-      sContacts.innerHTML += renderSelectedContacts(element);
+    let amount = selectedTaskContacts.length;
+    let maxAmount = 4;
+    let more = amount - maxAmount;
+
+    if (amount <= maxAmount) {
+      for (let i = 0; i < amount; i++) {
+        const element = selectedTaskContacts[i];
+        sContacts.innerHTML += renderSelectedContacts(element);
+      }
+    } else {
+      for (let i = 0; i < maxAmount; i++) {
+        const element = selectedTaskContacts[i];
+        sContacts.innerHTML += renderSelectedContacts(element);
+      }
+      sContacts.innerHTML += renderSelectedContactsMore(amount);
     }
   }
 }

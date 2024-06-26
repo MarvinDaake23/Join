@@ -99,6 +99,7 @@ function renderBoardBigContainerContactsMore(amount) {
     return /*html */ `
             <div class="boardContacts">
                 <div style="background-color:red" class="contactIcon initials initSmall">+${amount}</div>
+                <div class="contactName">more users</div>
             </div>
         `;
   }
