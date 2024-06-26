@@ -92,7 +92,6 @@ form textarea {
   /*position: fixed;*/
   /*width: 440px;*/
   width: 90%;
-
 }
 
 #contactList input {
@@ -282,6 +281,10 @@ button {
   margin: 0;
   margin-top: -8px;
   width: 90%;
+  max-height: 100px;
+  overflow-y: scroll;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 
 .listEntry img {
@@ -380,10 +383,8 @@ button {
   }
 
   #contactList {
-    width: 100%
+    width: 100%;
   }
-
-
 }
 
 @media (max-width: 400px) {
