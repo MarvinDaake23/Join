@@ -98,9 +98,20 @@ function loadBoardBigContainerLists(i) {
  */
 function loadBoardBigContainerContacts(i) {
   let assignedToContactsInput = document.getElementById("boardBigContainerAssignedToContactsInput");
-  for (let j = 0; j < boardTasks[i]["assignedTo"].length; j++) {
-    const element = boardTasks[i]["assignedTo"][j];
-    assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
+  let maxAmount = 3;
+  let amount = boardTasks[i]["assignedTo"].length;
+  let more = amount - maxAmount;
+  if (amount <= maxAmount) {
+    for (let j = 0; j < amount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
+    }
+  } else {
+    for (let j = 0; j < maxAmount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
+    }
+    assignedToContactsInput.innerHTML += renderBoardBigContainerContactsMore(more);
   }
 }
 
@@ -187,10 +198,22 @@ function renderAllBoardTasks() {
  *  function to render the contacts of each task in the small view
  */
 function loadContactInBoardTask(i) {
+  let maxAmount = 4;
   let contacts = document.getElementById(`boardTaskContacts${i}`);
-  for (let j = 0; j < boardTasks[i]["assignedTo"].length; j++) {
-    const element = boardTasks[i]["assignedTo"][j];
-    contacts.innerHTML += renderBoardTaskContacts(element);
+  let amount = boardTasks[i]["assignedTo"].length;
+  let more = amount - maxAmount;
+  if (amount <= maxAmount) {
+    // 0 bis 4 inkl.
+    for (let j = 0; j < amount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      contacts.innerHTML += renderBoardTaskContacts(element);
+    }
+  } else {
+    for (let j = 0; j < maxAmount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      contacts.innerHTML += renderBoardTaskContacts(element);
+    }
+    contacts.innerHTML += renderBoardTaskContactsMore(more);
   }
 }
 
@@ -230,10 +253,50 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
+function addHighlightTodo() {
+  document.getElementById("todo").classList.add("highlightBorder");
+}
+
+function removeHighlightTodo() {
+  document.getElementById("todo").classList.remove("highlightBorder");
+}
+
+function addHighlightProgress() {
+  document.getElementById("progress").classList.add("highlightBorder");
+}
+
+function removeHighlightProgress() {
+  document.getElementById("progress").classList.remove("highlightBorder");
+}
+
+function addHighlightFeedback() {
+  document.getElementById("feedback").classList.add("highlightBorder");
+}
+
+function removeHighlightFeedback() {
+  document.getElementById("feedback").classList.remove("highlightBorder");
+}
+
+function addHighlightDone() {
+  document.getElementById("done").classList.add("highlightBorder");
+}
+
+function removeHighlightDone() {
+  document.getElementById("done").classList.remove("highlightBorder");
+}
+
+function removeAllHighlights() {
+  document.getElementById("todo").classList.remove("highlightBorder");
+  document.getElementById("progress").classList.remove("highlightBorder");
+  document.getElementById("feedback").classList.remove("highlightBorder");
+  document.getElementById("done").classList.remove("highlightBorder");
+}
+
 /**
  * function to change the category so that the container is loaded correctly when reloaded
  */
 async function moveTo(category) {
+  removeAllHighlights();
   boardTasks[currentDraggedElement]["category"] = category;
   renderAllBoardTasks();
   // clear input field
@@ -519,9 +582,21 @@ function showSelectedContactsForEditTask() {
 
   if (selectedTaskContacts !== undefined) {
     // only when some are there
-    for (let i = 0; i < selectedTaskContacts.length; i++) {
-      const element = selectedTaskContacts[i];
-      sContacts.innerHTML += renderSelectedContacts(element);
+    let amount = selectedTaskContacts.length;
+    let maxAmount = 4;
+    let more = amount - maxAmount;
+
+    if (amount <= maxAmount) {
+      for (let i = 0; i < amount; i++) {
+        const element = selectedTaskContacts[i];
+        sContacts.innerHTML += renderSelectedContacts(element);
+      }
+    } else {
+      for (let i = 0; i < maxAmount; i++) {
+        const element = selectedTaskContacts[i];
+        sContacts.innerHTML += renderSelectedContacts(element);
+      }
+      sContacts.innerHTML += renderSelectedContactsMore(amount);
     }
   }
 }

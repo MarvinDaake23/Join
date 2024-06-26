@@ -35,3 +35,10 @@ function renderSelectedContacts(element, i) {
             <div style="background-color:${element["profileColor"]}" class="initials initSmall">${element["firstName"][0]}${element["lastName"][0]}</div>
         `;
 }
+
+
+function renderSelectedContactsMore(more) {
+    return /*html */ `
+              <div style="background-color:red" class="initials initSmall">+${more}</div>
+          `;
+  }

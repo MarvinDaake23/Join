@@ -237,9 +237,21 @@ function showSelectedContacts() {
 
   sContacts.innerHTML = "";
 
-  for (let i = 0; i < selectedTaskContacts.length; i++) {
-    const element = selectedTaskContacts[i];
-    sContacts.innerHTML += renderSelectedContacts(element);
+  let maxAmount = 4;
+  let amount = selectedTaskContacts.length;
+  let more = amount - maxAmount;
+
+  if (amount <= maxAmount) {
+    for (let i = 0; i < amount; i++) {
+      const element = selectedTaskContacts[i];
+      sContacts.innerHTML += renderSelectedContacts(element);
+    }
+  } else {
+    for (let i = 0; i < maxAmount; i++) {
+      const element = selectedTaskContacts[i];
+      sContacts.innerHTML += renderSelectedContacts(element);
+    }
+    sContacts.innerHTML += renderSelectedContactsMore(more);
   }
 }
 
