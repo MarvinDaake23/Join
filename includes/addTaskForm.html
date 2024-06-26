@@ -20,7 +20,7 @@
         onclick="toggleContactList(); event.stopPropagation();"
         oninput="showContactList();searchContacts()"
       />
-      <ul class="dNone contactListId" id="contactList"></ul>
+      <ul class="dNone contactListId" id="contactList" onclick="event.stopPropagation();"></ul>
 
       <div class="selectedContactsId" id="selectedContacts"></div>
     </div>

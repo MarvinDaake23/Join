@@ -147,7 +147,7 @@ function toggleContactList() {
   document.getElementById("contactList").classList.toggle("dNone");
   // wenn aktuell ausgeklappt muss es auch anders zu schließen gehen!
   if (document.getElementById("contactList").classList.length == 1) {
-    document.getElementById("body").setAttribute("onclick", "toggleContactList()");
+    document.getElementById("body").setAttribute("onclick", "toggleContactList();");
   } else {
     document.getElementById("body").setAttribute("onclick", "");
   }
