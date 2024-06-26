@@ -11,17 +11,6 @@ async function boardInit() {
   renderAllBoardTasks();
 }
 
-function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
-
 function showAddTask(column) {
   // if in mobile view - switch page!
   if (window.innerWidth < vwBreak) {
@@ -45,20 +34,11 @@ function closeModal() {
 function loadContacteditWrapper() {
   // sort contacts by first name
   sortContacts();
-
   let contactWrapper = document.getElementById("editwrapperListAt");
-
   for (let i = 0; i < contacts.length; i++) {
     const element = contacts[i];
     contactWrapper.innerHTML += renderContactWrapper(element, i);
   }
-}
-
-function inputeditSelector() {
-  let subtaskInput = document.getElementById("editsubtaskInput");
-  subtaskInput.addEventListener("focus", function () {
-    inputFocus();
-  });
 }
 
 /**
@@ -153,41 +133,29 @@ function renderAllBoardTasks() {
   fillWithPlaceholders();
   for (let index = 0; index < boardTasks.length; index++) {
     const boardTask = boardTasks[index];
-    //let finished = boardTask.finishedSubtasks;
-
     let finished = 0;
     if (boardTasks[index].subtasks !== undefined) {
       finished = countFinishedSubtasks(index);
     }
-
     let subtasks = boardTask.subtasks;
     let assignedTo = boardTask.assignedTo;
-
     if (boardTask.category == "todo") {
       document.getElementById("todo").innerHTML += renderBoardTask(boardTask, index);
-      //placeholder unsichtbar machen
       document.getElementById("todoPlaceholder").style.display = "none";
     } else if (boardTask.category == "progress") {
       document.getElementById("progress").innerHTML += renderBoardTask(boardTask, index);
-      //placeholder unsichtbar machen
       document.getElementById("progressPlaceholder").style.display = "none";
     } else if (boardTask.category == "feedback") {
       document.getElementById("feedback").innerHTML += renderBoardTask(boardTask, index);
-      //placeholder unsichtbar machen
       document.getElementById("feedbackPlaceholder").style.display = "none";
     } else if (boardTask.category == "done") {
       document.getElementById("done").innerHTML += renderBoardTask(boardTask, index);
-      //placeholder unsichtbar machen
       document.getElementById("donePlaceholder").style.display = "none";
     }
-    //loadProgressbar(index, progressName, subtaskCount.length, finished);
     if (subtasks && subtasks.length != 0) {
       loadProgressbar(index, subtasks.length, finished);
     }
-    //loadPrioBoardTask(index); -> christoph
-
     if (assignedTo) {
-      // nur wenn kontakte zugeordnet sind, rendern
       loadContactInBoardTask(index);
     }
   }
@@ -220,24 +188,17 @@ function loadContactInBoardTask(i) {
  * function to render the priority of each task
  */
 function loadPrioBoardTask(i) {
-  // element dazu
   let prio = document.getElementById(`boardTaskPrio${i}`);
   if (boardTasks[i]["priority"] == "Low") {
     prio.classList.add("lowPrioImg");
-    //prio.innerHTML = "Low";
   }
   if (boardTasks[i]["priority"] == "Medium") {
     prio.classList.add("medPrioImg");
-    //prio.innerHTML = "Medium";
   }
   if (boardTasks[i]["priority"] == "Urgent") {
     prio.classList.add("highPrioImg");
-    //prio.innerHTML = "Urgent";
   }
 }
-
-
-
 
 async function toggleCheckSubtask(j, i) {
   if (boardTasks[i].subtasks[j].complete == false) {
@@ -263,16 +224,9 @@ function loadProgressbar(index, subEndCount, finished) {
 function searchTask() {
   let search = document.getElementById("findInput").value.toLowerCase();
   let boardTaskClass = document.querySelectorAll(".boardCard");
-
   if (search.length >= 3) {
     taskQuery(search, boardTaskClass);
   } else {
-    /*
-    boardTaskClass.forEach((container) => {
-      container.style.display = "flex";
-    });
-    */
-    // besser: neu rendern!
     renderAllBoardTasks();
   }
 }
@@ -285,7 +239,6 @@ async function taskQuery(search, boardTaskClass) {
       container.style.display = "flex";
     } else {
       container.style.display = "none";
-      // wie viele sind noch drin?
       checkIfEmptyContainer1();
       checkIfEmptyContainer2();
       checkIfEmptyContainer3();
@@ -328,7 +281,6 @@ async function checkIfEmptyContainer4() {
 
 async function deleteTask(i) {
   boardTasks.splice(i, 1);
-  // neu hochladen
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
   renderAllBoardTasks();
@@ -348,7 +300,6 @@ function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("closeButtonId")[1].setAttribute("onclick", "removeboardBigContainer()");
   document.getElementsByClassName("assignedContactsInputFieldId")[1].setAttribute("onclick", "toggleContactListForEditTask()");
   document.getElementsByClassName("assignedContactsInputFieldId")[1].setAttribute("oninput", "showContactListForEditTask(); searchContactsForEditTask()");
-
   document.getElementsByClassName("prioLowId")[1].setAttribute("onclick", "prioChooseForEditTask(0)");
   document.getElementsByClassName("prioMedId")[1].setAttribute("onclick", "prioChooseForEditTask(1)");
   document.getElementsByClassName("prioHighId")[1].setAttribute("onclick", "prioChooseForEditTask(2)");
@@ -409,23 +360,16 @@ function fillEditTaskFormWithValues(id) {
   document.getElementsByClassName("descriptionId")[1].value = boardTasks[id].description;
   document.getElementsByClassName("dateId")[1].value = boardTasks[id].dueDate;
   document.getElementsByClassName("categoryId")[1].value = boardTasks[id].type;
-
   let prio = boardTasks[id].priority;
   prioSelectForEditTask(prio);
-
   selectedTaskContacts = boardTasks[id].assignedTo;
-
   if (selectedTaskContacts !== undefined) {
     showSelectedContactsForEditTask();
   }
-  // contact list reinladen mit bereits angeklickten!
   loadContactListForEditTask();
-
-  //load subtasks
   let subtasks = [];
   let subtasksCheck = [];
   let subtaskList = boardTasks[id].subtasks;
-
   if (subtaskList !== undefined) {
     for (let index = 0; index < subtaskList.length; index++) {
       const element = subtaskList[index];
@@ -433,9 +377,7 @@ function fillEditTaskFormWithValues(id) {
       subtasksCheck.push(element.complete);
     }
   }
-
   let subtaskUL = document.getElementsByClassName("subtaskListId")[1];
-
   for (let index = 0; index < subtasks.length; index++) {
     const element = subtasks[index];
     const elementChecked = subtasksCheck[index];
@@ -469,31 +411,23 @@ async function editTask(id) {
   boardTasks[id].priority = prios[prioIndex];
   boardTasks[id].assignedTo = selectedTaskContacts;
   boardTasks[id].subtasks = generateJSONFromSubtasks();
-
   await putData("boardtasks", boardTasks);
   removeboardBigContainer();
 }
 
-/* CONTACTS !!! */
 function selectContactsForEditTask(i) {
   let firstName = contacts[i].firstName;
   let lastName = contacts[i].lastName;
-
-  /* wenn undefined leer anlegen */
   if (selectedTaskContacts === undefined) {
     selectedTaskContacts = [];
   }
-
   let index = selectedTaskContacts.findIndex((obj) => obj.firstName == firstName && obj.lastName == lastName);
-
   if (index == -1) {
-    // not found
     selectedTaskContacts.push(contacts[i]);
   } else {
-    //selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
     selectedTaskContacts.splice(index, 1);
   }
-  showSelectedContactsForEditTask(); // render them!
+  showSelectedContactsForEditTask();
 }
 
 function checkIfContactIsSelected(id) {
@@ -511,15 +445,11 @@ function checkIfContactIsSelected(id) {
 
 function showSelectedContactsForEditTask() {
   let sContacts = document.getElementsByClassName("selectedContactsId")[1];
-
   sContacts.innerHTML = "";
-
   if (selectedTaskContacts !== undefined) {
-    // only when some are there
     let amount = selectedTaskContacts.length;
     let maxAmount = 4;
     let more = amount - maxAmount;
-
     if (amount <= maxAmount) {
       for (let i = 0; i < amount; i++) {
         const element = selectedTaskContacts[i];
@@ -536,22 +466,15 @@ function showSelectedContactsForEditTask() {
 }
 
 function loadContactListForEditTask() {
-  // sort contacts by first name
   sortContacts();
   let contactWrapper = document.getElementsByClassName("contactListId")[1];
   contactWrapper.innerHTML = "";
-
-  // first shown contact: logged in user
   let idOfLoggedInUser = getIdOfLoggedInUser();
-
-  // nur wenns kein Gast ist
   if (idOfLoggedInUser !== undefined) {
     let checked = checkIfContactIsSelected(idOfLoggedInUser);
     contactWrapper.innerHTML += renderContactWrapperForEditTask(contacts[idOfLoggedInUser], idOfLoggedInUser, checked);
-    // add: ME
     document.getElementById("userNameInList").innerHTML += " (Me)";
   }
-
   for (let i = 0; i < contacts.length; i++) {
     if (i != idOfLoggedInUser) {
       const element = contacts[i];
@@ -561,19 +484,13 @@ function loadContactListForEditTask() {
   }
 }
 
-/* SUBTASKS */
 function listenToEnterButtonAtSubtaskInputFieldEditTask() {
   let inputField = document.getElementsByClassName("subtaskInputId")[1];
   inputField.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
-      // Do work
       let inputValue = inputField.value;
-
       if (inputValue) {
-        // nur wenn was drinsteht
         document.getElementsByClassName("subtaskListId")[1].innerHTML += renderSubtaskListEntry(inputValue, subtaskCounter);
-
-        // clean up
         inputField.value = "";
         subtaskCounter++;
       }
@@ -594,7 +511,6 @@ function generateJSONFromSubtasks() {
     };
     subtasks.push(json);
   }
-
   return subtasks;
 }
 
@@ -602,4 +518,3 @@ function deleteSubtaskinEditTask(i) {
   let subtask = document.getElementById(`subtask${i}`);
   document.getElementsByClassName("subtaskListId")[1].removeChild(subtask);
 }
-
