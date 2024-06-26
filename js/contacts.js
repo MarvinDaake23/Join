@@ -87,10 +87,14 @@ function showAddContact() {
   document.getElementById("modalBackground").style.display = "block";
   updateModalTemplateToAdd();
   document.getElementById("addOrEditForm").reset();
+  document.getElementById("modalBackground").setAttribute("onclick", "closeAddOrEditContact()");
+  document.getElementById("modalAddOrEditContact").setAttribute("onclick", "event.stopPropagation();");
 }
 
 function showEditContact(id) {
   document.getElementById("modalBackground").style.display = "block";
+  document.getElementById("modalBackground").setAttribute("onclick", "closeAddOrEditContact()");
+  document.getElementById("modalAddOrEditContact").setAttribute("onclick", "event.stopPropagation();");
   updateModalTemplateToEdit(id);
   renderValuesToEditContactFormular(id);
 }
