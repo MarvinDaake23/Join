@@ -98,9 +98,20 @@ function loadBoardBigContainerLists(i) {
  */
 function loadBoardBigContainerContacts(i) {
   let assignedToContactsInput = document.getElementById("boardBigContainerAssignedToContactsInput");
-  for (let j = 0; j < boardTasks[i]["assignedTo"].length; j++) {
-    const element = boardTasks[i]["assignedTo"][j];
-    assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
+  let maxAmount = 4;
+  let amount = boardTasks[i]["assignedTo"].length;
+  let more = amount - maxAmount;
+  if (amount <= maxAmount) {
+    for (let j = 0; j < amount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
+    }
+  } else {
+    for (let j = 0; j < maxAmount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      assignedToContactsInput.innerHTML += renderBoardBigContainerContacts(element);
+    }
+    assignedToContactsInput.innerHTML += renderBoardBigContainerContactsMore(more);
   }
 }
 
@@ -187,10 +198,22 @@ function renderAllBoardTasks() {
  *  function to render the contacts of each task in the small view
  */
 function loadContactInBoardTask(i) {
+  let maxAmount = 4;
   let contacts = document.getElementById(`boardTaskContacts${i}`);
-  for (let j = 0; j < boardTasks[i]["assignedTo"].length; j++) {
-    const element = boardTasks[i]["assignedTo"][j];
-    contacts.innerHTML += renderBoardTaskContacts(element);
+  let amount = boardTasks[i]["assignedTo"].length;
+  let more = amount - maxAmount;
+  if (amount <= maxAmount) {
+    // 0 bis 4 inkl.
+    for (let j = 0; j < amount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      contacts.innerHTML += renderBoardTaskContacts(element);
+    }
+  } else {
+    for (let j = 0; j < maxAmount; j++) {
+      const element = boardTasks[i]["assignedTo"][j];
+      contacts.innerHTML += renderBoardTaskContacts(element);
+    }
+    contacts.innerHTML += renderBoardTaskContactsMore(more);
   }
 }
 

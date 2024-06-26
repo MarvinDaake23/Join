@@ -33,6 +33,16 @@ function renderBoardTaskContacts(element) {
       `;
 }
 
+function renderBoardTaskContactsMore(amount) {
+    return /*html */ `
+            <div class="initials initSmall" style="background-color:red; margin-left: -10px;">
+                <span>+${amount}</span>
+            </div>
+        `;
+  }
+
+
+
 function renderBoardBigContainer(i) {
   return /*html */ `
                 <div id="showBigTask">
@@ -83,6 +93,15 @@ function renderBoardBigContainerContacts(element) {
           </div>
       `;
 }
+
+
+function renderBoardBigContainerContactsMore(amount) {
+    return /*html */ `
+            <div class="boardContacts">
+                <div style="background-color:red" class="contactIcon initials initSmall">+${amount}</div>
+            </div>
+        `;
+  }
 
 function renderBoardBigContainerSubtasks(element, j, i, src) {
   return /* html*/ `
