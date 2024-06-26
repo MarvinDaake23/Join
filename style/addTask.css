@@ -90,7 +90,9 @@ form textarea {
   overflow-y: auto;
   margin-top: -16px;
   /*position: fixed;*/
-  width: 440px;
+  /*width: 440px;*/
+  width: 90%;
+
 }
 
 #contactList input {
@@ -376,6 +378,12 @@ button {
   #subtaskList {
     width: 100%;
   }
+
+  #contactList {
+    width: 100%
+  }
+
+
 }
 
 @media (max-width: 400px) {

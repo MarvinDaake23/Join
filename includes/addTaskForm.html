@@ -17,7 +17,7 @@
         placeholder="Select contacts to assign"
         id="assignedContactsInputField"
         class="assignedContactsInputFieldId"
-        onclick="toggleContactList()"
+        onclick="toggleContactList(); event.stopPropagation();"
         oninput="showContactList();searchContacts()"
       />
       <ul class="dNone contactListId" id="contactList"></ul>
@@ -63,7 +63,10 @@
   <div class="lower">
     <span class="lowerSpans"><span class="red">*</span>This field is required</span>
     <div class="buttonPair">
-      <button class="clearButton" type="reset">Clear<div class="clearButtonImage"></div></button>
+      <button class="clearButton" type="reset">
+        Clear
+        <div class="clearButtonImage"></div>
+      </button>
       <!--<button class="clearButton" type="reset">Clear<img src="./assets/img/cancel.svg" /></button>-->
       <button class="createButton" type="submit">Create task<img src="./assets/img/check.svg" /></button>
     </div>
