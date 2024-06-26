@@ -1,5 +1,4 @@
 let boardTasks = [];
-let currentDraggedElement;
 
 /**
  * function to initialize the board page

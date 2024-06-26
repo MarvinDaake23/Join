@@ -1,3 +1,5 @@
+let currentDraggedElement;
+
 /*
  * function to check which element is being moved
  */
