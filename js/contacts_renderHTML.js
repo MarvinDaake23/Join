@@ -80,7 +80,7 @@ function renderSingleContactHTML(id) {
                       </div>
                   </div>
       
-                  <img onclick="showMore()" id="moreButton" src="./assets/img/more1.png"/>
+                  <img onclick="showMore();event.stopPropagation()" id="moreButton" src="./assets/img/more1.png"/>
       
                   <div id="moreButtonPopup">
                       <a onclick="showEditContact(${id})"><img src="./assets/img/edit1.png" />Edit</a>
@@ -123,7 +123,7 @@ function renderSingleContactMobileHTML(id) {
                         </div>
                     </div>
         
-                    <img onclick="showMore()" id="moreButton" src="./assets/img/more1.png"/>
+                    <img onclick="showMore();event.stopPropagation()" id="moreButton" src="./assets/img/more1.png"/>
         
                     <div id="moreButtonPopup">
                         <a onclick="showEditContact(${id})"><img src="./assets/img/edit1.png" />Edit</a>

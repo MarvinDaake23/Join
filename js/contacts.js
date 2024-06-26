@@ -186,6 +186,13 @@ async function deleteContact(id) {
 
 function showMore() {
   document.getElementById("moreButtonPopup").style.display = "flex";
+
+  // give possibility to close
+  document.getElementById("body").setAttribute("onclick", "closeMore()");
+}
+
+function closeMore() {
+  document.getElementById("moreButtonPopup").style.display = "none";
 }
 
 function renderValuesToEditContactFormular(id) {
