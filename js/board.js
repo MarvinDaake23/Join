@@ -296,6 +296,7 @@ function removeAllHighlights() {
  * function to change the category so that the container is loaded correctly when reloaded
  */
 async function moveTo(category) {
+  removeAllHighlights();
   boardTasks[currentDraggedElement]["category"] = category;
   renderAllBoardTasks();
   // clear input field
