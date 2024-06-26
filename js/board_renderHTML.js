@@ -12,6 +12,10 @@ function renderBoardTask(element, index) {
                   <!-- <div id="boardTaskPrio${index}"></div> -->
                   <div class="${element.priority}"></div>
               </div>
+              <div class="moveBoardTasksContainer">
+                <span onclick="moveTaskCategoryUp(${index});event.stopPropagation()" class="moveBoardTasksSpan moveBoardTaskUp">&uarr;</span>
+                <span onclick="moveTaskCategoryDown(${index});event.stopPropagation()"  class="moveBoardTasksSpan moveBoardTaskDown">&darr;</span>
+              </div>
           </div>
       `;
 }
@@ -34,14 +38,12 @@ function renderBoardTaskContacts(element) {
 }
 
 function renderBoardTaskContactsMore(amount) {
-    return /*html */ `
+  return /*html */ `
             <div class="initials initSmall" style="background-color:red; margin-left: -10px;">
                 <span>+${amount}</span>
             </div>
         `;
-  }
-
-
+}
 
 function renderBoardBigContainer(i) {
   return /*html */ `
@@ -94,15 +96,14 @@ function renderBoardBigContainerContacts(element) {
       `;
 }
 
-
 function renderBoardBigContainerContactsMore(amount) {
-    return /*html */ `
+  return /*html */ `
             <div class="boardContacts">
                 <div style="background-color:red" class="contactIcon initials initSmall">+${amount}</div>
                 <div class="contactName">more users</div>
             </div>
         `;
-  }
+}
 
 function renderBoardBigContainerSubtasks(element, j, i, src) {
   return /* html*/ `

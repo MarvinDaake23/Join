@@ -940,6 +940,10 @@ content {
   border: 1px dashed black;
 }
 
+.moveBoardTasksContainer {
+  display: none;
+}
+
 /* VOR-HANDY ANSICHT */
 @media (max-width: 1400px) {
   #modalAddTask {
@@ -982,6 +986,28 @@ content {
       "done ";
   }
 
+  .moveBoardTasksContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  #todo .moveBoardTaskUp {
+    display: none;
+  }
+
+  #done .moveBoardTaskDown {
+    display: none;
+  }
+
+  .moveBoardTasksContainer span {
+    cursor: pointer;
+    border: 1px solid lightgrey;
+    border-radius: 30px;
+    font-size: 20px;
+    padding: 4px;
+  }
+
   #todo {
     flex-direction: row;
     gap: 16px;
@@ -1014,7 +1040,7 @@ content {
     min-width: 252px;
     min-height: 244px;
     max-width: 252px;
-    max-height: 244px;
+    /*max-height: 244px;*/
   }
 }
 
@@ -1051,8 +1077,8 @@ content {
     font-size: 36px;
   }
 
-  .boardBigContainerType, .boardBigContainerDescription {
+  .boardBigContainerType,
+  .boardBigContainerDescription {
     font-size: 16px;
   }
-
 }

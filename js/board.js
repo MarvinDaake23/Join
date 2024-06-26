@@ -668,3 +668,27 @@ function deleteSubtaskinEditTask(i) {
   let subtask = document.getElementById(`subtask${i}`);
   document.getElementsByClassName("subtaskListId")[1].removeChild(subtask);
 }
+
+function moveTaskCategoryUp(id) {
+  let boardtask = boardTasks[id].category;
+  if (boardtask == "progress") {
+    boardTasks[id].category = "todo";
+  } else if (boardtask == "feedback") {
+    boardTasks[id].category = "progress";
+  } else if (boardtask == "done") {
+    boardTasks[id].category = "feedback";
+  }
+  renderAllBoardTasks();
+}
+
+function moveTaskCategoryDown(id) {
+  let boardtask = boardTasks[id].category;
+  if (boardtask == "todo") {
+    boardTasks[id].category = "progress";
+  } else if (boardtask == "progress") {
+    boardTasks[id].category = "feedback";
+  } else if (boardtask == "feedback") {
+    boardTasks[id].category = "done";
+  }
+  renderAllBoardTasks();
+}
