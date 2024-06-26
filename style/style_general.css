@@ -15,6 +15,10 @@ mobile-header {
   display: none;
 }
 
+html{
+  background-color: #F6F7F8;
+}
+
 body {
   margin: 0;
   font-family: "Inter";
@@ -32,6 +36,7 @@ body {
   height: 100vh;
   font-optical-sizing: auto;
   font-style: normal;
+  background-color: #F6F7F8;
 }
 
 sidebar {
@@ -192,6 +197,7 @@ content {
   margin-top: 5px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  max-width: 1440px;
 }
 
 content::-webkit-scrollbar {
