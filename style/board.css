@@ -1046,4 +1046,13 @@ content {
     height: 40px;
     background-color: #2a3647;
   }
+
+  .boardBigContainerTitle {
+    font-size: 36px;
+  }
+
+  .boardBigContainerType, .boardBigContainerDescription {
+    font-size: 16px;
+  }
+
 }
