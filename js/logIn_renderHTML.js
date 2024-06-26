@@ -10,7 +10,7 @@ function renderLogInHTML() {
   <div class="inputfield">
     <input id="email" type="email" placeholder="Email" required />
     <div class="inputIcons">
-      <img class="mailIcon hover" src="../assets/img/mail.png" />
+      <img class="mailIcon" src="../assets/img/mail.png" />
     </div>
   </div>
   <div id="inputfieldPassword" class="inputfield">
@@ -21,7 +21,7 @@ function renderLogInHTML() {
       required
     />
     <div class="inputIcons">
-      <img class="lockIcon hover" src="../assets/img/lock.png" />
+      <img class="lockIcon" src="../assets/img/lock.png" />
     </div>
   </div>
 </div>
