@@ -113,6 +113,10 @@ function saveCredentialsToLocalStorage() {
   localStorage.setItem("cred", credAsText);
 }
 
+function openWelcomeMobile() {
+  window.location = "welcomeMobile.html";
+}
+
 function logIn() {
   if (document.getElementById("rememberMe").checked) {
     saveCredentialsToLocalStorage();
@@ -126,14 +130,20 @@ function logIn() {
   let user = userArray.find((u) => u.email == email.value && u.password == password.value);
 
   if (user) {
-    register.innerHTML += /*HTML*/ `
-        <div id="signInNoSuccessful" class="feedback">Sign in successful</div>
-        `;
+    // register.innerHTML += /*HTML*/ `
+    //     <div id="signInNoSuccessful" class="feedback">Sign in successful</div>
+    //     `;
     // akt. user ins local storage speichern
     let userAsText = JSON.stringify(user);
     localStorage.setItem("user", userAsText);
 
-    setTimeout(openSummary, 2000);
+    if (window.innerWidth < 1260) {
+      // umweg
+      openWelcomeMobile();
+      //direkt
+    } else {
+      openSummary();
+    }
   } else {
     register.innerHTML += /*HTML*/ `
         <div id="signInNoSuccessful" class="feedback">wrong email/password</div>
@@ -158,10 +168,18 @@ function guestLogIn() {
   let userAsText = JSON.stringify(user);
   localStorage.setItem("user", userAsText);
 
-  setTimeout(openSummary, 1500);
-  login.innerHTML += /*HTML*/ `
-        <div id="signInNoSuccessful" class="feedback">Sign in as Guest successful</div>
-        `;
+  //setTimeout(openSummary, 1500);
+  // login.innerHTML += /*HTML*/ `
+  //       <div id="signInNoSuccessful" class="feedback">Sign in as Guest successful</div>
+  //       `;
+
+  if (window.innerWidth < 1260) {
+    // umweg
+    openWelcomeMobile();
+    //direkt
+  } else {
+    openSummary();
+  }
 }
 
 async function addUserToContacts(user, email) {
