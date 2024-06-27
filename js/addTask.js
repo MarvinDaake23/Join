@@ -359,3 +359,9 @@ function generateDataForTask(title, description, date, prio, category, taskCateg
 
   return data;
 }
+
+function clearAssignedContactsAndSubtasks() {
+  selectedTaskContacts = [];
+  showSelectedContacts();
+  document.getElementById("subtaskList").innerHTML = "";
+}
