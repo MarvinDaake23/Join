@@ -38,7 +38,8 @@
   box-sizing: border-box;
   font-size: 20px;
   font-weight: 400;
-  width: 80vw;
+  /*width: 80vw;*/
+  width: min(1212px, 90vw);
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -947,8 +948,8 @@ content {
 /* VOR-HANDY ANSICHT */
 @media (max-width: 1400px) {
   #modalAddTask {
-    /*height: 80vh;*/
-    width: 80vw;
+    height: min(926px, 80vh);
+    /*width: 80vw;*/
     margin: 50px 0px;
   }
 
