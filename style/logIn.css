@@ -492,3 +492,40 @@ button {
     width: 256px;
   }
 }
+
+@media (max-width: 375px){
+  .icon {
+    animation: moveImageSmall 2s forwards;
+  }
+
+  @keyframes moveImageSmall {
+    from {
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 121px;
+    }
+    to {
+      left: 9%;
+      top: 4%;
+      width: 33px;
+      height: 40px;
+    }
+  }
+
+  .informationSection{
+    bottom: 20px;
+  }
+
+  .noUser{
+    font-size: 16px;
+  }
+
+  .signInButton{
+    width: 80px;
+    height: 34px;
+  }
+
+  .signUpSection{
+    bottom: 100px;
+  }
+}
