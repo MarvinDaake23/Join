@@ -9,6 +9,9 @@ async function onLoadSummary() {
   await updateHeaderInitials();
 }
 
+/**
+ * function fill the values of the summary page
+ */
 function fillSummaryFields() {
   document.getElementById("totalTasksCounter").innerHTML = boardTasks.length;
   document.getElementById("totalTasksInProgressCounter").innerHTML = countTasksByCategory("progress");
@@ -16,7 +19,6 @@ function fillSummaryFields() {
   document.getElementById("doneCounter").innerHTML = countTasksByCategory("done");
   document.getElementById("todoCounter").innerHTML = countTasksByCategory("todo");
   document.getElementById("urgentCounter").innerHTML = countTasksByPriority("Urgent");
-
   let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let deadline = new Date(findUpcomingDeadline());
   document.getElementById("upcomingDeadLine").innerHTML = `
@@ -26,12 +28,15 @@ function fillSummaryFields() {
   `;
 }
 
+/**
+ * function to greet the user
+ */
 function greetUser() {
   let greeting = actGreeting();
   let loggedInUserName = getLoggedInUserName();
 
   if (loggedInUserName == "Guest") {
-    document.getElementById("greeting").innerHTML = greeting.slice(0, -1); // remove ","
+    document.getElementById("greeting").innerHTML = greeting.slice(0, -1);
     document.getElementById("loggedInUserName").innerHTML = "";
   } else {
     document.getElementById("greeting").innerHTML = greeting;
@@ -39,6 +44,11 @@ function greetUser() {
   }
 }
 
+/**
+ * function to count the tasks by category
+ * @param {*} string 
+ * @returns 
+ */
 function countTasksByCategory(string) {
   let cnt = 0;
   for (let index = 0; index < boardTasks.length; index++) {
@@ -49,6 +59,11 @@ function countTasksByCategory(string) {
   return cnt;
 }
 
+/**
+ * function to count the tasks by priority
+ * @param {} string 
+ * @returns 
+ */
 function countTasksByPriority(string) {
   let cnt = 0;
   for (let index = 0; index < boardTasks.length; index++) {
@@ -86,6 +101,9 @@ function actGreeting() {
   return greeting;
 }
 
+/**
+ * function to go to the board page
+ */
 function goToBoardPage() {
   window.location = "board.html";
 }
@@ -102,7 +120,6 @@ function findUpcomingDeadline() {
       boardTasksTemp.push(element);
     }
   }
-
   boardTasksTemp.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
   return boardTasksTemp[0].dueDate;
 }

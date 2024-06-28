@@ -10,9 +10,18 @@
   box-sizing: border-box;
 }
 
+input,
+button {
+  border: unset;
+}
+
 mobile-footer,
 mobile-header {
   display: none;
+}
+
+html {
+  background-color: #f6f7f8;
 }
 
 body {
@@ -32,6 +41,7 @@ body {
   height: 100vh;
   font-optical-sizing: auto;
   font-style: normal;
+  background-color: #f6f7f8;
 }
 
 sidebar {
@@ -154,6 +164,7 @@ header #headerInitials:hover {
   font-weight: 400;
   font-size: 16px;
   padding: 8px 20px;
+  cursor: pointer;
 }
 
 #headerPopup a:hover {
@@ -178,6 +189,7 @@ header #headerInitials:hover {
   font-weight: 700;
   box-shadow: 0px 0px 4px 0px #0000001a;
   border: 3px solid #2a3647;
+  cursor: pointer;
 }
 
 .headerinitials:hover {
@@ -192,6 +204,7 @@ content {
   margin-top: 5px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  max-width: 1440px;
 }
 
 content::-webkit-scrollbar {

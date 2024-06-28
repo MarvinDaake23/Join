@@ -4,6 +4,11 @@
   src: url("../assets/fonts/Inter-VariableFont.ttf") format("truetype");
 }
 
+input,
+button {
+  border: unset;
+}
+
 .hover {
   cursor: pointer;
 }
@@ -100,6 +105,7 @@ body {
   flex-direction: column;
   background-color: #ffffff;
   border-radius: 30px;
+  padding: 20px 0px;
 }
 
 .backArrow {
@@ -115,8 +121,8 @@ body {
   flex-direction: column;
   width: 173px;
   height: 72px;
-  margin-bottom: 20px;
-  margin-top: 40px;
+  /*margin-bottom: 20px;*/
+  /*margin-top: 40px;*/
 }
 
 h1 {
@@ -136,6 +142,7 @@ h1 {
   /*margin-bottom: 20px;*/
   margin-left: 15px;
   margin-right: 15px;
+  margin-top: 15px;
 }
 
 .inputfield {
@@ -194,8 +201,8 @@ input[type="email"] {
 }
 
 .personIcon {
-  height: 16px;
-  width: 17px;
+  height: 27px;
+  width: 27px;
 }
 
 .lockIcon {
@@ -226,7 +233,7 @@ input[type="email"] {
   align-items: center;
   flex-direction: column;
   width: 270px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 .signInButtonSection {
@@ -255,6 +262,7 @@ input[type="email"] {
 .logInGuestButton {
   background-color: #ffffff;
   color: #000000;
+  border: 1px solid #2A3647;
   width: 180px;
   border-radius: 8px;
   font-size: 16px;
@@ -370,6 +378,17 @@ button {
   }
 }
 
+@media (max-width: 750px) {
+  .signUpSection {
+    /*bottom: 80px;*/
+    bottom: 70px;
+  }
+
+  .informationSection {
+    bottom: 40px;
+  }
+}
+
 @media (min-width: 750px) {
   .whiteBackground {
     background: #ffffff;
@@ -480,5 +499,43 @@ button {
   .informationSection {
     bottom: 75px;
     width: 256px;
+  }
+}
+
+@media (max-width: 375px) {
+  .icon {
+    animation: moveImageSmall 2s forwards;
+  }
+
+  @keyframes moveImageSmall {
+    from {
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 121px;
+    }
+    to {
+      left: 9%;
+      top: 4%;
+      width: 33px;
+      height: 40px;
+    }
+  }
+
+  .informationSection {
+    bottom: 20px;
+  }
+
+  .noUser {
+    font-size: 16px;
+  }
+
+  .signInButton {
+    width: 80px;
+    height: 34px;
+  }
+
+  .signUpSection {
+    /*bottom: 100px;*/
+    /*bottom: 50px;*/
   }
 }

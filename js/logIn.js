@@ -1,21 +1,27 @@
 let userArray = [];
 
+let userInput,
+  passwordInput = [];
+
+/**
+ * onload function for the Login Page (index.html)
+ */
 function onloadFunction() {
   startAnimation();
   showLogIn();
   loadUserData();
   checkForLocalStorageCookie();
-  // depending on vw set the link targets
   if (window.innerWidth < vwBreak) {
     document.getElementById("privacyLink").setAttribute("target", "_self");
     document.getElementById("legalLink").setAttribute("target", "_self");
   }
 }
 
+/**
+ * function to check the local storage (revisiting user)
+ */
 function checkForLocalStorageCookie() {
-  // check local storage
   let credAsText = localStorage.getItem("cred");
-
   if (credAsText) {
     cred = JSON.parse(credAsText);
     document.getElementById("email").value = cred[0];
@@ -24,12 +30,18 @@ function checkForLocalStorageCookie() {
   }
 }
 
+/**
+ * function to load all the users from the database
+ */
 async function loadUserData() {
   let response = await fetch(BASE_URL + "users.json");
   responseAsJson = await response.json();
   userArray = Object.values(responseAsJson);
 }
 
+/**
+ * function for the start animation (flying logo)
+ */
 function startAnimation() {
   let icon = document.getElementById("icon");
   if (window.innerWidth < 750) {
@@ -39,20 +51,32 @@ function startAnimation() {
   setTimeout(zIndexChange, 900);
 }
 
+/**
+ * function to change the icon
+ */
 function changeIcon() {
   icon.src = "../assets/img/join-icon-blue.png";
 }
 
+/**
+ * function to change the zindex
+ */
 function zIndexChange() {
   document.getElementById("whiteB").style.zIndex = "-1";
 }
 
+/**
+ * function to show the signup form
+ */
 function showSignUp() {
   document.getElementById("middleSection").innerHTML = renderSignUpHTML();
-  //document.getElementById("headline").style.marginTop = "0px";
   document.getElementById("signUpSection").style.display = "none";
 }
 
+/**
+ * function to check if the same password is entered (sign up)
+ * @returns true/false
+ */
 function checkSamePassword() {
   if ((document.getElementById("password").value == document.getElementById("confirmPassword").value) & (document.getElementById("password").value.length > 0)) {
     document.getElementById("inputfieldPasswordConfirm").style.border = "1px solid black";
@@ -63,6 +87,9 @@ function checkSamePassword() {
   }
 }
 
+/**
+ * function to check if the sign up button may be enabled
+ */
 function checkEnableButton() {
   if (document.getElementById("acceptPolicy").checked & checkSamePassword()) {
     document.getElementById("registerButton").disabled = false;
@@ -73,20 +100,23 @@ function checkEnableButton() {
   }
 }
 
+/**
+ * function to show the login screen
+ */
 function showLogIn() {
   document.getElementById("middleSection").innerHTML = renderLogInHTML();
   document.getElementById("signUpSection").style.display = "block";
 }
 
+/**
+ * function to sign up a new user
+ */
 async function signUpSuccessful() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let user = document.getElementById("user").value;
   let register = document.getElementById("middleSection");
-
-  // add newly registered user to contacts and update firebase
   addUserToContacts(user, email);
-
   await fetch(BASE_URL + "users.json", {
     method: "POST",
     headers: {
@@ -99,12 +129,13 @@ async function signUpSuccessful() {
     }),
   });
   loadUserData();
-
   register.innerHTML += `<div id="signInSuccessful" class="feedback">You Signed Up successful</div>`;
-
   setTimeout(showLogIn(), 1600);
 }
 
+/**
+ * function to save the credentials when a user wants to be "remembered"
+ */
 function saveCredentialsToLocalStorage() {
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
@@ -113,28 +144,40 @@ function saveCredentialsToLocalStorage() {
   localStorage.setItem("cred", credAsText);
 }
 
+/**
+ * function to show a welcome screen (mobile only)
+ */
+function openWelcomeMobile() {
+  window.location = "welcomeMobile.html";
+}
+
+/**
+ * function to collect the data from the login form and login a user
+ */
 function logIn() {
   if (document.getElementById("rememberMe").checked) {
     saveCredentialsToLocalStorage();
   } else {
     localStorage.removeItem("cred");
   }
-
   let email = document.getElementById("email");
   let password = document.getElementById("password");
   let register = document.getElementById("middleSection");
   let user = userArray.find((u) => u.email == email.value && u.password == password.value);
-
   if (user) {
-    register.innerHTML += /*HTML*/ `
-        <div id="signInNoSuccessful" class="feedback">Sign in successful</div>
-        `;
-    // akt. user ins local storage speichern
     let userAsText = JSON.stringify(user);
     localStorage.setItem("user", userAsText);
-
-    setTimeout(openSummary, 2000);
+    if (window.innerWidth < 1260) {
+      openWelcomeMobile();
+    } else {
+      openSummary();
+    }
   } else {
+    sleep(0).then(() => {
+      document.getElementById("email").value = email.value;
+      document.getElementById("password").value = password.value;
+    });
+
     register.innerHTML += /*HTML*/ `
         <div id="signInNoSuccessful" class="feedback">wrong email/password</div>
         `;
@@ -142,28 +185,40 @@ function logIn() {
   }
 }
 
+/**
+ * function to remove the user feedback screen (wrong email/password)
+ */
 function removeNoSuccessfullSignUp() {
   document.getElementById("signInNoSuccessful").remove();
 }
 
+/**
+ * function to visit the summary page
+ */
 function openSummary() {
   window.location = "summary.html";
 }
 
+/**
+ * function for the guest login
+ */
 function guestLogIn() {
   let login = document.getElementById("logIn");
-
-  // Guest ins Localstorage
   let user = { User: "Guest" };
   let userAsText = JSON.stringify(user);
   localStorage.setItem("user", userAsText);
-
-  setTimeout(openSummary, 1500);
-  login.innerHTML += /*HTML*/ `
-        <div id="signInNoSuccessful" class="feedback">Sign in as Guest successful</div>
-        `;
+  if (window.innerWidth < 1260) {
+    openWelcomeMobile();
+  } else {
+    openSummary();
+  }
 }
 
+/**
+ * function to add a newly signed up user to the contact list
+ * @param {*} user
+ * @param {*} email
+ */
 async function addUserToContacts(user, email) {
   let contacts = await loadData("contacts");
   // split username

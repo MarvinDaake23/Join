@@ -1,6 +1,6 @@
 function renderLogInHTML() {
   return /*html */ `
-<form onsubmit="logIn(); return false;" id="logIn" class="logIn">
+<form onsubmit="logIn();return false;" id="logIn" class="logIn">
 <div class="headline">
   <h1>Log in</h1>
   <div class="line"></div>
@@ -10,7 +10,7 @@ function renderLogInHTML() {
   <div class="inputfield">
     <input id="email" type="email" placeholder="Email" required />
     <div class="inputIcons">
-      <img class="mailIcon hover" src="../assets/img/mail.png" />
+      <img class="mailIcon" src="../assets/img/mail.png" />
     </div>
   </div>
   <div id="inputfieldPassword" class="inputfield">
@@ -21,7 +21,7 @@ function renderLogInHTML() {
       required
     />
     <div class="inputIcons">
-      <img class="lockIcon hover" src="../assets/img/lock.png" />
+      <img class="lockIcon" src="../assets/img/lock.png" />
     </div>
   </div>
 </div>
@@ -53,29 +53,30 @@ function renderSignUpHTML() {
             <div class="line"></div>
         </div>
 
+
         <div class="logInSection">
             <div class="inputfield">
-                <input required id="user" title="first and last name needed (first letters big)" type="text" placeholder="Name" pattern="[A-Z][a-z]+\\s[A-Z][a-z]+">
+                <input required id="user" title="first and last name needed (first letters big)" type="text" placeholder="Name" pattern="[A-Z][a-z\u00F0-\u02AF]+\\s[A-Z][a-z]+">
                 <div class="inputIcons">
-                    <img class="personIcon hover" src="../assets/img/person_small.png">
+                    <img class="personIcon" src="../assets/img/person_small.png">
                 </div>
             </div>
             <div class="inputfield">
-                <input id="email" type="email" placeholder="Email" required>
+                <input required id="email" title="correct email like xxx@xx.xx" type="email" placeholder="Email" pattern="[A-Za-z0-9.\\-]+@[A-Za-z0-9\\-]+\\.[A-Za-z]+">
                 <div class="inputIcons">
-                    <img class="mailIcon hover" src="../assets/img/mail.png">
+                    <img class="mailIcon" src="../assets/img/mail.png">
                 </div>
             </div>
             <div class="inputfield" id="inputfieldPassword">
                 <input id="password" type="password" placeholder="Password" required>
                 <div class="inputIcons">
-                    <img class="lockIcon hover" src="../assets/img/lock.png">
+                    <img class="lockIcon" src="../assets/img/lock.png">
                 </div>
             </div>
             <div class="inputfield" id="inputfieldPasswordConfirm">
                 <input id="confirmPassword" type="password" placeholder="Confirm Password" required onkeyup="checkSamePassword();checkEnableButton()";>
                 <div class="inputIcons">
-                    <img class="lockIcon hover" src="../assets/img/lock.png">
+                    <img class="lockIcon" src="../assets/img/lock.png">
                 </div>
             </div>
         </div>

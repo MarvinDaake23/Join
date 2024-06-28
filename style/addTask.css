@@ -90,7 +90,8 @@ form textarea {
   overflow-y: auto;
   margin-top: -16px;
   /*position: fixed;*/
-  width: 440px;
+  /*width: 440px;*/
+  width: 90%;
 }
 
 #contactList input {
@@ -238,6 +239,7 @@ button {
 .clearButton {
   width: 110px;
   font-weight: 400;
+  border: 1px solid #2a3647;
   background-color: #f6f7f8;
 }
 
@@ -280,6 +282,10 @@ button {
   margin: 0;
   margin-top: -8px;
   width: 90%;
+  max-height: 100px;
+  overflow-y: scroll;
+  /*border: 1px solid lightgray;
+  border-radius: 10px;*/
 }
 
 .listEntry img {
@@ -375,6 +381,33 @@ button {
 
   #subtaskList {
     width: 100%;
+  }
+
+  #contactList {
+    width: 100%;
+  }
+
+  form h4 {
+    font-size: 16px;
+  }
+
+  form input,
+  form select {
+    height: 40px;
+    font-size: 16px;
+    padding: 0px 21px 0px 21px;
+  }
+
+  form textarea {
+    font-size: 16px;
+  }
+
+  #selectedContacts {
+    margin-bottom: 12px;
+  }
+
+  #contactList {
+    font-size: 16px;
   }
 }
 
