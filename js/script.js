@@ -1,8 +1,6 @@
 /* GENERAL FUNCTIONS */
 
 // critical breakpoint of viewport width
-// other functions are used ...
-//let vwBreak = 760;
 let vwBreak = 1350;
 
 const BASE_URL = "https://remotestorage-a7059-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -26,18 +24,32 @@ let backgroundProfileColors = [
   "#FFE62B",
 ];
 
+/**
+ * function to return a random background profile color for new users
+ * @returns string
+ */
 function getRandomBackgroundColor() {
   // random color from list
   let new_profileColor = backgroundProfileColors[Math.floor(Math.random() * backgroundProfileColors.length)];
   return new_profileColor;
 }
 
-// database functions
+/**
+ * load data function
+ * @param {*} path 
+ * @returns JSON-Array
+ */
 async function loadData(path = "") {
   let response = await fetch(BASE_URL + path + ".json");
   return (responseToJson = await response.json());
 }
 
+/**
+ * put data function
+ * @param {*} path 
+ * @param {*} data 
+ * @returns 
+ */
 async function putData(path = "", data = {}) {
   let response = await fetch(BASE_URL + path + ".json", {
     method: "PUT",
@@ -46,10 +58,12 @@ async function putData(path = "", data = {}) {
     },
     body: JSON.stringify(data),
   });
-
   return response.json();
 }
 
+/**
+ * include HTML function
+ */
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
@@ -64,12 +78,13 @@ async function includeHTML() {
   }
 }
 
+/**
+ * function to return the name of the logged in user
+ * @returns 
+ */
 function getLoggedInUserName() {
   let user = [];
-
-  // check local storage
   let userAsText = localStorage.getItem("user");
-
   if (userAsText == null) {
     user = { User: "Guest" };
   } else {
@@ -78,15 +93,15 @@ function getLoggedInUserName() {
   return user.User;
 }
 
+/**
+ * function to update the initials in the header
+ */
 function updateHeaderInitials() {
-  // guest
   let user = getLoggedInUserName();
-
   if (user == "Guest") {
     document.getElementById("headerInitialsDesktop").innerHTML = user[0];
     document.getElementById("headerInitialsMobile").innerHTML = user[0];
   } else {
-    //normal user
     let nameArray = user.split(" ");
     document.getElementById("headerInitialsMobile").innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
     document.getElementById("headerInitialsDesktop").innerHTML = `${nameArray[0][0]}${nameArray[1][0]}`;
@@ -97,25 +112,19 @@ function updateHeaderInitials() {
  * function to show the popup when clicking on the header initials
  */
 function showHeaderPopup() {
-  // disable onclick function from body
   document.getElementById("body").setAttribute("onclick", "");
-  // show popup
   document.getElementById("headerPopup").style.display = "flex";
-  // set onclick function after delay
   sleep(0).then(() => {
     document.getElementById("body").setAttribute("onclick", "closeHeaderPopup()");
   });
 }
 
 /**
- * function to show the popup when clicking on the header initials
+ * function to show the popup when clicking on the header initials (mobile)
  */
 function showHeaderPopupMobile() {
-  // disable onclick function from body
   document.getElementById("body").setAttribute("onclick", "");
-  // show popup
   document.getElementById("headerPopupMobile").style.display = "flex";
-  // set onclick function after delay
   sleep(0).then(() => {
     document.getElementById("body").setAttribute("onclick", "closeHeaderPopupMobile()");
   });
@@ -129,7 +138,7 @@ function closeHeaderPopup() {
 }
 
 /**
- * function to close the header popup when clicking anywhere else
+ * function to close the header popup when clicking anywhere else (mobile)
  */
 function closeHeaderPopupMobile() {
   document.getElementById("headerPopupMobile").style.display = "none";
@@ -152,7 +161,7 @@ function logOutUser() {
 }
 
 /**
- * function to go back to the previous visited page
+ * function to go back to the previously visited page
  */
 function goToPreviousPage() {
   window.history.back();
