@@ -1,5 +1,8 @@
 let userArray = [];
 
+let userInput,
+  passwordInput = [];
+
 /**
  * onload function for the Login Page (index.html)
  */
@@ -170,6 +173,11 @@ function logIn() {
       openSummary();
     }
   } else {
+    sleep(0).then(() => {
+      document.getElementById("email").value = email.value;
+      document.getElementById("password").value = password.value;
+    });
+
     register.innerHTML += /*HTML*/ `
         <div id="signInNoSuccessful" class="feedback">wrong email/password</div>
         `;

@@ -1,6 +1,6 @@
 function renderLogInHTML() {
   return /*html */ `
-<form onsubmit="logIn(); return false;" id="logIn" class="logIn">
+<form onsubmit="logIn();return false;" id="logIn" class="logIn">
 <div class="headline">
   <h1>Log in</h1>
   <div class="line"></div>
