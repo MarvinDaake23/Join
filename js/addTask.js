@@ -23,36 +23,39 @@ async function onLoadAddTask() {
   listenToEnterButtonAtSubtaskInputField();
 }
 
+/**
+ * function to search contacts when adding a task
+ */
 function searchContacts() {
   let search = document.getElementById("assignedContactsInputField").value.toLowerCase();
   let allContacts = document.querySelectorAll(".contactWrapperItem");
-
   if (search.length >= 1) {
-    //filter
     contactQuery(search, allContacts);
   } else {
-    // show all
-    //loadContactList(); > entfernt damit die checks nicht verschwinden
   }
 }
 
+/**
+ * function to search contacts - when editting a task (different input field)
+ */
 function searchContactsForEditTask() {
   let search = document.getElementsByClassName("assignedContactsInputFieldId")[1].value.toLowerCase();
   let allContacts = document.querySelectorAll(".contactWrapperItem");
-
   if (search.length >= 1) {
-    //filter
     contactQuery(search, allContacts);
   } else {
-    // show all
-    //loadContactList(); > entfernt damit die checks nicht verschwinden
   }
 }
 
+/**
+ * function to display only found contacts
+ *
+ * @param {*} search - Searchstring
+ * @param {*} allContacts
+ */
 async function contactQuery(search, allContacts) {
   allContacts.forEach((container) => {
     let username = container.querySelector("#userNameInList").innerText.toLowerCase();
-
     if (username.includes(search)) {
       container.style.display = "flex";
     } else {
@@ -61,18 +64,16 @@ async function contactQuery(search, allContacts) {
   });
 }
 
+/**
+ * function to add a subtask when enter button is pressed in the input field
+ */
 function listenToEnterButtonAtSubtaskInputField() {
   let inputField = document.getElementById("subtaskInput");
   inputField.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
-      // Do work
       let inputValue = inputField.value;
-
       if (inputValue) {
-        // nur wenn was drinsteht
         document.getElementById("subtaskList").innerHTML += renderSubtaskListEntry(inputValue, subtaskCounter);
-
-        // clean up
         inputField.value = "";
         subtaskCounter++;
       }
@@ -80,6 +81,9 @@ function listenToEnterButtonAtSubtaskInputField() {
   });
 }
 
+/**
+ * function to add a subtask when enter button is pressed in the input field (while editing a task)
+ */
 function listenToEnterButtonAtSubtaskInputEditField(subtaskCounter) {
   let inputField = document.getElementById(`subtaskInput${subtaskCounter}`);
   inputField.addEventListener("keyup", function (event) {
@@ -90,6 +94,12 @@ function listenToEnterButtonAtSubtaskInputEditField(subtaskCounter) {
   });
 }
 
+/**
+ * function to render the subtasks in the list
+ * @param {*} inputValue
+ * @param {*} subtaskCounter
+ * @returns
+ */
 function renderSubtaskListEntry(inputValue, subtaskCounter) {
   return `
         <li id="subtask${subtaskCounter}">
@@ -103,11 +113,19 @@ function renderSubtaskListEntry(inputValue, subtaskCounter) {
       </li>`;
 }
 
+/**
+ * deleting a subtask
+ * @param {} i
+ */
 function deleteSubtask(i) {
   let subtask = document.getElementById(`subtask${i}`);
   document.getElementById("subtaskList").removeChild(subtask);
 }
 
+/**
+ * function to edit an existing subtask
+ * @param {*} subtaskCounter
+ */
 function showEditSubtask(subtaskCounter) {
   let value = document.getElementById(`listEntry${subtaskCounter}`).innerHTML;
   document.getElementById(`subtask${subtaskCounter}`).innerHTML = `
@@ -115,18 +133,18 @@ function showEditSubtask(subtaskCounter) {
                 <input id="subtaskInput${subtaskCounter}" value="${value}" form="" class="subtaskEdit" onblur="saveEdittedSubtask(${subtaskCounter})">
               </div>
               `;
-
   document.getElementById(`subtaskInput${subtaskCounter}`).focus();
-  // set cursor correct
   document.getElementById(`subtaskInput${subtaskCounter}`).selectionStart = document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
   document.getElementById(`subtaskInput${subtaskCounter}`).selectionEnd = document.getElementById(`subtaskInput${subtaskCounter}`).value.length;
-
   listenToEnterButtonAtSubtaskInputEditField(subtaskCounter);
 }
 
+/**
+ * function to save an editted subtask
+ * @param {*} subtaskCounter
+ */
 function saveEdittedSubtask(subtaskCounter) {
   let inputValue = document.getElementById(`subtaskInput${subtaskCounter}`).value;
-
   if (inputValue) {
     document.getElementById(`subtask${subtaskCounter}`).innerHTML = `
         <div class="listEntry">
@@ -138,11 +156,13 @@ function saveEdittedSubtask(subtaskCounter) {
         </div>
 `;
   } else {
-    // emptry string
     deleteSubtask(subtaskCounter);
   }
 }
 
+/**
+ * function to toggle display of the contact list (on/off)
+ */
 function toggleContactList() {
   document.getElementById("contactList").classList.toggle("dNone");
   // wenn aktuell ausgeklappt muss es auch anders zu schließen gehen!
@@ -153,37 +173,42 @@ function toggleContactList() {
   }
 }
 
+/**
+ * displaying the contact list
+ */
 function showContactList() {
   document.getElementById("contactList").classList.remove("dNone");
 }
 
+/**
+ * function to return the actual subtasks when adding a task to the board
+ * @returns subtask array
+ */
 function extractSubtasksForTask() {
   let subtasks = [];
   let list = document.querySelectorAll(".listEntrySpan");
-
   for (let index = 0; index < list.length; index++) {
     const element = list[index];
-
     subtasks.push(element.innerHTML);
   }
-
   return subtasks;
 }
 
+/**
+ * function to return the already checked subtasks (important when editting a task)
+ * @returns checks array
+ */
 function extractSubtasksCheckForTask() {
   let checks = [];
   let list = document.querySelectorAll(".listEntryCheckSpan");
-
   for (let index = 0; index < list.length; index++) {
     const element = list[index];
-
     if (element.innerHTML == "true") {
       checks.push(true);
     } else {
       checks.push(false);
     }
   }
-
   return checks;
 }
 
@@ -191,21 +216,14 @@ function extractSubtasksCheckForTask() {
  *  function to load the contact list with all saved contacts
  */
 function loadContactList() {
-  // sort contacts by first name
   sortContacts();
   let contactWrapper = document.getElementById("contactList");
   contactWrapper.innerHTML = "";
-
-  // first shown contact: logged in user
   let idOfLoggedInUser = getIdOfLoggedInUser();
-
-  // nur wenns kein Gast ist
   if (idOfLoggedInUser !== undefined) {
     contactWrapper.innerHTML += renderContactWrapper(contacts[idOfLoggedInUser], idOfLoggedInUser);
-    // add: ME
     document.getElementById("userNameInList").innerHTML += " (Me)";
   }
-
   for (let i = 0; i < contacts.length; i++) {
     if (i != idOfLoggedInUser) {
       const element = contacts[i];
@@ -215,32 +233,33 @@ function loadContactList() {
 }
 
 /**
- * function to load all selected Contacts for new task
+ * function to load all selected contacts for new task
  */
 function selectContacts(i) {
   if (selectedTaskContacts.indexOf(contacts[i]) == -1) {
     selectedTaskContacts.push(contacts[i]);
-    //console.log(selectedTaskContacts);
   } else {
     selectedTaskContacts.splice(selectedTaskContacts.indexOf(contacts[i]), 1);
-    //console.log(selectedTaskContacts);
   }
-  showSelectedContacts(); // renders them!
+  showSelectedContacts();
 }
 
+/**
+ * function to switch to the board site after adding a task
+ */
 function visitBoard() {
   window.location = "board.html";
 }
 
+/**
+ * function to render the selected contacts with a maximum
+ */
 function showSelectedContacts() {
   let sContacts = document.getElementById("selectedContacts");
-
   sContacts.innerHTML = "";
-
   let maxAmount = 4;
   let amount = selectedTaskContacts.length;
   let more = amount - maxAmount;
-
   if (amount <= maxAmount) {
     for (let i = 0; i < amount; i++) {
       const element = selectedTaskContacts[i];
@@ -259,7 +278,6 @@ function showSelectedContacts() {
  * Function to select the priority
  */
 function prioChoose(i) {
-  //de-select all
   resetPrioContainers();
   if (i === 2) {
     document.getElementById("prioHigh").classList.add("highPrioBackground");
@@ -289,7 +307,7 @@ function resetPrioContainers() {
 }
 
 /**
- * function for bringing together all data from the input fields
+ * function for adding a task to the board (into the wanted category)
  */
 async function addTask(column) {
   subtasks = extractSubtasksForTask();
@@ -299,7 +317,6 @@ async function addTask(column) {
   let prio = prios[prioIndex];
   let category = document.getElementById("category").value;
   let taskCategory = [];
-
   switch (column) {
     case 1:
       taskCategory = "todo";
@@ -313,17 +330,23 @@ async function addTask(column) {
     default:
       taskCategory = "todo";
   }
-
   let data = generateDataForTask(title, description, date, prio, category, taskCategory);
   boardTasks.push(data);
-  // update firebase
   await putData("boardtasks", boardTasks);
-  // zur board seite
   visitBoard();
 }
 
+/**
+ * function for collecting all the data for the new task
+ * @param {*} title
+ * @param {*} description
+ * @param {*} date
+ * @param {*} prio
+ * @param {*} category
+ * @param {*} taskCategory
+ * @returns
+ */
 function generateDataForTask(title, description, date, prio, category, taskCategory) {
-  // Create JSON
   let data = {
     title: title,
     description: description,
@@ -335,8 +358,6 @@ function generateDataForTask(title, description, date, prio, category, taskCateg
     dueDate: date,
     category: taskCategory,
   };
-
-  /*contacts!*/
   for (let index = 0; index < selectedTaskContacts.length; index++) {
     const contact = selectedTaskContacts[index];
     let json = {
@@ -346,8 +367,6 @@ function generateDataForTask(title, description, date, prio, category, taskCateg
     };
     data.assignedTo.push(json);
   }
-
-  /*subtasks*/
   for (let index = 0; index < subtasks.length; index++) {
     const subtask = subtasks[index];
     let json = {
@@ -356,10 +375,12 @@ function generateDataForTask(title, description, date, prio, category, taskCateg
     };
     data.subtasks.push(json);
   }
-
   return data;
 }
 
+/**
+ * function to clear the assigned contacts and subtasks when pressing the "clear"-button
+ */
 function clearAssignedContactsAndSubtasks() {
   selectedTaskContacts = [];
   showSelectedContacts();
