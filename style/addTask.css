@@ -394,6 +394,7 @@ button {
   form select {
     height: 40px;
     font-size: 16px;
+    padding: 0px 21px 0px 21px;
   }
 
   form textarea {
@@ -404,11 +405,9 @@ button {
     margin-bottom: 12px;
   }
 
-  #contactList{
+  #contactList {
     font-size: 16px;
   }
-
-
 }
 
 @media (max-width: 400px) {
