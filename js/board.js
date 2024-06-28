@@ -11,13 +11,15 @@ async function boardInit() {
   renderAllBoardTasks();
 }
 
+/**
+ * function to open up the add task modal (or switch the page)
+ * @param {*} column
+ */
 function showAddTask(column) {
-  // if in mobile view - switch page!
   if (window.innerWidth < vwBreak) {
     window.location.replace("addTask.html");
   } else {
     document.getElementById("modalBackground").style.display = "flex";
-    // update form
     document.getElementById("addTaskForm").setAttribute("onsubmit", `addTask(${column});return false;`);
     selectedTaskContacts = [];
     prioChoose(1);
@@ -27,18 +29,11 @@ function showAddTask(column) {
   }
 }
 
+/**
+ * function to close the modal window (add/edit task)
+ */
 function closeModal() {
   document.getElementById("modalBackground").style.display = "none";
-}
-
-function loadContacteditWrapper() {
-  // sort contacts by first name
-  sortContacts();
-  let contactWrapper = document.getElementById("editwrapperListAt");
-  for (let i = 0; i < contacts.length; i++) {
-    const element = contacts[i];
-    contactWrapper.innerHTML += renderContactWrapper(element, i);
-  }
 }
 
 /**
@@ -52,6 +47,9 @@ function loadBoardBigContainer(i) {
   document.getElementById("boardBigContainer").classList.remove("d-none");
 }
 
+/**
+ * function to remove the modal windows
+ */
 async function removeboardBigContainer() {
   document.getElementById("background").classList.add("d-none");
   document.getElementById("boardBigContainer").classList.add("d-none");
@@ -61,7 +59,7 @@ async function removeboardBigContainer() {
 }
 
 /**
- * function to render the lists in the large view of the task
+ * function to render the lists (contacts/subtasks) in the large view of the task
  */
 function loadBoardBigContainerLists(i) {
   if (boardTasks[i].subtasks) {
@@ -111,6 +109,9 @@ function loadBoardBigContainerSubtasks(i) {
   }
 }
 
+/**
+ * fill the columns of the board with placeholder
+ */
 function fillWithPlaceholders() {
   document.getElementById("todo").innerHTML = renderBoardTaskPlaceholderTodo();
   document.getElementById("progress").innerHTML = renderBoardTaskPlaceholderProgress();
@@ -118,6 +119,11 @@ function fillWithPlaceholders() {
   document.getElementById("done").innerHTML = renderBoardTaskPlaceholderDone();
 }
 
+/**
+ * function to count the finished subtasks for the progress bar
+ * @param {*} id - task
+ * @returns counter
+ */
 function countFinishedSubtasks(id) {
   let counter = 0;
   for (let index = 0; index < boardTasks[id].subtasks.length; index++) {
@@ -129,6 +135,9 @@ function countFinishedSubtasks(id) {
   return counter;
 }
 
+/**
+ * render the board with the existing tasks from the database
+ */
 function renderAllBoardTasks() {
   fillWithPlaceholders();
   for (let index = 0; index < boardTasks.length; index++) {
@@ -170,7 +179,6 @@ function loadContactInBoardTask(i) {
   let amount = boardTasks[i]["assignedTo"].length;
   let more = amount - maxAmount;
   if (amount <= maxAmount) {
-    // 0 bis 4 inkl.
     for (let j = 0; j < amount; j++) {
       const element = boardTasks[i]["assignedTo"][j];
       contacts.innerHTML += renderBoardTaskContacts(element);
@@ -200,6 +208,11 @@ function loadPrioBoardTask(i) {
   }
 }
 
+/**
+ * function to toggle the checkboxes of the subtasks in the big view
+ * @param {*} j
+ * @param {*} i
+ */
 async function toggleCheckSubtask(j, i) {
   if (boardTasks[i].subtasks[j].complete == false) {
     document.getElementById(`${i}checkBox${j}`).src = "../assets/img/Property 1=hover checked.png";
@@ -214,6 +227,12 @@ async function toggleCheckSubtask(j, i) {
   renderAllBoardTasks();
 }
 
+/**
+ * function to display a progressbar for each task
+ * @param {*} index - boardtask
+ * @param {*} subEndCount
+ * @param {*} finished
+ */
 function loadProgressbar(index, subEndCount, finished) {
   let currentProgressbar = document.getElementById(`progressBar${index}`);
   let progress = finished / subEndCount;
@@ -221,6 +240,9 @@ function loadProgressbar(index, subEndCount, finished) {
   currentProgressbar.innerHTML = renderProgressbar(subEndCount, finished, width);
 }
 
+/**
+ * function to search tasks
+ */
 function searchTask() {
   let search = document.getElementById("findInput").value.toLowerCase();
   let boardTaskClass = document.querySelectorAll(".boardCard");
@@ -231,6 +253,11 @@ function searchTask() {
   }
 }
 
+/**
+ * function to show only found tasks
+ * @param {*} search - searchstring
+ * @param {*} boardTaskClass
+ */
 async function taskQuery(search, boardTaskClass) {
   boardTaskClass.forEach((container) => {
     let title = container.querySelector("#title").innerText.toLowerCase();
@@ -247,6 +274,10 @@ async function taskQuery(search, boardTaskClass) {
   });
 }
 
+/**
+ * function to check if a task container is empty after a search
+ * @param {*} column
+ */
 async function checkIfEmptyContainer(column) {
   let all = document.querySelectorAll(`#${column} > div`).length;
   let invisible = document.querySelectorAll(`#${column} > div[style*="display: none]'`).length;
@@ -255,6 +286,10 @@ async function checkIfEmptyContainer(column) {
   }
 }
 
+/**
+ * function to delete a task
+ * @param {} i
+ */
 async function deleteTask(i) {
   boardTasks.splice(i, 1);
   await putData("boardtasks", boardTasks);
@@ -262,6 +297,10 @@ async function deleteTask(i) {
   renderAllBoardTasks();
 }
 
+/**
+ * function to transform the add task modal to edit task
+ * @param {} id
+ */
 function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("formVertLineId")[1].classList.add("d-none");
   document.getElementsByClassName("addTaskHeadline")[1].classList.add("d-none");
@@ -281,14 +320,24 @@ function updateAddTaskFormToEditTask(id) {
   document.getElementsByClassName("prioHighId")[1].setAttribute("onclick", "prioChooseForEditTask(2)");
 }
 
+/**
+ * function to toggle the display of the contact list when editting a task
+ */
 function toggleContactListForEditTask() {
   document.getElementsByClassName("contactListId")[1].classList.toggle("dNone");
 }
 
+/**
+ * function to display the contact list when editting a task
+ */
 function showContactListForEditTask() {
   document.getElementsByClassName("contactListId")[1].classList.remove("dNone");
 }
 
+/**
+ * function to display the correct colors for the  priority when editting a task
+ * @param {*} i
+ */
 function prioChooseForEditTask(i) {
   resetPrioContainersForEditTask();
   if (i === 2) {
@@ -306,6 +355,9 @@ function prioChooseForEditTask(i) {
   }
 }
 
+/**
+ * function the reset the colors of the priority containers when editting a task
+ */
 function resetPrioContainersForEditTask() {
   document.getElementsByClassName("prioHighId")[1].classList.remove("highPrioBackground");
   document.getElementsByClassName("highPrioImgId")[1].classList.remove("highPrioImageChange");
@@ -315,6 +367,9 @@ function resetPrioContainersForEditTask() {
   document.getElementsByClassName("lowPrioImgId")[1].classList.remove("lowPrioImageChange");
 }
 
+/**
+ * function the set the colors of the priority containers when editting a task
+ */
 function prioSelectForEditTask(prio) {
   if (prio === "Urgent") {
     document.getElementsByClassName("prioHighId")[1].classList.add("highPrioBackground");
@@ -331,6 +386,10 @@ function prioSelectForEditTask(prio) {
   }
 }
 
+/**
+ * function to pre-fill the values of the displayed task when editting a task
+ * @param {} id
+ */
 function fillEditTaskFormWithValues(id) {
   document.getElementsByClassName("titleId")[1].value = boardTasks[id].title;
   document.getElementsByClassName("descriptionId")[1].value = boardTasks[id].description;
@@ -370,6 +429,10 @@ function fillEditTaskFormWithValues(id) {
   }
 }
 
+/**
+ * function to show the modal for editing a task
+ * @param {*} id
+ */
 function showEditTask(id) {
   document.getElementById("modalShowTask").classList.add("d-none");
   document.getElementById("modalEditTask").classList.remove("d-none");
@@ -379,6 +442,10 @@ function showEditTask(id) {
   listenToEnterButtonAtSubtaskInputFieldEditTask();
 }
 
+/**
+ * function to save/update an editted task
+ * @param {*} id
+ */
 async function editTask(id) {
   boardTasks[id].title = document.getElementsByClassName("titleId")[1].value;
   boardTasks[id].description = document.getElementsByClassName("descriptionId")[1].value;
@@ -391,6 +458,10 @@ async function editTask(id) {
   removeboardBigContainer();
 }
 
+/**
+ * function to select assigned contacts when editing a task
+ * @param {*} i
+ */
 function selectContactsForEditTask(i) {
   let firstName = contacts[i].firstName;
   let lastName = contacts[i].lastName;
@@ -406,6 +477,11 @@ function selectContactsForEditTask(i) {
   showSelectedContactsForEditTask();
 }
 
+/**
+ * function to check if a contact is already selected an update the checkboxes in the list
+ * @param {*} id
+ * @returns
+ */
 function checkIfContactIsSelected(id) {
   if (selectedTaskContacts !== undefined) {
     let firstName = contacts[id].firstName;
@@ -419,6 +495,9 @@ function checkIfContactIsSelected(id) {
   }
 }
 
+/**
+ * function to show the selected contacts when editing a task with a maximum of 4
+ */
 function showSelectedContactsForEditTask() {
   let sContacts = document.getElementsByClassName("selectedContactsId")[1];
   sContacts.innerHTML = "";
@@ -441,6 +520,9 @@ function showSelectedContactsForEditTask() {
   }
 }
 
+/**
+ * function to load and display the contact list when editing a task
+ */
 function loadContactListForEditTask() {
   sortContacts();
   let contactWrapper = document.getElementsByClassName("contactListId")[1];
@@ -460,6 +542,9 @@ function loadContactListForEditTask() {
   }
 }
 
+/**
+ * function to listen to the enter button when entering a subtask when editting a task
+ */
 function listenToEnterButtonAtSubtaskInputFieldEditTask() {
   let inputField = document.getElementsByClassName("subtaskInputId")[1];
   inputField.addEventListener("keyup", function (event) {
@@ -474,6 +559,10 @@ function listenToEnterButtonAtSubtaskInputFieldEditTask() {
   });
 }
 
+/**
+ * function to collect the actually entered subtasks when editing a task
+ * @returns subtasks array
+ */
 function generateJSONFromSubtasks() {
   let subtasks = [];
   let subtasksText = extractSubtasksForTask();
@@ -490,6 +579,10 @@ function generateJSONFromSubtasks() {
   return subtasks;
 }
 
+/**
+ * function to delete a subtask when editing a task
+ * @param {} i
+ */
 function deleteSubtaskinEditTask(i) {
   let subtask = document.getElementById(`subtask${i}`);
   document.getElementsByClassName("subtaskListId")[1].removeChild(subtask);

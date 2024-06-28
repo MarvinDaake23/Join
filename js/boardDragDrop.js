@@ -16,38 +16,65 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
+/**
+ * function to highlight the todo-column when dragging over
+ */
 function addHighlightTodo() {
   document.getElementById("todo").classList.add("highlightBorder");
 }
 
+/**
+ * function to remove the highlight of the todo-column
+ */
 function removeHighlightTodo() {
   document.getElementById("todo").classList.remove("highlightBorder");
 }
 
+/**
+ * function to highlight the progress-column when dragging over
+ */
 function addHighlightProgress() {
   document.getElementById("progress").classList.add("highlightBorder");
 }
 
+/**
+ * function to remove the highlight of the progress-column
+ */
 function removeHighlightProgress() {
   document.getElementById("progress").classList.remove("highlightBorder");
 }
 
+/**
+ * function to highlight the feedback-column when dragging over
+ */
 function addHighlightFeedback() {
   document.getElementById("feedback").classList.add("highlightBorder");
 }
 
+/**
+ * function to remove the highlight of the feedback-column
+ */
 function removeHighlightFeedback() {
   document.getElementById("feedback").classList.remove("highlightBorder");
 }
 
+/**
+ * function to highlight the done-column when dragging over
+ */
 function addHighlightDone() {
   document.getElementById("done").classList.add("highlightBorder");
 }
 
+/**
+ * function to remove the highlight of the done-column
+ */
 function removeHighlightDone() {
   document.getElementById("done").classList.remove("highlightBorder");
 }
 
+/**
+ * function to remove all the highlights from the column
+ */
 function removeAllHighlights() {
   document.getElementById("todo").classList.remove("highlightBorder");
   document.getElementById("progress").classList.remove("highlightBorder");
@@ -62,12 +89,14 @@ async function moveTo(category) {
   removeAllHighlights();
   boardTasks[currentDraggedElement]["category"] = category;
   renderAllBoardTasks();
-  // clear input field
   document.getElementById("findInput").value = "";
-  // update Firebase!
   await putData("boardtasks", boardTasks);
 }
 
+/**
+ * function to move task on category up (mobile view)
+ * @param {} id
+ */
 function moveTaskCategoryUp(id) {
   let boardtask = boardTasks[id].category;
   if (boardtask == "progress") {
@@ -80,6 +109,10 @@ function moveTaskCategoryUp(id) {
   renderAllBoardTasks();
 }
 
+/**
+ * function to move task on category down (mobile view)
+ * @param {} id
+ */
 function moveTaskCategoryDown(id) {
   let boardtask = boardTasks[id].category;
   if (boardtask == "todo") {
