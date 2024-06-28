@@ -53,15 +53,16 @@ function renderSignUpHTML() {
             <div class="line"></div>
         </div>
 
+
         <div class="logInSection">
             <div class="inputfield">
-                <input required id="user" title="first and last name needed (first letters big)" type="text" placeholder="Name" pattern="[A-Z][a-z]+\\s[A-Z][a-z]+">
+                <input required id="user" title="first and last name needed (first letters big)" type="text" placeholder="Name" pattern="[A-Z][a-z\u00F0-\u02AF]+\\s[A-Z][a-z]+">
                 <div class="inputIcons">
                     <img class="personIcon" src="../assets/img/person_small.png">
                 </div>
             </div>
             <div class="inputfield">
-                <input required id="email" type="email" placeholder="Email" pattern="[A-Za-z0-9.\\-]+@[A-Za-z0-9\\-]+\\.[A-Za-z]+">
+                <input required id="email" title="correct email like xxx@xx.xx" type="email" placeholder="Email" pattern="[A-Za-z0-9.\\-]+@[A-Za-z0-9\\-]+\\.[A-Za-z]+">
                 <div class="inputIcons">
                     <img class="mailIcon" src="../assets/img/mail.png">
                 </div>

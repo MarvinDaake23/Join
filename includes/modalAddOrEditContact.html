@@ -14,7 +14,7 @@
 <div class="third">
   <img class="close" src="./assets/img/close.svg" onclick="closeAddOrEditContact()" />
   <form id="addOrEditForm" onsubmit="createContact(); return false;">
-    <input required id="nameInput" type="text" class="nameInput" placeholder="Name" pattern="[A-Z][a-z]+\s[A-Z][a-z]+" title="first and last name needed (first letters big)" />
+    <input required id="nameInput" type="text" class="nameInput" placeholder="Name" pattern="[A-Z][a-z\u00F0-\u02AF]+\s[A-Z][a-z\u00F0-\u02AF]+" title="first and last name needed (first letters big)" />
     <input required id="emailInput" type="email" class="mailInput" placeholder="Email" pattern="[A-Za-z0-9.\-]+@[A-Za-z0-9\-]+\.[A-Za-z]+"/>
     <input required id="phoneInput" type="tel" class="phoneInput" placeholder="Phone" pattern="([+][0-9]+)" title="international number (+49 ....)" />
     <div class="buttonPair">
