@@ -239,6 +239,7 @@ button {
 .clearButton {
   width: 110px;
   font-weight: 400;
+  border: 1px solid #2a3647;
   background-color: #f6f7f8;
 }
 
