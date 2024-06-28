@@ -4,8 +4,6 @@
   src: url("../assets/fonts/Inter-VariableFont.ttf") format("truetype");
 }
 
-
-
 input,
 button {
   border: unset;
@@ -107,6 +105,7 @@ body {
   flex-direction: column;
   background-color: #ffffff;
   border-radius: 30px;
+  padding: 20px 0px;
 }
 
 .backArrow {
@@ -122,8 +121,8 @@ body {
   flex-direction: column;
   width: 173px;
   height: 72px;
-  margin-bottom: 20px;
-  margin-top: 40px;
+  /*margin-bottom: 20px;*/
+  /*margin-top: 40px;*/
 }
 
 h1 {
@@ -143,6 +142,7 @@ h1 {
   /*margin-bottom: 20px;*/
   margin-left: 15px;
   margin-right: 15px;
+  margin-top: 15px;
 }
 
 .inputfield {
@@ -233,7 +233,7 @@ input[type="email"] {
   align-items: center;
   flex-direction: column;
   width: 270px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 .signInButtonSection {
@@ -379,7 +379,8 @@ button {
 
 @media (max-width: 750px) {
   .signUpSection {
-    bottom: 80px;
+    /*bottom: 80px;*/
+    bottom: 70px;
   }
 
   .informationSection {
@@ -533,6 +534,7 @@ button {
   }
 
   .signUpSection {
-    bottom: 100px;
+    /*bottom: 100px;*/
+    /*bottom: 50px;*/
   }
 }
