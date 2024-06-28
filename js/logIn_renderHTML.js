@@ -61,7 +61,7 @@ function renderSignUpHTML() {
                 </div>
             </div>
             <div class="inputfield">
-                <input id="email" type="email" placeholder="Email" required>
+                <input required id="email" type="email" placeholder="Email" pattern="[A-Za-z0-9.\\-]+@[A-Za-z0-9\\-]+\\.[A-Za-z]+">
                 <div class="inputIcons">
                     <img class="mailIcon" src="../assets/img/mail.png">
                 </div>
