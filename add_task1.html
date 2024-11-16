@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join: Add task</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="./style/add_task.css" />
+    <link rel="stylesheet" href="./style/style_contacts.css">
+    <link rel="stylesheet" href="./style/style_general.css" />
+  
+    <!-- general scripts -->
+    <script src="./js/script.js"></script>
+    <script src="./js/script_general.js"></script>
+    <script src="./js/script_contacts.js"></script>
+    <script src="./js/Templates.js"></script>
+    <script src="./js/addTask.js"></script>
+  </head>
+
+  <body class="addtask" id="body" onload="includeHTML(); init();">
+    <sidebar w3-include-html="sidebar.html"></sidebar>
+  
+    <mobile-header w3-include-html="mobile-header.html"></mobile-header>
+
+    <header w3-include-html="header.html"></header>
+
+    <h1 class="headline">
+        Add Task
+    </h1>
+    
+    <div class="addTaskBigContainer">
+
+<div class="leftSideAddTaskPage">
+                
+
+    <form onsubmit="addTask()" class="addTaskForm" action="">
+        <div class="taskTitleContainer">
+            <span>Title <span class="red">*</span></span>
+            <div class="taskTitleInputContainer">
+                <input class="requiredInput" id="title" required type="text" placeholder="Enter at title">
+            </div>
+        </div>
+
+        <div class="taskDescriptionContainer">
+            <span>Description</span>
+            <div class="taskDescriptionInputContainer">
+                <textarea placeholder="Enter a Description" class="textareaDescription"></textarea>
+            </div>
+        </div>
+
+            
+
+            <div class="taskTitleContainer">
+                <span>Assigned to</span>
+                <div id="wrapperAt" class="wrapper" onclick="openWrapper('At')">
+    <span>Select contacts to assign</span>
+    <img id="arrowDownAt" src="../assets/img/img/arrow_down.png" alt="">
+    <img id="arrowUpAt" class="dNone" src="../assets/img/img/arrow_up.png" alt="">
+</div>
+<ul id="wrapperListAt" class="wrapperList dNone"></ul>
+
+            </div>
+        </div>
+
+        <div class="grayLineAddTaskPage"></div>
+
+        <div class="rightSideAddTaskPage">    
+        <div class="dateCotainer">
+                <span>Due date <span class="red">*</span></span>
+                <input  class="requiredInput" id="date" required type="text" placeholder="dd/mm/yyyy">
+            </div>
+
+            <div class="prioContainer">
+                <span>Prio</span>
+                <div class="prioChoose">
+                    <div onclick="prioChoose(2)" id="prio high" class="prio high">
+                        <span>Urgent</span>
+                        <div id="highPrioImg" class="highPrioImg"></div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div onclick="prioChoose(1)" id="prio med" class="prio med">
+                        <span>Medium</span>
+                        <div id="medPrioImg" class="medPrioImg"></div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div onclick="prioChoose(0)" id="prio low" class="prio low">
+                        <span>Low</span>
+                        <div id="lowPrioImg" class="lowPrioImg"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="taskTitleContainer">
+                <span>Category<span class="red"> *</span></span>
+                <div id="wrapper" class="wrapper" onclick="openWrapper('')">
+                    <span id="placeholder">Select task category</span>
+                    <img id="arrowDown" src="../assets/img/img/arrow_down.png" alt="">
+                    <img id="arrowUp" class="dNone" src="../assets/img/img/arrow_up.png" alt="">
+                </div>
+                <ul id="wrapperList" class="wrapperList dNone">
+                </ul>
+            </div>
+
+            <div class="taskTitleContainer">
+                <span>Subtask</span>
+                <div class="taskTitleInputContainer">
+                    <input id="subtaskInput" type="text" placeholder="Add new subtask">
+                    <div id="imgContainerSubtask" class="imgContainer imgContainerBackground">
+                    </div>
+                </div>
+                <ul class="subTaskContainer" id="subTasks">
+                </ul>
+            </div>
+        </div>
+
+            <div class="checkoutContainer">
+                <span><span class="red">*</span>This field is required</span>
+                <button class="addTaskButton">Create Task
+                    <img src="..//assets/img/img/checkWhite.png" alt="">
+                </button>
+            </div>
+        </form>
+</div>
+
+    <footer w3-include-html="footer.html"></footer>
+
+</body>
+
+</html>
