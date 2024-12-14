@@ -1,19 +1,19 @@
 // CONTACTS PAGE
 function renderSingleContactEntryHTML(element, index) {
-  return /*html */ `
-              <div id="singleContactEntry${index}" class="hover contactEntry" onclick="setActive(${index});singleContactView(${index})">
-                <div class="innerContactEntry">
-                    <div class="initials initSmall" style="background-color:${element.profileColor}">
-                        ${element.firstName[0]}${element.lastName[0]}
-                    </div>
-                    <div class="nameAndAdress">
-                        <span id="userNameInList">${element.firstName} ${element.lastName}</span>
-                        <a href="mailto:${element.email}" class="emailAdress">${element.email}</a>
-                    </div>
-                </div>
-            </div>
-            `;
-}
+    return /*html */ `
+                <div id="singleContactEntry${index}" class="hover contactEntry" onclick="setActive(${index});singleContactView(${index})">
+                  <div class="innerContactEntry">
+                      <div class="initials initSmall" style="background-color:${element.profileColor}">
+                          ${element.firstName[0]}${element.lastName[0]}
+                      </div>
+                      <div class="nameAndAdress">
+                          <span id="userNameInList">${element.firstName} ${element.lastName}</span>
+                          <a href="mailto:${element.email}" class="emailAdress">${element.email}</a>
+                      </div>
+                  </div>
+              </div>
+              `;
+  }
 
 function renderContactSeperatorHTML(element) {
   return /*html */ `

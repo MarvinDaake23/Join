@@ -12,14 +12,17 @@ async function onLoadFunc() {
 }
 
 /**
- * function to render the contacts into the contact container including seperators
+ * function to render the contacts into the contact container including separators
  */
 function renderContacts() {
   sortContacts();
-  let container = document.getElementById("contactContainer");
+  const container = document.getElementById("contactContainer");
+  if (!container) {
+    console.error("Element with ID 'contactContainer' not found!");
+    return;
+  }
   let firstLetter = "";
-  container.innerHTML = "";
-  container.innerHTML += `
+  container.innerHTML = `
   <button onclick="showAddContact()" id="addContactButton">Add new contact <img src="./assets/img/person_add.svg"></button>`;
   let idOfLoggedInUser = getIdOfLoggedInUser();
   if (idOfLoggedInUser !== undefined) {

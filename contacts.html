@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./style/style_general.css" />
     <link rel="icon" type="image/png" href="./favicon.png" />
     <!-- general Scripts -->
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
     <!-- style for this page-->
     <link rel="stylesheet" href="./style/contacts.css" />
     <link rel="stylesheet" href="./style/contacts_modal.css" />
     <!-- scripts for this page -->
-    <script src="./js/contacts.js"></script>
-    <script src="./js/contacts_renderHTML.js"></script>
+    <script src="./js/contacts.js" defer></script>
+    <script src="./js/contacts_renderHTML.js" defer></script>
   </head>
 
   <body class="contacts" id="body" onload="onLoadFunc()">
@@ -33,7 +33,7 @@
       w3-include-html="./includes/mobile-header.html"
     ></mobile-header>
 
-    <header w3-include-html="/includes/header.html"></header>
+    <header w3-include-html="./includes/header.html"></header>
 
     <list>
       <!-- zunächst display:none -->
@@ -61,7 +61,7 @@
     </content>
 
     <mobile-footer
-      w3-include-html="/includes/mobile-footer.html"
+      w3-include-html="./includes/mobile-footer.html"
     ></mobile-footer>
   </body>
 </html>

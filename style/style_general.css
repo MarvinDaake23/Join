@@ -51,6 +51,7 @@ sidebar {
   flex-direction: column;
   align-items: center;
   background-color: #2a3647;
+  height: 100vh;
 }
 
 .sidebarLinks {

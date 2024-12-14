@@ -45,7 +45,7 @@ async function loadUserData() {
 function startAnimation() {
   let icon = document.getElementById("icon");
   if (window.innerWidth < 750) {
-    icon.src = "../assets/img/join-icon-white.png";
+    icon.src = "assets/img/join-icon-white.png";
     setTimeout(changeIcon, 700);
   }
   setTimeout(zIndexChange, 900);
@@ -55,7 +55,7 @@ function startAnimation() {
  * function to change the icon
  */
 function changeIcon() {
-  icon.src = "../assets/img/join-icon-blue.png";
+  icon.src = "assets/img/join-icon-blue.png";
 }
 
 /**
