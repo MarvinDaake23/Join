@@ -1,0 +1,57 @@
+<!-- Modal content v3: Edit -->
+<div id="modalEditContactDesktop">
+  <div class="leftSide">
+    <img src="./assets/img/headerlogo.svg" />
+    <h1>Edit contact</h1>
+    <hr />
+  </div>
+
+  <div class="middle">
+    <div id="editInitialsDesktop"></div>
+  </div>
+
+  <div class="right">
+    <span onclick="closeEditContact()">&times;</span>
+    <form
+      id="editContactFormDesktop"
+      onsubmit="editContactDesktop();return false;"
+    >
+      <input
+        required
+        id="editNameInputDesktop"
+        type="text"
+        class="nameInput"
+        placeholder="Name"
+        pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
+        title="first and last name needed"
+      />
+      <input
+        required
+        id="editEmailInputDesktop"
+        type="email"
+        class="mailInput"
+        placeholder="Email"
+      />
+      <input
+        required
+        id="editPhoneInputDesktop"
+        type=""
+        class="phoneInput"
+        placeholder="Phone"
+        pattern="([0-9]+)"
+      />
+      <div class="buttonPair">
+        <button
+          type="button"
+          id="editContactDeleteButtonDesktop"
+          onclick="deleteContact()"
+        >
+          Delete
+        </button>
+        <button type="submit" id="editContactSaveButton">
+          Save<img src="./assets/img/check.svg" />
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

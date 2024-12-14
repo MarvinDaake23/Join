@@ -1,0 +1,48 @@
+<div class="upperHalf">
+  <span onclick="closeEditContact()">&times;</span>
+  <h1>Edit contact</h1>
+  <h3>Tasks are better with a team!</h3>
+  <hr />
+</div>
+
+<div class="lowerHalf">
+  <div id="editInitials"></div>
+  <form id="editContactForm" onsubmit="editContact();return false;">
+    <input
+      required
+      id="editNameInput"
+      type="text"
+      class="nameInput"
+      placeholder="Name"
+      pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)"
+      title="first and last name needed"
+    />
+    <input
+      required
+      id="editEmailInput"
+      type="email"
+      class="mailInput"
+      placeholder="Email"
+    />
+    <input
+      required
+      id="editPhoneInput"
+      type=""
+      class="phoneInput"
+      placeholder="Phone"
+      pattern="([0-9]+)"
+    />
+    <div class="buttonPair">
+      <button
+        type="button"
+        id="editContactDeleteButton"
+        onclick="deleteContact()"
+      >
+        Delete
+      </button>
+      <button type="submit" id="editContactSaveButton">
+        Save<img src="./assets/img/check.svg" />
+      </button>
+    </div>
+  </form>
+</div>

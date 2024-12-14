@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+
+    <link rel="stylesheet" href="../style/add_task.css">
+    <link rel="stylesheet" href="../style/board.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/style_contacts.css">
+    <script src="../js/script.js"></script>
+    <script src="../js/Templates.js"></script>
+    <script src="../js/board.js"></script>
+</head>
+
+<body onload="boardInit()">
+    <!-- <sidepanel class="sidepanel"></sidepanel> -->
+
+    <header w3-include-html="header.html"></header>
+
+    <page class="inputContainer fullInput">
+
+        <div class="headlineContainer">
+            <div class="headline">Board</div>
+            <div class="addButtonBig addButton">+</div>
+        </div>
+
+        <div class="taskTitleContainer">
+            <div class="taskTitleInputContainer">
+                <input id="subtaskInput" type="text" placeholder="Find Task">
+                <div id="imgContainerSubtask" class="imgContainer ">
+                    <div class="subtaskSettingContainer">
+                        <div class="seperator"></div>
+                        <div class="imgContainerSearch"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progressInformationContainer">
+            <div class="progressContainer">
+                <div>
+                    <span>To do</span>
+                    <div class="addButtonSmall addButton"></div>
+                </div>
+                <div id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)">                    
+                </div>
+            </div>
+
+            <div id="toDoContainer" class="progressContainer">
+                <div>
+                    <span>In progress</span>
+                    <div class="addButtonSmall addButton"></div>
+                </div>
+                <div id="progress" ondrop="moveTo('progress')" ondragover="allowDrop(event)">                   
+                </div>
+            </div>
+
+            <div class="progressContainer">
+                <div>
+                    <span>Await Feedback</span>
+                    <div class="addButtonSmall addButton"></div>
+                </div>
+                <div id="feedback" ondrop="moveTo('feedback')" ondragover="allowDrop(event)">  
+                </div>
+            </div>
+
+            <div class="progressContainer">
+                <div>
+                    <span>Done</span>
+                    <div class="addButtonSmall addButton"></div>
+                </div>
+                <div id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)">      
+                </div>
+            </div>
+        </div>
+
+        <div class="boardBigContainer" id="boardBigContainer">
+            
+        </div>
+
+    </page>
+
+    <footer w3-include-html="footer.html"></footer>
+</body>
+
+</html>

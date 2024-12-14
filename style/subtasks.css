@@ -1,0 +1,61 @@
+.subtask:hover .trashIcon {
+    background-image: url("../assets/img/trash.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .subtask:hover .smallLine {
+    background-image: url("../assets/img/littleLineSubtask.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .subtask:hover .edit {
+    background-image: url("../assets/img/edit.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .iconContainerSubtask {
+    height: 14px;
+    width: 14px;
+    cursor: pointer;
+  }
+
+  .subtask {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .inputIconTrash {
+    background-image: url("../assets/img/trash.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .inputIconCheck {
+    background-image: url("../assets/img/check.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .prioChoose {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+  }
+
+  .prio {
+    gap: 8px;
+    border-radius: 10px;
+    height: 56px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
